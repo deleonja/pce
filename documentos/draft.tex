@@ -1,0 +1,94 @@
+\documentclass[11pt,dvipsnames]{article} % {{{
+
+\usepackage{geometry}
+\geometry{total={170mm,240mm}, left=20mm, top=20mm}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{enumerate} 
+\usepackage{pgfplots}
+
+% To add graphics
+% \usepackage{graphicx}
+% Path to figures
+\graphicspath{ {../images/} }
+
+\usepackage{subcaption}
+\definecolor{mycolor}{RGB}{255,50,0}
+
+\newcommand{\pce}{PCE}
+
+
+
+\usepackage{multirow}
+
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\newtheorem{conj}{Hypothesis}
+
+\newcommand{\fref}[1]{fig.~\ref{#1}}  
+\newcommand{\tref}[1]{table~\ref{#1}}
+\newcommand{\Fref}[1]{Fig.~\ref{#1}}  
+\newcommand{\Tref}[1]{Table~\ref{#1}}
+
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\psii}{\psi_i}
+\newcommand{\Pk}[1]{\ket{\psi_{#1} }}
+\newcommand{\Pb}[1]{\bra{\psi_{#1} }}
+\newcommand{\pk}{\ket{\psi}}
+\newcommand{\M}{\mathcal{M}^{(N)}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\Ej}[1]{\E_{j_{#1}} }
+\newcommand{\id}[1]{\qty(\1-\E_{j_{#1}})}
+\newcommand{\Erho}{\mathcal{E}(\rho)}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\ten}{\otimes}
+\newcommand{\h}[1]{\colorbox{Yellow}{#1}}
+\newcommand{\hi}{\mathcal{H}}
+\newcommand{\txt}[1]{\text{#1}}
+\newcommand{\here}{\h{\hspace{15cm}} }
+\newcommand{\rhoi}{\dyad{\psii}{\psii}}
+\newcommand{\ind}[2]{ {{}^{#1}_{#2}} }
+\newcommand{\rc}[1]{r_{#1}}
+\newcommand{\pauli}[2]{\sigma_{#1}\otimes\sigma_{#2}}
+\newcommand{\Er}{\E_{\mathcal{R}} }
+\newcommand{\PCE}[1]{\mathsf{PCE}_\mathsf{#1}}
+\newcommand{\ot}{\otimes}
+
+\usepackage{imakeidx}
+\makeindex[columns=3, title=Alphabetical Index, intoc]
+
+
+%\usepackage[]{lineno}  \linenumbers
+%\setlength\linenumbersep{3pt}
+
+\usepackage{fancybox}
+\usepackage{colortbl}
+\usepackage{amsbsy}
+\usepackage{physics}
+\usepackage{amssymb}
+\usepackage{dsfont}
+
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
+\newcommand\dsone{\mathds{1}}
+\FXRegisterAuthor{cp}{acp}{\color{blue}CP}
+\FXRegisterAuthor{ja}{aja}{\color{mycolor}JA}
+\FXRegisterAuthor{dd}{ddg}{\color{red}DD}
+
+\title{Pauli component erasing operations} 
+
+% }}}
+\begin{document}
+% Titulo y otros {{{
+\maketitle
+\tableofcontents
+% }}}
+
+\input{notas_carlos.tex}
+\input{notas_ja.tex}
+\input{notas_david.tex}
+\input{notas_alejo.tex}
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+\end{document}
