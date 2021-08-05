@@ -13,7 +13,7 @@ Reshuffle::usage=
 "Reshuffle[SqMatrix] reshuffles the matrix SqMatrix."
 Pauli::usage=
 "Pauli[Indices_List] gives the tensor product of Pauli Matrices with indices in Indices_List."
-PCE::usage=
+PCESuperoperator::usage=
 "PCh[diagElements, qubitsNum] calculates the matrix representation of a map in the tensor product of Pauli matrices given the
 diagonal elements of the matrix in computational basis."
 CubePositions::usage=
@@ -24,8 +24,9 @@ CPtest::usage=
 "CPtest[points] returns True if CP, False if not."
 PtestM::usage=
 "Ptest[A] evaluates the positive-semidefiniteness of A using the principal minors criterion."
-PTest::usage=
-"PTest[A] evaluates the positive-semidefiniteness of A with its eigenvalues."
+PositivityTest::usage=
+"PositivityTest[\!\(\*
+StyleBox[\"m\",\nFontSlant->\"Italic\"]\)] evaluates the positive-semidefiniteness of A with its eigenvalues."
 Dirac::usage=
 "Dirac[vector] returns vector in Dirac notation in computational basis."
 TwoQBoard::usage=
@@ -45,7 +46,7 @@ tensorPower::usage=
 "."
 
 Begin["`Private`"]
-Reshuffle[SqMatrix_]:=1/Power[2,Log[4,Length[SqMatrix]]]*ArrayFlatten[ArrayFlatten/@Partition[Partition[ArrayReshape[#,{Sqrt[Dimensions[SqMatrix][[1]]],Sqrt[Dimensions[SqMatrix][[1]]]}]&/@SqMatrix,Sqrt[Dimensions[SqMatrix][[1]]]],Sqrt[Dimensions[SqMatrix][[1]]]],1];
+Reshuffle[SqMatrix_]:=ArrayFlatten[ArrayFlatten/@Partition[Partition[ArrayReshape[#,{Sqrt[Dimensions[SqMatrix][[1]]],Sqrt[Dimensions[SqMatrix][[1]]]}]&/@SqMatrix,Sqrt[Dimensions[SqMatrix][[1]]]],Sqrt[Dimensions[SqMatrix][[1]]]],1];
 
 Pauli[0]=Pauli[{0}]={{1,0},{0,1}};
 Pauli[1]=Pauli[{1}]={{0,1},{1,0}};
@@ -53,7 +54,7 @@ Pauli[2]=Pauli[{2}]={{0,-I},{I,0}};
 Pauli[3]=Pauli[{3}]={{1,0},{0,-1}};
 Pauli[Indices_List]:=KroneckerProduct@@(Pauli/@Indices);
 
-PCE[pauliDiagonal_List]:=Module[{indices,n,pauliToComp},
+PCESuperoperator[pauliDiagonal_List]:=Module[{indices,n,pauliToComp},
 n=Log[4,Length[pauliDiagonal]];
 indices=Tuples[Range[0,3],n];
 pauliToComp=Transpose[Map[Flatten[Pauli[#]]&,indices]];
@@ -86,7 +87,7 @@ CPtest[points_]:=If[(PCE[SparseArray[points+1->ConstantArray[1,{points//Length}]
 
 PtestM[A_]:=AllTrue[(Diagonal[Map[Reverse,Minors[A,#],{0,1}]]&/@Range[Length[A]]),#>=0&,2]
 
-PTest[A_]:=Min[Eigenvalues[A]]>=0
+PositivityTest[A_]:=Min[Eigenvalues[A]]>=0
 
 Dirac[vector_List]:=(vector[[#]]Ket[IntegerString[(#-1),2,Log[2,Length[vector]]]])&/@Delete[Range[Length[vector]],Position[vector,0]]//Total
 
