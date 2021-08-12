@@ -8,14 +8,14 @@ As a historical fact, the Krauss operators corresponding to one single qubit PCE
 are 
 \begin{equation}
 \{\openone/\sqrt2, \sigma_i/\sqrt2\}
-\label{}
+\label{eq:kraus:PCE}
 \end{equation}
 (corresponding to the operation that leaves the component $\sigma_i$ invariant), 
 see Eq. 8.95 of Chuang's book.  Visual inspection of the Krauss operators 
 of two qubit PCEG (PCE generators) lead to the ansatz that 
 the appropriate Krauss operators are 
 \begin{equation}
-\left\{\openone/\sqrt2, \left(\bigotimes_k \sigma^{(k)}_{i_k}\right)/\sqrt2\right\}. 
+\left\{\openone/\sqrt2, \left(\bigotimes_k \sigma_{i_k}\right)/\sqrt2\right\}. 
 \label{}
 \end{equation}
 
@@ -27,10 +27,37 @@ Notice that
 \end{equation}
 with $a$ the matrix that appears in 
 \eref{eq:eigvals-PCE}. Next, consider the action of a channel with Krauss representation 
-\eref{} on an $n$ qubit system with Bloch sphere representation \eref{eq:nqubit:bloch},
+\eref{eq:kraus:PCE} on an $n$ qubit system with Bloch sphere representation \eref{eq:nqubit:bloch},
+\begin{align}
+\mcM[\rho] &= 
+\frac{\openone}{\sqrt{2}} \rho\frac{\openone}{\sqrt{2}} 
+ + 
+\frac{\otimes_k \sigma_{i_k}}{\sqrt{2}} \rho
+\frac{\otimes_k \sigma_{i_k}}{\sqrt{2}} \\
+&=\frac12 \left(\rho + \bigotimes_k \sigma_{i_k} \rho \bigotimes_k \sigma_{i_k} \right)\\
+&=\frac12 \rho
++ \frac12\sum_{j_1, \ldots,j_n} r_{j_1 \ldots j_n} \bigotimes_k  \sigma_{i_k} \sigma_{j_k}  \sigma_{i_k} \\
+&=
+\sum_{j_1, \ldots,j_n} r_{j_1 \ldots j_n} \frac{1+\prod_k a^{i_k}_{j_k}}{2} \bigotimes_k  \sigma_{j_k} . 
+\end{align}
+However, $(1+\prod_k a^{i_k}_{j_k})/2$ is 0 or 1, proving the channel is a PCE. 
+
+We still have to show that except for $i_1=\cdots=i_n=0$, half of the numbers 
+$(1+\prod_k a^{i_k}_{j_k})/2=1$, or equivalently, half of $\prod_k a^{i_k}_{j_k}=1$. 
+Consider a particular $l$ such that $i_l \ne 0$. This will make half of 
+the $\prod_k a^{i_k}_{j_k}$ 1 and half $-1$ (for fixed $l$). This also implies 
+that half of the correlations of the density matrix are erased and half preserved 
+so the channel is a PCEG. 
+
+Notice also that different choices of sets $\{i_k \}$ lead to different channels. This
+can be seen noticing that if two channels were the same, this would imply that
+the matrix representation of the corresponding superoperator of 
+$\bigotimes_k \sigma_{i_k} \cdot \bigotimes_k \sigma_{i_k} $ would have to be
+the same which is clearly false. 
 
 
+Two remarks. (i) The notation that we develop with Jose Alfredo coincides with the 
+generator. This notation is based on the action on each individual qubit. (ii) Counting the
+number of generators here is trivial. It is simply $4^n-1$ as previously noticed 
+from other arguments. 
 
-Counting, mostrar qe el numero de bichos que aparecen ahi coincide con el numero de generadores. 
-
-Show that they are unique 
