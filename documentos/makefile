@@ -1,3 +1,4 @@
+draft.pdf :: draft.tex
 notas_JA.pdf :: notas_JA.tex
 outline.pdf :: outline.tex
 

@@ -89,43 +89,93 @@
 % \input{notas_david.tex}
 % \input{notas_alejo.tex}
 
-\section{Resultados}
-\begin{itemize}
-\item Clases relacionadas por localidad. Quizá ver si las podemos juntar con control not
-\item Regla de $2^k$
-\item Reglas de simetría \janote{hermanitos PCE?}
-\item Clasificacion de los generadores
-\item El conjunto dentro del conjunto de todos los canales (puntos extremos)
-\item Canales de Ruskai, que la interseccion es no trivial (no estan contenidos en ninguna direccion, pero la interseccion es no vacia)
-\item Diagonalización de la matriz de Choi de los canales de Pauli
-\item Canales PCE como espacios vectoriales
-\item explicar porque la generalizacion a n niveles no es directa. 
-\end{itemize}
+\section{Introduccion} % {{{
+Several PRA articles go straight into matter. I guess we will write what we have to write
+% }}}
+\section{Single qubit proyective maps} % {{{
+and display single qubit information relevant. 
 
-\section{Preguntas abiertas}
-\begin{itemize}
-\item El conjunto dentro del conjunto de todos los canales
-\item Relaciones de localidad con las reglas de Francois. Creo que no hay. 
-\item Son positivas todas las matrices de densidad que resultan de aplicar un mapeo no válido? \janote{Creo que sí. 
-Para 1 qubit aplicar PCEs no CP siempre te deja dentro de la esfera de Bloch. 
-Así que estoy casi seguro que lo mismo sucede para $n$ qubits.}
-\item Linealidad de los eigenvalores de la matriz de Choi en función de las $\tau_{j_1\ldots,j_n}$ de canales `\textit{component erasing}' de qudits. \afnote{Relación con canales citados en \cite{Siudzinska2020}?}
-\item \afnote{Clasificación de las clases de canales PCE: Entanglement breaking, divisible...}
-\item \afnote{Los canales PCE tienen algún efecto sobre propiedades de estados como entrelazamiento, coherencia, no-localidad, etc?}
-\item \afnote{Geometria de los canales de Pauli para $N$ qubits \cite{Siudzinska2019}.}
-\end{itemize}
 
-\section{Secciones}
+
+The single qubit case, describe some of the features
+
+Also, maybe the Krauss operators. 
+
+Also some relation with decoherence. 
+
+% }}}
+\section{PCE Maps} % {{{
 \begin{itemize}
-\item Exposicion/motivacion del problema
-\item Prueba de que la a diagonaliza \afnote{Breve descripción de detalles importantes. Cálculos en un Apéndice?}
-\item \afnote{Creo que podemos definir primero los PCE y luego si presentar la formalización de espacios vectoriales de François.}
-\item Los espacios vectoriales de francois
-\item Derivaciones y resultados \afnote{Caracterización PCEs?}
+\item Give a formal definition of the PCE, maybe give some two qubit examples
+to ilustrate non-trivial points. 
+\item This will serve to bring the derivation a bit more down to earth. 
 \item Visualizacion y Ejemplos?
+\item Notar lo de los generadores y como sale la estructura jerárquica 
+\item Son positivas todas las matrices de densidad que resultan de aplicar un
+mapeo no válido? \janote{Creo que sí.  Para 1 qubit aplicar PCEs no CP siempre
+te deja dentro de la esfera de Bloch.  Así que estoy casi seguro que lo mismo
+sucede para $n$ qubits.}
+\item Canales de Ruskai, que la interseccion es no trivial (no estan contenidos en ninguna direccion, pero la interseccion es no vacia)
+\item \afnote{Relación con canales citados en \cite{Siudzinska2020}?}
+\end{itemize}
+% }}}
+\section{Mathematical derivation} % {{{
+
+{Vector space, mathematical derivation of properties}
+
+\begin{itemize}
+\item Diagonalización de la matriz de Choi de los canales de Pauli, es decir prueba da la $a$
+\item Prueba de que la a diagonaliza \afnote{Breve descripción de detalles importantes. Cálculos en un Apéndice?}
+\end{itemize}
+% }}}
+\section{Some results with the vector space thing} % {{{
+\begin{itemize}
+\item Canales PCE como espacios vectoriales
+\item Regla de $2^k$
+\item Tamaño de las diferentes clases que borran un numero fijo de componentes
+y tambien nota de qeu son igual entre complementarios
+\item Intento de identificar elementos, aka hermanistos PCE \cpnote{Esto dependerá de si sale algo interesante,}
 \end{itemize}
 
+% }}}
+\section{Generators} % {{{
 
+\begin{itemize}
+
+\item Clasificacion de los generadores, es decir que para dos qubits, lo podemos indicar con la acción sobre cada qubit individual
+\end{itemize}
+% }}}
+\section{Qudits} % {{{
+
+\begin{itemize}
+\item Discuss what happens with general $d$ level systems and why it does not work
+\item 
+Linealidad de los eigenvalores de la matriz de Choi en función de las
+$\tau_{j_1\ldots,j_n}$ de canales `\textit{component erasing}' de qudits. 
+\end{itemize}
+
+Discuss what happens with general $(2^k)^{\otimes n}$ level systems and why it does work
+% }}}
+\section{Krauss operators and decoherence} % {{{
+
+\begin{itemize}
+\item Construct the Krauss operators, and relate to decoherence, for PCEG
+\item Play with non PCEG PCEs
+\end{itemize}
+
+% }}}
+\section{The set of decoherence channels} % {{{
+\begin{itemize}
+\item Aca creo qe pueden ser puntos extremos de ese conjunto de canales
+\item El conjunto dentro del conjunto de todos los canales (puntos extremos)
+\end{itemize}
+% }}}
+\section{Ideas sueltas} % {{{
+\subsection{Preguntas abiertas}
+\begin{itemize}
+\item \afnote{Clasificación de las clases de canales PCE: Entanglement breaking, divisible...}
+\end{itemize}
+% }}}
 \bibliographystyle{unsrt}
 \bibliography{references}
 \end{document}
