@@ -87,14 +87,17 @@
 \section{Introduccion} % {{{
 Several PRA articles go straight into matter. I guess we will write what we have to write
 % }}}
+\ddnote{Aqui vendria la breve introduccion a los canales cuanticos?}
 \section{Single qubit projective maps} % {{{
+\ddnote{Sugiero otro nombre para esta seccion, pues los PCE no son los unicos mapas proyectivos, hay mapas proyectivos no unitales}
 \begin{itemize}
-\item The single qubit case, describe some of the features
-\item Also, maybe the Kraus operators. 
+\item The single qubit case, describe some of the features.
+\item Also, maybe the Kraus operators.
 \item Also some relation with decoherence. 
 \end{itemize}
 % }}}
 \section{PCE Maps} % {{{
+\ddnote{Esta, sospecho, que sera una seccion construida a base de ejemplos no?, y quiza menciones a la numerica de dos qubits.}
 \begin{itemize}
 \item Give a formal definition of the PCE, maybe give some two qubit examples
 to illustrate non-trivial points. 
@@ -119,12 +122,14 @@ sucede para $n$ qubits.}
 \item Canales PCE como espacios vectoriales
 \item Regla de $2^k$
 \item Tamaño de las diferentes clases que borran un numero fijo de componentes
-y tambien nota de qeu son igual entre complementarios
-\item Intento de identificar elementos, aka hermanistos PCE \cpnote{Esto dependerá de si sale algo interesante,}
+y tambien nota de qeu son igual entre complementarios: computo del numero de bases dada una dimension de subespacios vectoriales, aqui entra la formula del binomial-q.
+\item Intento de identificar elementos, aka hermanistos PCE \cpnote{Esto dependerá de si sale algo interesante,}: De entrada aqui se tiene que mencionar minimo la identificacion del tamaño de las clases.
+\item \ddnote{Agrego esto:} A final remarks of the derivation as a tool. Concepts might be complicated, but the tool gives some simple rules to the reader: \textit{tell me what components you want to keep, and the (vector) summation rules will give you the rest of components to make the target operation a CPTP one.}
 \end{itemize}
 
 % }}}
 \section{Generators} % {{{
+\ddnote{Esta seguro sera una seccion pequeña, pues es un resultado semi-trivial de la construccion de espacios vectoriales, propongo unificar esta con la que sigue}
 \begin{itemize}
 \item Clasificacion de los generadores, es decir que para dos qubits, lo podemos indicar con la acción sobre cada qubit individual
 \item Quizá mostrar algunas propiedades de simetrías. 
@@ -135,6 +140,7 @@ y tambien nota de qeu son igual entre complementarios
 \begin{itemize}
 \item Construct the Kraus operators, and relate to decoherence, for PCEG
 \item Play with non PCEG PCEs
+\item Dependiendo de si sale algo bonito, podemos poner algun modelo en particular para todos los canales (sistema central + ambiente). Seria de buscar dilataciones sencillas y razonables por lo menos a los canales generadores.
 \end{itemize}
 
 % }}}
