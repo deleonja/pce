@@ -84,11 +84,20 @@
 % \tableofcontents
 % }}}
 
+\newcommand{\sa}{a}
+\newcommand{\san}{A}
+\section{Propuesta de notacion} % {{{
+\begin{itemize}
+\item Single qubit matrix to diagonalize $\sa$: \verb!\sa!
+\item Many qubit matrix to diagonalize $\san$: \verb!\san!
+\end{itemize}
+% }}}
 \section{Introduccion} % {{{
 Several PRA articles go straight into matter. I guess we will write what we have to write
 % }}}
 \ddnote{Aqui vendria la breve introduccion a los canales cuanticos?}
-\section{Single qubit projective maps} % {{{
+\section{PCE Maps} % {{{
+\subsection{Single qubit projective maps} % {{{
 \ddnote{Sugiero otro nombre para esta seccion, pues los PCE no son los unicos mapas proyectivos, hay mapas proyectivos no unitales}
 \begin{itemize}
 \item The single qubit case, describe some of the features.
@@ -96,8 +105,14 @@ Several PRA articles go straight into matter. I guess we will write what we have
 \item Also some relation with decoherence. 
 \end{itemize}
 % }}}
-\section{PCE Maps} % {{{
-\ddnote{Esta, sospecho, que sera una seccion construida a base de ejemplos no?, y quiza menciones a la numerica de dos qubits.}
+\subsection{Definition of PCE} % {{{
+\begin{itemize}
+\item Give a formal definition of the PCE, maybe give some two qubit examples
+to illustrate non-trivial points. 
+\item Canales de Ruskai Pauli maps, que la interseccion es no trivial (no estan contenidos en ninguna direccion, pero la interseccion es no vacia)
+\item \afnote{Relación con canales citados en \cite{Siudzinska2020}?}
+\end{itemize}
+% }}}
 \begin{itemize}
 \item Give a formal definition of the PCE, maybe give some two qubit examples
 to illustrate non-trivial points. 
@@ -108,8 +123,6 @@ to illustrate non-trivial points.
 mapeo no válido? \janote{Creo que sí.  Para 1 qubit aplicar PCEs no CP siempre
 te deja dentro de la esfera de Bloch.  Así que estoy casi seguro que lo mismo
 sucede para $n$ qubits.}
-\item Canales de Ruskai Pauli maps, que la interseccion es no trivial (no estan contenidos en ninguna direccion, pero la interseccion es no vacia)
-\item \afnote{Relación con canales citados en \cite{Siudzinska2020}?}
 \end{itemize}
 % }}}
 \section{Mathematical derivation} % {{{
