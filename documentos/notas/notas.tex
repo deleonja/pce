@@ -18,7 +18,6 @@
 
 \newcommand{\pce}{PCE}
 
-\providecommand{\openone}{\leavevmode\hbox{\small1\kern-3.8pt\normalsize1}}
 
 
 \usepackage{multirow}
@@ -31,7 +30,6 @@
 \newcommand{\tref}[1]{table~\ref{#1}}
 \newcommand{\Fref}[1]{Fig.~\ref{#1}}  
 \newcommand{\Tref}[1]{Table~\ref{#1}}
-\newcommand{\eref}[1]{eq.~(\ref{#1})}
 
 \newcommand{\R}{\mathcal{R}}
 \newcommand{\psii}{\psi_i}
@@ -40,7 +38,6 @@
 \newcommand{\pk}{\ket{\psi}}
 \newcommand{\M}{\mathcal{M}^{(N)}}
 \newcommand{\E}{\mathcal{E}}
-\newcommand{\mcM}{\mathcal{M}}
 \newcommand{\Ej}[1]{\E_{j_{#1}} }
 \newcommand{\id}[1]{\qty(\1-\E_{j_{#1}})}
 \newcommand{\Erho}{\mathcal{E}(\rho)}
@@ -75,7 +72,10 @@
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
 \newcommand\dsone{\mathds{1}}
 \FXRegisterAuthor{cp}{acp}{\color{blue}CP}
-\FXRegisterAuthor{ja}{aja}{\color{mycolor}JA}
+%% Mi comando para comentario *************************************************
+\definecolor{JAsColor}{RGB}{200,40,0} 			%% definición de mi color
+\FXRegisterAuthor{ja}{aja}{\color{JAsColor}JA}	%% comando 
+%% ----------------------------------------------------------------------------
 \FXRegisterAuthor{dd}{ddg}{\color{red}DD}
 
 \title{Pauli component erasing operations} 
@@ -91,6 +91,7 @@
 \input{notas_ja.tex}
 \input{notas_david.tex}
 \input{notas_alejo.tex}
+\input{qutrits.tex}
 
 \bibliographystyle{unsrt}
 \bibliography{references}

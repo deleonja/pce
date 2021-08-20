@@ -1,0 +1,17 @@
+\section{Eigenvalues of GellMann component erasing operations' Choi matrix}
+Es de nuestro interés investigar si los eigenvalores de la matriz de Choi de
+las operaciones de GellMann que borran componentes (GMCE) de sistemas de qutrits son 
+una función lineal de los elementos $\tau_{j_1,\ldots,j_n}=0,1$ de las operaciones GMCE.
+Numéricamente, podemos chequear esto con la expresión
+\begin{align}\label{eq:linearity_eigv_ChoiMatrix}
+P^{-1}D_{\E}\qty[c \vec{\tau}_1+\vec{\tau}_2]P=P^{-1}\qty(cD_{\E}[\vec{\tau}_1]+D_{\E}[\vec{\tau}_2])P,
+\end{align}
+donde $D_{\E}[\vec{\tau}_i]$ es la matriz de Choi de una operación GMCE con los 1's
+y 0's en el vector $\vec{\tau}_i$ y $P$ la matriz de cambio de base a la base en la que 
+$D_{\E}[\vec{\tau}_i]$ es diagonal. Un requisito necesario para que exista $P$ en
+\eqref{eq:linearity_eigv_ChoiMatrix} es que las matrices $D_{\E}\qty[c \vec{\tau}_1+\vec{\tau}_2]$,
+$D_{\E}[\vec{\tau}_1]$ y $D_{\E}[\vec{\tau}_2]$ deben conmutar todas entre sí. No obstante, 
+este no es el caso para las operaciones GMCE. En el archivo \texttt{qutrits.nb}, que se 
+encuentra en la dirección \texttt{mathematica/} en el repositorio se encuentra 
+desarrollado que las matrices $D_{\E}\qty[c \vec{\tau}_1+\vec{\tau}_2]$, 
+$D_{\E}[\vec{\tau}_1]$ y $D_{\E}[\vec{\tau}_2]$ no conmutan.
