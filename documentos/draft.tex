@@ -1,90 +1,162 @@
-\documentclass[11pt,dvipsnames]{article} % {{{
-
-\usepackage{geometry}
-\geometry{total={170mm,240mm}, left=20mm, top=20mm}
-
+\documentclass[letterpaper,aps,pra,nolongbibliography,twocolumn,showpacs,floatfix,10pt]{revtex4-2} % {{{
+%\usepackage[notref,notci2te]{showkeys} I
+%\usepackage[notref]{showkeys}
+%\usepackage{iopams}
+%\usepackage{setstack}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{enumerate} 
-\usepackage{pgfplots}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{hyperref}
+%\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage{graphicx,helvet}
+\usepackage{color}
+%\usepackage{bm}                      % added by TG
 
-% To add graphics
-% \usepackage{graphicx}
-% Path to figures
-\graphicspath{ {../images/} }
+\usepackage{mathtools}
 
-\usepackage{subcaption}
+% \usepackage[inline]{showlabels}
 
-
-\newcommand{\pce}{PCE}
-
-
-
-\usepackage{multirow}
-
-\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
-
-\newtheorem{conj}{Hypothesis}
-
-\newcommand{\fref}[1]{fig.~\ref{#1}}  
-\newcommand{\tref}[1]{table~\ref{#1}}
-\newcommand{\Fref}[1]{Fig.~\ref{#1}}  
-\newcommand{\Tref}[1]{Table~\ref{#1}}
-
-\newcommand{\R}{\mathcal{R}}
-\newcommand{\psii}{\psi_i}
-\newcommand{\Pk}[1]{\ket{\psi_{#1} }}
-\newcommand{\Pb}[1]{\bra{\psi_{#1} }}
-\newcommand{\pk}{\ket{\psi}}
-\newcommand{\M}{\mathcal{M}^{(N)}}
-\newcommand{\E}{\mathcal{E}}
-\newcommand{\Ej}[1]{\E_{j_{#1}} }
-\newcommand{\id}[1]{\qty(\1-\E_{j_{#1}})}
-\newcommand{\Erho}{\mathcal{E}(\rho)}
-\newcommand{\1}{\mathds{1}}
-\newcommand{\ten}{\otimes}
-\newcommand{\h}[1]{\colorbox{Yellow}{#1}}
-\newcommand{\hi}{\mathcal{H}}
-\newcommand{\txt}[1]{\text{#1}}
-\newcommand{\here}{\h{\hspace{15cm}} }
-\newcommand{\rhoi}{\dyad{\psii}{\psii}}
-\newcommand{\ind}[2]{ {{}^{#1}_{#2}} }
-\newcommand{\rc}[1]{r_{#1}}
-\newcommand{\pauli}[2]{\sigma_{#1}\otimes\sigma_{#2}}
-\newcommand{\Er}{\E_{\mathcal{R}} }
-\newcommand{\PCE}[1]{\mathsf{PCE}_\mathsf{#1}}
-\newcommand{\ot}{\otimes}
-
-\usepackage{imakeidx}
-\makeindex[columns=3, title=Alphabetical Index, intoc]
-
-
-%\usepackage[]{lineno}  \linenumbers
-%\setlength\linenumbersep{3pt}
-
-\usepackage{fancybox}
-\usepackage{colortbl}
-\usepackage{amsbsy}
-\usepackage{physics}
-\usepackage{amssymb}
-\usepackage{dsfont}
-
+% \usepackage[inner]{showlabels}
+%\usepackage{bbm,bm}
+\usepackage{soul}
+\usepackage{amsfonts}
+ \usepackage{amsmath}
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+\definecolor{mygray}{gray}{0.4}
+\definecolor{light-blue}{rgb}{0.8,0.85,1}
+\graphicspath{{images/}}
+\usepackage{amsthm}
+%\usepackage{MnSymbol}%
+%\usepackage{wasysym}%
+%\usepackage{bbm}% bold math
+%\usetikzlibrary{decorations.shapes}
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
 \newcommand\dsone{\mathds{1}}
 \FXRegisterAuthor{cp}{acp}{\color{blue}CP}
 \definecolor{mycolor}{RGB}{200,40,0} \FXRegisterAuthor{ja}{aja}{\color{mycolor}JA}
 \FXRegisterAuthor{dd}{ddg}{\color{red}DD}
-\FXRegisterAuthor{af}{aaf}{\color{ForestGreen}AF}
-\title{Pauli component erasing operations} 
+\FXRegisterAuthor{af}{aaf}{\color{magenta}AF}
+%\def\>{\rangle} \def\<{\langle}
+\renewcommand{\>}{\rangle}
+\mathchardef\Re="023C
+\mathchardef\Im="023D
+\usepackage[mathlines]{lineno}  
+%\linenumbers
+\setlength\linenumbersep{3pt}%\modulolinenumbers[5]
+% \newcommand{\red}{\color{red}}
+\newcommand{\<}{\langle}
+\newcommand{\mele}[2]{\ensuremath{| #1 \rangle \langle #2 |}}
+\newcommand{\prj}[1]{\ensuremath{| #1 \rangle \langle #1 |}}
+\newcommand{\mcU}{\mathcal{U}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcI}{\mathcal{I}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcB}{\mathcal{B}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcT}{\mathcal{T}}
+\newcommand{\mcE}{\mathcal{E}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\id}{\text{id}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcF}{\mathcal{F}}
+\newcommand{\mcK}{\mathcal{K}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\ie}{i.e.}
+\newcommand{\fmlong}{fuzzy measurements}
+\newcommand{\Fmlong}{Fuzzy measurements}
+\newcommand{\ipr}{\mathrm{ipr}}
+\newcommand{\rmH}{\mathrm{H}}
+\newcommand{\rmq}{\mathrm{q}}
+\newcommand{\cut}{\mathrm{cut}}
+\newcommand{\rmd}{\mathrm{d}}
+\newcommand{\rmi}{\mathrm{i}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\cg}{\mcC}
+%%%%CG commands
+\newcommand{\Loc}[1]{\ensuremath{\Lambda_#1^\text{L}} }
+\newcommand{\NoLoc}[1]{\ensuremath{\Lambda_{#1}^\text{NL}} }
+\newcommand{\NoLoct}[1]{\ensuremath{\tilde{\Lambda}_{#1}^\text{NL}} }
+\newcommand{\fuzzytwo}[1]{\ensuremath{\Lambda_#1^\text{fuzzy}} }
+\newcommand{\cgtwo}[1]{\ensuremath{\Lambda_#1^\text{cg}} }
+\newcommand{\tp}{TP}
+\newcommand{\hp}{HP}
+\newcommand{\Imi}{\imath}
+\newcommand{\rmf}{f}
+%\newcommand{\eg}{\textit{e.g.} }
+%\newcommand{\Eg}{\textit{E.g.} }
+\newcommand{\eref}[1]{eq.~(\ref{#1})} 
+\newcommand{\sref}[1]{sec.~\ref{#1}}
+\newcommand{\fref}[1]{fig.~\ref{#1}}
+\newcommand{\tref}[1]{table~\ref{#1}}
+\newcommand{\Eref}[1]{Eq.~(\ref{#1})} 
+\newcommand{\Sref}[1]{Sec.~\ref{#1}}
+\newcommand{\Fref}[1]{Fig.~\ref{#1}}  
+\newcommand{\Tref}[1]{Table~\ref{#1}}
+\newcommand{\Or}{\mathord{\mathrm{O}} }
+\newcommand{\tr}{\mathop{\mathrm{Tr}}\nolimits}
+% \newcommand{\comm}[1]{{\color{red} #1 }}
+\newcommand{\qv}{QV}
+\newcommand{\old}{\infty}
+\newcommand{\Mmed}{\mcM^{\<\cdot\>}}
+\newcommand{\MBLP}{\mcM^{\text{BLP}} }
+\newcommand{\MRHP}{\mcM^{\text{RHP}} }
+\newcommand{\gs}{GS}
+\newcommand{\cptp}{CPTP}
 
+\newcommand{\ket}[1]{{\vert #1 \rangle}}
+\newcommand{\bra}[1]{{\langle #1 \vert}}
+\newcommand{\proj}[2]{{\vert #1 \rangle \langle #2 \vert}}
+% \newcommand{\cp}{\color{red}   }
+
+%\newcommand{\mimath}{\rmi}
+%\newcommand{\into}{\int_0^t \rmd \tau \{\blue [Verbo de la introducción]}int_0^t \rmd \tau'}
+%\newcommand{\intoh}{\int_0^t \rmd \tau \int_0^\tau \rmd \tau'}
+
+%\providecommand{\openone}{\leavevmode\hbox{\small1\kern-3.8pt\normalsize1}}
+
+%\newcommand{\eps}{\varepsilon} \newcommand{\trc}{\tr_{\rm c}}
+%\newcommand{\tre}{\tr_{\rm e}} \newcommand{\mcH}{\mathcal{H}}
+%\newcommand{\mcO}{\mathcal{O}} \newcommand{\mcU}{\mathcal{U}}
+
+\newcommand{\unam}{Universidad Nacional Aut\'onoma de M\'exico, Ciudad de M\'exico 01000, M\'exico}
+\newcommand{\icf}{Instituto de Ciencias F\'{\i}sicas, \unam}
+\newcommand{\ifunam}{Instituto de F\'{\i}sica, \unam}
+\newcommand{\fisguadalajara}{Departamento de F\'isica, Universidad de Guadalajara, Guadalajara, Jal\'isco, M\'exico}
+\newcommand{\red}{\color{red}}
+\newcommand{\affjose}{afiliacion de JA}
+\newcommand{\affalejandro}{afiliacion de Alejo}
 % }}}
 \begin{document}
-% Titulo y otros {{{
+% Title, authors, etc {{{
+\title{Pauli component erasing operations} 
+\author{Jose Alfredo} \affiliation{\affjose}
+\author{Alejandro Fonseca} \affiliation{\affalejandro}
+\author{François Leyvraz} \affiliation{\icf}
+\author{David Davalos} \affiliation{\ifunam}
+\author{Carlos Pineda} \email{carlospgmat03@gmail.com} \affiliation{\ifunam}
+\begin{abstract} % {{{
+We study a generalization of decoherence maps to maps erasing components of the generalized Bloch vector using the Pauli product basis 
+\end{abstract} % }}}
+%%
+%\pacs{03.65.Yz, 03.65.Ta, 05.45.Mt}
+ 
 \maketitle
-% \tableofcontents
 % }}}
-
-<<<<<<< HEAD
 \newcommand{\sa}{a}
 \newcommand{\san}{A}
 \section{Propuesta de notacion} % {{{
@@ -93,14 +165,12 @@
 \item Many qubit matrix to diagonalize $\san$: \verb!\san!
 \end{itemize}
 % }}}
-\section{Introduccion} % {{{
-=======
 \section{Introduction} % {{{
->>>>>>> ccf0c237682a07a7eac081ef71e7d5962f0cd114
 Several PRA articles go straight into matter. I guess we will write what we have to write
 % }}}
 \ddnote{Aqui vendria la breve introduccion a los canales cuanticos?}
 \section{PCE Maps} % {{{
+\subsection{Quantum channels}
 \subsection{Single qubit projective maps} % {{{
 \ddnote{Sugiero otro nombre para esta seccion, pues los PCE no son los unicos mapas proyectivos, hay mapas proyectivos no unitales}
 \begin{itemize}
@@ -109,7 +179,7 @@ Several PRA articles go straight into matter. I guess we will write what we have
 \item Also some relation with decoherence. 
 \end{itemize}
 % }}}
-\subsection{Definition of PCE} % {{{
+\subsection{Pauli component erasing maps} % {{{
 \begin{itemize}
 \item Give a formal definition of the PCE, maybe give some two qubit examples
 to illustrate non-trivial points. 
@@ -146,7 +216,6 @@ y tambien nota de qeu son igual entre complementarios: computo del numero de bas
 
 % }}}
 \section{Generators} % {{{
-\ddnote{Esta seguro sera una seccion pequeña, pues es un resultado semi-trivial de la construccion de espacios vectoriales, propongo unificar esta con la que sigue}
 \begin{itemize}
 \item Clasificacion de los generadores, es decir que para dos qubits, lo podemos indicar con la acción sobre cada qubit individual
 \item Quizá mostrar algunas propiedades de simetrías. 
@@ -184,6 +253,8 @@ Discuss what happens with general $(2^k)^{\otimes n}$ level systems and why it d
 \item \afnote{Clasificación de las clases de canales PCE: Entanglement breaking, divisible...}
 \end{itemize}
 % }}}
+\par
+\section{Acknowledgments}
 \bibliographystyle{unsrt}
 \bibliography{references}
 \end{document}
