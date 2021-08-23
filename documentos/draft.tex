@@ -16,13 +16,10 @@
 \usepackage{graphicx,helvet}
 \usepackage{color}
 %\usepackage{bm}                      % added by TG
-
 \usepackage{mathtools}
-
 % \usepackage[inline]{showlabels}
-
 % \usepackage[inner]{showlabels}
-%\usepackage{bbm,bm}
+\usepackage{bbm,bm}
 \usepackage{soul}
 \usepackage{amsfonts}
  \usepackage{amsmath}
@@ -59,11 +56,14 @@
 \newcommand{\mcB}{\mathcal{B}}
 \newcommand{\mcH}{\mathcal{H}}
 \newcommand{\mcT}{\mathcal{T}}
-\newcommand{\mcE}{\mathcal{E}}
+\newcommand{\mcE}{\ensuremath{\mathcal{E}}}
 \newcommand{\mcM}{\mathcal{M}}
 \newcommand{\mcN}{\mathcal{N}}
 \newcommand{\mcA}{\mathcal{A}}
 \newcommand{\mcP}{\mathcal{P}}
+\newcommand{\setA}{\ensuremath{{\sf A}}}
+\newcommand{\spV}{\ensuremath{V}}
+\newcommand{\spW}{\ensuremath{W}}
 \newcommand{\id}{\text{id}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
@@ -137,6 +137,7 @@
 \newcommand{\icf}{Instituto de Ciencias F\'{\i}sicas, \unam}
 \newcommand{\ifunam}{Instituto de F\'{\i}sica, \unam}
 \newcommand{\fisguadalajara}{Departamento de F\'isica, Universidad de Guadalajara, Guadalajara, Jal\'isco, M\'exico}
+\newcommand{\sas}{Institute of Physics, Slovak Academy of Sciences, D\'ubravsk\'a cesta 9, Bratislava 84511, Slovakia}
 \newcommand{\red}{\color{red}}
 \newcommand{\affjose}{afiliacion de JA}
 \newcommand{\affalejandro}{afiliacion de Alejo}
@@ -147,7 +148,7 @@
 \author{Jose Alfredo} \affiliation{\affjose}
 \author{Alejandro Fonseca} \affiliation{\affalejandro}
 \author{François Leyvraz} \affiliation{\icf}
-\author{David Davalos} \affiliation{\ifunam}
+\author{David Davalos} \affiliation{\sas}
 \author{Carlos Pineda} \email{carlospgmat03@gmail.com} \affiliation{\ifunam}
 \begin{abstract} % {{{
 We study a generalization of decoherence maps to maps erasing components of the generalized Bloch vector using the Pauli product basis 
@@ -157,96 +158,28 @@ We study a generalization of decoherence maps to maps erasing components of the 
  
 \maketitle
 % }}}
-\newcommand{\sa}{a}
-\newcommand{\san}{A}
+\newcommand{\sa}{\ensuremath{\textit{a}}}
+\newcommand{\san}{\ensuremath{\textit{A}}}
 \section{Propuesta de notacion} % {{{
+Todos los comandos trabajan dentro y fuera de ambientes matematicos, solo pongan \verb!\ensuremath! cuando creen comandos nuevos.
 \begin{itemize}
 \item Single qubit matrix to diagonalize $\sa$: \verb!\sa!
 \item Many qubit matrix to diagonalize $\san$: \verb!\san!
-\end{itemize}
-% }}}
-\section{Introduction} % {{{
-Several PRA articles go straight into matter. I guess we will write what we have to write
-% }}}
-\ddnote{Aqui vendria la breve introduccion a los canales cuanticos?}
-\section{PCE Maps} % {{{
-\subsection{Quantum channels}
-\subsection{Single qubit projective maps} % {{{
-\ddnote{Sugiero otro nombre para esta seccion, pues los PCE no son los unicos mapas proyectivos, hay mapas proyectivos no unitales}
-\begin{itemize}
-\item The single qubit case, describe some of the features.
-\item Also, maybe the Kraus operators.
-\item Also some relation with decoherence. 
-\end{itemize}
-% }}}
-\subsection{Pauli component erasing maps} % {{{
-\begin{itemize}
-\item Give a formal definition of the PCE, maybe give some two qubit examples
-to illustrate non-trivial points. 
-\item Canales de Ruskai Pauli maps, que la interseccion es no trivial (no estan contenidos en ninguna direccion, pero la interseccion es no vacia)
-\item \afnote{Relación con canales citados en \cite{Siudzinska2020}?}
-\end{itemize}
-% }}}
-\begin{itemize}
-\item Give a formal definition of the PCE, maybe give some two qubit examples
-to illustrate non-trivial points. 
-\item This will serve to bring the derivation a bit more down to earth. 
-\item Visualizacion y ejemplos?
-\item Notar lo de los generadores y como sale la estructura jerárquica 
-\item Son positivas todas las matrices de densidad que resultan de aplicar un
-mapeo no válido? \janote{Creo que sí.  Para 1 qubit aplicar PCEs no CP siempre
-te deja dentro de la esfera de Bloch.  Así que estoy casi seguro que lo mismo
-sucede para $n$ qubits.}
-\end{itemize}
-% }}}
-\section{Mathematical derivation} % {{{
-
-{Vector space, mathematical derivation of properties}
-
-\begin{itemize}
-\item Diagonalización de la matriz de Choi de los canales de Pauli, es decir prueba da la $a$
-\item Prueba de que la a diagonaliza \afnote{Breve descripción de detalles importantes. Cálculos en un Apéndice?}
-\item Canales PCE como espacios vectoriales
-\item Regla de $2^k$
-\item Tamaño de las diferentes clases que borran un numero fijo de componentes
-y tambien nota de qeu son igual entre complementarios: computo del numero de bases dada una dimension de subespacios vectoriales, aqui entra la formula del binomial-q.
-\item Intento de identificar elementos, aka hermanistos PCE \cpnote{Esto dependerá de si sale algo interesante,}: De entrada aqui se tiene que mencionar minimo la identificacion del tamaño de las clases.
-\item \ddnote{Agrego esto:} A final remarks of the derivation as a tool. Concepts might be complicated, but the tool gives some simple rules to the reader: \textit{tell me what components you want to keep, and the (vector) summation rules will give you the rest of components to make the target operation a CPTP one.}
-\end{itemize}
-
-% }}}
-\section{Generators} % {{{
-\begin{itemize}
-\item Clasificacion de los generadores, es decir que para dos qubits, lo podemos indicar con la acción sobre cada qubit individual
-\item Quizá mostrar algunas propiedades de simetrías. 
-\end{itemize}
-% }}}
-\section{Kraus operators and decoherence} % {{{
-
-\begin{itemize}
-\item Construct the Kraus operators, and relate to decoherence, for PCEG
-\item Play with non PCEG PCEs
-\item Dependiendo de si sale algo bonito, podemos poner algun modelo en particular para todos los canales (sistema central + ambiente). Seria de buscar dilataciones sencillas y razonables por lo menos a los canales generadores.
-\end{itemize}
-
-% }}}
-\section{The set of decoherence channels} % {{{
-\begin{itemize}
-\item Aca creo qe pueden ser puntos extremos de ese conjunto de canales
-\item El conjunto dentro del conjunto de todos los canales (puntos extremos)
-\end{itemize}
-% }}}
-\section{Qudits} % {{{
-
-\begin{itemize}
-\item Discuss what happens with general $d$ level systems and why it does not work
+\item Channels (calligraphic letters) \mcE: \verb!\mcE!
+\item Sets of channels \setA: \verb!\setA!
+\item Vector spaces \spV, \spW: \verb!\spV!, \verb!\spW!
 \item 
-Linealidad de los eigenvalores de la matriz de Choi en función de las
-$\tau_{j_1\ldots,j_n}$ de canales `\textit{component erasing}' de qudits. 
 \end{itemize}
-
-Discuss what happens with general $(2^k)^{\otimes n}$ level systems and why it does work
 % }}}
+\input{intro}
+\ddnote{Aqui vendria la breve introduccion a los canales cuanticos?}
+\input{pce}
+\input{math}
+\input{generators}
+\input{kraus}
+\input{decoh_set}
+\input{qudits}
+\input{conclusions}
 \section{Ideas sueltas} % {{{
 \subsection{Preguntas abiertas}
 \begin{itemize}
