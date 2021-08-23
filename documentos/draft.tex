@@ -62,6 +62,7 @@
 \newcommand{\mcA}{\mathcal{A}}
 \newcommand{\mcP}{\mathcal{P}}
 \newcommand{\setA}{\ensuremath{{\sf A}}}
+\newcommand{\hilbert}{\ensuremath{{\sf H}}}
 \newcommand{\spV}{\ensuremath{V}}
 \newcommand{\spW}{\ensuremath{W}}
 \newcommand{\id}{\text{id}}
@@ -161,14 +162,16 @@ We study a generalization of decoherence maps to maps erasing components of the 
 \newcommand{\sa}{\ensuremath{\textit{a}}}
 \newcommand{\san}{\ensuremath{\textit{A}}}
 \section{Propuesta de notacion} % {{{
-Todos los comandos trabajan dentro y fuera de ambientes matematicos, solo pongan \verb!\ensuremath! cuando creen comandos nuevos.
+Todos los comandos sencillos trabajan dentro y fuera de ambientes matematicos, solo pongan \verb!\ensuremath! cuando creen comandos nuevos.
 \begin{itemize}
 \item Single qubit matrix to diagonalize $\sa$: \verb!\sa!
 \item Many qubit matrix to diagonalize $\san$: \verb!\san!
 \item Channels (calligraphic letters) \mcE: \verb!\mcE!
+\item Matrix representation of channels (Pauli basis) $\hat \mcE$: \verb!\hat\mcE! (no se si valga la pena hacerle un macro a este)
 \item Sets of channels \setA: \verb!\setA!
 \item Vector spaces \spV, \spW: \verb!\spV!, \verb!\spW!
-\item 
+\item Hilbert space \hilbert: \verb!\hilbert!
+\item Set of bounded, trace-class and density matrices over the Hilbert space $\mcB(\hilbert)$, $\mcT(\hilbert)$, $\mcS(\hilbert)$:  \verb!\mcB(\hilbert)!, \verb!\mcT(\hilbert)!, \verb!\mcS(\hilbert)!
 \end{itemize}
 % }}}
 \input{intro}
