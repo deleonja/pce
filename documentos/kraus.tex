@@ -50,14 +50,18 @@ which in turn imply that
 two matrices, or define a new $a$ and $A$}
 % with $a$ the matrix that appears in \eqref{eq:eigvals-PCE}. 
 Next, consider the action of a channel with Kraus representation 
-\eqref{eq:kraus:PCE} on an $N$ qubit system:
+\eqref{eq:kraus:PCE} on an $N$ qubit system:\janote{acá abajo tenías un $\&$ dentro 
+del entorno \texttt{equation} y no compilaba}\janote{había otro en algún lado que quité 
+también.}
 \begin{equation}
 % \begin{align}
-\rho & \to 
+\rho 
+%& 
+\to 
  \frac{\rho}{2} 
  + \sum_{\vec \beta} \frac{\tau_{\vec \beta}}{2}
 \sigma_{\vec \alpha} \sigma_{\vec \beta} \sigma_{\vec \alpha}  
-&= 
+= 
   \sum_{\vec \beta} 
    \tau_{\vec \beta}\frac{1+\san_{\vec \alpha \vec \beta}}{2}\sigma_{\vec \beta}. 
 % 
