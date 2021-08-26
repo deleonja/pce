@@ -8,6 +8,79 @@
 particular para todos los canales (sistema central + ambiente). Seria de buscar
 dilataciones sencillas y razonables por lo menos a los canales generadores.
 \todo{Davalos lidera la discusión de ese punto, pero no escribe nada}
-\end{itemize}
+\end{itemize} 
+
+The Kraus operators of PCE channels provide an insight in the physical processes
+that yield such channels. In this section we investigate and construct such 
+operators and explore the corresponding processes. 
+
+
+To study the Kraus operators corresponding to PCE, it is enough to study 
+the ones corresponding to generators, as all PCEs commute and thus to get the 
+Kraus operators of an arbitrary PCE, one can easily combine the Kraus
+operators of its generators. 
+
+
+% The Kraus operators corresponding to one single qubit PCEs are 
+% $\{\openone/\sqrt2, \sigma_i/\sqrt2\}$,
+% % \begin{equation}
+% % \{\openone/\sqrt2, \sigma_i/\sqrt2\}
+% % \label{eq:kraus:PCE}
+% % \end{equation}
+% corresponding to the operation that leaves the component $\sigma_i$
+% invariant~\cite{nielsen_chuang_2011}.
+Inspection of the Kraus operators of two qubit PCEG lead to
+the ansatz that the Kraus operators for the generator of 
+$\mcG_{\vec \alpha}$ is 
+\begin{equation}
+\left\{\openone/\sqrt2, \left(\bigotimes_{k=1}^N \sigma_{\alpha_k}\right)/\sqrt2\right\}. 
+\label{eq:kraus:PCE}
+\end{equation}
+Indeed, the Kraus operators corresponding to one single qubit PCEs are 
+$\{\openone/\sqrt2, \sigma_\alpha/\sqrt2\}$,
+corresponding to the operation that leaves the component $\sigma_\alpha$
+invariant~\cite{nielsen_chuang_2011}.
+
+We shall first show that the aforementioned Kraus operators indeed produce a PCE. 
+Notice that 
+\begin{equation}
+\sigma_\alpha \sigma_\beta \sigma_\alpha =a_{\alpha \beta} \sigma_\beta. 
+\label{}
+\end{equation}
+% with $a$ the matrix that appears in \eqref{eq:eigvals-PCE}. 
+Next, consider the action of a channel with Kraus representation 
+\eqref{eq:kraus:PCE} on an $N$ qubit system:
+\begin{align}
+\rho & \to 
+\frac{\openone}{\sqrt{2}} \rho\frac{\openone}{\sqrt{2}} 
+ + 
+\frac{\otimes_k \sigma_{i_k}}{\sqrt{2}} \rho
+\frac{\otimes_k \sigma_{i_k}}{\sqrt{2}} \\
+&=\frac12 \left(\rho + \bigotimes_k \sigma_{i_k} \rho \bigotimes_k \sigma_{i_k} \right)\\
+&=\frac12 \rho
++ \frac12\sum_{j_1, \ldots,j_n} r_{j_1 \ldots j_n} \bigotimes_k  \sigma_{i_k} \sigma_{j_k}  \sigma_{i_k} \\
+&=
+\sum_{j_1, \ldots,j_n} r_{j_1 \ldots j_n} \frac{1+\prod_k a^{i_k}_{j_k}}{2} \bigotimes_k  \sigma_{j_k} . 
+\end{align}
+However, $(1+\prod_k a^{i_k}_{j_k})/2$ is 0 or 1, proving the channel is a PCE. 
+
+We still have to show that except for $i_1=\cdots=i_n=0$, half of the numbers 
+$(1+\prod_k a^{i_k}_{j_k})/2=1$, or equivalently, half of $\prod_k a^{i_k}_{j_k}=1$. 
+Consider a particular $l$ such that $i_l \ne 0$. This will make half of 
+the $\prod_k a^{i_k}_{j_k}$ 1 and half $-1$ (for fixed $l$). This also implies 
+that half of the correlations of the density matrix are erased and half preserved 
+so the channel is a PCEG. 
+
+Notice also that different choices of sets $\{i_k \}$ lead to different channels. This
+can be seen noticing that if two channels were the same, this would imply that
+the matrix representation of the corresponding superoperator of 
+$\bigotimes_k \sigma_{i_k} \cdot \bigotimes_k \sigma_{i_k} $ would have to be
+the same which is clearly false. 
+
+
+Two remarks. (i) The notation that we develop with Jose Alfredo coincides with the 
+generator. This notation is based on the action on each individual qubit. (ii) Counting the
+number of generators here is trivial. It is simply $4^n-1$ as previously noticed 
+from other arguments. 
 
 % }}}
