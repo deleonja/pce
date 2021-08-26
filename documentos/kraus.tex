@@ -1,14 +1,6 @@
 \section{Kraus operators and decoherence} % {{{
-\todo{Carlos hace una version}
+% \todo{Carlos hace una version}
 
-\begin{itemize}
-\item Construct the Kraus operators, and relate to decoherence, for PCEG
-\item Play with non PCEG PCEs
-\item Dependiendo de si sale algo bonito, podemos poner algun modelo en
-particular para todos los canales (sistema central + ambiente). Seria de buscar
-dilataciones sencillas y razonables por lo menos a los canales generadores.
-\todo{Davalos lidera la discusión de ese punto, pero no escribe nada}
-\end{itemize} 
 
 The Kraus operators of PCE channels provide an insight in the physical processes
 that yield such channels. In this section we investigate and construct such 
@@ -33,7 +25,8 @@ Inspection of the Kraus operators of two qubit PCEG lead to
 the ansatz that the Kraus operators for the generator of 
 $\mcG_{\vec \alpha}$ is 
 \begin{equation}
-\left\{\openone/\sqrt2, \left(\bigotimes_{k=1}^N \sigma_{\alpha_k}\right)/\sqrt2\right\}. 
+\left\{\frac{\openone}{\sqrt2}, \frac{\sigma_{\vec \alpha}}{\sqrt2}\right\}. 
+% \left\{\openone/\sqrt2, \left(\bigotimes_{k=1}^N \sigma_{\alpha_k}\right)/\sqrt2\right\}. 
 \label{eq:kraus:PCE}
 \end{equation}
 Indeed, the Kraus operators corresponding to one single qubit PCEs are 
@@ -43,44 +36,73 @@ invariant~\cite{nielsen_chuang_2011}.
 
 We shall first show that the aforementioned Kraus operators indeed produce a PCE. 
 Notice that 
+% \begin{equation}
+$\sigma_\alpha \sigma_\beta \sigma_\alpha =a_{\alpha \beta} \sigma_\beta$,
+% \label{}
+% \end{equation}
+which in turn imply that 
 \begin{equation}
-\sigma_\alpha \sigma_\beta \sigma_\alpha =a_{\alpha \beta} \sigma_\beta. 
+\sigma_{\vec \alpha} \sigma_{\vec \beta} \sigma_{\vec \alpha} 
+=\san_{\vec \alpha \vec \beta} \sigma_{\vec \beta}.
 \label{}
 \end{equation}
+\cpnote{This is the original $a$, not $H \otimes H$. See how to relate these
+two matrices, or define a new $a$ and $A$}
 % with $a$ the matrix that appears in \eqref{eq:eigvals-PCE}. 
 Next, consider the action of a channel with Kraus representation 
 \eqref{eq:kraus:PCE} on an $N$ qubit system:
-\begin{align}
+\begin{equation}
+% \begin{align}
 \rho & \to 
-\frac{\openone}{\sqrt{2}} \rho\frac{\openone}{\sqrt{2}} 
- + 
-\frac{\otimes_k \sigma_{i_k}}{\sqrt{2}} \rho
-\frac{\otimes_k \sigma_{i_k}}{\sqrt{2}} \\
-&=\frac12 \left(\rho + \bigotimes_k \sigma_{i_k} \rho \bigotimes_k \sigma_{i_k} \right)\\
-&=\frac12 \rho
-+ \frac12\sum_{j_1, \ldots,j_n} r_{j_1 \ldots j_n} \bigotimes_k  \sigma_{i_k} \sigma_{j_k}  \sigma_{i_k} \\
-&=
-\sum_{j_1, \ldots,j_n} r_{j_1 \ldots j_n} \frac{1+\prod_k a^{i_k}_{j_k}}{2} \bigotimes_k  \sigma_{j_k} . 
-\end{align}
-However, $(1+\prod_k a^{i_k}_{j_k})/2$ is 0 or 1, proving the channel is a PCE. 
+ \frac{\rho}{2} 
+ + \sum_{\vec \beta} \frac{\tau_{\vec \beta}}{2}
+\sigma_{\vec \alpha} \sigma_{\vec \beta} \sigma_{\vec \alpha}  
+&= 
+  \sum_{\vec \beta} 
+   \tau_{\vec \beta}\frac{1+\san_{\vec \alpha \vec \beta}}{2}\sigma_{\vec \beta}. 
+% 
+% 
+% \frac{\otimes_k \sigma_{i_k}}{\sqrt{2}} \rho
+% \frac{\otimes_k \sigma_{i_k}}{\sqrt{2}} \\
+% &=\frac12 \left(\rho + \bigotimes_k \sigma_{i_k} \rho \bigotimes_k \sigma_{i_k} \right)\\
+% &=\frac12 \rho
+% + \frac12\sum_{j_1, \ldots,j_n} r_{j_1 \ldots j_n} \bigotimes_k  \sigma_{i_k} \sigma_{j_k}  \sigma_{i_k} \\
+% &=
+% \sum_{j_1, \ldots,j_n} r_{j_1 \ldots j_n} \frac{1+\prod_k a^{i_k}_{j_k}}{2} \bigotimes_k  \sigma_{j_k} . 
+\end{equation}
+However, since $\san_{\vec \alpha \vec \beta} = \pm 1$, the channel characterized
+by Kraus operators  \eref{eq:kraus:PCE} is a PCE. Moreover, One can notice that, 
+except for the first row, half of the matrix elements of each row is $+1$ and 
+half $-1$, which implies that the aforementioned channel is a PCEG. 
 
-We still have to show that except for $i_1=\cdots=i_n=0$, half of the numbers 
-$(1+\prod_k a^{i_k}_{j_k})/2=1$, or equivalently, half of $\prod_k a^{i_k}_{j_k}=1$. 
-Consider a particular $l$ such that $i_l \ne 0$. This will make half of 
-the $\prod_k a^{i_k}_{j_k}$ 1 and half $-1$ (for fixed $l$). This also implies 
-that half of the correlations of the density matrix are erased and half preserved 
-so the channel is a PCEG. 
+% We still have to show that except for $i_1=\cdots=i_n=0$, half of the numbers 
+% $(1+\prod_k a^{i_k}_{j_k})/2=1$, or equivalently, half of $\prod_k a^{i_k}_{j_k}=1$. 
+% Consider a particular $l$ such that $i_l \ne 0$. This will make half of 
+% the $\prod_k a^{i_k}_{j_k}$ 1 and half $-1$ (for fixed $l$). This also implies 
+% that half of the correlations of the density matrix are erased and half preserved 
+% so the channel is a PCEG. 
 
-Notice also that different choices of sets $\{i_k \}$ lead to different channels. This
-can be seen noticing that if two channels were the same, this would imply that
-the matrix representation of the corresponding superoperator of 
-$\bigotimes_k \sigma_{i_k} \cdot \bigotimes_k \sigma_{i_k} $ would have to be
-the same which is clearly false. 
+Notice also that a different choice of $\vec \alpha$ in \eref{eq:kraus:PCE}
+lead to different channels. This can be seen noticing that if two channels were
+the same, this would imply that the matrix representation of the corresponding
+superoperator of $\sigma_{\vec \alpha} \cdot \sigma_{\vec \alpha}$
+would have to be the same which is clearly false. Since there are $4^n$ different 
+$\vec \alpha$, this implies that all PCEG (plus the identity map) are in one to 
+one correspondence.  
 
+\cpnote{We might have spoken about the notation of the generators and here we 
+can add a sentence about it, but I will wait till JA writes his part.}
+% Two remarks. (i) The notation that we develop with Jose Alfredo coincides with the 
+% generator. This notation is based on the action on each individual qubit. (ii) Counting the
+% number of generators here is trivial. It is simply $4^n-1$ as previously noticed 
+% from other arguments. 
 
-Two remarks. (i) The notation that we develop with Jose Alfredo coincides with the 
-generator. This notation is based on the action on each individual qubit. (ii) Counting the
-number of generators here is trivial. It is simply $4^n-1$ as previously noticed 
-from other arguments. 
-
+\begin{itemize}
+\item Construct the Kraus operators, and relate to decoherence, for PCEG
+\item Play with non PCEG PCEs
+\item Dependiendo de si sale algo bonito, podemos poner algun modelo en
+particular para todos los canales (sistema central + ambiente). Seria de buscar
+dilataciones sencillas y razonables por lo menos a los canales generadores.
+\todo{Davalos lidera la discusión de ese punto, pero no escribe nada}
+\end{itemize} 
 % }}}
