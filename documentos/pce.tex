@@ -1,6 +1,8 @@
 \section{PCE Maps} % {{{
 \subsection{Quantum channels}
-Quantum channels comprehend the most general linear operations that a quantum system undergo independently of its past
+Quantum channels comprehend the most general linear operations that a quantum system undergo independently of its past~\cite{zimansbook,cirac}. To introduce their construction and properties, first let us define several objects. We will denote Hilbert spaces as \hilbert and $d$-dimensional Hilbert spaces as $\hilbert_d$. The set of bounded operators over a Hilbert space \hilbert will be written as $\mcB(\hilbert)$, the subset of density matrices as $\mcS(\hilbert)$, which is in turn a subset of the so called trace-class operators $\mcT(\hilbert)$, for the finite dimensional case, the one studied here, $\mcT(\hilbert)$ and $\mcB(\hilbert)$ coincide~\cite{zimansbook}. 
+
+Their construction include basically three ingredients: linearity, trace preserving and complete positivity.The first one is needed to send convex combinations of density matrices into the convex combination of the evolution of such density matrices, this is, let $\mcE$ such linear operation, thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$
 \subsection{Single qubit case} % {{{
 % \ddnote{Sugiero otro nombre para esta seccion, pues los PCE no son los unicos
 % mapas proyectivos, hay mapas proyectivos no unitales}
