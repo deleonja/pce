@@ -64,8 +64,8 @@ hacer notar la diferencia}
 
 The density matrix $\rho$ of a system of $n$ qubits can be written in Pauli matrices basis as 
 \begin{equation}\label{eq:N_qubits_rho}
-	\rho =\frac{1}{2^N} \sum_{j_1,\ldots,j_N=0}^3 \paulicomponents
-	\sigma_{j_1}\otimes \ldots \otimes \sigma_{j_N},
+	\rho =\frac{1}{2^N} \sum_{\alpha_1,\ldots,\alpha_N=0}^3 \paulicomponents
+	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
 	%r_{0,\ldots,0}=1,
 \end{equation}
 where $r_{0,\ldots,0}=1$ ($\Tr\rho=1$) and $\sigma_0=\openone$.
@@ -81,7 +81,7 @@ it transforms the Pauli components of $\rho$ as
 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
 \end{split}
 \end{equation}
-\ddnote{hay un typo en esta ecuacion}
+%\ddnote{hay un typo en esta ecuacion}
 A PCE operation is a trace-preserving operation that leaves invariant or erases 
 the Pauli components of a density matrix of $n$ qubits. \janote{Ojo que aquí 
 habrá que unificar la notación de subíndices. No lo hago porque no lo tengo del 
@@ -90,7 +90,7 @@ todo claro y no hay problema en dejarlo así por el momento.}
 In \Fref{fig:PCE_figs} we introduce a pictorial representation of PCE operations of 
 1, 2 and 3 qubits. Every position in the column, board or cube is associated with 
 the subindices of $\taus$ of a PCE operation. If a little square or cube  in position
-$j_1,\ldots,j_N$ is black, then $\taus=1$, if it is white, then $\taus=0$. For example,
+$\alpha_1,\ldots,\alpha_N$ is black, then $\taus=1$, if it is white, then $\taus=0$. For example,
 \begin{center}
 \includegraphics[width=2cm]{2qubits_pce_example}
 \end{center}
