@@ -2,11 +2,48 @@
 \subsection{Quantum channels}
 Quantum channels comprehend the most general linear operations that a quantum system undergo independently of its past~\cite{zimansbook,cirac}. To introduce their construction and properties, first let us define several objects. We will denote Hilbert spaces as \hilbert and $d$-dimensional Hilbert spaces as $\hilbert_d$. The set of bounded operators over a Hilbert space \hilbert will be written as $\mcB(\hilbert)$, the subset of density matrices as $\mcS(\hilbert)$, which is in turn a subset of the so called trace-class operators $\mcT(\hilbert)$, for the finite dimensional case, the one studied here, $\mcT(\hilbert)$ and $\mcB(\hilbert)$ coincide~\cite{zimansbook}. 
 
-The construction of quantum channels includes basically three ingredients: linearity, trace preserving and complete positivity. The first one is needed to send convex combinations of density matrices into the convex combination of the evolution of such density matrices, this is, let $\mcE$ such linear operation, thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$. The trace preserving is required for the process $\mcE$ to be deterministic, this is, $\tr\mcE[\rho]=\tr \rho =1$ with $\rho \in \mcS(\hilbert)$.
+The construction of quantum channels includes basically three ingredients: linearity, trace preserving and complete positivity. The first one is needed to send convex combinations of density matrices into the convex combination of the evolution of such density matrices, this is, let $\mcE$ such linear operation, thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$. The trace preserving is required for the process $\mcE$ to be deterministic, this is, $\tr\mcE[\rho]=\tr \rho =1$ is the probability that the process $\mcE$ will happen to the state $\rho$, with $\rho \in \mcS(\hilbert)$. The complete positivity condition is needed to preserve positive semidefiniteness and handle the non-local character of quantum theory. This is, with positivity of the map $\mcE$ one has $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert)$ with $\Delta\geq 0$. In the other hand, complete positvity of $\mcE$ reads $\id_k \otimes \mcE[\omega]\geq 0$ for $k=1,2,\dots$, where $\omega$ is the Bell state between the system and an ancilla with Hilbert space $\hilbert_k$. Therefore, complete positivity ensures that every positive semidefinite operator of any extension of the system (where the quantum channel is now a local operation) is mapped into positive semidefinite operators, trace preserving is automatically fulfilled for all extensions if $\mcE$ is. Thus, any density matrix of a system where $\mcE$ acts locally, is send to a valid density matrix, this is the substance of complete positivity.
+
+Quantum channels \ddnote{[Choi representation, Kraus operators and Stinespring dilation]}
+
+A remarkable consequence of positivity 
 \subsection{Single qubit case} % {{{
-% \ddnote{Sugiero otro nombre para esta seccion, pues los PCE no son los unicos
-% mapas proyectivos, hay mapas proyectivos no unitales}
 \todo{David escribe una primera version y luego Carlos itera}
+Let us discuss the single qubit case of \pce{} maps, they are defined by its action over Bloch vectors, providing that
+\sa g
+\begin{equation}
+\rho=\frac{\one +\vec r \cdot \vec \sigma}{2},
+\end{equation}
+then they are defined as follows
+\begin{equation}
+r_i \mapsto \tau_i
+\end{equation}
+
+
+with
+\begin{equation}
+\mcL_\alpha[\Delta]:= \frac{\gamma}{2}\left( \sigma_\alpha \Delta \sigma_\alpha -\Delta \right).
+\label{eq:1qubit_semigroup}
+\end{equation}
+We will show later that this can be trivially generalized to the $N$ qubit case. \ddnote{[Esto se mueve a la seccion correspondiente:]}
+\begin{equation}
+\mcL_{\vec \alpha}[\Delta]:= \frac{\gamma}{2}\left( \sigma_{\vec\alpha} \Delta \sigma_{\vec\alpha} -\Delta \right).
+\label{eq:Nqubit_semigroup}
+\end{equation}
+
+
+\begin{align}
+U_\alpha\ket{\psi} \ket{0}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}+\sigma_\alpha \ket{\psi}\ket{1} \right)\\
+U_\alpha\ket{\psi} \ket{1}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}-\sigma_\alpha \ket{\psi}\ket{1} \right)
+\label{eq:1qubit_stinespring}
+\end{align}
+similar to the semigroup generator, we will show later that this can be trivially generalized to the $N$ qubit case. \ddnote{[Esto se mueve a la seccion correspondiente:]}
+\begin{align}
+U_{\vec\alpha}\ket{\psi} \ket{0}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}+\sigma_{\vec\alpha} \ket{\psi}\ket{1} \right)\\
+U_{\vec\alpha}\ket{\psi} \ket{1}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}-\sigma_{\vec\alpha} \ket{\psi}\ket{1} \right)
+\label{eq:Nqubit_stinespring}
+\end{align}
+
 \begin{itemize}
 \item The single qubit case, describe some of the features.
 \item Single qubit Kraus operators.
