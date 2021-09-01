@@ -10,26 +10,22 @@ A remarkable consequence of positivity
 \subsection{Single qubit case} % {{{
 \todo{David escribe una primera version y luego Carlos itera}
 Let us discuss the single qubit case of \pce{} maps, they are defined by its action over Bloch vectors, providing that
-\sa g
 \begin{equation}
 \rho=\frac{\one +\vec r \cdot \vec \sigma}{2},
 \end{equation}
 then they are defined as follows
 \begin{equation}
-r_i \mapsto \tau_i
+r_i \mapsto \tau_i r_i
 \end{equation}
-
-
+where $\tau_k$ is either $1$ or $0$. A direct evaluation of the 
+ 
 with
 \begin{equation}
 \mcL_\alpha[\Delta]:= \frac{\gamma}{2}\left( \sigma_\alpha \Delta \sigma_\alpha -\Delta \right).
 \label{eq:1qubit_semigroup}
 \end{equation}
-We will show later that this can be trivially generalized to the $N$ qubit case. \ddnote{[Esto se mueve a la seccion correspondiente:]}
-\begin{equation}
-\mcL_{\vec \alpha}[\Delta]:= \frac{\gamma}{2}\left( \sigma_{\vec\alpha} \Delta \sigma_{\vec\alpha} -\Delta \right).
-\label{eq:Nqubit_semigroup}
-\end{equation}
+We will show later that this can be trivially generalized to the $N$ qubit case.
+
 
 
 \begin{align}
@@ -37,12 +33,8 @@ U_\alpha\ket{\psi} \ket{0}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}+\sigma_
 U_\alpha\ket{\psi} \ket{1}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}-\sigma_\alpha \ket{\psi}\ket{1} \right)
 \label{eq:1qubit_stinespring}
 \end{align}
-similar to the semigroup generator, we will show later that this can be trivially generalized to the $N$ qubit case. \ddnote{[Esto se mueve a la seccion correspondiente:]}
-\begin{align}
-U_{\vec\alpha}\ket{\psi} \ket{0}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}+\sigma_{\vec\alpha} \ket{\psi}\ket{1} \right)\\
-U_{\vec\alpha}\ket{\psi} \ket{1}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}-\sigma_{\vec\alpha} \ket{\psi}\ket{1} \right)
-\label{eq:Nqubit_stinespring}
-\end{align}
+similar to the semigroup generator, we will show later that this can be trivially generalized to the $N$ qubit case.
+
 
 \begin{itemize}
 \item The single qubit case, describe some of the features.
@@ -89,6 +81,7 @@ it transforms the Pauli components of $\rho$ as
 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
 \end{split}
 \end{equation}
+\ddnote{hay un typo en esta ecuacion}
 A PCE operation is a trace-preserving operation that leaves invariant or erases 
 the Pauli components of a density matrix of $n$ qubits. \janote{Ojo que aquí 
 habrá que unificar la notación de subíndices. No lo hago porque no lo tengo del 
