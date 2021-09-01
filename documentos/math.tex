@@ -4,6 +4,112 @@
 Prueba de la $\sa$ \todo{Alejo escribe esta parte. Dejelo aca todo y luego si acaso 
 pasamos cosas al apendice. Caso general}
 
+This part is devoted to derive the set of conditions a Pauli map need to satisfy to fulfill the CP condition i.e. all the eigenvalues of the Choi matrix associated to the channel must be non-negative. First we obtain the set of inequalities for a single qubit Pauli channel and then we extend the results for the general case of $N$ qubits. 
+
+\subsubsection{Single qubit Pauli channels}
+
+\afnote{Notación para matrices densidad vectorizadas? $\varrho$ ?}
+
+By writing the elements of the density matrix in vector form $\varrho=\left(\varrho_0,\varrho_1,\varrho_2,\varrho_3\right)^{\intercal}$, the action of a Pauli map on $\varrho$ for a single qubit may be written as $\varrho \to \varrho'=\hat \mcE \varrho$, where $\hat \mcE$ is the matrix representation of the map. Moreover it can be shown that in the Pauli basis $(\sigma_0,\sigma_1,i\sigma_2,\sigma_3)$, $\hat \mcE$ reduces simply to $\mathrm{diag}\left(\tau_0,\tau_1,\tau_2,\tau_3\right)$. 
+
+Let reorganize the elements of the Pauli basis as $(\sigma_0,\sigma_3,\sigma_1,i\sigma_2)$, in this way it is possible to write the matrix representation of the map as $\hat \mcE = \tau_{03} \oplus \tau_{12}$, where $\tau_{jk}=\mathrm{diag}\left(\tau_j,\tau_k\right)$ and the symbol $``\oplus "$ represents a direct sum of matrices. The advantage of this ordering is manifested when the matrix $\hat \mcE$ is transformed to the computational basis $(u_{00},u_{11},u_{01},u_{10})$, $\hat \mcE_c$:
+% 
+\begin{align}
+ \hat \mcE_c =& \left(H\oplus H\right)\hat \mcE \left(H\oplus H\right)^{\intercal}\\
+ =& \left(H\oplus H\right) \left(\tau_{03} \oplus \tau_{12}\right)\left(H\oplus H\right)^{\intercal}\\
+ =& H\tau_{03}H \oplus H\tau_{12}H\\
+ =&\begin{pmatrix}
+        \tau_0+\tau_3 & \tau_0-\tau_3\\
+        \tau_0-\tau_3 & \tau_0+\tau_3\\
+        &&\tau_0+\tau_3 & \tau_0-\tau_3\\
+        &&\tau_0-\tau_3 & \tau_0+\tau_3\\        
+    \end{pmatrix},
+ \label{Eq_E_P_C}
+\end{align}
+% 
+where $H$ is the Haddamard matrix
+% 
+\begin{equation}
+ H=\begin{pmatrix}
+        1 & 1\\
+        1 & -1\\
+    \end{pmatrix}.
+ \label{Hadd_Mat}
+\end{equation}
+% 
+After applying the reshuffling operation on $\hat \mcE_c$, we get the associated Choi matrix (or sometimes called dynamical matrix) of the map $D$, it reads
+% 
+\begin{equation}
+ D=\begin{pmatrix}
+        \tau_0+\tau_3 & \tau_1+\tau_2\\
+        \tau_1+\tau_2 & \tau_0+\tau_3\\
+        &&\tau_0-\tau_3 & \tau_1-\tau_2\\
+        &&\tau_1-\tau_2 & \tau_0-\tau_3\\        
+    \end{pmatrix}.
+ \label{Eq_D_P}
+\end{equation}
+% 
+Back to the Pauli basis, the Choi matrix holds
+\begin{align}
+ D_p =& \left(\frac{1}{2}H\oplus H\right)\hat D \left(\frac{1}{2}H\oplus H\right)^{\intercal}\\
+ =&\frac{1}{4}\left(H\oplus H\right)\hat D \left(H\oplus H\right)^{\intercal}\\
+=&\begin{pmatrix}
+        \lambda_0\\
+        &\lambda_1\\
+        &&\lambda_2\\
+        &&&\lambda_3\\
+    \end{pmatrix}.
+%   =&\begin{pmatrix}
+%         \tau_0+\tau_3+\tau_1+\tau_2\\
+%         &\tau_0-\tau_3+\tau_1-\tau_2\\
+%         &&\tau_0+\tau_3-\tau_1-\tau_2\\
+%         &&&\tau_0-\tau_3-\tau_1+\tau_2\\        
+%     \end{pmatrix}.
+ \label{Eq_D_C_P}
+\end{align}
+% 
+In other words, the Pauli basis diagonalizes the Choi matrix associated to any Pauli map, with eigenvalues related to the map coefficients $\tau$ as
+% 
+\begin{equation}
+\begin{pmatrix}
+        \lambda_0\\
+        \lambda_1\\
+        \lambda_2\\
+        \lambda_3\\   
+    \end{pmatrix}
+ =\frac{1}{2}\begin{pmatrix}
+        1&1&1&1\\
+        1&-1&1&-1\\
+        1&1&-1&-1\\
+        1&-1&-1&1\\
+    \end{pmatrix}
+    \begin{pmatrix}
+        \tau_0\\
+        \tau_3\\
+        \tau_1\\
+        \tau_2\\   
+    \end{pmatrix},
+ \label{Eigen1}
+\end{equation}
+% 
+or in a compact form
+% 
+\begin{equation}
+ \lambda = \frac{1}{2}H\otimes H \tau.
+\end{equation}
+% 
+Now we proceed to generalize this result for the case $N$ qubits case.
+
+\subsubsection{$N$ qubits}
+
+
+
+Coming soon...
+
+
+\subsection{Parte de Francois}
+
+
 We have the matrix 
 \begin{equation}
 \sa=\left(
