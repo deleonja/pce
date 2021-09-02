@@ -1,12 +1,42 @@
-\section{PCE Maps} % {{{
-\subsection{Quantum channels}
-Quantum channels comprehend the most general linear operations that a quantum system undergo independently of its past~\cite{zimansbook,cirac}. To introduce their construction and properties, first let us define several objects. We will denote Hilbert spaces as \hilbert and $d$-dimensional Hilbert spaces as $\hilbert_d$. The set of bounded operators over a Hilbert space \hilbert will be written as $\mcB(\hilbert)$, the subset of density matrices as $\mcS(\hilbert)$, which is in turn a subset of the so called trace-class operators $\mcT(\hilbert)$, for the finite dimensional case, the one studied here, $\mcT(\hilbert)$ and $\mcB(\hilbert)$ coincide~\cite{zimansbook}. 
+\section{PCE Maps} 
+\subsection{Quantum channels} % {{{
+Quantum channels comprehend the most general linear operations that a quantum
+system undergo independently of its past~\cite{zimansbook,cirac}. To introduce
+their construction and properties, first let us define several objects. We will
+denote Hilbert spaces as \hilbert and $d$-dimensional Hilbert spaces as
+$\hilbert_d$. The set of bounded operators over a Hilbert space \hilbert will
+be written as $\mcB(\hilbert)$, the subset of density matrices as
+$\mcS(\hilbert)$, which is in turn a subset of the so called trace-class
+operators $\mcT(\hilbert)$, for the finite dimensional case, the one studied
+here, $\mcT(\hilbert)$ and $\mcB(\hilbert)$ coincide~\cite{zimansbook}. 
 
-The construction of quantum channels includes basically three ingredients: linearity, trace preserving and complete positivity. The first one is needed to send convex combinations of density matrices into the convex combination of the evolution of such density matrices, this is, let $\mcE$ such linear operation, thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$. The trace preserving is required for the process $\mcE$ to be deterministic, this is, $\tr\mcE[\rho]=\tr \rho =1$ is the probability that the process $\mcE$ will happen to the state $\rho$, with $\rho \in \mcS(\hilbert)$. The complete positivity condition is needed to preserve positive semidefiniteness and handle the non-local character of quantum theory. This is, with positivity of the map $\mcE$ one has $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert)$ with $\Delta\geq 0$. In the other hand, complete positvity of $\mcE$ reads $\id_k \otimes \mcE[\omega]\geq 0$ for $k=1,2,\dots$, where $\omega$ is the Bell state between the system and an ancilla with Hilbert space $\hilbert_k$. Therefore, complete positivity ensures that every positive semidefinite operator of any extension of the system (where the quantum channel is now a local operation) is mapped into positive semidefinite operators, trace preserving is automatically fulfilled for all extensions if $\mcE$ is. Thus, any density matrix of a system where $\mcE$ acts locally, is send to a valid density matrix, this is the substance of complete positivity.
+The construction of quantum channels includes basically three ingredients:
+linearity, trace preserving and complete positivity. The first one is needed to
+send convex combinations of density matrices into the convex combination of the
+evolution of such density matrices, this is, let $\mcE$ such linear operation,
+thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$. The
+trace preserving is required for the process $\mcE$ to be deterministic, this
+is, $\tr\mcE[\rho]=\tr \rho =1$ is the probability that the process $\mcE$ will
+happen to the state $\rho$, with $\rho \in \mcS(\hilbert)$. The complete
+positivity condition is needed to preserve positive semidefiniteness and handle
+the non-local character of quantum theory. This is, with positivity of the map
+$\mcE$ one has $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert)$ with
+$\Delta\geq 0$. In the other hand, complete positvity of $\mcE$ reads $\id_k
+\otimes \mcE[\omega]\geq 0$ for $k=1,2,\dots$, where $\omega$ is the Bell state
+between the system and an ancilla with Hilbert space $\hilbert_k$. Therefore,
+complete positivity ensures that every positive semidefinite operator of any
+extension of the system (where the quantum channel is now a local operation) is
+mapped into positive semidefinite operators, trace preserving is automatically
+fulfilled for all extensions if $\mcE$ is. Thus, any density matrix of a system
+where $\mcE$ acts locally, is send to a valid density matrix, this is the
+substance of complete positivity.
 
-Quantum channels \ddnote{[Choi representation, Kraus operators and Stinespring dilation]}
+Quantum channels \ddnote{[Choi representation, Kraus operators and Stinespring
+dilation]}
 
 A remarkable consequence of positivity 
+
+% }}}
 \subsection{Single qubit case} % {{{
 \label{sec:single:qubit}
 \todo{David escribe una primera version y luego Carlos itera}
@@ -56,20 +86,20 @@ matrices basis as
 \begin{equation}\label{eq:N_qubits_rho}
 	\rho =\frac{1}{2^N} 
             \sum_\valpha r_\valpha \sigma_\valpha,
-            \quad r_{\vec0}=1,
+%             \quad r_{\vec0}=1,
 % 	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
 %             \sum_{\alpha_1,\ldots,\alpha_N=0}^3 \paulicomponents
 % 	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
 	%r_{0,\ldots,0}=1,
 \end{equation}
-where $\vec \alpha$ denotes a multi index $\qty(\alpha_0,\ldots,\alpha_N)$ and
-each $\alpha_i=0,1,2,3$, 
+where $\vec \alpha$ denotes a vector index $\qty(\alpha_0,\ldots,\alpha_N)$,
 $\sigma_{\vec \alpha} := \sigma_{\alpha_1}\otimes \ldots \otimes
 \sigma_{\alpha_N}$ is the tensor product of Pauli matrices, and 
 $r_{\vec \alpha}$ is the coefficient corresponding to the expansion
 of the density matrix in the complete orthonormal basis $\{ \sigma_{\vec
-\alpha} \}$. %In the sum each of the $N$ components of $\valpha$, i.e.
-%$\alpha_{1,\cdots,N}$ is varied from $0$ to $3$. 
+\alpha} \}$. In the sum each of the $N$ components of $\valpha$, i.e.
+$\alpha_{1,\cdots,N}$ is varied from $0$ to $3$\cpnote{Quizá se cambia
+cuando hayamos escrito lo de un qubit}. 
 Notice that $\sigma_{\vec 0} = \openone$, and since both $\tr \rho=1$ and 
 $\tr \sigma_\valpha=\delta_{\valpha,\vec 0}$, then $r_{\vec 0}=1$. 
 We shall refer to $\paulicomponents$ as the ``Pauli components'' of the density
@@ -89,7 +119,7 @@ a multiqubit system:
 These operations have been studied in \cite{} \cpnote{davalos, dale aca un pequeño 
 rollo relevante quiza de una o dos frases. También debemos tener un nombre pues lo de la diagonazliación 
 funciona para eso y quizá también seran relevantes para la parte de decoherencia}.
-For the linear operation to preserve the trace of the density matrix, we require that 
+For the operation to preserve the trace of the density matrix, we require that 
 $\tau_{\vec 0}=1$. 
 \cpnote{Tocará ajustar el texto de acuerdo a lo que ponga Davalos aca}
 A Pauli component erasing (PCE) operation is a \cpnote{Pauli diagonal operation}
