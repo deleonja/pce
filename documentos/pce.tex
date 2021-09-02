@@ -56,20 +56,22 @@ matrices basis as
 \begin{equation}\label{eq:N_qubits_rho}
 	\rho =\frac{1}{2^N} 
             \sum_\valpha r_\valpha \sigma_\valpha,
+            \quad r_{\vec0}=1,
 % 	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
 %             \sum_{\alpha_1,\ldots,\alpha_N=0}^3 \paulicomponents
 % 	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
 	%r_{0,\ldots,0}=1,
 \end{equation}
-where $\vec \alpha$ denotes a multi index with $N$ components, 
+where $\vec \alpha$ denotes a multi index $\qty(\alpha_0,\ldots,\alpha_N)$ and
+each $\alpha_i=0,1,2,3$, 
 $\sigma_{\vec \alpha} := \sigma_{\alpha_1}\otimes \ldots \otimes
-\sigma_{\alpha_N}$ is the tensor product of Pauli matrices and 
+\sigma_{\alpha_N}$ is the tensor product of Pauli matrices, and 
 $r_{\vec \alpha}$ is the coefficient corresponding to the expansion
 of the density matrix in the complete orthonormal basis $\{ \sigma_{\vec
-\alpha} \}$. In the sum, each of the $N$ components of $\valpha$, i.e.
-$\alpha_{1,\cdots,N}$ is varied from $0$ to $3$. 
-Notice that $\sigma_{\vec 0} = \openone$ and since both $\tr \rho=1$ and 
-$\tr \sigma_\valpha=\delta_{\valpha,\vec 0}$, $r_{\vec 0}=1$. 
+\alpha} \}$. %In the sum each of the $N$ components of $\valpha$, i.e.
+%$\alpha_{1,\cdots,N}$ is varied from $0$ to $3$. 
+Notice that $\sigma_{\vec 0} = \openone$, and since both $\tr \rho=1$ and 
+$\tr \sigma_\valpha=\delta_{\valpha,\vec 0}$, then $r_{\vec 0}=1$. 
 We shall refer to $\paulicomponents$ as the ``Pauli components'' of the density
 matrix of a system of qubits. 
 
@@ -87,7 +89,7 @@ a multiqubit system:
 These operations have been studied in \cite{} \cpnote{davalos, dale aca un pequeño 
 rollo relevante quiza de una o dos frases. También debemos tener un nombre pues lo de la diagonazliación 
 funciona para eso y quizá también seran relevantes para la parte de decoherencia}.
-To preserve the trace of the density matrix, we require that 
+For the linear operation to preserve the trace of the density matrix, we require that 
 $\tau_{\vec 0}=1$. 
 \cpnote{Tocará ajustar el texto de acuerdo a lo que ponga Davalos aca}
 A Pauli component erasing (PCE) operation is a \cpnote{Pauli diagonal operation}
