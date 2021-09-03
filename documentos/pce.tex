@@ -28,10 +28,12 @@ complete positivity ensures that every positive semidefinite operator of any
 extension of the system (where the quantum channel is now a local operation) is
 mapped into positive semidefinite operators, trace preserving is automatically
 fulfilled for all extensions if $\mcE$ is. Thus, any density matrix of a system
-where $\mcE$ acts locally, is send to a valid density matrix, this is the
+where $\mcE$ acts locally, is sent to a valid density matrix, this is the
 substance of complete positivity.
 
-Quantum channels \ddnote{[Choi representation, Kraus operators and Stinespring
+Quantum channels can be characterized by means of the Choi-\jami{} isomorphism~\cite{choi,jamil}. Given a linear operation $\mcE:\mcB(\hilbert)\to \mcB(\hilbert)$, the so-called Choi matrix of it, $C_\mcE=\left(\id \otimes \mcE\right)[\proj{\Omega}{\Omega}]$, where $\ket{\Omega}=1/\dim(\hilbert)\sum_i^{\dim(\hilbert)}\ket{i}\ket{i}$ is the Bell state between to copies of \hilbert, is positive semi-definite if and only if $\mcE$ is completely positive.
+
+  \ddnote{[Choi representation, Kraus operators and Stinespring
 dilation]}
 
 A remarkable consequence of positivity 
