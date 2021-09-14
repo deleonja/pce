@@ -33,10 +33,12 @@ substance of complete positivity.
 
 Quantum channels can be characterized by means of the Choi-\jami{} isomorphism~\cite{choi,jamil}. This is, given a linear operation $\mcE:\mcB(\hilbert)\to \mcB(\hilbert)$, the so-called Choi matrix of it, $C_\mcE=\left(\id \otimes \mcE\right)[\proj{\Omega}{\Omega}]$, where $\ket{\Omega}=1/\dim(\hilbert)\sum_i^{\dim(\hilbert)}\ket{i}\ket{i}$ is the Bell state between to copies of \hilbert, is positive semi-definite if and only if $\mcE$ is completely positive.
 
+Quantum channels have the well-known \textit{Kraus representation} (or operator-sum representation) which reads $\mcE[\rho]=\sum_i K_i \rho K^\dagger{}_i$ in fact, a linear operation is completely positive if and only if it has a Kraus representation [cite Kraus book]
+
   \ddnote{[Choi representation, Kraus operators and Stinespring
 dilation]}
 
-It can be seen from Kraus decomposition that quantum channels preserve hermiticity, this has a practical consequence when using hermitian bases. $\hat \mcE_{ij}=1/2^N\tr\left( \sigma_i \mcE[\sigma_j]
+It can be seen from Kraus decomposition that quantum channels preserve hermiticity, this has a practical consequence when using hermitian bases. $\hat \mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j]
  \right)$
 
 % }}}
