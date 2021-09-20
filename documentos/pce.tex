@@ -173,7 +173,9 @@ remain unchanged throughout this text.
 
 \begin{figure} % {{{
 \begin{center}
-\begin{tikzpicture}[x=0.5cm, y=0.5cm]
+
+\begin{tikzpicture}[x=0.5cm, y=0.5cm] % {{{
+\def\unitsep{2cm }
 % Coordenadas  
 \node at (-0.6,0.5) {(a)} ;
 \draw (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_0$} ;
@@ -187,7 +189,8 @@ remain unchanged throughout this text.
 \draw (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_3$} ;
 \end{scope}
 % Identity
-\begin{scope}[shift={(4,0)}]
+\begin{scope}[shift={(2*1,0)}]
+% \begin{scope}[shift={(\unitstep*2,0)}]
 \node at (-0.6,0.5) {(b)} ;
 \fill[black] (0,0) rectangle (1,1);
 \draw (0,0) rectangle (1,1);
@@ -222,14 +225,25 @@ remain unchanged throughout this text.
 % \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
 \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
 \end{scope}
-\end{tikzpicture}
+\begin{scope}[shift={(16,0)}]
+\node at (-0.6,0.5) {(e)} ;
+\fill[black] (0,0) rectangle (1,1);
+\draw (0,0) rectangle (1,1);
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\end{scope}
+\end{tikzpicture} % }}}
 \end{center}
 	\caption{\cpnote{Aca meter la figura, JA} In (a) we introduce the positions of the single 
 qubit diagrams, so that each square corresponds to a single 
-$\tau_{\alpha}$, $\alpha=0,\cdots,3$. The diagrams in 
+$\tau_{\alpha}$, $\alpha=0,1,2,3$. The diagrams in 
 (b), (c) and (d) correspond to the identity map, \cpnote{bit flip ao algo asi}, and 
-total depolarization, respectively. In (e) we show a map that erases the two components
-$r_1$ and $r_2$ and thus does not correspond to a quantum operation.}
+total depolarization, respectively. In (e) we show a map that only erases the component
+$r_1$ and thus does not correspond to a quantum operation.}
 	\label{fig:one:qubit:examples}
 \end{figure} % }}}
 
@@ -241,43 +255,43 @@ and in (c) a diagram of a map that is not a quantum channel is presented.}
 	\label{fig:two:qubit:examples}
 \end{figure} % }}}
 
-In \Fref{fig:PCE_figs} we introduce a pictorial representation of PCE operations of 
-1, 2 and 3 qubits. Every position in the column, board or cube is associated with 
-the subindices of $\taus$ of a PCE operation. If a little square or cube  in position
-$\alpha_1,\ldots,\alpha_N$ is black, then $\taus=1$, if it is white, then $\taus=0$. For example,
-\begin{center}
-\includegraphics[width=2cm]{2qubits_pce_example}
-\end{center}
-this represents a PCE operation of 2 qubits that leaves invariant the Pauli 
-components $r_{0,0}$, $r_{0,2}$, $r_{1,0}$, $r_{2,2}$, $r_{3,2}$. This operation
-is not completely positive and therefore is not a quantum channel. In contrast, 
-\begin{center}
-\includegraphics[width=2cm]{2qubits_pceChannel_example01}
-\end{center}
-this other example of PCE operation that leaves invariant Pauli components 
-$r_{0,0}$, $r_{1,2}$, $r_{2,1}$, $r_{3,3}$ satisfies complete positivity and 
-is a quantum channel. 
-
-\begin{figure} % {{{
-	\centering
-	\hfill \hfill
-	\includegraphics[height=2.5cm]	{tablero_1qubit}
-	\hfill
-	\includegraphics[height=2.5cm]{tablero_2qubits}
-%	\hspace{1mm}
-%	\includegraphics[height=2.7cm]{rho-3q}
-	\hfill \hfill \hfill
-	\caption{From left to right representations of identity map
-	(also PCE operations) of 1 and 2 qubits, respectively.}
-	\label{fig:PCE_figs}
-\end{figure} % }}}
-
-\begin{figure} % {{{
-	\centering
-	\includegraphics[height=2.5cm]	{1qubit_PCEChannels}
-	\caption{1 qubit PCE channels. }
-	\label{fig:1qubit_PCEChannles}
-\end{figure} % }}}
+% In \Fref{fig:PCE_figs} we introduce a pictorial representation of PCE operations of 
+% 1, 2 and 3 qubits. Every position in the column, board or cube is associated with 
+% the subindices of $\taus$ of a PCE operation. If a little square or cube  in position
+% $\alpha_1,\ldots,\alpha_N$ is black, then $\taus=1$, if it is white, then $\taus=0$. For example,
+% \begin{center}
+% \includegraphics[width=2cm]{2qubits_pce_example}
+% \end{center}
+% this represents a PCE operation of 2 qubits that leaves invariant the Pauli 
+% components $r_{0,0}$, $r_{0,2}$, $r_{1,0}$, $r_{2,2}$, $r_{3,2}$. This operation
+% is not completely positive and therefore is not a quantum channel. In contrast, 
+% \begin{center}
+% \includegraphics[width=2cm]{2qubits_pceChannel_example01}
+% \end{center}
+% this other example of PCE operation that leaves invariant Pauli components 
+% $r_{0,0}$, $r_{1,2}$, $r_{2,1}$, $r_{3,3}$ satisfies complete positivity and 
+% is a quantum channel. 
+% 
+% \begin{figure} % {{{
+% 	\centering
+% 	\hfill \hfill
+% 	\includegraphics[height=2.5cm]	{tablero_1qubit}
+% 	\hfill
+% 	\includegraphics[height=2.5cm]{tablero_2qubits}
+% %	\hspace{1mm}
+% %	\includegraphics[height=2.7cm]{rho-3q}
+% 	\hfill \hfill \hfill
+% 	\caption{From left to right representations of identity map
+% 	(also PCE operations) of 1 and 2 qubits, respectively.}
+% 	\label{fig:PCE_figs}
+% \end{figure} % }}}
+% 
+% \begin{figure} % {{{
+% 	\centering
+% 	\includegraphics[height=2.5cm]	{1qubit_PCEChannels}
+% 	\caption{1 qubit PCE channels. }
+% 	\label{fig:1qubit_PCEChannles}
+% \end{figure} % }}}
 
 
 
