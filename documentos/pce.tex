@@ -157,6 +157,90 @@ in this article to determine with $\taus$ lead to a valid quantum map.
 % todo claro y no hay problema en dejarlo así por el momento.}
 \cpnote{Aca voy} 
 
+A graphical representation for 1, 2 and 3 qubits may be introduced, being the
+two qubit case what has proved more useful. Consider a $N$ dimensional 
+grid, with $4^N$ places. Each place has $N$ integer coordinates, ranging
+from 0 to 3, so each place corresponds to a given $\vec \alpha$ in 
+\eref{eq:N_qubits_rho}. For a given PCE, we shall fill with black 
+the corresponding position \cpnote{No me pone feliz esta redaccion}
+if the corresponding $\tau_{\vec \alpha}=1$. Otherwise, we leave it 
+empty. Examples for $N=1$ are provided in \fref{fig:one:qubit:examples}, whereas
+for two qubits, we exemplify them in \fref{fig:two:qubit:examples}. Notice
+than in both cases we drop the label $\alpha$ for simplicity, as it will 
+remain unchanged throughout this text. 
+
+
+
+\begin{figure} % {{{
+\begin{center}
+\begin{tikzpicture}[x=0.5cm, y=0.5cm]
+% Coordenadas  
+\node at (-0.6,0.5) {(a)} ;
+\draw (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_0$} ;
+\begin{scope}[shift={(0,-1)}]
+\draw (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_1$} ;
+\end{scope}
+\begin{scope}[shift={(0,-2)}]
+\draw (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_2$} ;
+\end{scope}
+\begin{scope}[shift={(0,-3)}]
+\draw (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_3$} ;
+\end{scope}
+% Identity
+\begin{scope}[shift={(4,0)}]
+\node at (-0.6,0.5) {(b)} ;
+\fill[black] (0,0) rectangle (1,1);
+\draw (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\end{scope}
+% Dephasing
+\begin{scope}[shift={(8,0)}]
+\node at (-0.6,0.5) {(c)} ;
+\fill[black] (0,0) rectangle (1,1);
+\draw (0,0) rectangle (1,1);
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\end{scope}
+% Total depolarization
+\begin{scope}[shift={(12,0)}]
+\node at (-0.6,0.5) {(d)} ;
+\fill[black] (0,0) rectangle (1,1);
+\draw (0,0) rectangle (1,1);
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\end{scope}
+\end{tikzpicture}
+\end{center}
+	\caption{\cpnote{Aca meter la figura, JA} In (a) we introduce the positions of the single 
+qubit diagrams, so that each square corresponds to a single 
+$\tau_{\alpha}$, $\alpha=0,\cdots,3$. The diagrams in 
+(b), (c) and (d) correspond to the identity map, \cpnote{bit flip ao algo asi}, and 
+total depolarization, respectively. In (e) we show a map that erases the two components
+$r_1$ and $r_2$ and thus does not correspond to a quantum operation.}
+	\label{fig:one:qubit:examples}
+\end{figure} % }}}
+
+\begin{figure} % {{{
+	\caption{\cpnote{Aca meter la figura, JA} In (a) we introduce the
+positions of two qubit diagrams. The diagrams in 
+(b) corresponds to a quantum channel that \cpnote{ver con JA que ejemplo ponemos}, 
+and in (c) a diagram of a map that is not a quantum channel is presented.}
+	\label{fig:two:qubit:examples}
+\end{figure} % }}}
+
 In \Fref{fig:PCE_figs} we introduce a pictorial representation of PCE operations of 
 1, 2 and 3 qubits. Every position in the column, board or cube is associated with 
 the subindices of $\taus$ of a PCE operation. If a little square or cube  in position
