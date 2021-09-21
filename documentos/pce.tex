@@ -54,6 +54,8 @@ then they are defined as follows
 r_i \mapsto \tau_i r_i
 \end{equation}
 where $\tau_k$ is either $1$ or $0$. A direct evaluation of the 
+
+ These operations have been studied in \cite{Ziman2005,davalosdivisibility} and are by definition diagonal in the Pauli basis $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$. They form a tetrahedron in the space of eigenvalues 
  
 with
 \begin{equation}
@@ -102,8 +104,8 @@ where $\vec \alpha$ denotes a vector index $\qty(\alpha_1,\ldots,\alpha_N)$,
 $\sigma_{\vec \alpha} := \sigma_{\alpha_1}\otimes \ldots \otimes
 \sigma_{\alpha_N}$ is the tensor product of Pauli matrices, and 
 $r_{\vec \alpha}$ is the coefficient corresponding to the expansion
-of the density matrix in the complete orthonormal basis $\{ \sigma_{\vec
-\alpha} \}$. In the sum each of the $N$ components of $\valpha$, i.e.
+of the density matrix in the complete orthonormal basis $\left\{ \frac{1}{2^{N/2}}\sigma_{\vec
+\alpha} \right\}$. In the sum each of the $N$ components of $\valpha$, i.e.
 $\alpha_{1,\cdots,N}$ is varied from $0$ to $3$\cpnote{Quizá se cambia
 cuando hayamos escrito lo de un qubit}. 
 Notice that $\sigma_{\vec 0} = \openone$, and since both $\tr \rho=1$ and 
@@ -122,7 +124,8 @@ a multiqubit system:
 	\paulicomponents \mapsto \taus \paulicomponents.
 % 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
 \end{equation}
-These operations have been studied in \cite{} \cpnote{davalos, dale aca un pequeño 
+These operations are diagonal in the basis $1/2^{N/2} \left\{\sigma_{\vec \alpha} \right\}_{\vec \alpha}$
+ \cpnote{davalos, dale aca un pequeño 
 rollo relevante quiza de una o dos frases. También debemos tener un nombre pues lo de la diagonazliación 
 funciona para eso y quizá también seran relevantes para la parte de decoherencia}.
 For the operation to preserve the trace of the density matrix, we require that 
