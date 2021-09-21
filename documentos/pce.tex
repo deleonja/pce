@@ -244,15 +244,15 @@ $r_1$ and thus does not correspond to a quantum operation.}
 \end{figure} % }}}
 
 \begin{figure} % {{{
-\begin{tikzpicture}[x=0.5cm, y=0.5cm] % {{{
-\pgfmathsetmacro{\unitstep}{5.8}
+\begin{tikzpicture}[x=0.55cm, y=0.55cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
 \begin{scope}[shift={(0*\unitstep,0)}] % Coordenadas {{{
-\node at (-0.6,0.5) {(a)} ;
+\node at (-0.5,0.5) {(a)} ;
     \foreach \x in {0,1,2,3} {
       \foreach \y in {0,1,2,3} {
         \begin{scope}[shift={(\x,-\y)}] 
           \draw (0,0) rectangle (1,1); 
-          \node at (0.5,0.5) {\scalebox{.8}{$\tau_{\y,\x}$}};
+          \node at (0.5,0.5) {\scalebox{.8}{$\tau_{(\y,\x)}$}};
          \end{scope}
 %         \node at (0,-\y) (input\y) {$i_\y$};
 %         \node[block] at (2,-\y) (block\y) {$f_\y$};
@@ -262,7 +262,7 @@ $r_1$ and thus does not correspond to a quantum operation.}
     }
 \end{scope} % }}}
 \begin{scope}[shift={(1*\unitstep,0)}] % Good channel {{{
-\node at (-0.6,0.5) {(b)} ;
+\node at (-0.5,0.5) {(b)} ;
     \foreach \x in {0,1,2,3} {
       \foreach \y in {0,1,2,3} {
         \begin{scope}[shift={(\x,-\y)}] 
@@ -281,7 +281,7 @@ $r_1$ and thus does not correspond to a quantum operation.}
 \begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
 \end{scope} % }}}
 \begin{scope}[shift={(2*\unitstep,0)}] % Good channel {{{
-\node at (-0.6,0.5) {(c)} ;
+\node at (-0.5,0.5) {(c)} ;
     \foreach \x in {0,1,2,3} {
       \foreach \y in {0,1,2,3} {
         \begin{scope}[shift={(\x,-\y)}] 
