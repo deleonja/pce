@@ -104,7 +104,7 @@ where $\vec \alpha$ denotes a vector index $\qty(\alpha_1,\ldots,\alpha_N)$,
 $\sigma_{\vec \alpha} := \sigma_{\alpha_1}\otimes \ldots \otimes
 \sigma_{\alpha_N}$ is the tensor product of Pauli matrices, and 
 $r_{\vec \alpha}$ is the coefficient corresponding to the expansion
-of the density matrix in the complete orthonormal basis $\left\{ \frac{1}{2^{N/2}}\sigma_{\vec
+of the density matrix in the complete orthonormal basis $\left\{ 2^{-N/2}\sigma_{\vec
 \alpha} \right\}$. In the sum each of the $N$ components of $\valpha$, i.e.
 $\alpha_{1,\cdots,N}$ is varied from $0$ to $3$\cpnote{Quizá se cambia
 cuando hayamos escrito lo de un qubit}. 
@@ -124,10 +124,10 @@ a multiqubit system:
 	\paulicomponents \mapsto \taus \paulicomponents.
 % 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
 \end{equation}
-These operations are diagonal in the basis $1/2^{N/2} \left\{\sigma_{\vec \alpha} \right\}_{\vec \alpha}$
+These operations are diagonal in the basis $\left\{ 2^{-N/2}\sigma_{\vec \alpha} \right\}$, this follows straightforwardly from \eref{eq:sigma_property}, in fact, the diagonal components are exactly $\taus$, this is $\hat \mcE=\diag(\taus)$. Additionally, they are unital (leave invariant the complete mixture), in fact, as we will show later, they belong to the subset of unital channels that can be written as convex combinations of unitary channels.
  \cpnote{davalos, dale aca un pequeño 
 rollo relevante quiza de una o dos frases. También debemos tener un nombre pues lo de la diagonazliación 
-funciona para eso y quizá también seran relevantes para la parte de decoherencia}.
+funciona para eso y quizá también seran relevantes para la parte de decoherencia} \ddnote{De momento no he encontrado alguna reference, para qubits si, pero para los generales no, estoy checando de nuevo el paper de Ruskai para entender que tanto se solapan, a ver si puedo decir algo}.
 For the operation to preserve the trace of the density matrix, we require that 
 $\tau_{\vec 0}=1$. 
 \cpnote{Tocará ajustar el texto de acuerdo a lo que ponga Davalos aca}
