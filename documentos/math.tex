@@ -11,25 +11,24 @@ This part is devoted to derive the set of conditions a Pauli map need to satisfy
 \afnote{Notación para matrices densidad vectorizadas? $\varrho$ ?}
 \janote{Qué tal $\vec\rho\quad$?}
 
-
-We now turn to find the matrix form of the map $\mathcal{E}$ in order to construct the Choi matrix and the conditions the set of parameters $\{\tau_{\mu}\}$ need to satisfy in order to $\mathcal{E}$ be considered a quantum channel. By writing the density matrix in vector form $\ket{\rho}=\sum_{\mu=0}^{3} \alpha_{\mu} \ket{\sigma_{\mu}}$, it is easy to show that the matrix form of the map $\mathcal{E}$ may be written as
+We now turn to find the matrix form of the map $\mathcal{E}$ in order to construct the Choi matrix and the conditions the set of parameters $\{\tau_{\alpha}\}$ need to satisfy in order to $\mathcal{E}$ be considered a quantum channel. By writing the density matrix in vector form $\ket{\rho}=\sum_{\alpha=0}^{3} \alpha_{\alpha} \ket{\sigma_{\alpha}}$, it is easy to show that the matrix form of the map $\mathcal{E}$ may be written as
 % 
 \begin{equation}
-\hat{\mathcal{E}} = \frac{1}{2}\sum_{\mu=0}^{3} \tau_{\mu} \dyad{\sigma_{\mu}},
+\hat{\mathcal{E}} = \frac{1}{2}\sum_{\alpha=0}^{3} \tau_{\alpha} \dyad{\sigma_{\alpha}},
 % \label{Map_Pauli}
 \end{equation}
 %
-where the kets $\ket{\sigma_{\mu}}$ correspond to the vectorized elements of the Pauli basis and satisfy the usual relation $ \braket{{\sigma_{\mu}}}{{\sigma_{\mu'}}} = \tr \left(\sigma_{\mu}^{\dagger} \sigma_{\mu'}\right) = 2 ~\delta_{\mu\mu'}$. After some steps it is possible to show that the associated Choi matrix reads
+where the kets $\ket{\sigma_{\alpha}}$ correspond to the vectorized elements of the Pauli basis and satisfy the usual relation $ \braket{{\sigma_{\alpha}}}{{\sigma_{\alpha'}}} = \tr \left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2 ~\delta_{\alpha\alpha'}$. After some steps it is possible to show that the associated Choi matrix reads
 % 
 \begin{equation}
- \mathcal{D} = \frac{1}{2}\sum_{\mu=0}^{3} \tau_{\mu} \sigma_{\mu} \otimes \sigma_{\mu}^*.
+ \mathcal{D} = \frac{1}{2}\sum_{\alpha=0}^{3} \tau_{\alpha} \sigma_{\alpha} \otimes \sigma_{\alpha}^*.
 %  \label{Choi_1}
 \end{equation}
 % 
-Note that $\mathcal{D}$ has the same form as the matrix representation of a random unitary channel whose Kraus operators are given by $K_{\mu}=\sqrt{\frac{\tau_{\mu}}{2}}\sigma_{\mu}$. For the latter case, it has been shown that corresponding eigenvalues read \cite{CHRUSCINSKI20131425}
+Note that $\mathcal{D}$ has the same form as the matrix representation of a random unitary channel whose Kraus operators are given by $K_{\alpha}=\sqrt{\frac{\tau_{\alpha}}{2}}\sigma_{\alpha}$. For the latter case, it has been shown that corresponding eigenvalues read \cite{CHRUSCINSKI20131425}
 % 
 \begin{equation}
- \lambda_{\nu} = \frac{1}{2}\sum_{\mu=0}^3H_{\nu\mu}^{(4)}\tau_{\mu},
+ \lambda_{\beta} = \frac{1}{2}\sum_{\alpha=0}^3H_{\beta\alpha}^{(4)}\tau_{\alpha},
 \end{equation}
 %
 or
@@ -47,7 +46,39 @@ where $H^{(m)}$ is the Hadamard matrix of order \textit{m}, and for $m=2$ reduce
     \end{pmatrix}.
  \label{Hadd_Mat}
 \end{equation}
+
+% For the sake of simplicity in the derivation of the relations, let us employ a set of binary indices
 % 
+% \begin{equation}
+% \rho=\sum_{mn=0}^{1} \alpha_{mn} \sigma_{mn},
+% % \label{rho}
+% \end{equation}
+
+\subsubsection{$N$ qubits}
+% 
+For the case of $N$ qubits, the density matrix may be written as
+% 
+\begin{equation}
+\rho=\sum_{\vec{\alpha}} r_{\vec{\alpha}} \sigma_{\vec{\alpha}}.
+% \label{rho2}
+\end{equation}
+% 
+Analogously to the single qubit case, we can define a $N$-qubits Pauli map
+% 
+\begin{equation}
+\rho \to \rho'=\mathcal{E}[\rho ]=\sum_{\vec{\alpha}} \tau_{\vec{\alpha}} r_{\vec{\alpha}} \sigma_{\vec{\alpha}},
+% \label{Pauli_Map}
+\end{equation}
+% 
+with $-1\leq \tau_{\vec{\alpha}} \leq 1$. 
+% 
+In this case the density matrix in vector form holds 
+% 
+\begin{equation}
+ \ket{\rho}=\sum_{\vec{\alpha}} r_{\vec{\alpha}} \ket{\sigma_{\vec{\alpha}}},
+\end{equation}
+% 
+where $\ket{\sigma_{\vec{\alpha}}}=\ket{\sigma_{\alpha_1}}\otimes\dots \otimes\ket{\sigma_{\alpha_N}}$, and satisfy the usual orthogonality relation $\braket{{\sigma_{\vec{\alpha}}}}{{\sigma_{\vec{\alpha}'}}} = \tr \left(\sigma_{\vec{\alpha}}^{\dagger} \sigma_{\vec{\alpha}'}\right) = 2^N ~\delta_{\vec{\alpha}\vec{\alpha}'}$.
 (Proofs in an appendix using binary indices XD)
 
 % By writing the elements of the density matrix in vector form $\varrho=\left(\varrho_0,\varrho_1,\varrho_2,\varrho_3\right)^{\intercal}$, the action of a Pauli map on $\varrho$ for a single qubit may be written as $\varrho \to \varrho'=\hat \mcE \varrho$, where $\hat \mcE$ is the matrix representation of the map. Moreover it can be shown that in the Pauli basis $(\sigma_0,\sigma_1,i\sigma_2,\sigma_3)$, $\hat \mcE$ reduces simply to $\mathrm{diag}\left(\tau_0,\tau_1,\tau_2,\tau_3\right)$. 
@@ -140,11 +171,10 @@ where $H^{(m)}$ is the Hadamard matrix of order \textit{m}, and for $m=2$ reduce
 % % 
 % Now we proceed to generalize this result for the case $N$ qubits case.
 
-\subsubsection{$N$ qubits}
+% \subsubsection{$N$ qubits}
 
 
 
-Coming soon...
 
 
 \subsection{Parte de Francois}
