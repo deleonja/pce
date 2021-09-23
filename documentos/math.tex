@@ -19,7 +19,11 @@ We now turn to find the matrix form of the map $\mathcal{E}$ in order to constru
 % \label{Map_Pauli}
 \end{equation}
 %
-where the kets $\ket{\sigma_{\mu}}$ correspond to the vectorized elements of the Pauli basis and satisfy the usual relation $ \braket{{\sigma_{\mu}}}{{\sigma_{\mu'}}} = \tr \left(\sigma_{\mu}^{\dagger} \sigma_{\mu'}\right) = 2 ~\delta_{\mu\mu'}$. After some steps it is possible to show that the associated Choi matrix reads
+where the kets $\ket{\sigma_{\mu}}$ correspond to the vectorized elements of
+the Pauli basis and satisfy the usual relation $
+\braket{{\sigma_{\mu} }}{{\sigma_{\mu'} }} = \tr \left(\sigma_{\mu}^{\dagger}
+\sigma_{\mu'}\right) = 2 ~\delta_{\mu\mu'}$. After some steps it is possible to
+show that the associated Choi matrix reads
 % 
 \begin{equation}
  \mathcal{D} = \frac{1}{2}\sum_{\mu=0}^{3} \tau_{\mu} \sigma_{\mu} \otimes \sigma_{\mu}^*.
@@ -183,6 +187,34 @@ and further define the matrix
 % summation rules will give you the rest of components to make the target
 % operation a CPTP one.}
 % \end{itemize} % }}}
+
+The problem of determining complete positivity of a PCE can be recast as 
+determining which vectors $\vec \tau$ are mapped via
+$\san$
+% \begin{equation}
+% \san\vec\tau=2^N\vec p
+% \label{eq:condition}
+% \end{equation}
+to a positive vector $\vec p$. In compontents, this would read 
+\begin{equation}
+\left(
+\san_{\vec\alpha\vec\beta}
+\right)
+\tau_\beta=2^Np_{\vec\alpha}
+\label{eq:4}
+\end{equation}
+where
+$\san_{\vec\alpha\vec\beta} =\sa_{\alpha_1\beta_1}\cdot\ldots\cdot
+\sa_{\alpha_N\beta_N}$. From the 
+
+
+
+It results convenient to express the 
+previous equation in  
+
+
+
+
 
 We look for those vectors $\vec\tau$ consisting of 0's and 1's such that 
 \begin{equation}
@@ -462,3 +494,5 @@ the result that all PCE's can be obtained as intersections of maximal PCE's.
 \ddnote{Agrego esto:} A final remarks of the derivation as a tool. Concepts might be complicated, but the tool gives some simple rules to the reader: \textit{tell me what components you want to keep, and the (vector) summation rules will give you the rest of components to make the target operation a CPTP one.}
 
 % }}}
+
+

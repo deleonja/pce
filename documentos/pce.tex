@@ -106,8 +106,7 @@ $\sigma_{\vec \alpha} := \sigma_{\alpha_1}\otimes \ldots \otimes
 $r_{\vec \alpha}$ is the coefficient corresponding to the expansion
 of the density matrix in the complete orthonormal basis $\left\{ 2^{-N/2}\sigma_{\vec
 \alpha} \right\}$. In the sum each of the $N$ components of $\valpha$, i.e.
-$\alpha_{1,\cdots,N}$ is varied from $0$ to $3$\cpnote{Quizá se cambia
-cuando hayamos escrito lo de un qubit}. 
+$\alpha_{1,\cdots,N}$ is varied from $0$ to $3$. 
 Notice that $\sigma_{\vec 0} = \openone$, and since both $\tr \rho=1$ and 
 $\tr \sigma_\valpha=2^N\delta_{\valpha,\vec 0}$, then $r_{\vec 0}=1$. 
 We shall refer to $\paulicomponents$ as the ``Pauli components'' of the density
@@ -125,13 +124,15 @@ a multiqubit system:
 % 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
 \end{equation}
 These operations are diagonal in the basis $\left\{ 2^{-N/2}\sigma_{\vec \alpha} \right\}$, this follows straightforwardly from \eref{eq:sigma_property}, in fact, the diagonal components are exactly $\taus$, this is $\hat \mcE=\diag(\taus)$. Additionally, they are unital (leave invariant the complete mixture), in fact, as we will show later, they belong to the subset of unital channels that can be written as convex combinations of unitary channels.
- \cpnote{davalos, dale aca un pequeño 
-rollo relevante quiza de una o dos frases. También debemos tener un nombre pues lo de la diagonazliación 
-funciona para eso y quizá también seran relevantes para la parte de decoherencia} \ddnote{De momento no he encontrado alguna reference, para qubits si, pero para los generales no, estoy checando de nuevo el paper de Ruskai para entender que tanto se solapan, a ver si puedo decir algo}.
+ \cpnote{davalos, dale aca un pequeño rollo relevante quiza de una o dos
+frases. También debemos tener un nombre pues lo de la diagonazliación funciona
+para eso y quizá también seran relevantes para la parte de decoherencia}
+\ddnote{De momento no he encontrado alguna reference, para qubits si, pero para
+los generales no, estoy checando de nuevo el paper de Ruskai para entender que
+tanto se solapan, a ver si puedo decir algo}.
 For the operation to preserve the trace of the density matrix, we require that 
 $\tau_{\vec 0}=1$. 
-\cpnote{Tocará ajustar el texto de acuerdo a lo que ponga Davalos aca}
-A Pauli component erasing (PCE) operation is a \cpnote{Pauli diagonal operation}
+A Pauli component erasing (PCE) operation is a Pauli diagonal operation
 %  A linear operation 
 % $\mcE$ 
 that either preserves or completely erases the Pauli components of a
