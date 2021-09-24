@@ -148,6 +148,12 @@
 % \newcommand{\paulicomponents}{r_{\alpha_1,\ldots,\alpha_N}}
 \newcommand{\paulicomponents}{r_\valpha}
 \newcommand{\taus}{\tau_\valpha}
+% 
+\def\bbra#1{\mathinner{\langle \! \langle{#1}|}}
+\def\kket#1{\mathinner{|{#1}\rangle \! \rangle}}
+\def\ddyada#1{\mathinner{|{#1}\rangle\!\rangle\!\langle\!\langle{#1}|}}
+\def\ddyad#1#2{\mathinner{|{#1}\rangle\!\rangle\!\langle\!\langle{#2}|}}
+\def\bbrakket#1#2{\mathinner{\langle\!\langle {#1}|{#2}\rangle\!\rangle}}
 % \newcommand{\taus}{\tau_{\alpha_1,\ldots ,\alpha_N}}		
 % --------------------------------------------------------------------------------------------------------------
 
