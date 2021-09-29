@@ -1,12 +1,18 @@
-\section{Mathematical derivation} % {{{
-\subsection{Diagonalization of Choi matrix} % {{{
+\section{Mathematical considerations} 
+\subsection{Diagonalization of Choi matrix} 
 
+% Intro {{{
 Prueba de la $\sa$ \todo{Alejo escribe esta parte. Dejelo aca todo y luego si acaso 
 pasamos cosas al apendice. Caso general}
 
-This part is devoted to derive the set of conditions a Pauli map need to satisfy to fulfill the CP condition i.e. all the eigenvalues of the Choi matrix associated to the channel must be non-negative. First we obtain the set of inequalities for a single qubit Pauli channel and then we extend the results for the general case of $N$ qubits. 
+This part is devoted to derive the set of conditions a Pauli map need to
+satisfy to fulfill the CP condition i.e. all the eigenvalues of the Choi matrix
+associated to the channel must be non-negative. First we obtain the set of
+inequalities for a single qubit Pauli channel and then we extend the results
+for the general case of $N$ qubits. 
 
-\subsubsection{Single qubit Pauli channels}
+% }}}
+\subsubsection{Single qubit Pauli channels} % {{{
 
 \afnote{Notación para matrices densidad vectorizadas? $\varrho$ ?}
 \janote{Qué tal $\vec\rho\quad$?}
@@ -19,7 +25,7 @@ We now turn to find the matrix form of the map $\mathcal{E}$ in order to constru
 % \label{Map_Pauli}
 \end{equation}
 %
-where the kets $\kket{\sigma_{\alpha}}$ correspond to the vectorized elements of the Pauli basis and satisfy the usual relation $ \bbrakket{{\sigma_{\alpha}}}{{\sigma_{\alpha'}}} = \tr \left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2 ~\delta_{\alpha\alpha'}$. After some steps it is possible to show that the associated Choi matrix reads
+where the kets $\kket{\sigma_{\alpha}}$ correspond to the vectorized elements of the Pauli basis and satisfy the usual relation $ \bbrakket{{\sigma_{\alpha} }}{{\sigma_{\alpha'} }} = \tr \left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2 ~\delta_{\alpha\alpha'}$. After some steps it is possible to show that the associated Choi matrix reads
 % 
 \begin{equation}
  \mathcal{D} = \frac{1}{2}\sum_{\alpha=0}^{3} \tau_{\alpha} \sigma_{\alpha} \otimes \sigma_{\alpha}^*.
@@ -38,7 +44,10 @@ with eigenvalues given by
  \lambda_{\alpha} = \sum_{\beta=0}^3\sa_{\alpha\beta}\tau_{\beta},
 \end{equation}
 %
-or more compactly $\vec{\lambda} = \sa~\vec{\tau}$, where $\sa=2^{-1}H\otimes H$ and $H$ is the Hadamard matrix,
+or more compactly $\vec{\lambda} = \sa~\vec{\tau}$, where $\sa=2^{-1}H\otimes
+H$ and $H$ is the Hadamard matrix,
+\cpnote{Decidir si se usa esa $a$ o la otra para ser consistente con lo de los 
+generadores}
 %
 \begin{equation}
  H=\begin{pmatrix}
@@ -47,11 +56,24 @@ or more compactly $\vec{\lambda} = \sa~\vec{\tau}$, where $\sa=2^{-1}H\otimes H$
     \end{pmatrix}.
  \label{Hadd_Mat}
 \end{equation}
-% 
-% 
-\afnote{Podemos definir la matriz de Hadamard con un factor $2^{-1/2}$, o sea $H'=H/\sqrt{2}$ para evitar cargar factores extra hasta el final, de esta manera tenemos simplemente $\san=H^{\otimes 2N}$. Qué opinan?}
 
-\subsubsection{$N$ qubits}
+
+\cpnote{Mencionar que con la otra $a$ tambien se puede diagonalizar y la
+dejo por aca por si se nos ofrece}
+\begin{equation}
+\sa=\left(
+\begin{array}{cccc}
+1 &1 &1   &1   \\
+ 1 & 1  & -1&-1   \\
+1  & -1  & 1 & -1\\
+1&-1&-1&1  
+\end{array}
+\right)=\frac12\sa^{-1}.
+\label{eq:1}
+\end{equation}
+% 
+%  }}}
+\subsubsection{$N$ qubits} % {{{
 % 
 Analogously to the single qubit case, one can define the $N$-qubits Pauli map $\mathcal{E}_N$
 % 
@@ -65,13 +87,18 @@ with $-1\leq \tau_{\vec{\alpha}} \leq 1$.
 In this case the density matrix in vector form holds 
 % 
 \begin{equation}
- \kket{\rho}=\frac{1}{2^N}\sum_{\vec{\alpha}} r_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha}}},
+ \kket{\rho}=\frac{1}{2^N}\sum_{\vec{\alpha}} r_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha} }},
 \end{equation}
 % 
-where $\kket{\sigma_{\vec{\alpha}}}=\kket{\sigma_{\alpha_1}}\otimes\dots \otimes\kket{\sigma_{\alpha_N}}$, and satisfy the usual orthogonality relation $\bbrakket{{\sigma_{\vec{\alpha}}}}{{\sigma_{\vec{\alpha}'}}} = \tr \left(\sigma_{\vec{\alpha}}^{\dagger} \sigma_{\vec{\alpha}'}\right) = 2^N ~\delta_{\vec{\alpha}\vec{\alpha}'}$. The matrix representation of this map is given by
+where $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\dots
+\otimes\kket{\sigma_{\alpha_N}}$, and satisfy the usual orthogonality relation
+$\bbrakket{{\sigma_{\vec{\alpha} } }}{{\sigma_{\vec{\alpha}'} }} = \tr
+\left(\sigma_{\vec{\alpha}}^{\dagger} \sigma_{\vec{\alpha}'}\right) = 2^N
+~\delta_{\vec{\alpha}\vec{\alpha}'}$. The matrix representation of this map is
+given by
 % 
 \begin{equation}
-\hat{\mathcal{E}}_N = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}} \ddyada{\sigma_{\vec{\alpha}}}.
+\hat{\mathcal{E}}_N = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}} \ddyada{\sigma_{\vec{\alpha} }}.
 % \label{Map_Pauli}
 \end{equation}
 %
@@ -85,7 +112,8 @@ As in the previous case, the Choi matrix $\mathcal{D}_N$ may be written in terms
 After several steps, it is possible to prove that analogously to the single qubit case, $\mathcal{D}_N$ is diagonal in the $N$-qubits Pauli basis
 %
 \begin{equation}
- \mathcal{D}_N \kket{\sigma_{\vec{\alpha}}}= \lambda_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha}}},
+ \mathcal{D}_N \kket{\sigma_{\vec{\alpha} }}
+   = \lambda_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha} }},
 \end{equation}
 % 
 with eigenvalues $\lambda_{\vec{\alpha}}$ given by 
@@ -97,81 +125,14 @@ with eigenvalues $\lambda_{\vec{\alpha}}$ given by
 where 
 % 
 \begin{equation}
- \san=\sa^{\otimes N}=\frac{1}{2^N}\left(H\otimes H\right)^{\otimes N}=\left(\frac{H}{\sqrt{2}}\right)^{\otimes 2N}.
+ \san=\sa^{\otimes N}
+% =\frac{1}{2^N}\left(H\otimes H\right)^{\otimes N}=\left(\frac{H}{\sqrt{2}}\right)^{\otimes 2N}.
 \end{equation}
-%
-%
-
-(Proofs in an appendix using binary indices XD)
-
-\subsubsection{APPENDIX: Diagonalization of Choi Matrix $\mathcal{D}_N$}
-% 
-In order to simplify the derivation of the relations, let us employ pairs of binary indices instead of a single quaternary, i.e. $\alpha\to\mu+2\nu$. In this way we can write the elements of the Pauli basis $(\sigma_{0},\sigma_{1},i\sigma_{2},\sigma_{3})$ in the standard and vectorized forms, compactly as
-% 
-\begin{equation}
-\sigma_{\mu\nu}=\sum_{j=0}^{1} (-1)^{j \mu}\dyad{j}{j\oplus \nu},
-\end{equation}
-% 
-and
-% 
-\begin{equation}
-\kket{\sigma_{\mu\nu}}=\sum_{j=0}^{1} (-1)^{j \mu}\ket{j,j\oplus \nu}.
-\end{equation}
-% 
-In addition, recall the inverse relation between the computational and Pauli elements
-% 
-\begin{equation}
-\ket{l,l\oplus n}=\frac{1}{2}\sum_{m=0}^{1} (-1)^{ml}\kket{\sigma_{mn}}.
-\label{PauToComp}
-\end{equation}
-% 
-On the other hand, the matrix form of an arbitrary Pauli map $\mathcal{E}$ may be written as
-% 
-\begin{align}
-\hat{\mathcal{E}} & = \frac{1}{2}\sum_{\mu\nu=0}^{1} \tau_{\mu\nu} \ddyada{\sigma_{\mu\nu}},\\
-& = \frac{1}{2}\sum_{jk\mu\nu} \tau_{\mu\nu} (-1)^{\mu(j+k)} \dyad{j,j\oplus\nu}{k,k\oplus\nu}.
-% \label{Map_Pauli}
-\end{align}
-% 
-After applying the reshuffling operation on $\hat{\mathcal{E}}$, we obtain the Choi matrix associated to the map. It reads
-% 
-\begin{equation}
- \mathcal{D} = \frac{1}{2}\sum_{jk\mu\nu} \tau_{\mu\nu} (-1)^{\mu(j+k)} \dyad{j,k}{j\oplus\nu,k\oplus\nu}.
-\label{Choi_a1}
-\end{equation}
-% 
-
-Let us appply the index relabeling $k\to j\oplus m$, then the Choi matrix holds
-% 
-\begin{equation}
- \mathcal{D} = \frac{1}{2}\sum_{jm\mu\nu} \tau_{\mu\nu} (-1)^{\mu m} \dyad{j,j\oplus m}{j\oplus\nu,j\oplus\nu\oplus m}.
-\label{Choi_a1}
-\end{equation}
-%
-By using the relation between computational and Pauli elements (Eq. \ref{PauToComp}), we have
-% 
-\begin{align*}
- \mathcal{D} & = \frac{1}{2}\sum_{jm\mu\nu} \tau_{\mu\nu}(-1)^{\mu m}  \left( \frac{1}{2}\sum_{k=0}^{1} (-1)^{kj}\kket{\sigma_{km}}\right)\left(\frac{1}{2}\sum_{n=0}^{1} (-1)^{n(j\oplus\nu)}\bbra{\sigma_{nm}}\right),\\
- & = \frac{1}{8}\sum_{jkmn\mu\nu} \tau_{\mu\nu}(-1)^{\mu m+kj+n(j\oplus\nu)}  \ddyad{\sigma_{km}}{\sigma_{nm}},\\
- & = \frac{1}{8}\sum_{kmn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} \left(\sum_{j} (-1)^{j(k+n)} \right) \ddyad{\sigma_{km}}{\sigma_{nm}},\\
- & = \frac{1}{8}\sum_{kmn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} (2\delta_{kn}) \ddyad{\sigma_{km}}{\sigma_{nm}},\\
- & = \frac{1}{4}\sum_{mn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} \ddyad{\sigma_{nm}}{\sigma_{nm}},\\
- & = \frac{1}{2}\sum_{mn} \left(\frac{1}{2}\sum_{\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu}\right) \ddyad{\sigma_{nm}}{\sigma_{nm}},
-% \label{Choi_a1}
-\end{align*}
-%
-Then $\mathcal{D}$ is diagonal in the Pauli basis, with eigenvalues given by
-% 
-\begin{equation}
-\lambda_{mn}=\frac{1}{2}\sum_{\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu},
-\end{equation}
-% 
-or more compactly $\vec{\lambda} = \sa~\vec{\tau}$, where $\sa=2^{-1}H\otimes H$ and $H$ is the Hadamard matrix.
-
-\afnote{Queda faltando pasar a limpio la generalizacion para $N$ qubits.}
-
+Again, the proofs are provided in appendix \ref{sec:appendix:diagonalization}
+\cpnote{Mencionar que con la otra $a$ tambien se puede diagonalizar para $N$ 
+qubits.}
+% (Proofs in an appendix using binary indices XD)
 % }}}
 
 
-\input{vector_space}
 

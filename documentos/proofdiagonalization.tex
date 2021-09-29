@@ -1,0 +1,66 @@
+\section{Diagonalization of Choi Matrix $\mathcal{D}_N$} % {{{
+\label{sec:appendix:diagonalization}
+% 
+In order to simplify the derivation of the relations, let us employ pairs of
+binary indices instead of a single quaternary, i.e. $\alpha\to\mu+2\nu$. In
+this way we can write the elements of the Pauli basis
+$(\sigma_{0},\sigma_{1},i\sigma_{2},\sigma_{3})$ in the standard and vectorized
+forms, compactly as
+\begin{equation}
+\sigma_{\mu\nu}=\sum_{j=0}^{1} (-1)^{j \mu}\dyad{j}{j\oplus \nu},
+\end{equation}
+and
+\begin{equation}
+\kket{\sigma_{\mu\nu}}=\sum_{j=0}^{1} (-1)^{j \mu}\ket{j,j\oplus \nu}.
+\end{equation}
+In addition, recall the inverse relation between the computational and Pauli elements
+\begin{equation}
+\ket{l,l\oplus n}=\frac{1}{2}\sum_{m=0}^{1} (-1)^{ml}\kket{\sigma_{mn}}.
+\label{PauToComp}
+\end{equation}
+On the other hand, the matrix form of an arbitrary Pauli map $\mathcal{E}$ may
+be written as
+\begin{align}
+\hat{\mathcal{E}} & = \frac{1}{2}\sum_{\mu\nu=0}^{1} \tau_{\mu\nu} \ddyada{\sigma_{\mu\nu}},\\
+& = \frac{1}{2}\sum_{jk\mu\nu} \tau_{\mu\nu} (-1)^{\mu(j+k)} \dyad{j,j\oplus\nu}{k,k\oplus\nu}.
+% \label{Map_Pauli}
+\end{align}
+After applying the reshuffling operation on $\hat{\mathcal{E}}$, we obtain the
+Choi matrix associated to the map. It reads
+\begin{equation}
+ \mathcal{D} = 
+  \frac{1}{2}\sum_{jk\mu\nu} \tau_{\mu\nu} (-1)^{\mu(j+k)} 
+      \dyad{j,k}{j\oplus\nu,k\oplus\nu}.
+\label{Choi_a1}
+\end{equation}
+
+Let us apply the index relabeling $k\to j\oplus m$, then the Choi matrix holds
+\begin{equation}
+ \mathcal{D} =
+    \frac{1}{2}\sum_{jm\mu\nu} \tau_{\mu\nu} (-1)^{\mu m} 
+        \dyad{j,j\oplus m}{j\oplus\nu,j\oplus\nu\oplus m}.
+\label{Choi_a1}
+\end{equation}
+By using the relation between computational and Pauli elements (Eq.
+\ref{PauToComp}), we have
+\begin{align*}
+ \mathcal{D} & = \frac{1}{2}\sum_{jm\mu\nu} \tau_{\mu\nu}(-1)^{\mu m}  \left( \frac{1}{2}\sum_{k=0}^{1} (-1)^{kj}\kket{\sigma_{km}}\right)\left(\frac{1}{2}\sum_{n=0}^{1} (-1)^{n(j\oplus\nu)}\bbra{\sigma_{nm}}\right),\\
+ & = \frac{1}{8}\sum_{jkmn\mu\nu} \tau_{\mu\nu}(-1)^{\mu m+kj+n(j\oplus\nu)}  \ddyad{\sigma_{km}}{\sigma_{nm}},\\
+ & = \frac{1}{8}\sum_{kmn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} \left(\sum_{j} (-1)^{j(k+n)} \right) \ddyad{\sigma_{km}}{\sigma_{nm}},\\
+ & = \frac{1}{8}\sum_{kmn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} (2\delta_{kn}) \ddyad{\sigma_{km}}{\sigma_{nm}},\\
+ & = \frac{1}{4}\sum_{mn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} \ddyad{\sigma_{nm}}{\sigma_{nm}},\\
+ & = \frac{1}{2}\sum_{mn} \left(\frac{1}{2}\sum_{\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu}\right) \ddyad{\sigma_{nm}}{\sigma_{nm}},
+% \label{Choi_a1}
+\end{align*}
+Then $\mathcal{D}$ is diagonal in the Pauli basis, with eigenvalues given by
+\begin{equation}
+\lambda_{mn}=\frac{1}{2}\sum_{\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu},
+\end{equation}
+or more compactly $\vec{\lambda} = \sa~\vec{\tau}$, where $\sa=2^{-1}H\otimes
+H$ and $H$ is the Hadamard matrix.
+
+\afnote{Queda faltando pasar a limpio la generalizacion para $N$ qubits.}
+
+% }}}
+
+

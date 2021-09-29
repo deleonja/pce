@@ -1,25 +1,4 @@
 
-\subsection{Parte de Francois} % {{{
-
-
-We have the matrix 
-\begin{equation}
-\sa=\left(
-\begin{array}{cccc}
-1 &1 &1   &1   \\
- 1 & 1  & -1&-1   \\
-1  & -1  & 1 & -1\\
-1&-1&-1&1  
-\end{array}
-\right)=\frac12\sa^{-1}.
-\label{eq:1}
-\end{equation}
-and further define the matrix
-\begin{equation}
-\san=\left(\sa\right)^{\otimes N}
-\label{eq:1a}
-\end{equation}
-% }}}
 \subsection{A vector space of channels} % {{{
 % \begin{itemize} % {{{ Cosas por escribir aca
 % \item Canales PCE como espacios vectoriales \todo{Francois escribe}
@@ -54,7 +33,8 @@ to a positive vector $\vec p$. In compontents, this would read
 \end{equation}
 where
 $\san_{\vec\alpha\vec\beta} =\sa_{\alpha_1\beta_1}\cdot\ldots\cdot
-\sa_{\alpha_N\beta_N}$. Using the fact that $a=a^{-1/2}$ (so
+\sa_{\alpha_N\beta_N}$. Using the fact that $a=a^{-1/2}$ \cpnote{ojo cno factores
+globales, depende de la definicion de la $a$ y $A$} (so
 $A = A^{-1}/2^N$) we can directly invert \eref{eq:A:tau:is:p} 
 and obtain 
 \begin{equation}
@@ -70,67 +50,17 @@ observation that we shall use is that, for valid quantum channels,
 $p_{\vec\alpha}+p_{\vec\beta}=0$ implies $p_{\vec\alpha}=p_{\vec\beta}=0$, as
 all $p_{\vec\alpha} \ge 0$ due to 
 complete positivity of the underlying channel. 
-
-% We shall essentially use the fact that
-% 
-% 
-% 
-% It results convenient to express the 
-% previous equation in  
-% 
-
-
-
-
-% We look for those vectors $\vec\tau$ consisting of 0's and 1's such that 
-% \begin{equation}
-% \san\vec\tau=2^N\vec p
-% \label{eq:3}
-% \end{equation}
-% where $\vec p$ is a vector with positive entries. Here $\vec\tau$ is a $4^N$ dimensional vector of 0's
-% and 1's. We number the entries of $\vec\tau$ 
-% by the multi-indices $\vec\alpha=(\alpha_1,\ldots,\alpha_N)$ where $0\leq\alpha_k\leq3$.
-% The entries of the positive vector are given by $2^Np_{\vec\alpha}$. It then follows that 
-% the expression (\ref{eq:3}) satisfies
-% \begin{equation}
-% \left(
-% \san_{\vec\alpha\vec\beta}
-% \right)
-% \tau_\beta=2^Np_{\vec\alpha}
-% \label{eq:4}
-% \end{equation}
-% where
-% \begin{equation}
-% \left(
-% \san_{\vec\alpha\vec\beta}
-% \right)=\sa_{\alpha_1\beta_1}\cdot\ldots\cdot \sa_{\alpha_N\beta_N}
-% \label{eq:5}
-% \end{equation}
-% 
-% From (\ref{eq:4}) immediately follows, via (\ref{eq:1})
-% \begin{equation}
-% \tau_\alpha=\left(
-% \san_{\vec\alpha\vec\beta}
-% \right)p_\beta
-% \label{eq:6}
-% \end{equation}
-% which we analyze iteratively. We shall essentially use the fact that
-% \begin{equation}
-% p_{\vec\alpha}+p_{\vec\beta}=0\quad\Leftrightarrow\quad p_{\vec\alpha}=p_{\vec\beta}=0
-% \label{eq:7}
-% \end{equation}
 % }}}
 
-Now we need a definition: to each multi-index $\vec\alpha$ we associate a {\em set\/}
+Now we need a definition: to each multi-index $\vec\alpha$ we associate a \textit{set}
 of multi-indices $\Phi(\vec\alpha)$ as follows
 \begin{equation}
 \Phi(\vec\alpha):=\left\{
 \vec\beta:\san_{\vec\alpha\vec\beta}=1
-\right\}=\left\{
-\vec\beta:
-\sa_{\alpha_1\beta_1}\cdot\ldots\cdot \sa_{\alpha_N\beta_N}
-=1
 \right\}
+% =\left\{ \vec\beta: \sa_{\alpha_1\beta_1}\cdot\ldots\cdot \sa_{\alpha_N\beta_N}
+% =1
+% \right\}
 \label{eq:8}
 \end{equation}
 If we now assume that $\tau_{\vec\alpha}=1$, it follows from subtracting the two combined equations
