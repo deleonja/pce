@@ -89,41 +89,32 @@ In this case the density matrix in vector form holds
 \begin{equation}
  \kket{\rho}=\frac{1}{2^N}\sum_{\vec{\alpha}} r_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha} }},
 \end{equation}
-% 
 where $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\dots
 \otimes\kket{\sigma_{\alpha_N}}$, and satisfy the usual orthogonality relation
 $\bbrakket{{\sigma_{\vec{\alpha} } }}{{\sigma_{\vec{\alpha}'} }} = \tr
 \left(\sigma_{\vec{\alpha}}^{\dagger} \sigma_{\vec{\alpha}'}\right) = 2^N
 ~\delta_{\vec{\alpha}\vec{\alpha}'}$. The matrix representation of this map is
 given by
-% 
 \begin{equation}
 \hat{\mathcal{E}}_N = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}} \ddyada{\sigma_{\vec{\alpha} }}.
 % \label{Map_Pauli}
 \end{equation}
-%
 As in the previous case, the Choi matrix $\mathcal{D}_N$ may be written in terms of tensor products of Pauli matrices
-% 
 \begin{equation}
  \mathcal{D}_N = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}}  \bigotimes_{j=1}^N \sigma_{\alpha_j} \otimes \sigma_{\alpha_j}^*.
 %  \label{Choi_1}
 \end{equation}
-% 
 After several steps, it is possible to prove that analogously to the single qubit case, $\mathcal{D}_N$ is diagonal in the $N$-qubits Pauli basis
-%
 \begin{equation}
  \mathcal{D}_N \kket{\sigma_{\vec{\alpha} }}
    = \lambda_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha} }},
 \end{equation}
-% 
 with eigenvalues $\lambda_{\vec{\alpha}}$ given by 
-% 
 \begin{equation}
- \lambda_{\vec{\alpha}} = \sum_{\vec{\beta}} \san_{\vec{\alpha}\vec{\beta}}\tau_{\vec{\beta}},
+ \lambda_{\valpha} = \sum_{\vbeta} \san_{\valpha\vbeta}\tau_{\vbeta},
+\label{eq:lambda:is:A:tau}
 \end{equation}
-%
 where 
-% 
 \begin{equation}
  \san=\sa^{\otimes N}
 % =\frac{1}{2^N}\left(H\otimes H\right)^{\otimes N}=\left(\frac{H}{\sqrt{2}}\right)^{\otimes 2N}.

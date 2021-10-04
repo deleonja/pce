@@ -17,39 +17,61 @@
 
 % Inversion de la relacion entre tau y p, y que las probablidiades deben ser positivas {{{
 The problem of determining complete positivity of a PCE can be recast as 
-determining which vectors $\vec \tau$ are mapped via
+determining which vectors $\vtau$ are mapped via
 $\san$
 % \begin{equation}
 % \san\vec\tau=2^N\vec p
 % \label{eq:condition}
 % \end{equation}
-to a positive vector $\vec p$. In compontents, this would read 
+to a vector with positive entries $\lambda_\valpha$, as in \eref{eq:lambda:is:A:tau}. 
+% . In components, this would read 
+% \begin{equation}
+% % \left(
+% \sum_\vbeta
+% \san_{\valpha\vbeta} \,
+% % \right)
+% \tau_{\vec \beta}=2^Np_{\vec\alpha}
+% \label{eq:A:tau:is:p}
+% \end{equation}
+% where
+% $\san_{\vec\alpha\vec\beta} =\sa_{\alpha_1\beta_1}\cdot\ldots\cdot
+% \sa_{\alpha_N\beta_N}$. 
+Using the fact that $a^{-1}=a/4$, so 
+\cpnote{ojo cno factores globales, depende de la definicion de la $a$} 
+% (so $A = A^{-1}/2^N$) 
 \begin{equation}
-% \left(
-\san_{\vec\alpha\vec\beta} \,
-% \right)
-\tau_\beta=2^Np_{\vec\alpha}
-\label{eq:A:tau:is:p}
+A^{-1} = \frac{1}{4^N} A
 \end{equation}
-where
-$\san_{\vec\alpha\vec\beta} =\sa_{\alpha_1\beta_1}\cdot\ldots\cdot
-\sa_{\alpha_N\beta_N}$. Using the fact that $a=a^{-1/2}$ \cpnote{ojo cno factores
-globales, depende de la definicion de la $a$ y $A$} (so
-$A = A^{-1}/2^N$) we can directly invert \eref{eq:A:tau:is:p} 
-and obtain 
+we can directly invert \eref{eq:lambda:is:A:tau} to obtain (in matrix form)
 \begin{equation}
-\tau_\alpha=
-% \left(
-\san_{\vec\alpha\vec\beta} \,
-% \right)
-p_\beta,
+% \tau_{\vec \alpha}= \san_{\vec\alpha\vec\beta} \, p_\vbeta,
+% \tau = 
+\san \lambda
+=4^N \tau
 \label{eq:tau:is:A:p}
 \end{equation}
-which will serve as a starting point for our analysis. Other simple but crucial
-observation that we shall use is that, for valid quantum channels, 
-$p_{\vec\alpha}+p_{\vec\beta}=0$ implies $p_{\vec\alpha}=p_{\vec\beta}=0$, as
-all $p_{\vec\alpha} \ge 0$ due to 
-complete positivity of the underlying channel. 
+\cpnote{me da diferente el factor global que al resto de la banda}
+which will serve as a starting point for our analysis. 
+\cpnote{resaltar aca la importancia de esa ecuacion, y que se aplica
+para cualquier canal diagonal de Pauli}
+Other two simple but crucial
+observation are the following. For valid quantum channels, 
+% \begin{equation}
+% % \sum_{
+% \end{equation}
+$\sum_{\valpha \in \Omega} \lambda_\valpha=0$ implies that 
+$\lambda_\valpha=0$ for all $\valpha\in \Omega$, as each member of the sum 
+greater or equal to zero, 
+% $p_{\vec\alpha}+p_{\vec\beta}=0$ implies $p_{\vec\alpha}=p_{\vec\beta}=0$, as
+% all $p_{\vec\alpha} \ge 0$
+due to complete positivity of the underlying channel. 
+Finally, looking into the first component of \eref{eq:tau:is:A:p}, and taking into 
+account the normalization condition that $\tau_{\vec 0}=1$, we obtain
+\begin{equation}
+\sum_\valpha \lambda_\valpha = 4^N,
+\label{eq:sum:alpha:is:4N}
+\end{equation}
+since, $A_{\vec 0, \vbeta}=1$ for all $\vbeta$. 
 % }}}
 
 Now we need a definition: to each multi-index $\vec\alpha$ we associate a \textit{set}
@@ -63,27 +85,36 @@ of multi-indices $\Phi(\vec\alpha)$ as follows
 % \right\}
 \label{eq:8}
 \end{equation}
-If we now assume that $\tau_{\vec\alpha}=1$, it follows from subtracting the two combined equations
-\begin{subequations}
+If we now assume that $\tau_{\vec\alpha}=1$, it follows from subtracting 
+\eref{eq:sum:alpha:is:4N} from 
+% $\sum_{\vec\beta}p_{\vec\beta}=1$ (which follows from \cpnote{ver constante de 
+% normalizacion chido y ver el motivo}), and 
+$\sum_{\vec\beta}\san_{\vec\alpha\vec\beta}\lambda_{\vec\beta}=4^N$ 
+(which follows from the aforementioned assumption), 
+% \begin{subequations}
+% \begin{eqnarray}
+% \sum_{\vec\beta}p_{\vec\beta}&=&1
+% \label{eq:9a}\\
+% \sum_{\vec\beta}\san_{\vec\alpha\vec\beta}p_{\vec\beta}&=&\tau_{\vec\alpha}=1
+% \end{eqnarray}
+% \label{eq:9}
+% \end{subequations}
+% that for all $\vec\beta\notin\Phi(\vec\alpha)$
 \begin{eqnarray}
-\sum_{\vec\beta}p_{\vec\beta}&=&1
-\label{eq:9a}\\
-\sum_{\vec\beta}\san_{\vec\alpha\vec\beta}p_{\vec\beta}&=&\tau_{\vec\alpha}=1
-\end{eqnarray}
-\label{eq:9}
-\end{subequations}
-that for all $\vec\beta\notin\Phi(\vec\alpha)$
-\begin{eqnarray}
-p_{\vec\beta}=0.
+\lambda_{\vec\beta}=0,\quad \forall \vec\beta\notin\Phi(\vec\alpha).
 \label{eq:10}
 \end{eqnarray}
 Thus, if $\tau_{\vec\alpha}=1$, then $\tau_{\vec\gamma}$
-and $\tau_{\vec{\gamma^\prime}}$ are equal if, for all $\vec\beta\in\Phi(\vec\alpha)$.
+and $\tau_{\vec{\gamma^\prime}}$ are equal if
+% , for all $\vec\beta\in\Phi(\vec\alpha)$.
 \begin{equation}
-\san_{\vec\beta\vec\gamma}=\san_{\vec\beta\vec{\gamma^\prime}}
+\san_{\vbeta\vec\gamma}=\san_{\vbeta\vec{\gamma^\prime}}, \quad
+\forall \vec\beta\in\Phi(\vec\alpha).
 \label{eq:11}
 \end{equation}
-holds for all $\vec\beta\in\Phi(\vec\alpha)$. This follows from (\ref{eq:6}) as well as the fact that, due 
+% holds for all $\vec\beta\in\Phi(\vec\alpha)$. 
+This follows from (\ref{eq:6}) as
+well as the fact that, due 
 to (\ref{eq:10}), we only need sum over $\vec\beta\in\Phi(\vec\alpha)$.
 
 
