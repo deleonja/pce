@@ -39,27 +39,10 @@ Moreover, observe that $\mathcal{D}$ has the same form as the matrix representat
 \end{equation}
 % 
 with eigenvalues given by 
-% 
 \begin{equation}
- \lambda_{\alpha} = \sum_{\beta=0}^3\sa_{\alpha\beta}\tau_{\beta},
+ \lambda_{\alpha} = \frac12 \sum_{\beta=0}^3\sa_{\alpha\beta}\tau_{\beta},
 \end{equation}
-%
-or more compactly $\vec{\lambda} = \sa~\vec{\tau}$, where $\sa=2^{-1}H\otimes
-H$ and $H$ is the Hadamard matrix,
-\cpnote{Decidir si se usa esa $a$ o la otra para ser consistente con lo de los 
-generadores}
-%
-\begin{equation}
- H=\begin{pmatrix}
-        1 & 1\\
-        1 & -1\\
-    \end{pmatrix}.
- \label{Hadd_Mat}
-\end{equation}
-
-
-\cpnote{Mencionar que con la otra $a$ tambien se puede diagonalizar y la
-dejo por aca por si se nos ofrece}
+or more compactly $\vec{\lambda} = \sa \vec{\tau}$, where 
 \begin{equation}
 \sa=\left(
 \begin{array}{cccc}
@@ -68,9 +51,26 @@ dejo por aca por si se nos ofrece}
 1  & -1  & 1 & -1\\
 1&-1&-1&1  
 \end{array}
-\right)=\frac12\sa^{-1}.
+\right)
+% =\frac12\sa^{-1}.
 \label{eq:1}
 \end{equation}
+
+% $\sa=2^{-1}H\otimes H$ and $H$ is the Hadamard matrix,
+% \cpnote{Decidir si se usa esa $a$ o la otra para ser consistente con lo de los 
+% generadores}
+% %
+% \begin{equation}
+%  H=\begin{pmatrix}
+%         1 & 1\\
+%         1 & -1\\
+%     \end{pmatrix}.
+%  \label{Hadd_Mat}
+% \end{equation}
+
+
+\cpnote{Mencionar que con la otra $a$ tambien se puede diagonalizar y la
+dejo por aca por si se nos ofrece}
 % 
 %  }}}
 \subsubsection{$N$ qubits} % {{{
@@ -111,7 +111,7 @@ After several steps, it is possible to prove that analogously to the single qubi
 \end{equation}
 with eigenvalues $\lambda_{\vec{\alpha}}$ given by 
 \begin{equation}
- \lambda_{\valpha} = \sum_{\vbeta} \san_{\valpha\vbeta}\tau_{\vbeta},
+ \lambda_{\valpha} = \frac{1}{2^N} \sum_{\vbeta} \san_{\valpha\vbeta}\tau_{\vbeta},
 \label{eq:lambda:is:A:tau}
 \end{equation}
 where 
