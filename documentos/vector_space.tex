@@ -37,19 +37,18 @@ to a vector with positive entries $\lambda_\valpha$, as in \eref{eq:lambda:is:A:
 % $\san_{\vec\alpha\vec\beta} =\sa_{\alpha_1\beta_1}\cdot\ldots\cdot
 % \sa_{\alpha_N\beta_N}$. 
 Using the fact that $a^{-1}=a/4$, so 
-\cpnote{ojo cno factores globales, depende de la definicion de la $a$} 
 % (so $A = A^{-1}/2^N$) 
 \begin{equation}
 A^{-1} = \frac{1}{4^N} A
 \end{equation}
-we can directly invert \eref{eq:lambda:is:A:tau} to obtain (in matrix form)
+we can directly invert \eref{eq:lambda:is:A:tau} to obtain 
 \begin{equation}
 % \tau_{\vec \alpha}= \san_{\vec\alpha\vec\beta} \, p_\vbeta,
 % \tau = 
-\san \lambda =2^N \tau
+% \san \lambda =2^N \tau
+\sum_\vbeta \san_{\valpha \vbeta} \lambda_\vbeta =2^N \tau_\valpha
 \label{eq:tau:is:A:p}
 \end{equation}
-\cpnote{me da diferente el factor global que al resto de la banda}
 which will serve as a starting point for our analysis. 
 \cpnote{resaltar aca la importancia de esa ecuacion, y que se aplica
 para cualquier canal diagonal de Pauli}
@@ -101,7 +100,7 @@ $\sum_{\vec\beta}\san_{\vec\alpha\vec\beta}\lambda_{\vec\beta}=2^N$
 % that for all $\vec\beta\notin\Phi(\vec\alpha)$
 \begin{eqnarray}
 \lambda_{\vec\beta}=0,\quad \forall \vec\beta\notin\Phi(\vec\alpha).
-\label{eq:10}
+\label{eq:condition:lambda:zero:Phi}
 \end{eqnarray}
 Thus, if $\tau_{\vec\alpha}=1$, then $\tau_{\vec\gamma}$
 and $\tau_{\vec{\gamma^\prime}}$ are equal if
@@ -109,62 +108,69 @@ and $\tau_{\vec{\gamma^\prime}}$ are equal if
 \begin{equation}
 \san_{\vbeta\vec\gamma}=\san_{\vbeta\vec{\gamma^\prime}}, \quad
 \forall \vec\beta\in\Phi(\vec\alpha).
-\label{eq:11}
+\label{eq:coneccion:dos:indices:A}
 \end{equation}
 % holds for all $\vec\beta\in\Phi(\vec\alpha)$. 
-This follows from (\ref{eq:6}) as
-well as the fact that, due 
-to (\ref{eq:10}), we only need sum over $\vec\beta\in\Phi(\vec\alpha)$.
+This follows from restricting the sum \eref{eq:tau:is:A:p}
+to the $\lambda_\vbeta \ne 0$, given in \eref{eq:condition:lambda:zero:Phi}. 
+
+% 
+% This follows from (\ref{eq:6}) as
+% well as the fact that, due 
+% to (\ref{eq:10}), we only need sum over $\vec\beta\in\Phi(\vec\alpha)$.
 
 
-% If this condition is fulfilled and $\tau_{\vec\alpha}=1$, then
-%\begin{subequations}
-%\begin{eqnarray}
-%\tau_{\vec\gamma}&=&\sum_{\vec\beta}\left(
-%M^{\otimes N}
-%\right)_{\vec\beta\vec\gamma}p_{\vec\beta}
-%\label{eq:10na}
-%\\
-%&=&\sum_{\vec\beta\in\Phi(\vec\alpha)}\left(
-%M^{\otimes N}
-%\right)_{\vec\beta\vec\gamma}p_{\vec\beta}
-%\label{eq:10nb}
-%\\
-%&=&\sum_{\vec\beta\in\Phi(\vec\alpha)}\left(
-%M^{\otimes N}
-%\right)_{\vec\beta\vec{\gamma^\prime}}p_{\vec\beta}
-%\label{eq:10nc}
-%\\
-%&=&\sum_{\vec\beta}\left(
-%M^{\otimes N}
-%\right)_{\vec\beta\vec{\gamma^\prime}}p_{\vec\beta}
-%\label{eq:10nd}
-%\\
-%&=&\tau_{\vec{\gamma^\prime}}
-%\label{eq:10ne}
-%\end{eqnarray}
-%\label{eq:10n}
-%\end{subequations}
-%Here the transition from (\ref{eq:10na}) to (\ref{eq:10nb}) follows from (\ref{eq:10}), from (\ref{eq:10nb}) to (\ref{eq:10nc})
-%follows from (\ref{eq:11}), from (\ref{eq:10nc}) to  (\ref{eq:10nd}) follows again from (\ref{eq:10}). 
   
-Condition (\ref{eq:11}) therefore connects three multi-indinces, $\vec\alpha$, $\vec\gamma$ and $\vec{\gamma^\prime}$.
-When such a connection exists, $\tau_{\vec\alpha}=1$ implies 
-$\tau_{\vec\gamma}=\tau_{\vec{\gamma^\prime}}$. Let us now work out the nature of this connection. 
+Condition (\ref{eq:11}) therefore connects three multi-indices, $\vec\alpha$,
+$\vec\gamma$ and $\vec{\gamma^\prime}$.
+When such a connection exists, $\tau_{\vec\alpha}=1$ implies
+$\tau_{\vec\gamma}=\tau_{\vec{\gamma^\prime}}$. Let us now work out the nature
+of this connection. \cpnote{I think that this paragraph can go. }
 
-Since $\sa_{\alpha\beta}=\pm1$, we may rewrite (\ref{eq:11}) as
+
+Since all elements of $A$ are $\pm1$, and using that $A_{\valpha \vbeta}=1$
+of $\vbeta \in \Phi(\vec\alpha)$, we may rewrite \eref{eq:coneccion:dos:indices:A}
+as
 \begin{equation}
-\sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}\cdot\ldots\cdot \sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=1.
+\san_{\vbeta\vec\gamma} \san_{\vbeta\vec{\gamma^\prime}} 
+= 
+\san_{\valpha\vbeta} 
+, \quad
+\forall \vec\beta\in\Phi(\vec\alpha),
 \label{eq:12}
 \end{equation}
-This must hold for all $\vec\beta\in\Phi(\vec\alpha)$. From this follows that (\ref{eq:12}) may be rewritten as
+which can be further decomposed in 
 \begin{equation}
-\sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}\cdot\ldots\cdot \sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=
-\sa_{\alpha_1\beta_1}\cdot\ldots\cdot \sa_{\alpha_N\beta_N}.
+\sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}
+  \ldots
+%   \cdot\ldots\cdot 
+\sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=
+\sa_{\alpha_1\beta_1}
+  \ldots
+% \cdot\ldots\cdot
+ \sa_{\alpha_N\beta_N}.
 \label{eq:13}
 \end{equation}
+% Moreover, since 
+% 
+% 
+% 
+% Since $\sa_{\alpha\beta}=\pm1$, we may rewrite (\ref{eq:11}) as
+% \begin{equation}
+% \sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}\cdot\ldots\cdot \sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=1.
+% \label{eq:12}
+% \end{equation}
+% This must hold for all $\vec\beta\in\Phi(\vec\alpha)$. From this follows that
+% (\ref{eq:12}) may be rewritten as
+% \begin{equation}
+% \sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}\cdot\ldots\cdot \sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=
+% \sa_{\alpha_1\beta_1}\cdot\ldots\cdot \sa_{\alpha_N\beta_N}.
+% \label{eq:13}
+% \end{equation}
 Since this must hold for all $\vec\beta\in\Phi(\vec\alpha)$, it follows that 
-the above relation must hold individually for every index. Thus we have, 
+the above relation must hold individually for every index\cpnote{francois, recuerdo 
+que esto lo discutimos. No se si en el momento me convencí, pero ahora no veo 
+proque se tiene que cumplir para los indices individulaes}. Thus we have, 
 that, for all $1\leq k\leq N$, $\gamma_k$
 and $\gamma_k^\prime$ are connected by
 \begin{equation}
@@ -176,9 +182,12 @@ for all $0\leq\beta\leq3$. This is equivalently expressed as
 \gamma_k^\prime=\alpha\oplus{}\gamma_k
 \label{eq:15}
 \end{equation}
-where the $\oplus{}$ operation is defined by (\ref{eq:14}). See Figure \ref{tab:1} for a detailed description. 
+where the $\oplus{}$ operation is defined by (\ref{eq:14}). See Figure
+\ref{tab:1} for a detailed description. \cpnote{by direct calculation I can verify 
+that its true, but I see it as a coincidence. Is they ere a say to know
+that \eref{eq:14} will lead to a sum?}
 
-\begin{figure}
+\begin{figure} % {{{
 \begin{center}
 \begin{tabular}{| c | c c c c |}
 \hline
@@ -190,14 +199,13 @@ $\oplus{}$ & 0 & 1& 2 & 3\\
 3 &3 & 2 & 1 & 0\\
 \hline
 \end{tabular}
-\caption{Table for the $\oplus{}$ operation defined in (\ref{eq:14}). Note that the operation
-is an {\em abelian group}, in fact it corresponds to the {\em Klein group}, where the
-neutral element is $0$. This is the reason for choosing an additive notation for the operation
-defined in (\ref{eq:14}).
-}
+\caption{Table for the $\oplus{}$ operation defined in (\ref{eq:14}). Note that
+the operation is an {\em abelian group}, in fact it corresponds to the {\em
+Klein group}, where the neutral element is $0$. This is the reason for choosing
+an additive notation for the operation defined in (\ref{eq:14}).  }
 \label{tab:1}
 \end{center}
-\end{figure}
+\end{figure} % }}}
 
 Note further that if we perform the identification
 \begin{subequations}
@@ -211,7 +219,10 @@ Note further that if we perform the identification
 \end{subequations}
 then the $\oplus$ operation reduces to simple vector addition in
 binary arithmetic. If we therefore denote by $\overline{\alpha}$
-the multi-index $\vec\alpha$ converted to a binary vector by the componentwise application of (\ref{eq:ident}),
+\cpnote{I dont think this is necesary. specially if we will write something
+else}
+the multi-index $\vec\alpha$ converted to a binary vector by the componentwise
+application of (\ref{eq:ident}),
 the connection between $\vec\alpha$, $\vec\gamma$, and $\vec{\gamma^\prime}$ defined by (\ref{eq:11}) is rewritten 
 as
 \begin{equation}
@@ -220,11 +231,11 @@ as
 \end{equation}
 where the addition sign here refers to ordinary binary vector addition. 
 
-From this readily follows an amusing property: the set of all multi-indices $\overline\gamma$
-for which $\tau_{\overline\gamma}=1$\cpnote{I guess instead of overline, we want 
-to use arrow, or this denotes something else?}, is closed under binary vector addition, in other words, it
-forms a {\em vector subspace\/} of the set of all multi-indices. Indeed, let
-$\overline\alpha$ and $\overline\gamma$ belong to that set. Then if 
+From this readily follows an amusing property: the set of all multi-indices
+$\overline\gamma$ for which $\tau_{\overline\gamma}=1$, is closed under binary
+vector addition, in other words, it forms a {\em vector subspace\/} of the set
+of all multi-indices. Indeed, let $\overline\alpha$ and $\overline\gamma$
+belong to that set. Then if 
 \begin{equation}
 \overline{\gamma^\prime}=\overline\alpha+\overline\gamma
 \label{eq:14b}
