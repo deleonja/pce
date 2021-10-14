@@ -19,6 +19,10 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{physics}
+
+%% commands
+\newcommand{\alphas}{\vec\alpha}
 
 \author{José Alfredo de León}
 \title{Numerical progress on Weyl component erasing operations}
@@ -53,5 +57,100 @@ of the density matrix.
 	\caption{Representation of a 4-level system WCE quantum channels.}
 	\label{fig:weylCE_1particle_d4}
 \end{figure}
+
+\section{Generalization \boldmath{$\oplus$}}
+\subsection{New notation for \boldmath{$\alphas$} and definition of \boldmath{$\oplus$}}
+We will rewrite the multi-indices $\alphas$ using base-$d$ numeral system 
+and will re-define the operation $\oplus$, previously associated by François with the 
+Klein group.
+Every index in the multi-indices $\alphas$ of a WCE quantum channel 
+can be written as a length-2 list with its base-$d$ numeral system digits. 
+Therefore, every index $\alpha_i$ in $\alphas$ can be written as
+\begin{align}
+	\alpha_i=\qty( \alpha_{i_1},\alpha_{i_2} ).
+\end{align}
+The multi-indices $\alphas$ then reads
+\begin{align}\label{eq:alphas_base-d}
+	\alphas=\qty{ \qty( \alpha_{1_1},\alpha_{1_2} ),\ldots,\qty( \alpha_{N_1},\alpha_{N_2} ) }.
+\end{align}
+We define the sum of two multi-indices $\vec\alpha$ and $\vec\beta$ as 
+\begin{align}\label{eq:oplus_generalized}
+	\vec\alpha\oplus\vec\beta=
+	\qty{ \qty( \alpha_{1_1}\oplus\beta_{1_1},\alpha_{1_2}\oplus\beta_{1_2} ),
+	\ldots,
+	\qty( \alpha_{N_1}\oplus\beta_{N_1},\alpha_{N_2}\oplus\beta_{N_2} ) 
+	 },
+\end{align}
+where operation $\oplus$ is the sum modulo $d$.
+
+\subsection{Examples}
+Let us look at some examples. First, let us discuss a familiar example with a PCE 
+quantum channel.
+The set of multi-indices associated with the PCE quantum channel of 
+Fig. \ref{fig:two_qubits_PCEChann_01}
+are, in decimal basis, $\{(0,0),(1,1),(2,1),(3,0) \}$. The same multi-indices
+written in binary basis are 
+$$\qty{ \{(0,0),(0,0)\}, \{(0,1),(0,1)\}, \{(1,0),(0,1)\}, \{(1,1),(0,0)\} }.$$
+Let us sum $(2,1)\oplus(1,1)$ as previously defined by François
+\begin{align}
+	(2,1)\oplus(1,1)=(2\oplus 1,1\oplus 1)=(3,0).
+\end{align}
+Now, let us sum the same two multi-indices, written in binary basis, using
+the definition \eqref{eq:oplus_generalized}
+\begin{align}
+	 \{(1,0),(0,1)\}\oplus\{(0,1),(0,1)\}=\{(1\oplus0,0\oplus1),(0\oplus0,1\oplus1)\}
+	 =\qty{ (1,1),(0,0) },
+\end{align}
+which is equal to $(3,0)$ in decimal basis. This is an example that shows how 
+the operation $\oplus$ defined with the Klein group is equivalent with the new notation 
+and definition \eqref{eq:oplus_generalized}.
+
+\begin{figure}[h] 
+	\centering
+	\includegraphics[width=2cm]{two_qubits_c43}
+	\caption{A random two-qubits PCE quantum channel.}
+	\label{fig:two_qubits_PCEChann_01}
+\end{figure}
+Now, let us look at the set of multi-indices of the 
+fifth 3-level-system WCE channel in Fig. \ref{fig:weylCE_1particle_d3}:
+$\qty{ \qty{(0,0)}, \qty{(1,2)}, \qty{(2,1)} }$.
+The only three different possible sums modulo 3 are
+\begin{subequations}
+\begin{align}
+	(0,0)\oplus(1,2)&=(0\oplus1,0\oplus2)=(1,2)\\
+	(0,0)\oplus(2,1)&=(0\oplus2,0\oplus1)=(2,1)\\
+	(1,2)\oplus(2,1)&=(1\oplus2,2\oplus1)=(0,0)
+\end{align}
+\end{subequations}
+Then, the set of multi-indices $\alphas$ is closed. 
+As the last example, let us check the closure of the set of multi-indices of the 
+tenth 4-level-system WCE channel in Fig \ref{fig:weylCE_1particle_d4}:
+$\qty{ \qty{(0,0)}, \qty{(1,2)}, \qty{(2,0)}, \qty{(3,2)} }$
+The only six different possible sums modulo 4 are
+\begin{subequations}
+\begin{align}
+	(0,0)\oplus(1,2)&=(1,2)\\
+	(0,0)\oplus(2,0)&=(2,0)\\
+	(0,0)\oplus(3,2)&=(3,2)\\
+	(1,2)\oplus(2,0)&=(3,2)\\
+	(1,2)\oplus(3,2)&=(0,0)\\
+	(2,0)\oplus(3,2)&=(1,2),
+\end{align}
+\end{subequations}
+then the set of multi-indices is closed. 
+
+\subsection{Hypothesis}
+The set of multi-indices of a $N$-qudits WCE quantum channel, 
+written in base-$d$ numeral system as in \eqref{eq:alphas_base-d},
+is closed under sum modulo $d$ as defined in \eqref{eq:oplus_generalized}.
+There are numerical results that support this hypothesis. The method of brute
+force has been implemented to check if all sets of a
+multi-indices of 3, 4 and partially 5-level system WCE quantum channels 
+are closed under $\oplus$ as defined in \eqref{eq:oplus_generalized}.
+The converse has been numerically analyzed with the method of brute force too.
+All sets of multi-indices that are closed under the operation $\oplus$ are
+associated with a WCE quantum channel. All of this shows clues that a vector 
+structure exists as in the case of PCE quantum channels.
+
 
 \end{document}
