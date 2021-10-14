@@ -1,19 +1,6 @@
 
 \subsection{A vector space of channels} % {{{
-% \begin{itemize} % {{{ Cosas por escribir aca
-% \item Canales PCE como espacios vectoriales \todo{Francois escribe}
-% \item Regla de $2^k$
-% \item Tamaño de las diferentes clases que borran un numero fijo de componentes
-% y tambien nota de qeu son igual entre complementarios: computo del numero de
-% bases dada una dimension de subespacios vectoriales, aqui entra la formula del
-% binomial-q. \todo{Esperemos que evolucione mas el articulo y luego vemos que ponemos}
-% \item Intento de identificar elementos, aka hermanistos PCE \cpnote{Esto dependerá de si sale algo interesante,}: De entrada aqui se tiene que mencionar minimo la identificacion del tamaño de las clases.
-% \item \ddnote{Agrego esto:} A final remarks of the derivation as a tool.
-% Concepts might be complicated, but the tool gives some simple rules to the
-% reader: \textit{tell me what components you want to keep, and the (vector)
-% summation rules will give you the rest of components to make the target
-% operation a CPTP one.}
-% \end{itemize} % }}}
+\cpnote{Quiza falta lo de las clases de equivalencias}\par
 % Inversion de la relacion entre tau y p, y que las probablidiades deben ser positivas {{{
 The problem of determining complete positivity of a PCE can be recast as 
 determining which vectors $\vtau$ are mapped via
@@ -49,8 +36,10 @@ we can directly invert \eref{eq:lambda:is:A:tau} to obtain
 \label{eq:tau:is:A:p}
 \end{equation}
 which will serve as a starting point for our analysis. 
-\cpnote{resaltar aca la importancia de esa ecuacion, y que se aplica
-para cualquier canal diagonal de Pauli}
+This is a remarkable equation, as it provides a method to diagonalize any diagonal 
+Pauli channel, as in \eref{eq:definition:Pauli}. 
+
+
 Other two simple but crucial
 observation are the following. For valid quantum channels, 
 % \begin{equation}
@@ -112,19 +101,11 @@ and $\tau_{\vec{\gamma^\prime}}$ are equal if
 % holds for all $\vec\beta\in\Phi(\vec\alpha)$. 
 This follows from restricting the sum \eref{eq:tau:is:A:p}
 to the $\lambda_\vbeta \ne 0$, given in \eref{eq:condition:lambda:zero:Phi}. 
-
-% 
-% This follows from (\ref{eq:6}) as
-% well as the fact that, due 
-% to (\ref{eq:10}), we only need sum over $\vec\beta\in\Phi(\vec\alpha)$.
-
-
-  
-Condition (\ref{eq:11}) therefore connects three multi-indices, $\vec\alpha$,
+Condition (\ref{eq:coneccion:dos:indices:A}) therefore connects three multi-indices, $\vec\alpha$,
 $\vec\gamma$ and $\vec{\gamma^\prime}$.
 When such a connection exists, $\tau_{\vec\alpha}=1$ implies
 $\tau_{\vec\gamma}=\tau_{\vec{\gamma^\prime}}$. Let us now work out the nature
-of this connection. \cpnote{I think that this paragraph can go. }
+of this connection. 
 
 
 Since all elements of $A$ are $\pm1$, and using that $A_{\valpha \vbeta}=1$
@@ -185,25 +166,41 @@ that \eref{eq:14} equivalently expressed as
 where the $\oplus{}$ denotes the operation of the Kein group; see Figure
 \ref{tab:1} for a detailed description. 
 % \cpnote{Quiza poner una relacion como $\tau_{\vgamma}=\tau_{\valpha\oplus{}\vgamma}$}
-
 \par
 % \cpnote{by direct calculation I can verify 
 % that its true, but I see it as a coincidence. Is they ere a say to know
 % that \eref{eq:14} will lead to a sum?}
 % }}}
-
-
+% Espacio vectorial {{{
 
 It will be useful to think of the multi-index $\valpha$ as an element of 
 a vector space. To do so, we notice that any group with the property that
 $\alpha \oplus \alpha =0$ is indeed a vector space under the two-element field
 $\{0,1\}$\cite{alguna:referencia}.  Then, we build the complete vector space,
 with the same field, and defining $\valpha \oplus \vbeta = (\alpha_1 \oplus
-\beta_1,\cdots, \alpha_N \oplus \beta_N)$. 
+\beta_1,\cdots, \alpha_N \oplus \beta_N)$
+\footnote{
+We can further \cpnote{desmechar} the vector space, by identifying each index
+$\alpha \in \{0,1,2,3\}$ with its binary notation [e.g. identify $2$ with $(1,0)$]
+such that to each multindex  $\valpha$ there corresponds a binary string of 
+length $2N$. In fact, our sum $\oplus$ would correspond to addition modulo 2 of 
+each of the $2N$ components. 
+\cpnote{maybe its not necesary}
+}. 
 We can indeed restate \eref{eq:oplus}, an say that for valid quantum channels, 
 if $\tau_{\vec\alpha}=1$, then
 $\tau_{\vec\gamma}=\tau_{\vec\alpha\oplus{}\vec\gamma}$.
-From this view 
+% \cpnote{Creo que aca podemos referenciar la figura 2c y mostrar como
+% funcionaria que no es cerrada bajo la suma}
+For example, in \fref{fig:two:qubit:examples}(c) the indices that 
+correspond to preserved components are 
+$\valpha^{(0)} = (0,0)$, 
+$\valpha^{(1)} = (0,2)$, 
+$\valpha^{(2)} = (1,0)$, 
+$\valpha^{(3)} = (2,2)$, and
+$\valpha^{(4)} = (3,2)$. However, 
+$\valpha^{(1)} + \valpha^{(2)} = (1,2)$, which is not preseverd and thus this 
+diagram does not correspond to a quantum channel.  From this view 
 we can derive several interesting observations that will be presented in 
 the rest of the section. 
 
@@ -269,99 +266,232 @@ a valid quantum channel, and a vector subspace of the aforementioned space.
 \cpnote{Aca quizá que Jose Alfredo ponga un ejemplo de una 
 figura en la que se tenga algo que es un canal y algo que no es  un canal. 
 Quizá también se puede mencionar qeu el subespacio mas chico es el canal totalmente 
-depolarizante y el subespacio mas grande es la identidad}
+depolarizante y el subespacio mas grande es la identidad} \par
 
-
-% Indeed, let $\overline\alpha$ and $\overline\gamma$
-% belong to that set. Then if 
-% \begin{equation}
-% \overline{\gamma^\prime}=\overline\alpha+\overline\gamma
-% \label{eq:14b}
-% \end{equation}
-% then by the preceding considerations, $\tau_{\overline\gamma^\prime}$ is equal to $\tau_{\overline\gamma}$
-% and thus equal to one. 
-
+% }}}
+% Generacion de soluciones {{{
 So we may now proceed to generate all solutions: we start out from the solution
 having $\tau_{\vec0}=1$, with everything else $0$. We may then successively
 switch $\tau$'s to $1$ for various values of $\valpha$, taking care
 immediately to set equal to one the components of $\tau$ that correspond to values
 of $\vbeta$ generated by the previously switched values of $\valpha$ via the
-operation $\oplus$. Doing so, in an ordered way allows one to general 
-all valid quantum channels with given preserved components, without the need
-of exploring the exponentially large space of PCE. 
-% (\ref{eq:11}). 
-
-% Procesado pero No lo entiendo/no lo quiero poner {{{
-
+operation $\oplus$. Doing so, in an ordered way, allows one to general 
+all valid quantum channels with a given set of preserved components, without the need
+of exploring the exponentially large space of PCE.  \par 
 % }}}}
-
-%
-%Now choose another multi-index, say $\alp2$, which is not equal to $\alp1$,
-%nor to any site that is automatically equal to $\tau_{\alp1}$. Set
-%$\tau_{\alp2}=1$. We obviously must also set $\tau_{\alp2\oplus\alp1}=1$,
-%since the two are equal because of (\ref{eq:18}). By the same reasoning that
-%led to (\ref{eq:18}), we now find that 
-%\begin{equation}
-%\tau_{\vec\gamma} = \tau_{\alp1\oplus{}\vec\gamma}
-%     =\tau_{\alp2\oplus{}\vec\gamma}
-%     =\tau_{\alp1\oplus\alp2\alp2\oplus{}\vec\gamma}
-%\label{eq:19}
-%\end{equation}
-%Thus we find that the $\tau$'s are now constant over domains of $4$, as
-%opposed to $2$ previously, when only one
-%single $\vec\alpha$, namely $\alp1$, had been fixed to have $\tau_{\alp1}=1$.
-%Further, it follows from the group property of $\oplus$ that the different
-%domains are {\em disjoint}. The 3 multi-indices associated to a given
-%$\vec\gamma$ are never associated to any other $\vec{\gamma^\prime}$. 
-%
-%After adding $\alp1$, we have at least 2 sites equal to 1, after adding
-%$\alp2$, we have 4: $\vec0$, $\alp1$, $\alp2$, and $\alp1+\alp2$.  Clearly, at
-%each addition, the total number doubles. This shows the $2^k$ rule. 
-%
-%How far can this process go? Well, the total number of multi-indices is $4^N$,
-%so this can go on until $2\cdot4^{N-1}$ sites are occupied, in other words, we
-%may double $2N-1$ times.
-%
-%Now to show that the maximal solutions are generators, that is, that all
-%solutions can be expressed as intersections of maximal solutions, that is,
-%solutions with $2\cdot4^{N-1}$ 1's. Any maximal solution can be obtained by
-%the successive adjunction of $\alp1, \alp2,\ldots,\alp{2N-1}$. Again, due to
-%the group property, the final solution generated does not depend on the order
-%of the $\alp{k}$. 
-%
-%Now let us consider a solution with half the number of elements of a maximal
-%solution, that is, one generated by $\alp1, \alp2,\ldots,\alp{2N-2}$.  At this
-%stage, the $\tau_{\vec\alpha}$ are constant over domains of size $4^{N-1}$ and
-%there are a total of $4^{N-1}$ 1's.  There are thus 2 inequivalent remaining
-%domains where I could put the final $\alp{2N-1}$. These 2 different choices
-%yield disjoint maximal solutions, the intersection of which yields the
-%solution with half the number of elements of the maximal solution.  Every
-%solution one step away from maximal can thus be expressed (uniquely) as the
-%intersection of 2 maximal solutions. 
-%
-%Arguing inductively backwards, the same result can be shown for arbitrary
-%solutions. We therefore have shown both the $2^k$ rule and the fact that all
-%solutions are expressible uniquely as intersections of maximal solutions. 
+\begin{figure} % {{{
+\begin{center}
+% Del dcumento francois.pdf pg 8 agarramos:
+% e11, e4 y E7
+\begin{tikzpicture}[x=0.55cm, y=0.55cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
+\begin{scope}[shift={(1*\unitstep,0)}] % Depolirizng channel {{{
+\node at (-0.5,0.5) {(a)} ;
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw (0,0) rectangle (1,1); 
+%           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+         \end{scope}
+%         \node at (0,-\y) (input\y) {$i_\y$};
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (input\y) -- (block\y);
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,0)}] % Interseccion {{{
+\node at (-0.5,0.5) {(b)} ;
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw (0,0) rectangle (1,1); 
+%           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+         \end{scope}
+%         \node at (0,-\y) (input\y) {$i_\y$};
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (input\y) -- (block\y);
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(3*\unitstep,0)}] % E4 {{{
+\node at (-0.5,0.5) {(c)} ;
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw (0,0) rectangle (1,1); 
+%           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+         \end{scope}
+%         \node at (0,-\y) (input\y) {$i_\y$};
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (input\y) -- (block\y);
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(1*\unitstep,-\unitstep)}] % E7 {{{
+\node at (-0.5,0.5) {(d)} ;
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw (0,0) rectangle (1,1); 
+%           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+         \end{scope}
+%         \node at (0,-\y) (input\y) {$i_\y$};
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (input\y) -- (block\y);
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,-\unitstep)}] % E11 {{{
+\node at (-0.5,0.5) {(e)} ;
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw (0,0) rectangle (1,1); 
+%           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+         \end{scope}
+%         \node at (0,-\y) (input\y) {$i_\y$};
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (input\y) -- (block\y);
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(3*\unitstep,-\unitstep)}] % Identity channel {{{
+\node at (-0.5,0.5) {(f)} ;
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw (0,0) rectangle (1,1); 
+%           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+         \end{scope}
+%         \node at (0,-\y) (input\y) {$i_\y$};
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (input\y) -- (block\y);
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+\caption{\cpnote{Mejorar el caption cuando me ponga de acuerdo con la gente}
+Aca poner 6 PCEs. (f) Identidad, (a) totally depolarizing, (c, d y e) tres
+generadores, (b) un canal que resulte del generador. Sobra un espacio para
+ilustrar alguna otra cosa. Quiza poner otro generador para que se vea que no
+hay una manera unica de generar esos bichos.}
+\label{fig:examplesPCE}
+\end{figure} % }}}
+% Los canales tiene 2^K componente {{{
+We can then see that all PCEs preserve $2^K$ components. In fact, with the above 
+picture, it is clearly revealed that the vector space has dimension $2N$. Moreover, 
+consider any subspace and chose the maximum number of linearly independent
+elements (say $K$).  Any of the  $2^K$ subsets of those elements will yield a
+unique element. Moreover, since $\valpha + \valpha = \vec 0$, these are all
+elements of the vector space. This means that any PCE will preserve $2^K$ 
+components, for $K$ an integer. See \fref{fig:examplesPCE} for some examples. 
+\par 
 
 The dimension of the vector space $V$ of all multi-indices is $2N$, and we have
 seen earlier that
+\cpnote{Why is the dimension $2N$? I can work it out, but just after adding one 
+by one elements}
 \begin{equation}
 W=\left\{
 \vec\alpha:\vec\alpha\in V, \tau_{\vec\alpha}=1
 \right\}
 \label{eq:19}
 \end{equation}
-is a subspace of $V$. As such, $W$ has a given dimension $K$, which means that $W$ has $2^K$ elements. In other words,
-a vector $\vec\tau$ with the property discussed above can only have $2^K$ elements equal to 1, for a given integer $K$.
+is a subspace of $V$. As such, $W$ has a given dimension $K$, which means that
+$W$ has $2^K$ elements. In other words, a vector $\vec\tau$ with the property
+discussed above can only have $2^K$ elements equal to 1, for a given integer
+$K$.
 
-By standard theorems of linear algebra, any subspace $W$ can be extended to a maximal (non-trivial) subspace of dimension
-$2N-1$ by adjoining appropriate additional basis elements. This can clearly be done in different ways. We therefore arrive to
-the set of maximal extensions of $W$. Clearly, the intersection of all the elements of this set reduces to $W$ itself, leading to
-the result that all PCE's can be obtained as intersections of maximal PCE's. 
-
-
-
-\ddnote{Agrego esto:} A final remarks of the derivation as a tool. Concepts might be complicated, but the tool gives some simple rules to the reader: \textit{tell me what components you want to keep, and the (vector) summation rules will give you the rest of components to make the target operation a CPTP one.}
+\cpnote{Dejar que la raza elija uno de los dos parrafos anteriores}
+ % }}}
+% Cuantos canales conservan $2^K$ componentes? {{{
+It is natural to ask how many PCEs exist that conserve $2^K$ components. One
+can calculate such number, $\sss_{N,K}$, by examining the number of different
+independent subsets of vectors that spawn a given vector subspace. In appendix 
+\ref{app:contar} we show that 
+\begin{equation}
+\sss_{N,K}=\prod_{m=0}^{K-1} \frac{2^{2N-m}-1}{2^{K-m}-1}.
+\label{eq:conteo:main}
+\end{equation}
+%An elementary test is $N=3$ and $K=2,3$: 
+%\begin{eqnarray}
+%\sss_{3,2}&=&\frac{(2^6-1)(2^5-1)}{(2^2-1)(2^1-1)}=\frac{63\cdot31}{3}=651,\\
+%\sss_{3,3}&=&\frac{(2^6-1)(2^5-1)(2^4-1)}{(2^3-1)(2^2-1)(2^1-1)}=\frac{63\cdot31\cdot15}{7\cdot3}=1395,
+%\end{eqnarray}
+%which are indeed the values found numerically. 
+From the above expression, it is easy to see the symmetry relation
+\begin{equation}
+\sss_{N,K}=\sss_{N,2N-K}
+\end{equation}
+which suggest an relation  between individual channels that for the time being
+has escaped our efforts to identify. 
+\par % }}}
+% Frase de David {{{
+\ddnote{Agrego esto:} A final remarks of the derivation as a tool. Concepts
+might be complicated, but the tool gives some simple rules to the reader:
+\textit{tell me what components you want to keep, and the (vector) summation
+rules will give you the rest of components to make the target operation a CPTP
+one.}
+\par % }}}
 
 % }}}
 
