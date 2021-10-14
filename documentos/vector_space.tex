@@ -73,8 +73,6 @@ of multi-indices $\Phi(\vec\alpha)$ as follows
 \end{equation}
 If we now assume that $\tau_{\vec\alpha}=1$, it follows from subtracting 
 \eref{eq:sum:alpha:is:2N} from 
-% $\sum_{\vec\beta}p_{\vec\beta}=1$ (which follows from \cpnote{ver constante de 
-% normalizacion chido y ver el motivo}), and 
 $\sum_{\vec\beta}\san_{\vec\alpha\vec\beta}\lambda_{\vec\beta}=2^N$ 
 (which follows from the aforementioned assumption), 
 % \begin{subequations}
@@ -165,11 +163,7 @@ that \eref{eq:14} equivalently expressed as
 \end{equation}
 where the $\oplus{}$ denotes the operation of the Kein group; see Figure
 \ref{tab:1} for a detailed description. 
-% \cpnote{Quiza poner una relacion como $\tau_{\vgamma}=\tau_{\valpha\oplus{}\vgamma}$}
 \par
-% \cpnote{by direct calculation I can verify 
-% that its true, but I see it as a coincidence. Is they ere a say to know
-% that \eref{eq:14} will lead to a sum?}
 % }}}
 % Espacio vectorial {{{
 
@@ -185,13 +179,10 @@ $\alpha \in \{0,1,2,3\}$ with its binary notation [e.g. identify $2$ with $(1,0)
 such that to each multindex  $\valpha$ there corresponds a binary string of 
 length $2N$. In fact, our sum $\oplus$ would correspond to addition modulo 2 of 
 each of the $2N$ components. 
-\cpnote{maybe its not necesary}
 }. 
 We can indeed restate \eref{eq:oplus}, an say that for valid quantum channels, 
 if $\tau_{\vec\alpha}=1$, then
 $\tau_{\vec\gamma}=\tau_{\vec\alpha\oplus{}\vec\gamma}$.
-% \cpnote{Creo que aca podemos referenciar la figura 2c y mostrar como
-% funcionaria que no es cerrada bajo la suma}
 For example, in \fref{fig:two:qubit:examples}(c) the indices that 
 correspond to preserved components are 
 $\valpha^{(0)} = (0,0)$, 
@@ -263,10 +254,11 @@ all indices, then the vector $\vec\tau$ indeed has an image which is a vector
 with only positive components. 
 In other words, there is a one to one correspondence between 
 a valid quantum channel, and a vector subspace of the aforementioned space. 
-\cpnote{Aca quizá que Jose Alfredo ponga un ejemplo de una 
-figura en la que se tenga algo que es un canal y algo que no es  un canal. 
-Quizá también se puede mencionar qeu el subespacio mas chico es el canal totalmente 
-depolarizante y el subespacio mas grande es la identidad} \par
+% \cpnote{Aca quizá que Jose Alfredo ponga un ejemplo de una 
+% figura en la que se tenga algo que es un canal y algo que no es  un canal. 
+% Quizá también se puede mencionar qeu el subespacio mas chico es el canal totalmente 
+% depolarizante y el subespacio mas grande es la identidad} 
+\par
 
 % }}}
 % Generacion de soluciones {{{
@@ -448,8 +440,6 @@ components, for $K$ an integer. See \fref{fig:examplesPCE} for some examples.
 
 The dimension of the vector space $V$ of all multi-indices is $2N$, and we have
 seen earlier that
-\cpnote{Why is the dimension $2N$? I can work it out, but just after adding one 
-by one elements}
 \begin{equation}
 W=\left\{
 \vec\alpha:\vec\alpha\in V, \tau_{\vec\alpha}=1
@@ -459,9 +449,10 @@ W=\left\{
 is a subspace of $V$. As such, $W$ has a given dimension $K$, which means that
 $W$ has $2^K$ elements. In other words, a vector $\vec\tau$ with the property
 discussed above can only have $2^K$ elements equal to 1, for a given integer
-$K$.
+$K$. \par
 
-\cpnote{Dejar que la raza elija uno de los dos parrafos anteriores}
+\cpnote{Dejar que la raza elija uno de los dos parrafos anteriores} \par 
+
  % }}}
 % Cuantos canales conservan $2^K$ componentes? {{{
 It is natural to ask how many PCEs exist that conserve $2^K$ components. One
