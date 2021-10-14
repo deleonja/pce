@@ -14,7 +14,6 @@
 % summation rules will give you the rest of components to make the target
 % operation a CPTP one.}
 % \end{itemize} % }}}
-
 % Inversion de la relacion entre tau y p, y que las probablidiades deben ser positivas {{{
 The problem of determining complete positivity of a PCE can be recast as 
 determining which vectors $\vtau$ are mapped via
@@ -69,9 +68,9 @@ account the normalization condition that $\tau_{\vec 0}=1$, we obtain
 \sum_\valpha \lambda_\valpha = 2^N,
 \label{eq:sum:alpha:is:2N}
 \end{equation}
-since, $A_{\vec 0, \vbeta}=1$ for all $\vbeta$. 
+since, $A_{\vec 0, \vbeta}=1$ for all $\vbeta$. \par
 % }}}
-
+% Conexion de los indices para llegar al grupo de Klein {{{
 Now we need a definition: to each multi-index $\vec\alpha$ we associate a \textit{set}
 of multi-indices $\Phi(\vec\alpha)$ as follows
 \begin{equation}
@@ -181,27 +180,32 @@ for all $0\leq\beta\leq3$. One can verify, by working out the different cases,
 that \eref{eq:14} equivalently expressed as 
 \begin{equation}
 \gamma_k^\prime=\alpha\oplus{}\gamma_k
-\label{eq:15}
+\label{eq:oplus}
 \end{equation}
 where the $\oplus{}$ denotes the operation of the Kein group; see Figure
 \ref{tab:1} for a detailed description. 
+% \cpnote{Quiza poner una relacion como $\tau_{\vgamma}=\tau_{\valpha\oplus{}\vgamma}$}
+
+\par
 % \cpnote{by direct calculation I can verify 
 % that its true, but I see it as a coincidence. Is they ere a say to know
 % that \eref{eq:14} will lead to a sum?}
+% }}}
 
-\cpnote{
+
+
 It will be useful to think of the multi-index $\valpha$ as an element of 
 a vector space. To do so, we notice that any group with the property that
 $\alpha \oplus \alpha =0$ is indeed a vector space under the two-element field
 $\{0,1\}$\cite{alguna:referencia}.  Then, we build the complete vector space,
 with the same field, and defining $\valpha \oplus \vbeta = (\alpha_1 \oplus
-\beta_1,\cdots, \alpha_N \oplus \beta_N)$. From this view 
+\beta_1,\cdots, \alpha_N \oplus \beta_N)$. 
+We can indeed restate \eref{eq:oplus}, an say that for valid quantum channels, 
+if $\tau_{\vec\alpha}=1$, then
+$\tau_{\vec\gamma}=\tau_{\vec\alpha\oplus{}\vec\gamma}$.
+From this view 
 we can derive several interesting observations that will be presented in 
 the rest of the section. 
-}
-
-
-
 
 \begin{figure} % {{{
 \begin{center}
@@ -223,115 +227,124 @@ an additive notation for the operation defined in (\ref{eq:14}).  }
 \end{center}
 \end{figure} % }}}
 
-
-\cpnote{Propongo quitar desde aca}
-Note further that if we perform the identification
-\begin{subequations}
-\begin{eqnarray}
-0&\to&(0,0)\label{eq:identa}\\
-1&\to&(0,1)\label{eq:identb}\\
-2&\to&(1,0)\label{eq:identc}\\
-3&\to&(1,1)\label{eq:identd}
-\end{eqnarray}
-\label{eq:ident}
-\end{subequations}
-then the $\oplus$ operation reduces to simple vector addition in
-binary arithmetic. If we therefore denote by $\overline{\alpha}$
-\cpnote{I dont think this is necesary. specially if we will write something
-else}
-the multi-index $\vec\alpha$ converted to a binary vector by the componentwise
-application of (\ref{eq:ident}),
-the connection between $\vec\alpha$, $\vec\gamma$, and $\vec{\gamma^\prime}$ defined by (\ref{eq:11}) is rewritten 
-as
-\begin{equation}
-\overline\gamma=\overline\alpha+\overline{\gamma^\prime}
-\label{eq:17}
-\end{equation}
-where the addition sign here refers to ordinary binary vector addition. 
-\cpnote{Hasta aca}
+% % Lo que quiero quitar {{{
+% \cpnote{Propongo quitar desde aca}
+% Note further that if we perform the identification
+% \begin{subequations}
+% \begin{eqnarray}
+% 0&\to&(0,0)\label{eq:identa}\\
+% 1&\to&(0,1)\label{eq:identb}\\
+% 2&\to&(1,0)\label{eq:identc}\\
+% 3&\to&(1,1)\label{eq:identd}
+% \end{eqnarray}
+% \label{eq:ident}
+% \end{subequations}
+% then the $\oplus$ operation reduces to simple vector addition in
+% binary arithmetic. If we therefore denote by $\overline{\alpha}$
+% \cpnote{I dont think this is necesary. specially if we will write something
+% else}
+% the multi-index $\vec\alpha$ converted to a binary vector by the componentwise
+% application of (\ref{eq:ident}),
+% the connection between $\vec\alpha$, $\vec\gamma$, and $\vec{\gamma^\prime}$ defined by (\ref{eq:11}) is rewritten 
+% as
+% \begin{equation}
+% \overline\gamma=\overline\alpha+\overline{\gamma^\prime}
+% \label{eq:17}
+% \end{equation}
+% where the addition sign here refers to ordinary binary vector addition. 
+% \cpnote{Hasta aca}
+% % }}}
 
 From this readily follows an amusing property: the set of all multi-indices
-$\overline\gamma$ for which $\tau_{\overline\gamma}=1$, is closed under binary
-vector addition, in other words, it forms a {\em vector subspace\/} of the set
-of all multi-indices. Indeed, let $\overline\alpha$ and $\overline\gamma$
-belong to that set. Then if 
-\begin{equation}
-\overline{\gamma^\prime}=\overline\alpha+\overline\gamma
-\label{eq:14b}
-\end{equation}
-then by the preceding considerations, $\tau_{\overline\gamma^\prime}$ is equal to $\tau_{\overline\gamma}$
-and thus equal to one. 
-
-So we may now proceed to generate all solutions: we start out from the solution having $\tau_{\vec0}=1$, with
-everything else $0$. We may then successively switch $\tau$'s to $1$ for various values of $\vec\alpha$, 
-taking care immediately to set equal to one the values of $\tau$ that correspond to values of $\vec\beta$
-generated by the previously switched values of $\vec\alpha$ via (\ref{eq:11}). 
-
-
-A moment's consideration will further show that the above reasoning can be inverted, that is, that if we
-set all $\tau_{\overline\gamma}$ equal to one whenever the $\overline\gamma$ belong to a given vector 
-subspace of the set of all indices, then the vector $\vec\tau$ indeed has an image which is a vector with 
-only positive components. 
+$\vec\gamma$ for which $\tau_{\vec\gamma}=1$, is closed under binary
+vector addition, in other words, it forms a vector subspace of the set
+of all multi-indices.
+A moment's consideration will further show that the above reasoning can be
+inverted, that is, that if we set all $\tau_{\vec\gamma}$ equal to one
+whenever the $\vec\gamma$ belong to a given vector subspace of the set of
+all indices, then the vector $\vec\tau$ indeed has an image which is a vector
+with only positive components. 
+In other words, there is a one to one correspondence between 
+a valid quantum channel, and a vector subspace of the aforementioned space. 
+\cpnote{Aca quizá que Jose Alfredo ponga un ejemplo de una 
+figura en la que se tenga algo que es un canal y algo que no es  un canal. 
+Quizá también se puede mencionar qeu el subespacio mas chico es el canal totalmente 
+depolarizante y el subespacio mas grande es la identidad}
 
 
-%Now everything follows with delightful simplicity. First extend the $\oplus{}$ operation to vectors 
-%componentwise
-%\begin{equation}
-%\vec\alpha\oplus{}\vec\beta=(\alpha_1\oplus{}\beta_1,\ldots,\alpha_N\oplus{}\beta_N).
-%\label{eq:16}
-%\end{equation}
-%Remark, as a useful fact, that the inverse under $\oplus$ of any number $\alpha$ is $\alpha$ itself. 
+% Indeed, let $\overline\alpha$ and $\overline\gamma$
+% belong to that set. Then if 
+% \begin{equation}
+% \overline{\gamma^\prime}=\overline\alpha+\overline\gamma
+% \label{eq:14b}
+% \end{equation}
+% then by the preceding considerations, $\tau_{\overline\gamma^\prime}$ is equal to $\tau_{\overline\gamma}$
+% and thus equal to one. 
 
-%If $\tau_{\vec\alpha}=1$, then it follows from the above that 
-%for all $\gamma$
-%\begin{equation}
-%\tau_{\vec\gamma}=\tau_{\vec\alpha\oplus{}\vec\gamma}.
-%\label{eq:17}
-%\end{equation}
+So we may now proceed to generate all solutions: we start out from the solution
+having $\tau_{\vec0}=1$, with everything else $0$. We may then successively
+switch $\tau$'s to $1$ for various values of $\valpha$, taking care
+immediately to set equal to one the components of $\tau$ that correspond to values
+of $\vbeta$ generated by the previously switched values of $\valpha$ via the
+operation $\oplus$. Doing so, in an ordered way allows one to general 
+all valid quantum channels with given preserved components, without the need
+of exploring the exponentially large space of PCE. 
+% (\ref{eq:11}). 
 
-%Now take an arbitrary $\vec{\alpha}_1$ and set $\tau_{\vec{\alpha}_1}=1$. This immediately imposes the
-%relationship
-%\begin{equation}
-%\tau_{\vec\gamma}=\tau_{\alp1\oplus{}\vec\gamma}
-%\label{eq:18}
-%\end{equation}
-%which to every $\vec\gamma$ assigns exactly one other multi-index such that the corresponding values of $\tau$
-%must be equal. Note that (\ref{eq:18}) is vacuous when applied to $\gamma=\alp1$: indeed $\alp1\oplus\alp1=\vec0$,
-%and $\tau_{\vec0}$ is one by convention. 
+% Procesado pero No lo entiendo/no lo quiero poner {{{
+
+% }}}}
+
 %
-%Now choose another multi-index, say $\alp2$, which is not equal to $\alp1$, nor to any site
-%that is automatically equal to $\tau_{\alp1}$. Set $\tau_{\alp2}=1$. We obviously must also set $\tau_{\alp2\oplus\alp1}=1$,
-%since the two are equal because of (\ref{eq:18}). By the same reasoning that led to (\ref{eq:18}), we now find that 
+%Now choose another multi-index, say $\alp2$, which is not equal to $\alp1$,
+%nor to any site that is automatically equal to $\tau_{\alp1}$. Set
+%$\tau_{\alp2}=1$. We obviously must also set $\tau_{\alp2\oplus\alp1}=1$,
+%since the two are equal because of (\ref{eq:18}). By the same reasoning that
+%led to (\ref{eq:18}), we now find that 
 %\begin{equation}
-%\tau_{\vec\gamma}=\tau_{\alp1\oplus{}\vec\gamma}=\tau_{\alp2\oplus{}\vec\gamma}=\tau_{\alp1\oplus\alp2\alp2\oplus{}\vec\gamma}
+%\tau_{\vec\gamma} = \tau_{\alp1\oplus{}\vec\gamma}
+%     =\tau_{\alp2\oplus{}\vec\gamma}
+%     =\tau_{\alp1\oplus\alp2\alp2\oplus{}\vec\gamma}
 %\label{eq:19}
 %\end{equation}
-%Thus we find that the $\tau$'s are now constant over domains of $4$, as opposed to $2$ previously, when only one
-%single $\vec\alpha$, namely $\alp1$, had been fixed to have $\tau_{\alp1}=1$. Further, it follows from the group property
-%of $\oplus$ that the different domains are {\em disjoint}. The 3 multi-indices associated to a given $\vec\gamma$ are never associated
-%to any other $\vec{\gamma^\prime}$. 
+%Thus we find that the $\tau$'s are now constant over domains of $4$, as
+%opposed to $2$ previously, when only one
+%single $\vec\alpha$, namely $\alp1$, had been fixed to have $\tau_{\alp1}=1$.
+%Further, it follows from the group property of $\oplus$ that the different
+%domains are {\em disjoint}. The 3 multi-indices associated to a given
+%$\vec\gamma$ are never associated to any other $\vec{\gamma^\prime}$. 
 %
-%After adding $\alp1$, we have at least 2 sites equal to 1, after adding $\alp2$, we have 4: $\vec0$, $\alp1$, $\alp2$, and $\alp1+\alp2$. 
-%Clearly, at each addition, the total number doubles. This shows the $2^k$ rule. 
+%After adding $\alp1$, we have at least 2 sites equal to 1, after adding
+%$\alp2$, we have 4: $\vec0$, $\alp1$, $\alp2$, and $\alp1+\alp2$.  Clearly, at
+%each addition, the total number doubles. This shows the $2^k$ rule. 
 %
-%How far can this process go? Well, the total number of multi-indices is $4^N$, so this can go on until $2\cdot4^{N-1}$ sites are occupied,
-%in other words, we may double $2N-1$ times.
+%How far can this process go? Well, the total number of multi-indices is $4^N$,
+%so this can go on until $2\cdot4^{N-1}$ sites are occupied, in other words, we
+%may double $2N-1$ times.
 %
-%Now to show that the maximal solutions are generators, that is, that all solutions can be expressed as intersections of maximal 
-%solutions, that is, solutions with $2\cdot4^{N-1}$ 1's. Any maximal solution can be obtained by the successive adjunction
-%of $\alp1, \alp2,\ldots,\alp{2N-1}$. Again, due to the group property, the final solution generated does not depend on the order
+%Now to show that the maximal solutions are generators, that is, that all
+%solutions can be expressed as intersections of maximal solutions, that is,
+%solutions with $2\cdot4^{N-1}$ 1's. Any maximal solution can be obtained by
+%the successive adjunction of $\alp1, \alp2,\ldots,\alp{2N-1}$. Again, due to
+%the group property, the final solution generated does not depend on the order
 %of the $\alp{k}$. 
 %
-%Now let us consider a solution with half the number of elements of a maximal solution, that is, one generated by $\alp1, \alp2,\ldots,\alp{2N-2}$. 
-%At this stage, the $\tau_{\vec\alpha}$ are constant over domains of size $4^{N-1}$ and there are a total of $4^{N-1}$ 1's. 
-%There are thus 2 inequivalent remaining domains where I could put the final $\alp{2N-1}$. These 2 different choices yield disjoint
-%maximal solutions, the intersection of which yields the solution with half the number of elements of the maximal solution. 
-%Every solution one step away from maximal can thus be expressed (uniquely) as the intersection of 2 maximal solutions. 
+%Now let us consider a solution with half the number of elements of a maximal
+%solution, that is, one generated by $\alp1, \alp2,\ldots,\alp{2N-2}$.  At this
+%stage, the $\tau_{\vec\alpha}$ are constant over domains of size $4^{N-1}$ and
+%there are a total of $4^{N-1}$ 1's.  There are thus 2 inequivalent remaining
+%domains where I could put the final $\alp{2N-1}$. These 2 different choices
+%yield disjoint maximal solutions, the intersection of which yields the
+%solution with half the number of elements of the maximal solution.  Every
+%solution one step away from maximal can thus be expressed (uniquely) as the
+%intersection of 2 maximal solutions. 
 %
-%Arguing inductively backwards, the same result can be shown for arbitrary solutions. We therefore have shown both the $2^k$ 
-%rule and the fact that all solutions are expressible uniquely as intersections of maximal solutions. 
+%Arguing inductively backwards, the same result can be shown for arbitrary
+%solutions. We therefore have shown both the $2^k$ rule and the fact that all
+%solutions are expressible uniquely as intersections of maximal solutions. 
 
-The dimension of the vector space $V$ of all multi-indices is $2N$, and we have seen earlier that
+The dimension of the vector space $V$ of all multi-indices is $2N$, and we have
+seen earlier that
 \begin{equation}
 W=\left\{
 \vec\alpha:\vec\alpha\in V, \tau_{\vec\alpha}=1
