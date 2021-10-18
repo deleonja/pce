@@ -1,6 +1,7 @@
 
 \subsection{A vector space of channels} % {{{
-\cpnote{Quiza falta lo de las clases de equivalencias}\par
+\cpnote{Quiza falta lo de las clases de equivalencias}\janote{Pienso que sí porque
+puede y debería ser útil para la sección siguiente de generadores.}\par
 % Inversion de la relacion entre tau y p, y que las probablidiades deben ser positivas {{{
 The problem of determining complete positivity of a PCE can be recast as 
 determining which vectors $\vtau$ are mapped via
@@ -10,6 +11,10 @@ $\san$
 % \label{eq:condition}
 % \end{equation}
 to a vector with positive entries $\lambda_\valpha$, as in \eref{eq:lambda:is:A:tau}. 
+\janote{Siento que hace falta un enunciado por aquí, al inicio de la sección, que haga
+que el lector se pueda colgar de la idea de los espacios vectoriales. Quizás algo 
+como}\janote{We will show how to associate unequivocally PCE quantum
+channels with vector spaces.}
 % . In components, this would read 
 % \begin{equation}
 % % \left(
@@ -37,7 +42,9 @@ we can directly invert \eref{eq:lambda:is:A:tau} to obtain
 \end{equation}
 which will serve as a starting point for our analysis. 
 This is a remarkable equation, as it provides a method to diagonalize any diagonal 
-Pauli channel, as in \eref{eq:definition:Pauli}. 
+Pauli channel, as in \eref{eq:definition:Pauli}. \janote{por qué diagonalizar al 
+canal de Pauli? Creo que sería más bien a la matriz de Choi, pero igual estoy 
+un poco pérdido con el sentido del enunciado. }
 
 
 Other two simple but crucial
@@ -46,7 +53,7 @@ observation are the following. For valid quantum channels,
 % % \sum_{
 % \end{equation}
 $\sum_{\valpha \in \Omega} \lambda_\valpha=0$ implies that 
-$\lambda_\valpha=0$ for all $\valpha\in \Omega$, as each member of the sum 
+$\lambda_\valpha=0$ for all $\valpha\in \Omega$\janote{Qué es $\Omega$?}, as each member of the sum \janote{is}
 greater or equal to zero, 
 % $p_{\vec\alpha}+p_{\vec\beta}=0$ implies $p_{\vec\alpha}=p_{\vec\beta}=0$, as
 % all $p_{\vec\alpha} \ge 0$
@@ -73,7 +80,7 @@ of multi-indices $\Phi(\vec\alpha)$ as follows
 \end{equation}
 If we now assume that $\tau_{\vec\alpha}=1$, it follows from subtracting 
 \eref{eq:sum:alpha:is:2N} from 
-$\sum_{\vec\beta}\san_{\vec\alpha\vec\beta}\lambda_{\vec\beta}=2^N$ 
+$\sum_{\vec\beta}\san_{\vec\alpha\vec\beta}\lambda_{\vec\beta}=2^N$\janote{la resta no es al revés?}
 (which follows from the aforementioned assumption), 
 % \begin{subequations}
 % \begin{eqnarray}
