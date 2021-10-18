@@ -112,7 +112,7 @@ as
 \begin{equation}
 \san_{\vbeta\vec\gamma} \san_{\vbeta\vec{\gamma^\prime}} 
 = 
-\san_{\valpha\vbeta} 
+1
 , \quad
 \forall \vec\beta\in\Phi(\vec\alpha),
 \label{eq:12}
@@ -122,11 +122,7 @@ which can be further decomposed in
 \sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}
   \ldots
 %   \cdot\ldots\cdot 
-\sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=
-\sa_{\alpha_1\beta_1}
-  \ldots
-% \cdot\ldots\cdot
- \sa_{\alpha_N\beta_N}.
+\sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=1.
 \label{eq:13}
 \end{equation}
 % Moreover, since 
@@ -145,23 +141,24 @@ which can be further decomposed in
 % \sa_{\alpha_1\beta_1}\cdot\ldots\cdot \sa_{\alpha_N\beta_N}.
 % \label{eq:13}
 % \end{equation}
-Since this must hold for all $\vec\beta\in\Phi(\vec\alpha)$, it follows that 
-the above relation must hold individually for every index\cpnote{francois, recuerdo 
+\flnote{Leve modificaci\'on de las ecuaciones anteriores, y adecuaci\'on del texto siguiente. } \cpnote{francois, recuerdo 
 que esto lo discutimos. No se si en el momento me convencí, pero ahora no veo 
-proque se tiene que cumplir para los indices individulaes}. Thus we have, 
-that, for all $1\leq k\leq N$, $\gamma_k$
+proque se tiene que cumplir para los indices individulaes}. 
+We now show in Appendix
+\ref{app:proof} that from this follows that
+for all $1\leq k\leq N$, $\gamma_k$
 and $\gamma_k^\prime$ are connected by
 \begin{equation}
-\sa_{\beta\gamma_k}\sa_{\beta\gamma_k^\prime}=\sa_{\beta\alpha}
+\sa_{\beta\gamma_k}\sa_{\beta\gamma_k^\prime}=1
 \label{eq:14}
 \end{equation}
-for all $0\leq\beta\leq3$. One can verify, by working out the different cases, 
-that \eref{eq:14} equivalently expressed as 
+for all $\beta$ such that $\sa_{{\alpha_k}\beta}=1$ . One can verify, by working out the different cases, 
+that \eref{eq:14} is equivalently expressed as 
 \begin{equation}
-\gamma_k^\prime=\alpha\oplus{}\gamma_k
+\gamma_k^\prime=\alpha_k\oplus{}\gamma_k
 \label{eq:oplus}
 \end{equation}
-where the $\oplus{}$ denotes the operation of the Kein group; see Figure
+where the $\oplus{}$ denotes the operation of the Klein group; see Figure
 \ref{tab:1} for a detailed description. 
 \par
 % }}}
@@ -190,7 +187,7 @@ $\valpha^{(1)} = (0,2)$,
 $\valpha^{(2)} = (1,0)$, 
 $\valpha^{(3)} = (2,2)$, and
 $\valpha^{(4)} = (3,2)$. However, 
-$\valpha^{(1)} + \valpha^{(2)} = (1,2)$, which is not preseverd and thus this 
+$\valpha^{(1)} + \valpha^{(2)} = (1,2)$, which is not preserved and thus this 
 diagram does not correspond to a quantum channel.  From this view 
 we can derive several interesting observations that will be presented in 
 the rest of the section. 
