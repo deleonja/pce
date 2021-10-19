@@ -1,6 +1,7 @@
 \section{Diagonalization of Choi Matrix $\mathcal{D}_N$} % {{{
 \label{sec:appendix:diagonalization}
 % 
+\subsection{Single qubit}
 In order to simplify the derivation of the relations, let us employ pairs of
 binary indices instead of a single quaternary, i.e. $\alpha\to\mu+2\nu$. In
 this way we can write the elements of the Pauli basis
@@ -11,18 +12,18 @@ forms, compactly as
 \end{equation}
 and
 \begin{equation}
-\kket{\sigma_{\mu\nu}}=\sum_{j=0}^{1} (-1)^{j \mu}\ket{j,j\oplus \nu}.
+\kket{\sigma_{\mu\nu}}=\sum_{j=0}^{1} (-1)^{j \mu}\kket{j,j\oplus \nu}.
 \end{equation}
 In addition, recall the inverse relation between the computational and Pauli elements
 \begin{equation}
-\ket{l,l\oplus n}=\frac{1}{2}\sum_{m=0}^{1} (-1)^{ml}\kket{\sigma_{mn}}.
+\kket{l,l\oplus n}=\frac{1}{2}\sum_{m=0}^{1} (-1)^{ml}\kket{\sigma_{mn}}.
 \label{PauToComp}
 \end{equation}
 On the other hand, the matrix form of an arbitrary Pauli map $\mathcal{E}$ may
 be written as
 \begin{align}
 \hat{\mathcal{E}} & = \frac{1}{2}\sum_{\mu\nu=0}^{1} \tau_{\mu\nu} \ddyada{\sigma_{\mu\nu}},\\
-& = \frac{1}{2}\sum_{jk\mu\nu} \tau_{\mu\nu} (-1)^{\mu(j+k)} \dyad{j,j\oplus\nu}{k,k\oplus\nu}.
+& = \frac{1}{2}\sum_{jk\mu\nu} \tau_{\mu\nu} (-1)^{\mu(j+k)} \ddyad{j,j\oplus\nu}{k,k\oplus\nu}.
 % \label{Map_Pauli}
 \end{align}
 After applying the reshuffling operation on $\hat{\mathcal{E}}$, we obtain the
@@ -30,7 +31,7 @@ Choi matrix associated to the map. It reads
 \begin{equation}
  \mathcal{D} = 
   \frac{1}{2}\sum_{jk\mu\nu} \tau_{\mu\nu} (-1)^{\mu(j+k)} 
-      \dyad{j,k}{j\oplus\nu,k\oplus\nu}.
+      \ddyad{j,k}{j\oplus\nu,k\oplus\nu}.
 \label{Choi_a1}
 \end{equation}
 
@@ -38,14 +39,15 @@ Let us apply the index relabeling $k\to j\oplus m$, then the Choi matrix holds
 \begin{equation}
  \mathcal{D} =
     \frac{1}{2}\sum_{jm\mu\nu} \tau_{\mu\nu} (-1)^{\mu m} 
-        \dyad{j,j\oplus m}{j\oplus\nu,j\oplus\nu\oplus m}.
+        \ddyad{j,j\oplus m}{j\oplus\nu,j\oplus\nu\oplus m}.
 \label{Choi_a1}
 \end{equation}
 By using the relation between computational and Pauli elements (Eq.
 \ref{PauToComp}), we have
 \begin{align*}
- \mathcal{D} & = \frac{1}{2}\sum_{jm\mu\nu} \tau_{\mu\nu}(-1)^{\mu m}  \left( \frac{1}{2}\sum_{k=0}^{1} (-1)^{kj}\kket{\sigma_{km}}\right)\left(\frac{1}{2}\sum_{n=0}^{1} (-1)^{n(j\oplus\nu)}\bbra{\sigma_{nm}}\right),\\
- & = \frac{1}{8}\sum_{jkmn\mu\nu} \tau_{\mu\nu}(-1)^{\mu m+kj+n(j\oplus\nu)}  \ddyad{\sigma_{km}}{\sigma_{nm}},\\
+ \mathcal{D} & = 
+%  \frac{1}{2}\sum_{jm\mu\nu} \tau_{\mu\nu}(-1)^{\mu m}  \left( \frac{1}{2}\sum_{k=0}^{1} (-1)^{kj}\kket{\sigma_{km}}\right)\left(\frac{1}{2}\sum_{n=0}^{1} (-1)^{n(j\oplus\nu)}\bbra{\sigma_{nm}}\right),\\
+\frac{1}{8}\sum_{jkmn\mu\nu} \tau_{\mu\nu}(-1)^{\mu m+kj+n(j\oplus\nu)}  \ddyad{\sigma_{km}}{\sigma_{nm}},\\
  & = \frac{1}{8}\sum_{kmn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} \left(\sum_{j} (-1)^{j(k+n)} \right) \ddyad{\sigma_{km}}{\sigma_{nm}},\\
  & = \frac{1}{8}\sum_{kmn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} (2\delta_{kn}) \ddyad{\sigma_{km}}{\sigma_{nm}},\\
  & = \frac{1}{4}\sum_{mn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} \ddyad{\sigma_{nm}}{\sigma_{nm}},\\
@@ -59,8 +61,60 @@ Then $\mathcal{D}$ is diagonal in the Pauli basis, with eigenvalues given by
 or more compactly $\vec{\lambda} = \sa~\vec{\tau}$, where $\sa=2^{-1}H\otimes
 H$ and $H$ is the Hadamard matrix.
 
-\afnote{Queda faltando pasar a limpio la generalizacion para $N$ qubits.}
+\subsection{$N$ qubits}
 
+Analogously to the previous case, we can define an arbitrary Pauli map acting on $N$ qubits density matrices in terms of the tensor products of vectorized Pauli matrices
+\begin{equation}
+\hat{\mathcal{E}}_N = \frac{1}{2^N}\sum_{\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} \ddyada{\sigma_{\vec{\mu}\vec{\nu}}}, 
+\end{equation}
+where
+\begin{align}
+\kket{\sigma_{\vec{\mu}\vec{\nu}}} & = \kket{\sigma_{\mu_1\nu_1}}\otimes \cdots \kket{\sigma_{\mu_N\nu_N}},\\
+& = \left(\sum_{j_1=0}^{1} (-1)^{j_1 \mu_1}\kket{j_1,j_1\oplus \nu_1}\right)\otimes\cdots \otimes \left(\sum_{j_N=0}^{1} (-1)^{j_N \mu_N}\kket{j_N,j_N\oplus \nu_N}\right),\\
+& = \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{\mu}} \kket{j_1,j_1\oplus \nu_1}\otimes\cdots \otimes \kket{j_N,j_N\oplus \nu_N},\\
+& = \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{\mu}} \kket{\vec{j},\vec{j}\oplus \vec{\nu}}
+\end{align}
+and
+\begin{equation}
+\bbrakket{\sigma_{\vec{\mu}\vec{\nu}}}{\sigma_{\vec{\mu}'\vec{\nu}'}} = 2^N \delta_{\vec{\mu}\vec{\mu}'}\delta_{\vec{\nu}\vec{\nu}'}.
+\end{equation}
+
+Recall the relation between the computational and Pauli basis elements (Eq. \ref{PauToComp}), in this way for the $N$-qubits case we have
+% 
+\begin{align}
+ \kket{\vec{l},\vec{l}\oplus \vec{n}} & = \kket{l_1,l_1\oplus n_1} \otimes\cdots \otimes \kket{l_N,l_N\oplus n_N} \\
+  & = \left( \frac{1}{2}\sum_{m_1=0}^{1} (-1)^{m_1l_1}\kket{\sigma_{m_1n_1}}\right)\otimes\cdots \otimes\left(\frac{1}{2}\sum_{m_N=0}^{1} (-1)^{m_Nl_N}\kket{\sigma_{m_Nn_N}}\right),\\
+ & = \frac{1}{2^N}\left(\sum_{\vec{m}} (-1)^{\vec{m}\cdot\vec{l}}\kket{\sigma_{m_1n_1}}\otimes\cdots \otimes\kket{\sigma_{m_Nn_N}}\right),\\
+ & = \frac{1}{2^N}\sum_{\vec{m}} (-1)^{\vec{m}\cdot\vec{l}}\kket{\sigma_{\vec{m}\vec{n}}}.
+\label{PauToCompN}
+ \end{align}
+By employing the previous relations, we can write the matrix representation of the map, $\hat{\mathcal{E}}_N $ in the $N$-qubits computational basis as
+\begin{align}
+\hat{\mathcal{E}}_N = & \frac{1}{2^N}\sum_{\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} \ddyada{\sigma_{\vec{\mu}\vec{\nu}}},\\
+= & \frac{1}{2^N}\sum_{\vec{j}\vec{k}\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} (-1)^{\vec{\mu}\cdot(\vec{j}+\vec{k})} \ddyad{\vec{j},\vec{j}\oplus \vec{\nu}}{\vec{k},\vec{k}\oplus \vec{\nu}}.\\
+\end{align}
+In this way it is straightforward to apply the reshuffling operation on $\hat{\mathcal{E}}_N$ to obtain the associated Choi matrix $\mathcal{D}_N$,
+\begin{equation}
+\mathcal{D}_N =\frac{1}{2^N}\sum_{\vec{j}\vec{k}\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} (-1)^{\vec{\mu}\cdot(\vec{j}+\vec{k})} \ddyad{\vec{j},\vec{k}}{\vec{j}\oplus \vec{\nu},\vec{k}\oplus \vec{\nu}}.
+\end{equation}
+After the change of vector indices $\vec{k}=\vec{j}\oplus\vec{l}$, the Choi matrix holds
+\begin{equation}
+\mathcal{D}_N =\frac{1}{2^N}\sum_{\vec{j}\vec{l}\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} (-1)^{\vec{\mu}\cdot(\vec{j}+\vec{j}\oplus\vec{l})} \ddyad{\vec{j},\vec{j}\oplus\vec{l}}{\vec{j}\oplus \vec{\nu},\vec{j}\oplus \vec{\nu}\oplus \vec{l}}.
+\end{equation}
+Back to the vectorized Pauli basis (Eq. \ref{PauToCompN}), we have
+\begin{equation}
+\mathcal{D}_N = \frac{1}{2^{3N}}\sum_{\vec{j}\vec{l}\vec{m}\vec{n}\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} (-1)^{\vec{\mu}\cdot\vec{l}+\vec{j}\vec{m}+(\vec{j}\oplus\vec{\nu})\cdot\vec{n}} \ddyad{\sigma_{\vec{m}\vec{l}}}{\sigma_{\vec{n}\vec{l}}}.
+\end{equation}
+Due to the fact that we are dealing with binary indices, then we can safely write the modular sum in the exponent as standard sum. On the other hand, recall the relation $\sum_{\vec{j}}(-1)^{\vec{j}\cdot(\vec{m}+\vec{n})}=2^N\delta_{\vec{m}\vec{n}}$. Thus $\mathcal{D}_N$ reduces to 
+\begin{align}
+\mathcal{D}_N & = \frac{1}{2^{2N}}\sum_{\vec{m}\vec{n}\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} (-1)^{\vec{\mu}\cdot\vec{n}+\vec{\nu}\cdot\vec{m}} \ddyad{\sigma_{\vec{m}\vec{n}}}{\sigma_{\vec{m}\vec{n}}},\\
+& = \frac{1}{2^{N}}\sum_{\vec{m}\vec{n}} \left( \frac{1}{2^{N}}\sum_{\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} (-1)^{\vec{\mu}\cdot\vec{n}+\vec{\nu}\cdot\vec{m}} \right)\ddyad{\sigma_{\vec{m}\vec{n}}}{\sigma_{\vec{m}\vec{n}}}.
+\end{align}
+Thus the eigenvalues of the Choi matrix $\mathcal{D}_N$ may be written as
+\begin{equation}
+\lambda_{\vec{m}\vec{n}}= \frac{1}{2^{N}}\sum_{\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} (-1)^{\vec{\mu}\cdot\vec{n}+\vec{\nu}\cdot\vec{m}}
+\end{equation}
+or more compactly $\vec{\lambda} = \san~\vec{\tau}$, where $\san=a^{\otimes N}$, $\sa=2^{-1}H\otimes H$ and $H$ is the Hadamard matrix.
 % }}}
 
 
