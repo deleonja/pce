@@ -1,20 +1,29 @@
 
 \subsection{A vector space of channels} % {{{
-\cpnote{Quiza falta lo de las clases de equivalencias}\janote{Pienso que sí porque
-puede y debería ser útil para la sección siguiente de generadores.}\par
+\cpnote{Falta lo de las clases de equivalencias, pero aun no encuentro el
+espacio. Quizá cuando haga falta se puede poner}
+% \janote{Pienso que sí porque puede y debería ser útil para la sección siguiente
+% de generadores.}
+\par
 % Inversion de la relacion entre tau y p, y que las probablidiades deben ser positivas {{{
-The problem of determining complete positivity of a PCE can be recast as 
-determining which vectors $\vtau$ are mapped via
+
+In this subsection we will provide a one-to-one relation between PCE quantum channels 
+and the subspaces of a discrete vector subspace associated with the indices $\valpha$
+labeling the components of a state; see \eref{eq:N_qubits_rho}.
+
+
+Let us start by recalling that the problem of determining complete positivity
+of a PCE can be recast as determining which vectors $\vtau$ are mapped via
 $\san$
 % \begin{equation}
 % \san\vec\tau=2^N\vec p
 % \label{eq:condition}
 % \end{equation}
 to a vector with positive entries $\lambda_\valpha$, as in \eref{eq:lambda:is:A:tau}. 
-\janote{Siento que hace falta un enunciado por aquí, al inicio de la sección, que haga
-que el lector se pueda colgar de la idea de los espacios vectoriales. Quizás algo 
-como}\janote{We will show how to associate unequivocally PCE quantum
-channels with vector spaces.}
+% \janote{Siento que hace falta un enunciado por aquí, al inicio de la sección, que haga
+% que el lector se pueda colgar de la idea de los espacios vectoriales. Quizás algo 
+% como}\janote{We will show how to associate unequivocally PCE quantum
+% channels with vector spaces.}
 % . In components, this would read 
 % \begin{equation}
 % % \left(
@@ -30,7 +39,7 @@ channels with vector spaces.}
 Using the fact that $a^{-1}=a/4$, so 
 % (so $A = A^{-1}/2^N$) 
 \begin{equation}
-A^{-1} = \frac{1}{4^N} A
+A^{-1} = \frac{1}{4^N} A,
 \end{equation}
 we can directly invert \eref{eq:lambda:is:A:tau} to obtain 
 \begin{equation}
@@ -41,10 +50,12 @@ we can directly invert \eref{eq:lambda:is:A:tau} to obtain
 \label{eq:tau:is:A:p}
 \end{equation}
 which will serve as a starting point for our analysis. 
-This is a remarkable equation, as it provides a method to diagonalize any diagonal 
-Pauli channel, as in \eref{eq:definition:Pauli}. \janote{por qué diagonalizar al 
-canal de Pauli? Creo que sería más bien a la matriz de Choi, pero igual estoy 
-un poco pérdido con el sentido del enunciado. }
+This is a remarkable equation, as it provides a method to diagonalize the
+Choi matrix of any diagonal 
+Pauli channel, as in \eref{eq:definition:Pauli}. 
+% \janote{por qué diagonalizar al 
+% canal de Pauli? Creo que sería más bien a la matriz de Choi, pero igual estoy 
+% un poco pérdido con el sentido del enunciado. }
 
 
 Other two simple but crucial
@@ -53,7 +64,8 @@ observation are the following. For valid quantum channels,
 % % \sum_{
 % \end{equation}
 $\sum_{\valpha \in \Omega} \lambda_\valpha=0$ implies that 
-$\lambda_\valpha=0$ for all $\valpha\in \Omega$\janote{Qué es $\Omega$?}, as each member of the sum \janote{is}
+$\lambda_\valpha=0$ for all $\valpha$ in an arbitrary subset of 
+multi-indices $\Omega$, as each member of the sum is
 greater or equal to zero, 
 % $p_{\vec\alpha}+p_{\vec\beta}=0$ implies $p_{\vec\alpha}=p_{\vec\beta}=0$, as
 % all $p_{\vec\alpha} \ge 0$
@@ -78,10 +90,12 @@ of multi-indices $\Phi(\vec\alpha)$ as follows
 % \right\}
 \label{eq:8}
 \end{equation}
-If we now assume that $\tau_{\vec\alpha}=1$, it follows from subtracting 
-\eref{eq:sum:alpha:is:2N} from 
-$\sum_{\vec\beta}\san_{\vec\alpha\vec\beta}\lambda_{\vec\beta}=2^N$\janote{la resta no es al revés?}
-(which follows from the aforementioned assumption), 
+% If we now assume that $\tau_{\vec\alpha}=1$, it follows from subtracting 
+If we now assume that $\tau_{\vec\alpha}=1$, and calculate the difference between
+\eref{eq:sum:alpha:is:2N} and
+$\sum_{\vec\beta}\san_{\vec\alpha\vec\beta}\lambda_{\vec\beta}=2^N$
+% \janote{la resta no es al revés?} 
+(which follows from the aforementioned assumption), one obtains
 % \begin{subequations}
 % \begin{eqnarray}
 % \sum_{\vec\beta}p_{\vec\beta}&=&1
@@ -106,11 +120,12 @@ and $\tau_{\vec{\gamma^\prime}}$ are equal if
 % holds for all $\vec\beta\in\Phi(\vec\alpha)$. 
 This follows from restricting the sum \eref{eq:tau:is:A:p}
 to the $\lambda_\vbeta \ne 0$, given in \eref{eq:condition:lambda:zero:Phi}. 
-\janote{Para entender esto tuve que revisar de nuevo 
-el manuscrito de Francois. No veía cómo llegar a la implicación establecida
-en \eqref{eq:coneccion:dos:indices:A}. Creo que algunos pasos intermedios son
-importantes.}
-Condition (\ref{eq:coneccion:dos:indices:A}) therefore connects three multi-indices, $\vec\alpha$,
+% \janote{Para entender esto tuve que revisar de nuevo 
+% el manuscrito de Francois. No veía cómo llegar a la implicación establecida
+% en \eqref{eq:coneccion:dos:indices:A}. Creo que algunos pasos intermedios son
+% importantes.}
+Condition (\ref{eq:coneccion:dos:indices:A}) therefore connects three
+multi-indices, $\valpha$,
 $\vec\gamma$ and $\vec{\gamma^\prime}$.
 When such a connection exists, $\tau_{\vec\alpha}=1$ implies
 $\tau_{\vec\gamma}=\tau_{\vec{\gamma^\prime}}$. Let us now work out the nature
