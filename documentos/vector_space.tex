@@ -132,67 +132,19 @@ $\tau_{\vec\gamma}=\tau_{\vec{\gamma^\prime}}$. Let us now work out the nature
 of this connection. 
 
 
-Since all elements of $A$ are $\pm1$, and using that $A_{\valpha \vbeta}=1$
-of $\vbeta \in \Phi(\vec\alpha)$, we may rewrite \eref{eq:coneccion:dos:indices:A}
-as
+Let the components of  $\vbeta$ be such that $\beta_l = \beta \delta_{lk}$ for
+a particular particle index $k$, with 
+$\beta$ such that $\sa_{\alpha_k\beta}=1$.
+Since $\sa_{\alpha 0}=1$ for any $\alpha$, this particular election of $\vbeta$
+belongs to  $\Phi(\vec\alpha)$, so that \eref{eq:coneccion:dos:indices:A}
+indeed holds. However, for such election of $\vbeta$ the above relation reduces
+to 
 \begin{equation}
-\san_{\vbeta\vec\gamma} \san_{\vbeta\vec{\gamma^\prime}} 
-= 
-1
-, \quad
-\forall \vec\beta\in\Phi(\vec\alpha),
-\label{eq:12}
-\end{equation}
-which can be further decomposed in 
-\begin{equation}
-\sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}
-  \ldots
-%   \cdot\ldots\cdot 
-\sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=1.
-\label{eq:13}
-\end{equation}
-% Moreover, since 
-% 
-% 
-% 
-% Since $\sa_{\alpha\beta}=\pm1$, we may rewrite (\ref{eq:11}) as
-% \begin{equation}
-% \sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}\cdot\ldots\cdot \sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=1.
-% \label{eq:12}
-% \end{equation}
-% This must hold for all $\vec\beta\in\Phi(\vec\alpha)$. From this follows that
-% (\ref{eq:12}) may be rewritten as
-% \begin{equation}
-% \sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}\cdot\ldots\cdot \sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=
-% \sa_{\alpha_1\beta_1}\cdot\ldots\cdot \sa_{\alpha_N\beta_N}.
-% \label{eq:13}
-% \end{equation}
-% Here we show that (\ref{eq:13}) implies (\ref{eq:14}). 
-Since \eref{eq:13} holds for 
-all $\vec\beta\in\Phi(\vec\alpha)$, we may choose a specific such $\vec\beta$, namely
-$\beta_l=0$ for all $l\neq k$ and $\beta_k=\beta$, where $\beta$ is an arbitrary number
-such that
-$\sa_{\alpha_k\beta}=1$. 
-% \begin{equation}
-% \sa_{\alpha_k\beta}=1.
-% \end{equation}
-This $\vec\beta$, as is readily verified, belongs to $\Phi(\vec\alpha)$, so that \eref{eq:13}
-indeed holds for this $\vec\beta$. On the other hand, it is then readily verified that, for this
-$\vec\beta$, \eref{eq:13} reduces to 
-% (\ref{eq:14}), whcih therefore follows. 
-% \flnote{Leve modificaci\'on de las ecuaciones anteriores, y adecuaci\'on del
-% texto siguiente. } \cpnote{francois, recuerdo 
-% que esto lo discutimos. No se si en el momento me convencí, pero ahora no veo 
-% proque se tiene que cumplir para los indices individulaes}. 
-% We now show in Appendix
-% \ref{app:proof} that from this follows that
-% for all $1\leq k\leq N$, $\gamma_k$
-% and $\gamma_k^\prime$ are connected by
-\begin{equation}
-\sa_{\beta\gamma_k}\sa_{\beta\gamma_k^\prime}=1
+\sa_{\beta\gamma_k}=\sa_{\beta\gamma_k^\prime}
 \label{eq:14}
 \end{equation}
-for all $\beta$ such that $\sa_{{\alpha_k}\beta}=1$ . One can verify, by working out the different cases, 
+for all $\beta$ such that $\sa_{{\alpha_k}\beta}=1$. 
+One can verify, by working out the different cases, 
 that \eref{eq:14} is equivalently expressed as 
 \begin{equation}
 \gamma_k^\prime=\alpha_k\oplus{}\gamma_k
@@ -201,6 +153,78 @@ that \eref{eq:14} is equivalently expressed as
 where the $\oplus{}$ denotes the operation of the Klein group; see Figure
 \ref{tab:1} for a detailed description. 
 \par
+% 
+% 
+% % Since all elements of $A$ are $\pm1$, and using that $A_{\valpha \vbeta}=1$
+% % of $\vbeta \in \Phi(\vec\alpha)$, we may rewrite \eref{eq:coneccion:dos:indices:A}
+% % as
+% % \begin{equation}
+% % \san_{\vbeta\vec\gamma} \san_{\vbeta\vec{\gamma^\prime}} 
+% % = 
+% % 1
+% % , \quad
+% % \forall \vec\beta\in\Phi(\vec\alpha),
+% % \label{eq:12}
+% % \end{equation}
+% % which can be further decomposed in 
+% % \begin{equation}
+% % \sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}
+% %   \ldots
+% % %   \cdot\ldots\cdot 
+% % \sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=1.
+% % \label{eq:13}
+% % \end{equation}
+% % Moreover, since 
+% % 
+% % 
+% % 
+% % Since $\sa_{\alpha\beta}=\pm1$, we may rewrite (\ref{eq:11}) as
+% % \begin{equation}
+% % \sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}\cdot\ldots\cdot \sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=1.
+% % \label{eq:12}
+% % \end{equation}
+% % This must hold for all $\vec\beta\in\Phi(\vec\alpha)$. From this follows that
+% % (\ref{eq:12}) may be rewritten as
+% % \begin{equation}
+% % \sa_{\beta_1\gamma_1}\sa_{\beta_1\gamma_1^\prime}\cdot\ldots\cdot \sa_{\beta_N\gamma_N}\sa_{\beta_N\gamma_N^\prime}=
+% % \sa_{\alpha_1\beta_1}\cdot\ldots\cdot \sa_{\alpha_N\beta_N}.
+% % \label{eq:13}
+% % \end{equation}
+% % Here we show that (\ref{eq:13}) implies (\ref{eq:14}). 
+% Since \eref{eq:13} holds for 
+% all $\vec\beta\in\Phi(\vec\alpha)$, we may choose a specific such $\vec\beta$, namely
+% $\beta_l=0$ for all $l\neq k$ and $\beta_k=\beta$, where $\beta$ is an arbitrary number
+% such that
+% $\sa_{\alpha_k\beta}=1$. 
+% % \begin{equation}
+% % \sa_{\alpha_k\beta}=1.
+% % \end{equation}
+% This $\vec\beta$, as is readily verified, belongs to $\Phi(\vec\alpha)$, so
+% that \eref{eq:13} indeed holds for this $\vec\beta$. On the other hand, it is
+% then readily verified that, for this $\vec\beta$, \eref{eq:13} reduces to 
+% % (\ref{eq:14}), whcih therefore follows. 
+% % \flnote{Leve modificaci\'on de las ecuaciones anteriores, y adecuaci\'on del
+% % texto siguiente. } \cpnote{francois, recuerdo 
+% % que esto lo discutimos. No se si en el momento me convencí, pero ahora no veo 
+% % proque se tiene que cumplir para los indices individulaes}. 
+% % We now show in Appendix
+% % \ref{app:proof} that from this follows that
+% % for all $1\leq k\leq N$, $\gamma_k$
+% % and $\gamma_k^\prime$ are connected by
+% \begin{equation}
+% \sa_{\beta\gamma_k}\sa_{\beta\gamma_k^\prime}=1
+% \label{eq:14}
+% \end{equation}
+% for all $\beta$ such that $\sa_{{\alpha_k}\beta}=1$. 
+% One can verify, by working out the different cases, 
+% that \eref{eq:14} is equivalently expressed as 
+% \begin{equation}
+% \gamma_k^\prime=\alpha_k\oplus{}\gamma_k
+% \label{eq:oplus}
+% \end{equation}
+% where the $\oplus{}$ denotes the operation of the Klein group; see Figure
+% \ref{tab:1} for a detailed description. 
+% \par
 % }}}
 % Espacio vectorial {{{
 
