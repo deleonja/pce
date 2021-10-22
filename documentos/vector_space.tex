@@ -54,12 +54,19 @@ observation are the following. For valid quantum channels,
 % \begin{equation}
 % % \sum_{
 % \end{equation}
-$\sum_{\valpha \in \Omega} \lambda_\valpha=0$ implies that 
-$\lambda_\valpha=0$ for all $\valpha$ in an arbitrary subset of 
-multi-indices $\Omega$, as each member of the sum is
+% $\sum_{\valpha \in \Omega} \lambda_\valpha=0$ implies that 
+% $\lambda_\valpha=0$ for all $\valpha$ in an arbitrary subset of 
+% multi-indices $\Omega$, 
+\begin{equation}
+\sum_{\valpha \in \Omega} \lambda_\valpha=0 
+\quad \implies 
+\quad 
+\lambda_\valpha=0, \, \forall \valpha \in \Omega
+\label{eq:lambda:is:zero}
+\end{equation}
+for an arbitrary subset of multi-indices $\Omega$, 
+as each member of the sum is
 greater or equal to zero, 
-% $p_{\vec\alpha}+p_{\vec\beta}=0$ implies $p_{\vec\alpha}=p_{\vec\beta}=0$, as
-% all $p_{\vec\alpha} \ge 0$
 due to complete positivity of the underlying channel. 
 Finally, looking into the first component of \eref{eq:tau:is:A:p}, and taking into 
 account the normalization condition that $\tau_{\vec 0}=1$, we obtain
@@ -85,7 +92,7 @@ of multi-indices $\Phi(\vec\alpha)$ as follows
 If we now assume that $\tau_{\vec\alpha}=1$, and calculate the difference between
 \eref{eq:sum:alpha:is:2N} and
 $\sum_{\vec\beta}\san_{\vec\alpha\vec\beta}\lambda_{\vec\beta}=2^N$
-(which follows from the aforementioned assumption), one obtains
+(which follows from \eref{eq:tau:is:A:p} and $\tau_{\vec\alpha}=1$), one obtains
 % \begin{subequations}
 % \begin{eqnarray}
 % \sum_{\vec\beta}p_{\vec\beta}&=&1
@@ -107,7 +114,6 @@ and $\tau_{\vec{\gamma^\prime}}$ are equal if
 \forall \vec\beta\in\Phi(\vec\alpha).
 \label{eq:coneccion:dos:indices:A}
 \end{equation}
-% holds for all $\vec\beta\in\Phi(\vec\alpha)$. 
 This follows from restricting the sum \eref{eq:tau:is:A:p}
 to the $\lambda_\vbeta \ne 0$, given in \eref{eq:condition:lambda:zero:Phi}. 
 Condition (\ref{eq:coneccion:dos:indices:A}) therefore connects three
@@ -121,7 +127,7 @@ of this connection.
 Let the components of  $\vbeta$ be such that $\beta_l = \beta \delta_{lk}$ for
 a particular particle index $k$, with 
 $\beta$ such that $\sa_{\alpha_k\beta}=1$.
-Since $\sa_{\alpha 0}=1$ for any $\alpha$, this particular election of $\vbeta$
+Since $\sa_{\alpha 0}=1$ for any $\alpha$, this particular choice of $\vbeta$
 belongs to  $\Phi(\vec\alpha)$, so that \eref{eq:coneccion:dos:indices:A}
 indeed holds. However, for such election of $\vbeta$ the above relation reduces
 to 
@@ -217,7 +223,10 @@ where the $\oplus{}$ denotes the operation of the Klein group; see Figure
 It will be useful to think of the multi-index $\valpha$ as an element of 
 a vector space. To do so, we notice that any group with the property that
 $\alpha \oplus \alpha =0$ is indeed a vector space under the two-element field
-$\{0,1\}$\cite{alguna:referencia}.  Then, we build the complete vector space,
+$\{0,1\}$\cite{alguna:referencia}. 
+We notice that the Klein group described in \fref{tab:1} is actually isomorphic
+to the two dimensional vector space over the field of two elements $\{0,1\}$.
+Then, we build the complete vector space,
 with the same field, and defining $\valpha \oplus \vbeta = (\alpha_1 \oplus
 \beta_1,\cdots, \alpha_N \oplus \beta_N)$
 \footnote{
