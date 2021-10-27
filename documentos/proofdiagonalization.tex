@@ -26,13 +26,19 @@ After applying the reshuffling operation on $\hat{\mathcal{E}}$, we obtain the C
       \ddyad{j,k}{j\oplus\nu,k\oplus\nu}.
 \label{Choi_a1}
 \end{equation}
-
-Let us apply the index relabeling $k\to j\oplus m$, then the Choi matrix holds
+Note furthermore that the expression above may also be written as a combination of tensor products of Pauli matrices
+% 
+\begin{equation}
+ \mathcal{D} = \frac{1}{2}\sum_{\mu\nu} \tau_{\mu\nu} \sigma_{\mu\nu} \otimes \sigma_{\mu\nu}^*.
+ \label{Choi_Pauli_1q}
+\end{equation}
+% 
+Back to the Eq. \ref{Choi_a1}), let us apply the index relabeling $k\to j\oplus m$, then the Choi matrix holds
 \begin{equation}
  \mathcal{D} =
     \frac{1}{2}\sum_{jm\mu\nu} \tau_{\mu\nu} (-1)^{\mu m} 
         \ddyad{j,j\oplus m}{j\oplus\nu,j\oplus\nu\oplus m}.
-\label{Choi_a1}
+% \label{Choi_a1}
 \end{equation}
 Due to the fact that we are dealing with binary indices, thus we can safely write the modular sums in the exponents as standard sums. By employing the relation between computational and Pauli elements (Eq. \ref{PauToComp}), by noticing that $\sum_j(-1)^{j(m\pm n)}=2\delta_{mn}$, and after some steps we have
 \begin{align*}
