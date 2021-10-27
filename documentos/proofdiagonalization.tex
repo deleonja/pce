@@ -58,9 +58,22 @@ Then $\mathcal{D}$ is diagonal in the Pauli basis, with eigenvalues given by
 \begin{equation}
 \lambda_{mn}=\frac{1}{2}\sum_{\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu},
 \end{equation}
-or more compactly $\vec{\lambda} = \sa~\vec{\tau}$, where $\sa=2^{-1}H\otimes
+or more compactly $\vec{\lambda} = \sa~\vec{\tau}/2$, where $\sa=H\otimes
 H$ and $H$ is the Hadamard matrix.
 
+For the sake of convenience in the demonstration of several useful properties of the PCE channels, throughout the main text we use the matrix 
+\begin{equation}
+\sa=\left(
+\begin{array}{cccc}
+1 &1 &1   &1   \\
+ 1 & 1  & -1&-1   \\
+1  & -1  & 1 & -1\\
+1&-1&-1&1  
+\label{a_appendix}
+\end{array}
+\right),
+\end{equation}
+instead of $H\otimes H$. Moreover notice that this can be done due to the fact that both matrices are equivalent up to a permutation of rows. In other words this operation corresponds to a relabeling in the eigenvalues $\lambda_{mn}$.
 \subsection{$N$ qubits}
 
 Analogously to the previous case, we can define an arbitrary Pauli map acting on $N$ qubits density matrices in terms of the tensor products of vectorized Pauli matrices
@@ -118,7 +131,10 @@ Thus the eigenvalues of the Choi matrix $\mathcal{D}_N$ may be written as
 \begin{equation}
 \lambda_{\vec{m}\vec{n}}= \frac{1}{2^{N}}\sum_{\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} (-1)^{\vec{\mu}\cdot\vec{n}+\vec{\nu}\cdot\vec{m}}
 \end{equation}
-or more compactly $\vec{\lambda} = \san~\vec{\tau}$, where $\san=a^{\otimes N}$, $\sa=2^{-1}H\otimes H$ and $H$ is the Hadamard matrix.
+or more compactly $\vec{\lambda} = \san~\vec{\tau}/2^N$, where $\san=a^{\otimes N}$, $\sa=H\otimes H$ and $H$ is the Hadamard matrix.
+
+As in the case of a single qubit, the analyses in the main text employ the matrix $\sa$ defined in Eq. \ref{a_appendix}, to define the $\san=a^{\otimes N}$, instead of $\sa=H\otimes H$.
+
 % }}}
 
 
