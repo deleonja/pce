@@ -2,37 +2,45 @@
 \label{sec:appendix:diagonalization}
 % 
 \subsection{Single qubit}
-In order to simplify the derivation of the relations, let us employ pairs of binary indices instead of a single quaternary, i.e. $\alpha\to\mu+2\nu$. Hence we can write the elements of the Pauli basis
-$(\sigma_{0},\sigma_{1},i\sigma_{2},\sigma_{3})$, compactly as
-$\sigma_{\mu\nu}=\sum_{j=0}^{1} (-1)^{j \mu}\dyad{j}{j\oplus \nu}$. In vectorized form
+In order to simplify the derivation of the relations, let us employ pairs of
+binary indices instead of a single quaternary, i.e. $\alpha\to j +2 k$. For
+the sake of clarity, we will use Latin symbols for binary indices, and
+reserve the Greek ones for quaternary ones. 
+We can write the elements of the Pauli basis
+$(\sigma_{0},\sigma_{1},i\sigma_{2},\sigma_{3})$, 
+compactly as
+$\sigma_{k l }=\sum_{j=0}^{1} (-1)^{j k }\dyad{j}{j\oplus l }$. In vectorized form
 \begin{equation}
-\kket{\sigma_{\mu\nu}}=\sum_{j=0}^{1} (-1)^{j \mu}\kket{j,j\oplus \nu},
+\kket{\sigma_{k l }}=\sum_{j=0}^{1} (-1)^{j k }\kket{j,j\oplus l },
 \end{equation}
-in the same way,
+and its inverse relation,
 \begin{equation}
-\kket{l,l\oplus n}=\frac{1}{2}\sum_{m=0}^{1} (-1)^{ml}\kket{\sigma_{mn}}.
+\kket{k,k\oplus l}=\frac{1}{2}\sum_{j=0}^{1} (-1)^{jk}\kket{\sigma_{jl}}.
 \label{PauToComp}
 \end{equation}
 On the other hand, the matrix form of an arbitrary Pauli map $\mathcal{E}$ may
 be written as
 \begin{align}
 \hat{\mathcal{E}} & = 
-\frac{1}{2}\sum_{\mu\nu=0}^{1} \tau_{\mu\nu} \ddyada{\sigma_{\mu\nu}} 
+\frac{1}{2}\sum_{l m=0}^{1} \tau_{l m} \ddyada{\sigma_{l m}} 
 \label{eq:inicio:canal:pauli}\\
-& = \frac{1}{2}\sum_{jk\mu\nu} \tau_{\mu\nu} (-1)^{\mu(j+k)} \ddyad{j,j\oplus\nu}{k,k\oplus\nu}.
+& = \frac{1}{2}\sum_{jkl m} \tau_{l m} (-1)^{l (j+k)} 
+     \ddyad{j,j\oplus m}{k,k\oplus m}.
 % \label{Map_Pauli}
 \end{align}
-After applying the reshuffling operation on $\hat{\mathcal{E}}$, we obtain the Choi matrix associated to the map. It reads
+After applying the reshuffling operation on $\hat{\mathcal{E}}$, we obtain the
+Choi matrix associated to the map. It reads
 \begin{equation}
  \mathcal{D} = 
-  \frac{1}{2}\sum_{jk\mu\nu} \tau_{\mu\nu} (-1)^{\mu(j+k)} 
-      \ddyad{j,k}{j\oplus\nu,k\oplus\nu}.
+  \frac{1}{2}\sum_{jklm} \tau_{lm} (-1)^{l(j+k)} 
+      \ddyad{j,k}{j\oplus m,k\oplus m}.
 \label{Choi_a1}
 \end{equation}
-Note furthermore that the expression above may also be written as a combination of tensor products of Pauli matrices
-% 
+Note furthermore that the expression above may also be written as a combination
+of tensor products of Pauli matrices
 \begin{equation}
- \mathcal{D} = \frac{1}{2}\sum_{\mu\nu} \tau_{\mu\nu} \sigma_{\mu\nu} \otimes \sigma_{\mu\nu}^*.
+ \mathcal{D} = 
+   \frac{1}{2}\sum_{l m } \tau_{l m } \sigma_{l m } \otimes \sigma_{l m }^*.
  \label{Choi_Pauli_1q}
 \end{equation}
 % 
