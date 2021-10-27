@@ -1,31 +1,53 @@
 \section{Mathematical considerations} 
+This section is devoted to derive the conditions a Pauli map need to
+satisfy to fulfill the CP condition i.e. that all the eigenvalues of the Choi matrix
+associated to the channel must be non-negative. 
+To do so, we first calculate and diagonalize the matrix associated with the map, 
+first for a single qubit and then for $N$ qubits. We then associate a vector space
+to the set of coefficients $\{\tau_\valpha\}$ in \eref{eq:PCE_definition}, from 
+which we are able to derive several important conclusions. 
+
+% First we obtain the set of
+% inequalities for a single qubit Pauli channel and then we extend the results
+% for the general case of $N$ qubits. 
 \subsection{Diagonalization of Choi matrix} 
 
-% Intro {{{
-Prueba de la $\sa$ \todo{Alejo escribe esta parte. Dejelo aca todo y luego si acaso 
-pasamos cosas al apendice. Caso general}
-
-This part is devoted to derive the set of conditions a Pauli map need to
-satisfy to fulfill the CP condition i.e. all the eigenvalues of the Choi matrix
-associated to the channel must be non-negative. First we obtain the set of
-inequalities for a single qubit Pauli channel and then we extend the results
-for the general case of $N$ qubits. 
-
-% }}}
 \subsubsection{Single qubit Pauli channels} % {{{
 
-\afnote{Notación para matrices densidad vectorizadas? $\varrho$ ?}
-\janote{Qué tal $\vec\rho\quad$?}
-\afnote{Por ahora uso este $\kket{\rho}$}
+% \afnote{Notación para matrices densidad vectorizadas? $\varrho$ ?}
+% \janote{Qué tal $\vec\rho\quad$?}
+% \afnote{Por ahora uso este $\kket{\rho}$}
 
-We now turn to find the matrix form of the map $\mathcal{E}$ in order to construct the Choi matrix and the conditions the set of parameters $\{\tau_{\alpha}\}$ need to satisfy in order to $\mathcal{E}$ be considered a quantum channel. By writing the density matrix in vector form $\kket{\rho}=2^{-1}\sum_{\alpha=0}^{3} r_{\alpha} \kket{\sigma_{\alpha}}$, the matrix form of the map $\mathcal{E}$ may be written as
+We now study the matrix form of the single qubit map $\mathcal{E}$ in
+order to construct the associated Choi matrix. 
+% and the conditions the set of parameters
+% $\{\tau_{\alpha}\}$ need to satisfy in order to $\mathcal{E}$ be considered a
+% quantum channel. 
+To do so, we shall denote operators in the superoperator space with the symbol
+$\kket{\cdot}$. For example, $\kket{\sigma_{\alpha}}$ correspond to the
+vectorized elements of the Pauli basis and satisfy the usual relation 
+$\bbrakket{{\sigma_{\alpha}}}{{\sigma_{\alpha'} }} = \tr
+\left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2
+\delta_{\alpha\alpha'}$.
+In this language, 
+the state reads
+$\kket{\rho}=2^{-1}\sum_{\alpha=0}^{3} r_{\alpha} \kket{\sigma_{\alpha}}$
+and the 
+% By writing the density matrix in vector form
+% $\kket{\rho}=2^{-1}\sum_{\alpha=0}^{3} r_{\alpha} \kket{\sigma_{\alpha}}$, the
+matrix form of the map $\mathcal{E}$ is
 % 
 \begin{equation}
-\hat{\mathcal{E}} = \frac{1}{2}\sum_{\alpha=0}^{3} \tau_{\alpha} \ddyada{\sigma_{\alpha}},
+\hat{\mathcal{E}} = \frac{1}{2}\sum_{\alpha=0}^{3} \tau_{\alpha}
+\ddyada{\sigma_{\alpha}}.
 % \label{Map_Pauli}
 \end{equation}
 %
-where the kets $\kket{\sigma_{\alpha}}$ correspond to the vectorized elements of the Pauli basis and satisfy the usual relation $ \bbrakket{{\sigma_{\alpha} }}{{\sigma_{\alpha'} }} = \tr \left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2 ~\delta_{\alpha\alpha'}$. After some steps it is possible to show that the associated Choi matrix reads
+% where the kets $\kket{\sigma_{\alpha}}$ correspond to the vectorized elements
+% of the Pauli basis and satisfy the usual relation $ \bbrakket{{\sigma_{\alpha}
+% }}{{\sigma_{\alpha'} }} = \tr \left(\sigma_{\alpha}^{\dagger}
+% \sigma_{\alpha'}\right) = 2 ~\delta_{\alpha\alpha'}$. 
+After some steps it is possible to show that the associated Choi matrix reads
 % 
 \begin{equation}
  \mathcal{D} = \frac{1}{2}\sum_{\alpha=0}^{3} \tau_{\alpha} \sigma_{\alpha} \otimes \sigma_{\alpha}^*.
