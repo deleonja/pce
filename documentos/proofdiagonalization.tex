@@ -43,24 +43,30 @@ of tensor products of Pauli matrices
    \frac{1}{2}\sum_{l m } \tau_{l m } \sigma_{l m } \otimes \sigma_{l m }^*.
  \label{Choi_Pauli_1q}
 \end{equation}
-% 
-Back to the Eq. \ref{Choi_a1}), let us apply the index relabeling $k\to j\oplus m$, then the Choi matrix holds
+Back to the Eq. \ref{Choi_a1}), let us apply the index relabeling $k\to j\oplus
+k$, then the Choi matrix holds
 \begin{equation}
  \mathcal{D} =
-    \frac{1}{2}\sum_{jm\mu\nu} \tau_{\mu\nu} (-1)^{\mu m} 
-        \ddyad{j,j\oplus m}{j\oplus\nu,j\oplus\nu\oplus m}.
+    \frac{1}{2}\sum_{jk lm} \tau_{ lm} (-1)^{ l k} 
+        \ddyad{j,j\oplus k}{j\oplus m,j\oplus m\oplus k}.
+\nonumber
 % \label{Choi_a1}
 \end{equation}
-Due to the fact that we are dealing with binary indices, thus we can safely write the modular sums in the exponents as standard sums. By employing the relation between computational and Pauli elements (Eq. \ref{PauToComp}), by noticing that $\sum_j(-1)^{j(m\pm n)}=2\delta_{mn}$, and after some steps we have
+\cpnote{Alejo, porfa revise la ecuacion anterior con mucho cuidado}
+Due to the fact that we are dealing with binary indices, thus we can safely
+write the modular sums in the exponents as standard sums. Employing the
+relation between computational and Pauli elements [\eref{PauToComp}],
+noticing that $\sum_j(-1)^{j(m\pm n)}=2\delta_{mn}$, and after some steps we
+have
 \begin{align*}
  \mathcal{D} & = 
-%  \frac{1}{2}\sum_{jm\mu\nu} \tau_{\mu\nu}(-1)^{\mu m}  \left( \frac{1}{2}\sum_{k=0}^{1} (-1)^{kj}\kket{\sigma_{km}}\right)\left(\frac{1}{2}\sum_{n=0}^{1} (-1)^{n(j\oplus\nu)}\bbra{\sigma_{nm}}\right),\\
-\frac{1}{8}\sum_{jkmn\mu\nu} \tau_{\mu\nu}(-1)^{\mu m+kj+n(j\oplus\nu)}  \ddyad{\sigma_{km}}{\sigma_{nm}},\\
-%  & = \frac{1}{8}\sum_{kmn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} \left(\sum_{j} (-1)^{j(k+n)} \right) \ddyad{\sigma_{km}}{\sigma_{nm}},\\
-%  & = \frac{1}{8}\sum_{kmn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} (2\delta_{kn}) \ddyad{\sigma_{km}}{\sigma_{nm}},\\
- & = \frac{1}{4}\sum_{mn\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu} \ddyad{\sigma_{nm}}{\sigma_{nm}},\\
- & = \frac{1}{2}\sum_{mn} \left(\frac{1}{2}\sum_{\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu}\right) \ddyad{\sigma_{nm}}{\sigma_{nm}},
-% \label{Choi_a1}
+\frac{1}{8}\sum_{jkMnl m} \tau_{l m}(-1)^{l  M+kj+n(j\oplus m)} 
+           \ddyad{\sigma_{kM}}{\sigma_{nM}},\\
+ & = \frac{1}{4}\sum_{Mnl  m } \tau_{l  m } (-1)^{l  M+n m } 
+           \ddyad{\sigma_{nM}}{\sigma_{nM}},\\
+ & = \frac{1}{2}\sum_{Mn} 
+      \left(\frac{1}{2}\sum_{l  m } \tau_{l  m } (-1)^{l  M+n m }\right) 
+     \ddyad{\sigma_{nM}}{\sigma_{nM}},
 \end{align*}
 Then $\mathcal{D}$ is diagonal in the Pauli basis, with eigenvalues given by
 \begin{equation}
