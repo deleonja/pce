@@ -1,18 +1,18 @@
 \section{Mathematical considerations} 
+% Intro {{{
 This section is devoted to derive the conditions a Pauli map need to
 satisfy to fulfill the CP condition i.e. that all the eigenvalues of the Choi matrix
 associated to the channel must be non-negative. 
-To do so, we first calculate and diagonalize the matrix associated with the map, 
-first for a single qubit and then for $N$ qubits. We then associate a vector space
+To do so, we first calculate and diagonalize the matrix associated with general 
+Pauli maps, 
+first for a single qubit and then for $N$ qubits. We then restrict to
+PCEs and, for quantum channels, associate a vector space
 to the set of coefficients $\{\tau_\valpha\}$ in \eref{eq:PCE_definition}, from 
 which we are able to derive several important conclusions. 
 
-% First we obtain the set of
-% inequalities for a single qubit Pauli channel and then we extend the results
-% for the general case of $N$ qubits. 
+% }}}
 \subsection{Diagonalization of Choi matrix} 
-
-\subsubsection{Single qubit Pauli channels} % {{{
+% \subsubsection{Single qubit Pauli channels} % {{{
 
 % \afnote{Notación para matrices densidad vectorizadas? $\varrho$ ?}
 % \janote{Qué tal $\vec\rho\quad$?}
@@ -26,7 +26,7 @@ order to construct the associated Choi matrix.
 To do so, we shall denote operators in the superoperator space with the symbol
 $\kket{\cdot}$. For example, $\kket{\sigma_{\alpha}}$ correspond to the
 vectorized elements of the Pauli basis and satisfy the usual relation 
-$\bbrakket{{\sigma_{\alpha}}}{{\sigma_{\alpha'} }} = \tr
+$\bbrakket{{\sigma_{\alpha}} }{{\sigma_{\alpha'} }} = \tr
 \left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2
 \delta_{\alpha\alpha'}$.
 In this language, 
@@ -47,14 +47,17 @@ matrix form of the map $\mathcal{E}$ is
 % of the Pauli basis and satisfy the usual relation $ \bbrakket{{\sigma_{\alpha}
 % }}{{\sigma_{\alpha'} }} = \tr \left(\sigma_{\alpha}^{\dagger}
 % \sigma_{\alpha'}\right) = 2 ~\delta_{\alpha\alpha'}$. 
-After some steps it is possible to show that the associated Choi matrix reads
-% 
+After some steps, detailed from \eref{eq:inicio:canal:pauli} to 
+\eref{Choi_Pauli_1q}, it is possible to show that the associated Choi matrix
+reads
 \begin{equation}
  \mathcal{D} = \frac{1}{2}\sum_{\alpha=0}^{3} \tau_{\alpha} \sigma_{\alpha}
 \otimes \sigma_{\alpha}^*.
 %  \label{Choi_1}
 \end{equation}
-\cpnote{Aca poner algo de que no es trivial y que se detalla en el apendice.}
+Notice that, despite the similarity, $\ddyada{\sigma_{\alpha}}$ 
+and $\sigma_{\alpha} \otimes \sigma_{\alpha}^*$ are different operators.
+% \cpnote{Aca poner algo de que no es trivial y que se detalla en el apendice.}
 % 
 % Moreover, observe that $\mathcal{D}$ has the same form as the matrix
 % representation of a random unitary channel, with Kraus operators given by
@@ -109,43 +112,58 @@ cannot be written easily in terms of $H \otimes H$.
 % dejo por aca por si se nos ofrece}
 % 
 %  }}}
-\subsubsection{$N$ qubits} % {{{
+% \subsubsection{$N$ qubits} % {{{
 % 
-Analogously to the single qubit case, one can define the $N$-qubits Pauli map $\mathcal{E}_N$
-% 
-\begin{equation}
-\rho \to \rho'=\mathcal{E}_N[\rho ]=\frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}} r_{\vec{\alpha}} \sigma_{\vec{\alpha}},
-% \label{Pauli_Map}
-\end{equation}
-% 
-with $-1\leq \tau_{\vec{\alpha}} \leq 1$. 
-% 
-In this case the density matrix in vector form holds 
-% 
-\begin{equation}
- \kket{\rho}=\frac{1}{2^N}\sum_{\vec{\alpha}} r_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha} }},
-\end{equation}
-where $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\dots
-\otimes\kket{\sigma_{\alpha_N}}$, and satisfy the usual orthogonality relation
-$\bbrakket{{\sigma_{\vec{\alpha} } }}{{\sigma_{\vec{\alpha}'} }} = \tr
-\left(\sigma_{\vec{\alpha}}^{\dagger} \sigma_{\vec{\alpha}'}\right) = 2^N
-~\delta_{\vec{\alpha}\vec{\alpha}'}$. The matrix representation of this map is
-given by
+
+The same program can be carried out for $N$ qubits. In this case, 
+the vectorized Pauli operators are 
+ $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\cdots
+\otimes\kket{\sigma_{\alpha_N}}$, and satisfy the orthogonality relation
+$\bbrakket{{\sigma_{\vec{\alpha} } }}{{\sigma_{\vec{\alpha}'} }} =  2^N
+\delta_{\vec{\alpha}\vec{\alpha}'}$. The matrix representation of the
+map corresponding to \eref{eq:definition:Pauli} is 
+% Analogously to the single qubit case, one can define the $N$-qubits Pauli map $\mathcal{E}_N$
+% % 
+% \begin{equation}
+% \rho \to \rho'=\mathcal{E}_N[\rho ]=\frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}} r_{\vec{\alpha}} \sigma_{\vec{\alpha}},
+% % \label{Pauli_Map}
+% \end{equation}
+% % 
+% with $-1\leq \tau_{\vec{\alpha}} \leq 1$. 
+% % 
+% In this case the density matrix in vector form holds 
+% % 
+% \begin{equation}
+%  \kket{\rho}=\frac{1}{2^N}\sum_{\vec{\alpha}} r_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha} }},
+% \end{equation}
+% where $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\dots
+% \otimes\kket{\sigma_{\alpha_N}}$, and satisfy the usual orthogonality relation
+% $\bbrakket{{\sigma_{\vec{\alpha} } }}{{\sigma_{\vec{\alpha}'} }} = \tr
+% \left(\sigma_{\vec{\alpha}}^{\dagger} \sigma_{\vec{\alpha}'}\right) = 2^N
+% ~\delta_{\vec{\alpha}\vec{\alpha}'}$. The matrix representation of this map is
+% given by
 \begin{equation}
 \hat{\mathcal{E}}_N = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}} \ddyada{\sigma_{\vec{\alpha} }}.
 % \label{Map_Pauli}
 \end{equation}
-As in the previous case, the Choi matrix $\mathcal{D}_N$ may be written in terms of tensor products of Pauli matrices
+As in the previous case, the Choi matrix $\mathcal{D}_N$ may be written in
+terms of tensor products of Pauli matrices
 \begin{equation}
- \mathcal{D}_N = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}}  \bigotimes_{j=1}^N \sigma_{\alpha_j} \otimes \sigma_{\alpha_j}^*.
+ \mathcal{D}_N 
+  = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}}
+       \bigotimes_{j=1}^N \sigma_{\alpha_j} \otimes \sigma_{\alpha_j}^*.
 %  \label{Choi_1}
 \end{equation}
-After several steps, it is possible to prove that analogously to the single qubit case, $\mathcal{D}_N$ is diagonal in the $N$-qubits Pauli basis
-\begin{equation}
- \mathcal{D}_N \kket{\sigma_{\vec{\alpha} }}
-   = \lambda_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha} }},
-\end{equation}
-with eigenvalues $\lambda_{\vec{\alpha}}$ given by 
+This superoperator is again diagonal in the (multi-qubit) Pauli basis, with the 
+eigenvalue corresponding to 
+$ \kket{\sigma_{\vec{\alpha} }}$ given by 
+% 
+% After several steps, it is possible to prove that analogously to the single qubit case, $\mathcal{D}_N$ is diagonal in the $N$-qubits Pauli basis
+% \begin{equation}
+%  \mathcal{D}_N \kket{\sigma_{\vec{\alpha} }}
+%    = \lambda_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha} }},
+% \end{equation}
+% with eigenvalues $\lambda_{\vec{\alpha}}$ given by 
 \begin{equation}
  \lambda_{\valpha} = \frac{1}{2^N} \sum_{\vbeta} \san_{\valpha\vbeta}\tau_{\vbeta},
 \label{eq:lambda:is:A:tau}
@@ -155,9 +173,11 @@ where
  \san=\sa^{\otimes N}
 % =\frac{1}{2^N}\left(H\otimes H\right)^{\otimes N}=\left(\frac{H}{\sqrt{2}}\right)^{\otimes 2N}.
 \end{equation}
-Again, the proofs are provided in appendix \ref{sec:appendix:diagonalization}
-\cpnote{Mencionar que con la otra $a$ tambien se puede diagonalizar para $N$ 
-qubits.}
+Again, the proofs are provided in appendix \ref{sec:appendix:diagonalization}. We wish 
+to add that we could diagonalize $\mathcal{D}_N$ with $H^{\otimes 2N}$ instead of
+$a^N$, which might be more convenient for other applications.
+% \cpnote{Mencionar que con la otra $a$ tambien se puede diagonalizar para $N$ 
+% qubits.}
 % (Proofs in an appendix using binary indices XD)
 % }}}
 
