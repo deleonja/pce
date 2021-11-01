@@ -1,7 +1,7 @@
 \section{Diagonalization of Choi Matrix $\mathcal{D}_N$} % {{{
 \label{sec:appendix:diagonalization}
 % 
-\subsection{Single qubit}
+\subsection{Single qubit} % {{{
 In order to simplify the derivation of the relations, let us employ pairs of
 binary indices instead of a single quaternary, i.e. $\alpha\to j +2 k$. For
 the sake of clarity, we will use Latin symbols for binary indices, and
@@ -12,6 +12,7 @@ compactly as
 $\sigma_{k l }=\sum_{j=0}^{1} (-1)^{j k }\dyad{j}{j\oplus l }$. In vectorized form
 \begin{equation}
 \kket{\sigma_{k l }}=\sum_{j=0}^{1} (-1)^{j k }\kket{j,j\oplus l },
+\label{CompToPau}
 \end{equation}
 and its inverse relation,
 \begin{equation}
@@ -44,38 +45,67 @@ of tensor products of Pauli matrices
  \label{Choi_Pauli_1q}
 \end{equation}
 Back to the Eq. \ref{Choi_a1}), let us apply the index relabeling $k\to j\oplus
-k$, then the Choi matrix holds
+k$, then the Choi matrix reads
 \begin{equation}
  \mathcal{D} =
     \frac{1}{2}\sum_{jk lm} \tau_{ lm} (-1)^{ l k} 
-        \ddyad{j,j\oplus k}{j\oplus m,j\oplus m\oplus k}.
+        \ddyad{j,j\oplus k}{j\oplus m,j\oplus m\oplus k},
 \nonumber
 % \label{Choi_a1}
 \end{equation}
-\cpnote{Alejo, porfa revise la ecuacion anterior con mucho cuidado}
-Due to the fact that we are dealing with binary indices, thus we can safely
-write the modular sums in the exponents as standard sums. Employing the
-relation between computational and Pauli elements [\eref{PauToComp}],
-noticing that $\sum_j(-1)^{j(m\pm n)}=2\delta_{mn}$, and after some steps we
-have
+% thanks to a simplification in the argument of the power of $-1$. To continue, 
+since $ (-1)^{j+j\oplus k} = (-1)^k $. To continue, we 
+use the relation between computational and Pauli elements [\eref{PauToComp}],
+and notice that $\sum_j(-1)^{j(m\pm n)}=2\delta_{mn}$. We arrive to the
+simple expression 
 \begin{align*}
  \mathcal{D} & = 
-\frac{1}{8}\sum_{jkMnl m} \tau_{l m}(-1)^{l  M+kj+n(j\oplus m)} 
-           \ddyad{\sigma_{kM}}{\sigma_{nM}},\\
- & = \frac{1}{4}\sum_{Mnl  m } \tau_{l  m } (-1)^{l  M+n m } 
-           \ddyad{\sigma_{nM}}{\sigma_{nM}},\\
- & = \frac{1}{2}\sum_{Mn} 
-      \left(\frac{1}{2}\sum_{l  m } \tau_{l  m } (-1)^{l  M+n m }\right) 
-     \ddyad{\sigma_{nM}}{\sigma_{nM}},
+  \frac{1}{2}\sum_{jk} 
+      \left(\frac{1}{2}\sum_{l  m } 
+(-1)^{l  k+j m }\right) 
+\tau_{l  m } 
+     \ddyad{\sigma_{jk}}{\sigma_{jk}}.
 \end{align*}
-Then $\mathcal{D}$ is diagonal in the Pauli basis, with eigenvalues given by
+Notice that  $\mathcal{D}$ is already written in its diagonal form, and one can 
+identify by inspection the eigenvalues. 
+% Due to the fact that we are dealing with binary indices, thus we can safely
+% write the modular sums in the exponents as standard sums. Employing the
+% relation between computational and Pauli elements [\eref{PauToComp}],
+% noticing that $\sum_j(-1)^{j(m\pm n)}=2\delta_{mn}$, and after some steps we
+% have
+% \begin{align*}
+%  \mathcal{D} & = 
+% \frac{1}{8}\sum_{jkMnl m} \tau_{l m}(-1)^{l  M+kj+n(j\oplus m)} 
+%            \ddyad{\sigma_{kM}}{\sigma_{nM}},\\
+%  & = \frac{1}{4}\sum_{Mnl  m } \tau_{l  m } (-1)^{l  M+n m } 
+%            \ddyad{\sigma_{nM}}{\sigma_{nM}},\\
+%  & = \frac{1}{2}\sum_{Mn} 
+%       \left(\frac{1}{2}\sum_{l  m } \tau_{l  m } (-1)^{l  M+n m }\right) 
+%      \ddyad{\sigma_{nM}}{\sigma_{nM}},
+% \end{align*}
+% Then $\mathcal{D}$ is diagonal in the Pauli basis, with eigenvalues given by
+The eigenvalues read
 \begin{equation}
-\lambda_{mn}=\frac{1}{2}\sum_{\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu},
+\lambda_{jk}=\frac{1}{2}\sum_{l m } 
+(-1)^{jl +k m },
+\tau_{l m } 
+% \lambda_{mn}=\frac{1}{2}\sum_{\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu},
+% m -> j 
+% n -> k
+% mu -> l
+% nu -> m
+\label{eq:lambda:is:tau:appendix}
 \end{equation}
-or more compactly $\vec{\lambda} = \sa~\vec{\tau}/2$, where $\sa=H\otimes
-H$ and $H$ is the Hadamard matrix.
+or more compactly $\vec{\lambda} =(1/2) H \otimes H \vec{\tau}$, where 
+$H$ is the Hadamard matrix.
 
-For the sake of convenience in the demonstration of several useful properties of the PCE channels, throughout the main text we use the matrix 
+For the sake of convenience in the demonstration of several useful properties
+of the PCE channels, 
+we shall reorder the eigenvalues, to write 
+\begin{equation}
+\lambda =  \frac12 \sa \tau
+\end{equation}
+with 
 \begin{equation}
 \sa=\left(
 \begin{array}{cccc}
@@ -87,29 +117,60 @@ For the sake of convenience in the demonstration of several useful properties of
 \end{array}
 \right),
 \end{equation}
-instead of $H\otimes H$. Moreover notice that this can be done due to the fact that both matrices are equivalent up to a permutation of rows. In other words this operation corresponds to a relabeling in the eigenvalues $\lambda_{mn}$.
+instead of $H\otimes H$. This can be done due to the fact
+that both matrices ($\sa$ and $H \otimes H$) are equivalent up to a permutation of rows. In other words
+this operation corresponds to a relabeling in the eigenvalues $\lambda_{mn}$.
+% }}}
 \subsection{$N$ qubits}
+To work out the $N$ qubit case, we again rely on binary indices. In this case, we replace 
+$N$ dimensional vector $\valpha$ with a pair of $N$ dimensional vector binary
+indices $\vec j$ and $\vec k$ so that 
+each entry $\alpha_i$ of $\valpha$ is identified with the pair $j_i$ and $k_i$ as in the 
+single qubit case of the previous subsection. Then, all the steps leading to 
+\eref{eq:lambda:is:tau:appendix} can be redone, but with vector indices instead of binary scalars. 
 
-Analogously to the previous case, we can define an arbitrary Pauli map acting on $N$ qubits density matrices in terms of the tensor products of vectorized Pauli matrices
-\begin{equation}
-\hat{\mathcal{E}}_N = \frac{1}{2^N}\sum_{\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} \ddyada{\sigma_{\vec{\mu}\vec{\nu} }}, 
-\end{equation}
-where
-\begin{widetext}
-\begin{align}
-\kket{\sigma_{\vec{\mu}\vec{\nu} }} & = \kket{\sigma_{\mu_1\nu_1}}\otimes \cdots \kket{\sigma_{\mu_N\nu_N}},\\
-& = \left(\sum_{j_1=0}^{1} (-1)^{j_1 \mu_1}\kket{j_1,j_1\oplus \nu_1}\right)\otimes\cdots \otimes \left(\sum_{j_N=0}^{1} (-1)^{j_N \mu_N}\kket{j_N,j_N\oplus \nu_N}\right),\\
-& = \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{\mu}} \kket{j_1,j_1\oplus \nu_1}\otimes\cdots \otimes \kket{j_N,j_N\oplus \nu_N},\\
-& = \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{\mu}} \kket{\vec{j},\vec{j}\oplus \vec{\nu}},
-\end{align}
-\end{widetext}
-and
-\begin{equation}
-\bbrakket{\sigma_{\vec{\mu}\vec{\nu} }}{\sigma_{\vec{\mu}'\vec{\nu}'}} = 2^N \delta_{\vec{\mu}\vec{\mu}'}\delta_{\vec{\nu}\vec{\nu}'}.
-\end{equation}
-
-Recall the relation between the computational and Pauli basis elements (Eq. \ref{PauToComp}), hence for the $N$-qubits case we have
+The tensor product of Pauli matrices, in vector form,  will be denoted by 
+$\kket{\sigma_{\vec{k}\vec{l} }} = \kket{\sigma_{k_1l_1}}\otimes \cdots \otimes \kket{\sigma_{k_Nl_N}}$
+and fulfill the orthogonality relation 
+$\bbrakket{\sigma_{\vec{k}\vec{l} }}{\sigma_{\vec{k}'\vec{l}'}} = 
+2^N \delta_{\vec{k}\vec{k}'}\delta_{\vec{l}\vec{l}'}$. 
+% \begin{equation}
+% \bbrakket{\sigma_{\vec{k}\vec{l} }}{\sigma_{\vec{k}'\vec{l}'}} = 2^N \delta_{\vec{k}\vec{k}'}\delta_{\vec{l}\vec{l}'}.
+% \end{equation}
+With this in mind, a $N$-qubit Pauli map can be written as 
 % 
+% 
+% Analogously to the previous case, we can define an arbitrary Pauli map acting on $N$ qubits density matrices in terms of the tensor products of vectorized Pauli matrices
+\begin{equation}
+\hat{\mathcal{E}}_N = 
+  \frac{1}{2^N}\sum_{\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} \ddyada{\sigma_{\vec{\mu}\vec{\nu} }}. 
+\end{equation}
+The generalization of \eref{CompToPau} and \eref{PauToComp} read
+\begin{align}
+\kket{\sigma_{\vec{\mu}\vec{\nu} }}  & = 
+   \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{\mu}} \kket{\vec{j},\vec{j}\oplus \vec{\nu}},\\
+%
+ \kket{\vec{l},\vec{l}\oplus \vec{n}} & = 
+   \frac{1}{2^N}\sum_{\vec{m}} (-1)^{\vec{m}\cdot\vec{l}}\kket{\sigma_{\vec{m}\vec{n} }}.
+\end{align}
+
+
+% where
+% \begin{widetext}
+% \begin{align}
+% \kket{\sigma_{\vec{\mu}\vec{\nu} }} & = \kket{\sigma_{\mu_1\nu_1}}\otimes \cdots \kket{\sigma_{\mu_N\nu_N}},\\
+% & = \left(\sum_{j_1=0}^{1} (-1)^{j_1 \mu_1}\kket{j_1,j_1\oplus \nu_1}\right)\otimes\cdots \otimes \left(\sum_{j_N=0}^{1} (-1)^{j_N \mu_N}\kket{j_N,j_N\oplus \nu_N}\right),\\
+% & = \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{\mu}} \kket{j_1,j_1\oplus \nu_1}\otimes\cdots \otimes \kket{j_N,j_N\oplus \nu_N},\\
+% & = \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{\mu}} \kket{\vec{j},\vec{j}\oplus \vec{\nu}},
+% \end{align}
+% \end{widetext}
+% and
+% \begin{equation}
+% \bbrakket{\sigma_{\vec{\mu}\vec{\nu} }}{\sigma_{\vec{\mu}'\vec{\nu}'}} = 2^N \delta_{\vec{\mu}\vec{\mu}'}\delta_{\vec{\nu}\vec{\nu}'}.
+% \end{equation}
+% 
+% Recall the relation between the computational and Pauli basis elements (Eq. \ref{PauToComp}), hence for the $N$-qubits case we have
+% % 
 \begin{widetext}
 \begin{align}
  \kket{\vec{l},\vec{l}\oplus \vec{n}} & = \kket{l_1,l_1\oplus n_1} \otimes\cdots \otimes \kket{l_N,l_N\oplus n_N} \\
