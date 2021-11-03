@@ -5,7 +5,8 @@
 In order to simplify the derivation of the relations, let us employ pairs of
 binary indices instead of a single quaternary, i.e. $\alpha\to j +2 k$. For
 the sake of clarity, we will use Latin symbols for binary indices, and
-reserve the Greek ones for quaternary ones. 
+reserve the Greek ones for quaternary ones \afnote{(and
+reserve Greek letters for quaternary ones)}. 
 We can write the elements of the Pauli basis
 $(\sigma_{0},\sigma_{1},i\sigma_{2},\sigma_{3})$, 
 compactly as
@@ -67,6 +68,7 @@ simple expression
      \ddyad{\sigma_{jk}}{\sigma_{jk}}.
 \label{eq:D:diagonalize}
 \end{align}
+\afnote{Creo que es mejor dejar el tau dentro del parentesis para dejar implícito que está sumando también.}
 Notice that  $\mathcal{D}$ is already written in its diagonal form, and one can 
 identify by inspection the eigenvalues. 
 % Due to the fact that we are dealing with binary indices, thus we can safely
@@ -85,7 +87,7 @@ identify by inspection the eigenvalues.
 %      \ddyad{\sigma_{nM}}{\sigma_{nM}},
 % \end{align*}
 % Then $\mathcal{D}$ is diagonal in the Pauli basis, with eigenvalues given by
-The eigenvalues read
+The eigenvalues read \
 \begin{equation}
 \lambda_{jk}=\frac{1}{2}\sum_{l m } 
 (-1)^{jl +k m }
@@ -146,7 +148,7 @@ With this in mind, a $N$-qubit Pauli map can be written as
 \hat{\mathcal{E}}_N = 
   \frac{1}{2^N}\sum_{\vec{l}\vec{m}} \tau_{\vec{l}\vec{m}} \ddyada{\sigma_{\vec{l}\vec{m} }}. 
 \end{equation}
-The generalization of \eref{CompToPau} and \eref{PauToComp} read
+The generalization of \eref{CompToPau} and \eref{PauToComp} read \afnote{eq. $\to$ Eq.}
 \begin{align}
 \kket{\sigma_{\vec{\mu}\vec{\nu} }}  & = 
    \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{\mu}} \kket{\vec{j},\vec{j}\oplus \vec{\nu}},\\
@@ -154,7 +156,7 @@ The generalization of \eref{CompToPau} and \eref{PauToComp} read
  \kket{\vec{l},\vec{l}\oplus \vec{n}} & = 
    \frac{1}{2^N}\sum_{\vec{m}} (-1)^{\vec{m}\cdot\vec{l}}\kket{\sigma_{\vec{m}\vec{n} }}.
 \end{align}
-
+\afnote{Cambiar los $\mu$ y $\nu$ por indices latinos.}
 
 % where
 % \begin{widetext}
@@ -199,8 +201,8 @@ the map, $\hat{\mathcal{E}}_N $ in the $N$-qubits computational basis as
 % = & \frac{1}{2^N}\sum_{\vec{j}\vec{k}\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} (-1)^{\vec{\mu}\cdot(\vec{j}+\vec{k})} \ddyad{\vec{j},\vec{j}\oplus \vec{\nu}}{\vec{k},\vec{k}\oplus \vec{\nu}}.
 % \end{align}
 In this way it is straightforward to apply the reshuffling operation on
-$\hat{\mathcal{E}}_N$ to obtain the associated Choi matrix 
-then transform back to the Pauli basis  and simplify to obtain 
+$\hat{\mathcal{E}}_N$ to obtain the associated Choi matrix, 
+then transform back to the Pauli basis and simplify to obtain 
 \begin{align}
 \mathcal{D}_N & = 
    \frac{1}{2^{N}}\sum_{\vec{m}\vec{n}} \left( 
@@ -215,11 +217,13 @@ the Choi matrix, so we can write
 % \mathcal{D}_N =\frac{1}{2^N}\sum_{\vec{j}\vec{k}\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} (-1)^{\vec{\mu}\cdot(\vec{j}+\vec{k})} \ddyad{\vec{j},\vec{k}}{\vec{j}\oplus \vec{\nu},\vec{k}\oplus \vec{\nu}}.
 % \end{equation}
 Thus the eigenvalues of the Choi matrix $\mathcal{D}_N$ may be written as
+\afnote{Creo que esta ultima linea se puede borrar.}
 \begin{equation}
 \lambda_{\vec{j}\vec{n}}= \frac{1}{2^{N}}\sum_{\vec{l}\vec{m}} 
     (-1)^{\vec{j}\cdot\vec{l}+\vec{k}\cdot\vec{m}}
     \tau_{\vec{l}\vec{m}} 
 \end{equation}
+\afnote{Aqui los vectores $l$ y $m$ en el exponente estan cambiados}
 or more compactly $\vec{\lambda} = (H\otimes H/2)^{\otimes N} \vec{\tau}$. 
 Again, we prefer to reorganize the indices to be able to write
 \begin{equation}
