@@ -62,7 +62,7 @@ simple expression
  \mathcal{D} & = 
   \frac{1}{2}\sum_{jk} 
       \left(\frac{1}{2}\sum_{l  m } 
-(-1)^{l  k+j m }
+(-1)^{j m + k l}
 \tau_{l  m } 
 \right) 
      \ddyad{\sigma_{jk}}{\sigma_{jk}}.
@@ -88,7 +88,8 @@ identify by inspection the eigenvalues.
 % Then $\mathcal{D}$ is diagonal in the Pauli basis, with eigenvalues given by
 The eigenvalues read 
 \begin{equation}
-\lambda_{jk}=\frac{1}{2}\sum_{l m } (-1)^{jl +k m } \tau_{l m },
+\lambda_{jk}=\frac{1}{2}\sum_{l m } (-1)^{j m + k l} \tau_{l m },
+% \lambda_{jk}=\frac{1}{2}\sum_{l m } (-1)^{jl +k m } \tau_{l m },
 % \lambda_{mn}=\frac{1}{2}\sum_{\mu\nu} \tau_{\mu\nu} (-1)^{\mu m+n\nu},
 % m -> j 
 % n -> k
@@ -216,12 +217,11 @@ the Choi matrix, so we can write
 % Thus the eigenvalues of the Choi matrix $\mathcal{D}_N$ may be written as
 % \afnote{Creo que esta ultima linea se puede borrar.}
 \begin{equation}
-\lambda_{\vec{j}\vec{n}}= \frac{1}{2^{N}}\sum_{\vec{l}\vec{m}} 
-    (-1)^{\vec{j}\cdot\vec{l}+\vec{k}\cdot\vec{m}}
+\lambda_{\vec{j}\vec{k}}= \frac{1}{2^{N}}\sum_{\vec{l}\vec{m}} 
+    (-1)^{\vec{j}\cdot\vec{m}+\vec{k}\cdot\vec{l}}
     \tau_{\vec{l}\vec{m}} 
 % \lambda_{jk}=\frac{1}{2}\sum_{l m } (-1)^{jl +k m } \tau_{l m },
 \end{equation}
-\afnote{Aqui los vectores $l$ y $m$ en el exponente estan cambiados}
 or more compactly $\vec{\lambda} = (H\otimes H/2)^{\otimes N} \vec{\tau}$. 
 Again, we prefer to reorganize the indices to be able to write
 \begin{equation}
