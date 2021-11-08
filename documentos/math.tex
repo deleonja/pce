@@ -1,9 +1,9 @@
 \section{Mathematical considerations} 
 % Intro {{{
-This section is devoted to derive the conditions a Pauli map need to satisfy to
+This section is devoted to derive the conditions a Pauli map needs to satisfy to
 fulfill the CP condition i.e. that all the eigenvalues of the Choi matrix
-associated to the channel must be non-negative.  To do so, we calculate
-and diagonalize the matrix associated with general Pauli maps, first for a
+associated to the channel \sout{must be}\janote{are} non-negative.  To do so, we calculate
+and diagonalize the \janote{Choi} matrix associated with general Pauli maps, first for a
 single qubit and then for $N$ qubits. We then restrict to PCEs and, for quantum
 channels, associate a vector space to the set of coefficients
 $\{\tau_\valpha\}$ in \eref{eq:PCE_definition}, from which we are able to
@@ -26,7 +26,7 @@ $\kket{\cdot}$. For example, $\kket{\sigma_{\alpha}}$ correspond to the
 vectorized elements of the Pauli basis and satisfy the usual relation 
 $\bbrakket{{\sigma_{\alpha}} }{{\sigma_{\alpha'} }} = \tr
 \left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2
-\delta_{\alpha\alpha'}$.
+\delta_{\alpha\alpha'}$~\janote{cita?}.
 In this language, 
 the state reads
 $\kket{\rho}=2^{-1}\sum_{\alpha=0}^{3} r_{\alpha} \kket{\sigma_{\alpha}}$
@@ -83,14 +83,14 @@ where
 1  & -1  & 1 & -1\\
 1&-1&-1&1  
 \end{array}
-\right)
+\right).
 % =\frac12\sa^{-1}.
 \label{eq:1}
 \end{equation}
 We wish to add that one can replace $a$ with $H \otimes H$, with $H$ the
 Hadamard matrix, and still diagonalize the same Choi matrix. This is due to the
-fact that $a$ corresponds to a permutation of rows of  $H \otimes H$. However
-we chose $a$ as some later considerations [see  \eref{eq:sigma_property}]
+fact that $a$ corresponds to a permutation of rows of  $H \otimes H$. However,
+we chose \janote{to keep} $a$ \janote{as in \eqref{eq:1},} as some later considerations [see  \eref{eq:sigma_property}]
 cannot be written easily in terms of $H \otimes H$.
 
 % $\sa=2^{-1}H\otimes H$ and $H$ is the Hadamard matrix,
@@ -116,9 +116,13 @@ cannot be written easily in terms of $H \otimes H$.
 The same program can be carried out for $N$ qubits. In this case, 
 the vectorized Pauli operators are 
  $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\cdots
-\otimes\kket{\sigma_{\alpha_N}}$, and satisfy the orthogonality relation
+\otimes\kket{\sigma_{\alpha_N}}$\janote{aquí hay algo extraño, pues los operadores 
+que utilizamos son la vectorización del producto tensorial de las paulis, no los
+productos tensoriales de las paulis vectorizadas, que es lo que entiendo con la 
+expresión $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\cdots
+\otimes\kket{\sigma_{\alpha_N}}$}, and satisfy the orthogonality relation
 $\bbrakket{{\sigma_{\vec{\alpha} } }}{{\sigma_{\vec{\alpha}'} }} =  2^N
-\delta_{\vec{\alpha}\vec{\alpha}'}$. The matrix representation of the
+\delta_{\vec{\alpha}\vec{\alpha}'}$\janote{cita?}. The matrix representation of the
 map corresponding to \eref{eq:definition:Pauli} is 
 % Analogously to the single qubit case, one can define the $N$-qubits Pauli map $\mathcal{E}_N$
 % % 
@@ -173,7 +177,9 @@ where
 \end{equation}
 Again, the proofs are provided in appendix \ref{sec:appendix:diagonalization}. We wish 
 to add that we could diagonalize $\mathcal{D}_N$ with $H^{\otimes 2N}$ instead of
-$a^N$, which might be more convenient for other applications.
+$a^N$, which might be more convenient for other applications.\janote{en una 
+iteración posterior del artículo completo quizás es buena idea enmarcar más esto
+último de la otra a, ya que puede ser de interés en alguna aplicación}
 % \cpnote{Mencionar que con la otra $a$ tambien se puede diagonalizar para $N$ 
 % qubits.}
 % (Proofs in an appendix using binary indices XD)
