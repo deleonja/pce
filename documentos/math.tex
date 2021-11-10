@@ -10,13 +10,23 @@ $\{\tau_\valpha\}$ in \eref{eq:PCE_definition}, from which we are able to
 derive several important conclusions. 
 % }}}
 \subsection{Diagonalization of Choi matrix} % {{{
-\cpnote{Aca Francois escribio algo que puede sustituir 
-el inicio del parrafo, pero estoy esperando la fuente }
-We now study the matrix form of the single qubit map $\mathcal{E}$ in
-order to construct the associated Choi matrix. 
-To do so, we shall denote operators in the superoperator space with the symbol
-$\kket{\cdot}$. For example, $\kket{\sigma_{\alpha}}$ correspond to the
-vectorized elements of the Pauli basis and satisfy the usual relation 
+
+\flnote{
+We now construct the Choi matrix associated to the single qubit map
+$\mathcal{E}$. As described above, $\mathcal{E}$ is a linear map from
+$\mcB(\hilbert)$ to itself. We shall denote elements of
+$\mcB(\hilbert)$ by the notation $\kket{\cdot}$. Thus, for instance,
+$\kket{\sigma_\alpha}$ represents the Pauli matrix $\sigma_\alpha$ understood
+as a vector belonging to $\mcB(\hilbert)$, for the present case, in which
+$\hilbert={\mathbb{C}^2}$. Since the scalar product on $\mcB(\hilbert)$ is
+given by  $\bbrakket{A_1}{A_2}=\tr A_1^\star A_2$,
+} 
+% We now study the matrix form of the single qubit map $\mathcal{E}$ in
+% order to construct the associated Choi matrix. 
+% To do so, we shall denote operators in the superoperator space with the symbol
+% $\kket{\cdot}$. For example, $\kket{\sigma_{\alpha}}$ correspond to the
+% vectorized 
+elements of the Pauli basis and satisfy the relation 
 $\bbrakket{{\sigma_{\alpha}} }{{\sigma_{\alpha'} }} = \tr
 \left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2
 \delta_{\alpha\alpha'}$.
@@ -38,7 +48,13 @@ reads
 \end{equation}
 Notice that $\ddyada{\sigma_{\alpha}}$ 
 and $\sigma_{\alpha} \otimes \sigma_{\alpha}^*$ are different operators.
-\cpnote{Aca tambien metio un rollo Francois que resulta muy util.}
+\flnote{
+Indeed, the former acts as a linear map upon the vector space $\mcB(\hilbert)$,
+whereas the latter acts on the tensor product $\hilbert\otimes\hilbert$. Of
+course, there is a basis dependent identification between these two
+spaces, which is used 
+in the construction of the Choi matrix~\cite{}. 
+}
 % \cpnote{Aca poner algo de que no es trivial y que se detalla en el apendice.}
 % 
 % Moreover, observe that $\mathcal{D}$ has the same form as the matrix
