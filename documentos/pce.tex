@@ -1,29 +1,33 @@
 \section{PCE Maps} 
-\subsection{Quantum channels} % {{{
-Quantum channels comprehend the most general linear operations that a quantum
-system undergo independently of its past~\cite{zimansbook,cirac}. To introduce
-their construction and properties, first let us define several objects. We will
-denote Hilbert spaces as \hilbert and $d$-dimensional Hilbert spaces as
-$\hilbert_d$. The set of bounded operators over a Hilbert space \hilbert will
-be written as $\mcB(\hilbert)$, the subset of density matrices as
-$\mcS(\hilbert)$, which is in turn a subset of the so called trace-class
-operators $\mcT(\hilbert)$, for the finite dimensional case, the one studied
-here, $\mcT(\hilbert)$ and $\mcB(\hilbert)$ coincide~\cite{zimansbook}. 
+\subsection{Quantum channels} % {{{ Quantum channels comprehend the most
+general linear operations that a quantum system undergo independently of its
+past~\cite{zimansbook,cirac}. To introduce their construction and properties,
+first let us define several objects. We will denote Hilbert spaces as \hilbert
+and $d$-dimensional Hilbert spaces as $\hilbert_d$. The set of bounded
+operators over a Hilbert space \hilbert will be written as $\mcB(\hilbert)$,
+the subset of density matrices as $\mcS(\hilbert)$, which is in turn a subset
+of the so called trace-class operators $\mcT(\hilbert)$, for the finite
+dimensional case, the one studied here, $\mcT(\hilbert)$ and $\mcB(\hilbert)$
+coincide~\cite{zimansbook}. 
 
 The construction of quantum channels includes basically three ingredients:
-linearity, trace preserving and complete positivity. The first one is needed to
+linearity, trace preserving and complete positivity. The trace preserving
+property is needed to
 send convex combinations of density matrices into the convex combination of the
 evolution of such density matrices, this is, let $\mcE$ such linear operation,
 thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$. The
-trace preserving is required for the process $\mcE$ to be deterministic, this
+trace preserving property is required for the process $\mcE$ to be deterministic, this
 is, $\tr\mcE[\rho]=\tr \rho =1$ is the probability that the process $\mcE$ will
 happen to the state $\rho$, with $\rho \in \mcS(\hilbert)$. The complete
 positivity condition is needed to preserve positive semidefiniteness and handle
 the non-local character of quantum theory. This is, with positivity of the map
 $\mcE$ one has $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert)$ with
-$\Delta\geq 0$. In the other hand, complete positvity of $\mcE$ reads $\id_k
-\otimes \mcE[\omega]\geq 0$ for $k=1,2,\dots$, where $\omega$ is the Bell state
-between the system and an ancilla with Hilbert space $\hilbert_k$. Therefore,
+$\Delta\geq 0$\cpnote{Francois, de tu nota, la $\Delta$ ya es hermitica, pues 
+decimos que es una matriz de densidad}. In the other hand, complete positivity
+of $\mcE$ reads $\id_k \otimes \mcE[\omega]\geq 0$ for $k=1,2,\dots$, where
+$\omega$ is the Bell state
+between the system and an ancilla with Hilbert space $\hilbert_k$\flnote{No creo que lo de Bell state sea conveniente. Mejor decir algo como: 
+E is totally positive if trivially extending E to the tensor product of H with an arbitrary dimensional ancilla space yields a positive operation. }. Therefore,
 complete positivity ensures that every positive semidefinite operator of any
 extension of the system (where the quantum channel is now a local operation) is
 mapped into positive semidefinite operators, trace preserving is automatically
@@ -31,15 +35,29 @@ fulfilled for all extensions if $\mcE$ is. Thus, any density matrix of a system
 where $\mcE$ acts locally, is sent to a valid density matrix, this is the
 substance of complete positivity.
 
-Quantum channels can be characterized by means of the Choi-\jami{} isomorphism~\cite{choi,jamil}. This is, given a linear operation $\mcE:\mcB(\hilbert)\to \mcB(\hilbert)$, the so-called Choi matrix of it, $C_\mcE=\left(\id \otimes \mcE\right)[\proj{\Omega}{\Omega}]$, where $\ket{\Omega}=1/\dim(\hilbert)\sum_i^{\dim(\hilbert)}\ket{i}\ket{i}$ is the Bell state between to copies of \hilbert, is positive semi-definite if and only if $\mcE$ is completely positive.
+Quantum channels can be characterized by means of the Choi-\jami{}
+isomorphism~\cite{choi,jamil}. This is, given a linear operation
+$\mcE:\mcB(\hilbert)\to \mcB(\hilbert)$, the so-called Choi matrix of it,
+$C_\mcE=\left(\id \otimes \mcE\right)[\proj{\Omega}{\Omega}]$, where
+$\ket{\Omega}=1/\dim(\hilbert)\sum_i^{\dim(\hilbert)}\ket{i}\ket{i}$ is the
+Bell state between two copies of \hilbert, is positive semi-definite if and only
+if $\mcE$ is completely positive.
 
-Quantum channels have the well-known \textit{Kraus representation} (or operator-sum representation) which reads $\mcE[\rho]=\sum_i K_i \rho K^\dagger{}_i$ in fact, a linear operation is completely positive if and only if it has a Kraus representation [cite Kraus book]
+Quantum channels have the well-known \textit{Kraus representation} (or
+operator-sum representation) which reads $\mcE[\rho]=\sum_i K_i \rho
+K^\dagger{}_i$ in fact, a linear operation is completely positive if and only
+if it has a Kraus representation [cite Kraus book] 
+\flnote{
+probablemente convenga mostrar la ecuaci'on desplegada. Asimismo se debe decir que 
+$\sum_i K_i^\dagger K_i = 1$ para la trace-preserving property. 
+Creo qie ``hermiticity preserving'' es en parte consecuencia de la definición, pero esto no es muy importante
+}
 
-  \ddnote{[Choi representation, Kraus operators and Stinespring
-dilation]}
+  \ddnote{[Choi representation, Kraus operators and Stinespring dilation]}
 
-It can be seen from Kraus decomposition that quantum channels preserve hermiticity, this has a practical consequence when using hermitian bases. $\hat \mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j]
- \right)$
+It can be seen from Kraus decomposition that quantum channels preserve
+hermiticity, this has a practical consequence when using hermitian bases. $\hat
+\mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$
 
 % }}}
 \subsection{Single qubit case} % {{{
@@ -82,13 +100,6 @@ similar to the semigroup generator, we will show later that this can be triviall
 % }}}
 \subsection{Pauli component erasing maps} % {{{
 
-\begin{itemize}
-\item Canales de Ruskai Pauli maps, que la interseccion es no trivial (no estan contenidos en ninguna direccion, pero la interseccion es no vacia)
-y Relación con canales citados en \cite{Siudzinska2020}? \cpnote{Esto quiza lo tengamos
-que mover si es que necesitamos herramientas que discutiremos mas adelante para
-hacer notar la diferencia}
-\end{itemize}
-
 The density matrix $\rho$ of a system of $N$ qubits can be written in Pauli
 matrices basis as 
 \begin{equation}\label{eq:N_qubits_rho}
@@ -112,11 +123,6 @@ $\tr \sigma_\valpha=2^N\delta_{\valpha,\vec 0}$, then $r_{\vec 0}=1$.
 We shall refer to $\paulicomponents$ as the ``Pauli components'' of the density
 matrix of a system of qubits. 
 
-
-%  $r_{\vec \alpha} =  $
-% where $r_{0,\ldots,0}=1$ ($\Tr\rho=1$) and $\sigma_0=\openone$.
-
-
 Consider the linear operations that simply attenuate the Pauli components of 
 a multiqubit system:
 \begin{equation}
@@ -124,15 +130,26 @@ a multiqubit system:
 % 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
 \label{eq:definition:Pauli}
 \end{equation}
-These operations are diagonal in the basis $\left\{ 2^{-N/2}\sigma_{\vec \alpha} \right\}$, this follows straightforwardly from \eref{eq:sigma_property}, in fact, the diagonal components are exactly $\taus$, this is $\hat \mcE=\diag(\taus)$. Additionally, they are unital (leave invariant the complete mixture), in fact, as we will show later, they belong to the subset of unital channels that can be written as convex combinations of unitary channels.
- \cpnote{davalos, dale aca un pequeño rollo relevante quiza de una o dos
-frases. También debemos tener un nombre pues lo de la diagonazliación funciona
-para eso y quizá también seran relevantes para la parte de decoherencia}
-\ddnote{De momento no he encontrado alguna reference, para qubits si, pero para
-los generales no, estoy checando de nuevo el paper de Ruskai para entender que
-tanto se solapan, a ver si puedo decir algo}.
-For the operation to preserve the trace of the density matrix, we require that 
-$\tau_{\vec 0}=1$. 
+For the operation to preserve the trace of the density matrix, we require that
+$\tau_{\vec 0}=1$.  
+% These operations are diagonal in the basis $\left\{
+% 2^{-N/2}\sigma_{\vec \alpha} \right\}$, which follows from
+% \eref{eq:sigma_property}. 
+% The diagonal components are $\taus$, i.e. $\hat
+% \mcE=\diag(\taus)$. Additionally, they belong to the subset of unital channels
+% that can be written as convex combinations of unitary channels. \cpnote{Alguien 
+% puso aca que lo probarian, pero no lo hemos discutido y quizá no le veo 
+% el caso en este articulo}
+\cpnote{Creo qeu vale la pena mencionar la relacion con los canales de Ruskai. 
+Lo discutimos en pleno, o por lo menos cuando esten JA y FL. quizá tambien discutir
+si se mencionan a los canales  \cite{Siudzinska2020}}
+
+\cpnote{davalos, dale aca un pequeño rollo relevante quiza de una o dos
+frases de la importancia de esta familia.} \ddnote{De momento no he encontrado
+alguna reference, para qubits si, pero para los generales no}.
+
+
+
 A Pauli component erasing (PCE) operation is a Pauli diagonal operation
 %  A linear operation 
 % $\mcE$ 
@@ -163,9 +180,8 @@ A graphical representation for PCE maps may be introduced, being the
 two qubits case what has proved to be the most useful. Consider a $N$ dimensional 
 Cartesian grid, with $4^N$ places.  Each place has $N$ integer coordinates, ranging
 from 0 to 3, so each place corresponds to a given $\vec \alpha$ in 
-\eref{eq:N_qubits_rho}. For a given PCE, we shall fill with black 
-the corresponding position \cpnote{No me pone feliz esta redaccion}
-if the corresponding $\tau_{\vec \alpha}=1$. Otherwise, we leave it 
+\eref{eq:N_qubits_rho}. For a given PCE, we shall fill 
+the square if the corresponding $\tau_{\vec \alpha}=1$. Otherwise, we leave it 
 empty. Examples for $N=1$ are provided in \fref{fig:one:qubit:examples}, whereas
 for two qubits, we exemplify them in \fref{fig:two:qubit:examples}. 
 % Notice
@@ -250,14 +266,14 @@ for two qubits, we exemplify them in \fref{fig:two:qubit:examples}.
 % \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
 \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
 % \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
 \end{scope} % }}}
 \end{tikzpicture} % }}}
 \end{center}
-\janote{Faltó el contorno negro en (e)??}
 	\caption{In (a) we introduce the positions of the single 
 qubit diagrams, so that each square corresponds to a single 
 $\tau_{\alpha}$, $\alpha=0,1,2,3$. The diagrams in 
-(b), (c) and (d) correspond to the identity map, \cpnote{bit flip ao algo asi}, and 
+(b), (c) and (d) correspond to the identity map, dephasing channel, and 
 total depolarization, respectively. In (e) we show a map that only erases the component
 $r_1$ and thus does not correspond to a quantum operation.}
 	\label{fig:one:qubit:examples}
