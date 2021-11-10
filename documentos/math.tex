@@ -2,50 +2,33 @@
 % Intro {{{
 This section is devoted to derive the conditions a Pauli map needs to satisfy to
 fulfill the CP condition i.e. that all the eigenvalues of the Choi matrix
-associated to the channel \sout{must be}\janote{are} non-negative.  To do so, we calculate
-and diagonalize the \janote{Choi} matrix associated with general Pauli maps, first for a
+associated to the channel are non-negative.  To do so, we calculate
+and diagonalize the Choi matrix associated with general Pauli maps, first for a
 single qubit and then for $N$ qubits. We then restrict to PCEs and, for quantum
 channels, associate a vector space to the set of coefficients
 $\{\tau_\valpha\}$ in \eref{eq:PCE_definition}, from which we are able to
 derive several important conclusions. 
 % }}}
-\subsection{Diagonalization of Choi matrix} 
-% \subsubsection{Single qubit Pauli channels} % {{{
-
-% \afnote{Notación para matrices densidad vectorizadas? $\varrho$ ?}
-% \janote{Qué tal $\vec\rho\quad$?}
-% \afnote{Por ahora uso este $\kket{\rho}$}
-
+\subsection{Diagonalization of Choi matrix} % {{{
+\cpnote{Aca Francois escribio algo que puede sustituir 
+el inicio del parrafo, pero estoy esperando la fuente }
 We now study the matrix form of the single qubit map $\mathcal{E}$ in
 order to construct the associated Choi matrix. 
-% and the conditions the set of parameters
-% $\{\tau_{\alpha}\}$ need to satisfy in order to $\mathcal{E}$ be considered a
-% quantum channel. 
 To do so, we shall denote operators in the superoperator space with the symbol
 $\kket{\cdot}$. For example, $\kket{\sigma_{\alpha}}$ correspond to the
 vectorized elements of the Pauli basis and satisfy the usual relation 
 $\bbrakket{{\sigma_{\alpha}} }{{\sigma_{\alpha'} }} = \tr
 \left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2
-\delta_{\alpha\alpha'}$~\janote{cita?}.
-In this language, 
-the state reads
+\delta_{\alpha\alpha'}$.
+In this language, the state reads
 $\kket{\rho}=2^{-1}\sum_{\alpha=0}^{3} r_{\alpha} \kket{\sigma_{\alpha}}$
-and the 
-% By writing the density matrix in vector form
-% $\kket{\rho}=2^{-1}\sum_{\alpha=0}^{3} r_{\alpha} \kket{\sigma_{\alpha}}$, the
-matrix form of the map $\mathcal{E}$ is
+and the matrix form of the map $\mathcal{E}$ is
 % 
 \begin{equation}
 \hat{\mathcal{E}} = \frac{1}{2}\sum_{\alpha=0}^{3} \tau_{\alpha}
 \ddyada{\sigma_{\alpha}}.
-% \label{Map_Pauli}
 \end{equation}
-%
-% where the kets $\kket{\sigma_{\alpha}}$ correspond to the vectorized elements
-% of the Pauli basis and satisfy the usual relation $ \bbrakket{{\sigma_{\alpha}
-% }}{{\sigma_{\alpha'} }} = \tr \left(\sigma_{\alpha}^{\dagger}
-% \sigma_{\alpha'}\right) = 2 ~\delta_{\alpha\alpha'}$. 
-After some steps, detailed from \eref{eq:inicio:canal:pauli} to 
+After some steps, detailed from \eref{eq:inicio:canal:pauli} to
 \eref{Choi_Pauli_1q}, it is possible to show that the associated Choi matrix
 reads
 \begin{equation}
@@ -53,8 +36,9 @@ reads
 \otimes \sigma_{\alpha}^*.
 %  \label{Choi_1}
 \end{equation}
-Notice that, despite the similarity, $\ddyada{\sigma_{\alpha}}$ 
+Notice that $\ddyada{\sigma_{\alpha}}$ 
 and $\sigma_{\alpha} \otimes \sigma_{\alpha}^*$ are different operators.
+\cpnote{Aca tambien metio un rollo Francois que resulta muy util.}
 % \cpnote{Aca poner algo de que no es trivial y que se detalla en el apendice.}
 % 
 % Moreover, observe that $\mathcal{D}$ has the same form as the matrix
@@ -148,7 +132,6 @@ map corresponding to \eref{eq:definition:Pauli} is
 % given by
 \begin{equation}
 \hat{\mathcal{E}}_N = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}} \ddyada{\sigma_{\vec{\alpha} }}.
-% \label{Map_Pauli}
 \end{equation}
 As in the previous case, the Choi matrix $\mathcal{D}_N$ may be written in
 terms of tensor products of Pauli matrices
