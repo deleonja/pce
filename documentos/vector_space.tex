@@ -421,17 +421,29 @@ hay una manera unica de generar esos bichos.}
 \label{fig:examplesPCE}
 \end{figure} % }}}
 % Los canales tiene 2^K componente {{{
-We can then see that all PCE quantum channels preserve $2^K$ components. In
-fact, with the above picture, it is clearly revealed that the vector space has
-dimension $2N$. Moreover, 
-consider any subspace and chose the maximum number of linearly independent
-elements (say $K$).  Any of the  $2^K$ subsets of those elements will yield a
-unique element. Moreover, since $\valpha + \valpha = \vec 0$, these are all
-elements of the vector space. This means that any PCE quantum channel will preserve $2^K$ 
-components, for $K$ an integer. See \fref{fig:examplesPCE} for some examples. 
-\par 
 
-The dimension of the vector space $V$ of all multi-indices is $2N$, and we have
+% **********************************
+% 
+% We can show that all PCE quantum channels preserve $2^K$ components. 
+% In
+% fact, with the above picture, it is clearly revealed that the vector space has
+% dimension $2N$. Moreover, 
+% consider any subspace and chose the maximum number of linearly independent
+% elements (say $K$).  Any of the  $2^K$ subsets of those elements will yield a
+% unique element. Moreover, since $\valpha + \valpha = \vec 0$, these are all
+% elements of the vector space. This means that any PCE quantum channel will preserve $2^K$ 
+% components, for $K$ an integer. See \fref{fig:examplesPCE} for some examples. 
+% \par 
+% 
+% **********************************
+% **********************************
+
+We can show that all PCE quantum channels preserve $2^K$ components. 
+First recall that a vector space of dimension $d$ over a field of $q$ elements
+has $q^d$ elements~\cite{CitaAlgebraLineal}.
+Now $V$ is a vector space on a field of two elements having dimension $2N$. 
+% The dimension of the vector space $V$ of all multi-indices is $2N$, and 
+We have
 seen earlier that
 \begin{equation}
 W=\left\{
@@ -439,13 +451,17 @@ W=\left\{
 \right\}
 \label{eq:19}
 \end{equation}
-is a subspace of $V$. As such, $W$ has a given dimension $K$, which means that
+is a subspace of $V$. 
+As such, $W$ has a given dimension $K$, which means that
 $W$ has $2^K$ elements. In other words, a vector $\vec\tau$ with the property
 discussed above can only have $2^K$ elements equal to 1, for a given integer
 $K$. \par
 
-\cpnote{Dejar que la raza elija uno de los dos parrafos anteriores}\janote{El
-primero (simón, cambié de opinión)} \par 
+% **********************************
+% **********************************
+% 
+% \cpnote{Dejar que la raza elija uno de los dos parrafos anteriores}\janote{El
+% primero (simón, cambié de opinión)} \par 
 
  % }}}
 % Cuantos canales conservan $2^K$ componentes? {{{
