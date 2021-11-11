@@ -113,16 +113,24 @@ cannot be written easily in terms of $H \otimes H$.
 
 The same program can be carried out for $N$ qubits. In this case, 
 the vectorized Pauli operators are 
- $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\cdots
-\otimes\kket{\sigma_{\alpha_N}}$\janote{aquí hay algo extraño, pues los operadores 
-que utilizamos son la vectorización del producto tensorial de las paulis, no los
-productos tensoriales de las paulis vectorizadas, que es lo que entiendo con la 
-expresión $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\cdots
-\otimes\kket{\sigma_{\alpha_N}}$}\janote{mi sugerencia es nada más reescribir
-$\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}\otimes\cdots
-\otimes\sigma_{\alpha_N}}$}, and satisfy the orthogonality relation
+\begin{align}
+\kket{\sigma_{\vec{\alpha} }}&=\kket{\sigma_{\alpha_1}}\otimes\cdots
+\otimes\kket{\sigma_{\alpha_N}} \nonumber \\
+&=\kket{\sigma_{\alpha_1}\otimes\cdots
+\otimes\sigma_{\alpha_N}},
+\end{align}
+% 
+% $\janote{aquí hay algo extraño, pues los operadores 
+% que utilizamos son la vectorización del producto tensorial de las paulis, no los
+% productos tensoriales de las paulis vectorizadas, que es lo que entiendo con la 
+% expresión $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\cdots
+% \otimes\kket{\sigma_{\alpha_N}}$}\janote{mi sugerencia es nada más reescribir
+% $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}\otimes\cdots
+% \otimes\sigma_{\alpha_N}}$}
+% kkkj
+and satisfy the orthogonality relation
 $\bbrakket{{\sigma_{\vec{\alpha} } }}{{\sigma_{\vec{\alpha}'} }} =  2^N
-\delta_{\vec{\alpha}\vec{\alpha}'}$\janote{cita?}. The matrix representation of the
+\delta_{\vec{\alpha}\vec{\alpha}'}$. The matrix representation of the
 map corresponding to \eref{eq:definition:Pauli} is 
 % Analogously to the single qubit case, one can define the $N$-qubits Pauli map $\mathcal{E}_N$
 % % 
