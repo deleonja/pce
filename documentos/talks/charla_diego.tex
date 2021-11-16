@@ -159,23 +159,36 @@
 % \title[]{2-d Ising Quantum Models in CUDA:\\Phase Transitions in Spectral Densities}
 \title{
 % A quantum framework for \\c
-Coarse graining and fuzzy measurements in quantum many-body-systems
+Pauli component erasing operations
+% Coarse graining and fuzzy measurements in quantum many-body-systems
 }
-\author[]{Carlos Pineda$^\dagger$\\
+\author[]{Carlos Pineda$^1$\\
 \footnotesize
-David Dávalos$^\dagger$, Antonio Rosado$^\dagger$ y Carlos Viviescas$^*$
+José Alfredo de León$^2$
+Alejandro Fonseca$ $^3$
+François Leyvraz$^1$
+David Davalos$^4$
 }
-\institute[c. pineda]{$^\dagger$Instituto de Física, UNAM \\$^*$Universidad Nacional de Colombia}
+\institute[c. pineda]{
+$^1$Universidad Nacional Autónoma de México\\
+$^2$Universidad de San Carlos de Guatemala\\
+$^3$Universidade Federal de Pernambuco (Brazil)\\
+$^4$Slovak Academy of Sciences
+}
+
+
+
+
+
 \date[]{
 \centering
 % \includegraphics[bb = 93 648 515 770,clip, width=.8\textwidth]{articulo_2012}
 % \small Phys. Rev. Lett. {\bf 107}, 080404 (2011)
+\small Not published yet
 }
 % \date{November 16, 2010}
 % \date {Quantum Optics V\\Cozumel, November 16, 2010 \\
 % \small arXiv:1006.4651}
-
-
 % {{{ Avisos al principio de las secciones y subsecciones
 % http://tex.stackexchange.com/questions/11100/beamer-atbeginsection-and-insertsubsectionnavigation
 \AtBeginSection[] 
@@ -215,6 +228,258 @@ David Dávalos$^\dagger$, Antonio Rosado$^\dagger$ y Carlos Viviescas$^*$
 \frame[plain]{% {{{ title page
 \titlepage
 }% }}}
+\begin{frame}{\enges{Outline}{Estructura de la charla}} %{{{ 
+\hspace{1cm}\begin{minipage}{.85\textwidth}\large
+\tableofcontents
+\end{minipage}
+\end{frame}% }}}
+
+\section{\enges{Some tools}{Algunas herramientas matemáticas}} %{{{  
+\begin{frame}{\enges{Density matrix}{Matriz de densidad y traza parcial}} % {{{
+% \cpnote{
+% The density matrix $\rho$ is an operator that represents a state in which {\it
+% all} measurable information is encoded (similar to the state vector).
+% % \pause
+% % \item
+% It is used often in open quantum systems, quantum information and statistical mechanics. 
+% The measurable quantities, expected values, are calculated as $\tr \hat M \rho$
+% }
+\enges{The density matrix $\rho$ is an operator that represents a state}{
+Una matriz de densidad $\rho$ es un operador que describe un estado, con un poco más
+de generalidad que un ket.} \\[.0cm] \pause 
+
+% \enges{Consider a quantum system 
+% that is in on one of the states}{
+% Consideremos que nuestro sistema cuántico está en uno de los estados}
+% $|\psi_i\>$ 
+% \enges{with probability}{con probabilidad}
+% $p_i$ ($\{(p_i, |\psi_i\> \}_{i \in I}$).
+% \enges{The corresponding \alert{density matrix} is }{
+% La \alert{matriz de densidad} correspondiente es }
+% \begin{equation*}
+% \rho  = \sum_{i\in I} p_i |\psi_i\>\< \psi_i|.
+% \label{}
+% \end{equation*}
+% \pause
+\begin{itemize}
+% \item 
+% Un estado puro se puede referir a un vector en el espacio de Hilbert, 
+% o a una matriz de densidad que tenga sólo una componente en la superposición. 
+% \pause
+\item \enges{Contains {\it all} physical information}{Contiene {\it toda} la
+información física}
+\pause
+% \item Se usa en mecánica estadística, sistemas abiertos, información cuántica
+%  porque describe ensambles
+% \item Se usa en información cuántica porque describe ignorancia
+% \item 
+% \enges{
+% The density matrix is often used in open quantum systems. 
+% }{
+% La matriz de densidad se usa en sistemas abiertos. 
+% }
+% \\[.5cm]
+\item \enges{The expected value of an observable is}{El valor esperado de un observable} $\< \hat A \>_\rho = \tr \rho \hat A$
+% \item 
+% \enges{It is also often used in statistical mechanics and in quantum information.}{
+% También se usa mucho en mecánica estadística e información cuántica. }
+\item \enges{Convenient in several contexts, but introduces no new
+physics}{Conveniente en varios contextos, no introduce nueva física}\\[.5cm]
+\end{itemize}
+\pause
+
+\enges{In a bipartite system $\mcH_A \otimes \mcH_B$, the state
+of a subsystem $\rho^A$ is related to the whole state $\rho^{AB}$ via}{
+En un sistema compuesto %, $ \mcH_A \otimes \mcH_B$}, 
+% $\mcH = \mcH_A \otimes \mcH_B$,
+el estado de un subsistema está relacionado con el estado completo mediante}
+% $ \mcH_A \otimes \mcH_B$,
+% \begin{equation*}
+% \rho^{AB}.
+% \end{equation*}
+% \pause
+% \enges{The reduced density matrix for system $A$ is defined as}{El operador de
+% densidad reducido para el sistema $A$ está definido como }
+\begin{equation*}
+% \alert{
+\rho^A = \tr_B \rho^{AB}.
+% }
+\end{equation*}
+\vspace{.0cm}
+
+\pause
+\enges{The partial trace is meaningful since it predicts
+the right expected values:}{La operación traza parcial tiene sentido, pues
+predice apropiadamente valores esperados:}
+% con $\tr_B (|a_1 b_1\>\<a_2 b_2|) = |a_1\>\<a_2| \<b_1|b_2\> $ y tiene
+% sentido pues
+% \enges{and we extend to other operators requiring linearity.}{
+% y extendemos a otros operadores usando linealidad. }
+% Esta definición tiene sentido porque 
+\begin{align*}
+\< M_A \>_{\rho_A} =  \< M_A \otimes \openone \>_{\rho_{AB}}.
+\end{align*}
+\end{frame} % }}}
+\begin{frame}{\enges{Quantum channels}{Canales cuánticos}} %{{{ 
+
+\large 
+\enges{
+A quantum channel ($\Lambda$) generalizes conveniently unitary 
+evolution, in a similar way as a density matrix generalizes a ket.}
+{Un  canal cuántico ($\Lambda$) generaliza convenientemente la evolución
+unitaria, de manera similar a como una matriz de densidad generaliza un ket.}
+\\[.3cm]
+
+\enges{Quantum channels can describe:}{Los canales pueden describir:}
+\begin{itemize}
+\item \enges{Unitary evolution}{Evolución unitaria} $\Lambda(\rho) = U \rho  U^\dagger  $
+\item \enges{Reduced dynamics}{Dinámica reducida}
+     $\Lambda(\rho) =\tr_\env \left[ U \rho \otimes \rho_\env U^\dagger \right] $
+\item \enges{Decoherence}{Decoherencia}
+\item \enges{Measurements}{Mediciones (sin postselección)}\\[.3cm]
+\end{itemize}
+
+
+\pause
+% \Large 
+\enges{Quantum channels are linear operators acting on the spaces of operators, i.e.
+superoperators.}{Son operadores lineales sobre el espacio de operadores
+(superoperadores).}
+\pause
+\enges{This implies that they have spectrum, eigenvalues, symmetries, etc.}{Esto
+implica que tienen espectro, eigenoperadores, simetrías, etc.}
+
+\end{frame} % }}}
+% \begin{frame}{Ejemplo: canales genéricos} %{{{ 
+% 
+% Un qubit acoplado fuertemente a un ambiente
+% \begin{itemize}
+% \item \enges{Hilbert space}{Espacio de Hilbert:} $\mcH = \mcH_\q \otimes \mcH_\env $
+% \item \enges{Hamiltonian}{Hamiltoniano:} $H = V_\text{GUE}$ (sin estructura, acople fuerte)
+% \end{itemize}
+% 
+% \enges{Solution}{Solución}:\\
+% \begin{itemize}
+% \item 
+% \enges{Non-markovian depolarizing channel}{Canal de depolarización} $\rho \to \alpha(t) \rho + 
+% \left[1-\alpha(t) \right] \openone/2$
+% % \item ¡A pesar de tener 0 estructura, el canal es no-Markoviano!
+% \end{itemize}
+% 
+% \begin{center}
+% % \begin{minipage}{.49\textwidth}
+% % \centerline{\footnotesize \enges{Cold state}{Estado frio} $N=12000$}
+% % % \begin{center}\footnotesize \enges{Cold state}{Estado frio} $N=12000$\\[-1cm] \end{center}
+% % \includegraphics[width=5.7cm, clip=true, bb=0 0 245 150]{LambdasFinalTitle}
+% % \end{minipage}
+% % \hfill
+% \begin{minipage}{.49\textwidth}
+% % \centerline{\enges{Hot state}{Estado caliente} $N=100$}
+% % \begin{center}\footnotesize \enges{Hot state}{Estado caliente} $N=100$\end{center}
+% \includegraphics[width=5.7cm, clip=true, bb=0 0 245 150]{identityFinal}
+% \end{minipage}
+% \end{center}
+% \vfill \tiny \hfill 
+% Phys. Rev. Lett. 107, 080404 (2011)
+% \end{frame} %}}}
+% \begin{frame}{Ejemplo: clasificando canales de un qubit} % {{{
+% % Para poder estudiar y compartir con ud
+% 
+% \begin{center}
+% % \raisebox{3cm}{$\rho=\frac{\openone + \vec r \cdot \vec \sigma}{2}$}
+% \includegraphics[width=0.3\textwidth,viewport=70 90 310 330,clip]{../images/transformacionGeneral1.jpg}%
+% \hspace{.3cm}
+% \onslide<2->{
+% \includegraphics[width=0.3\textwidth,viewport=70 90 310 330,clip]{../images/transformacionGeneral2.jpg}
+% }
+% \raisebox{0cm}{
+% \onslide<3->{
+% \resizebox{3.5cm}{4cm}{%
+% \begin{tikzpicture}
+% % \node at (0,0) {\includegraphics{simpleTetra.pdf}};
+% \node at (0,0) {\includegraphics{/home/carlosp/investigacion/antiguos_proyectos/nm_static_dynamical/images/simpleTetra.pdf}};
+% \node at (-1,-3.7) {$\lambda_1$};
+% \node at (-2.2,3.5) {$\lambda_2$};
+% \node at (-3.8,0) {$\lambda_3$};
+% \end{tikzpicture}
+% }
+% }
+% }
+% \end{center}
+% % $$
+% % \vec r
+% % \to
+% % R_2
+% % \begin{pmatrix}
+% % \lambda_1 & 0 & 0 \\
+% % 0 & \lambda_2 & 0 \\
+% % 0 & 0 & \lambda_3 
+% % \end{pmatrix}
+% % R_1
+% % \cdot \vec r +\vec \tau
+% % $$
+% \begin{itemize}
+% \onslide<1->{
+% \item Usamos la representación de la esfera de Bloch 
+% $\rho \propto \openone + \vec r \cdot \vec \sigma$}
+% \onslide<2->{
+% \item Cualquier canal corresponde a
+% $\vec r\to R\cdot \diag(\lambda_i)\cdot R' \cdot\vec r+\vec \tau$}
+% % \item Las rotaciones {\tiny casi} no son importantes en este contexto
+% \onslide<3->{
+% \item Caracterizamos en canal con $\lambda_{1,2,3}$ fijando $\tau$.
+% }
+% \end{itemize}
+% % Para canales unitales, donde el desplazamiento es nulo $\mcE(\openone)=\openone$
+% % nos quedamos con 3 parametros, y las rotaciones que frecuentemente podemos ignorar, 
+% 
+% % 1. Como visualizar los canales: Estos forman un espacio vectorial? Son operadores
+% % sobre el espacio de matrices de densidad. 
+% % Estan parametrizados 
+% % 
+% % Definiciones 
+% % Canales
+% % los que dependen del tiempo
+% \end{frame} % }}}
+% \begin{frame}{Canales de un qubit tipo Lindblad} %{{{ 
+% 
+% % \begin{minipage}{.49\textwidth} % {{{
+% % \begin{center}\footnotesize Reachable with P-divisible maps\\
+% % \includegraphics[width=.5\textwidth]{biTetra.pdf}
+% % \end{center}
+% % \end{minipage} % }}}
+% % \hfill
+% % \begin{minipage}{.49\textwidth} % {{{
+% % \begin{center}\footnotesize Entanglement breaking and divisible but not infinitely divisible
+% % \includegraphics[width=.5\textwidth, viewport=0 0 230 218,clip=true]{ininTetra.pdf}
+% % \end{center}
+% % \end{minipage} % }}}
+% % 
+% % \phantom{x}\vspace{.0cm}
+% 
+% \begin{minipage}{.49\textwidth} % {{{
+% \begin{center}% \footnotesize Linblad maps\\
+% \includegraphics[width=.5\textwidth,viewport=0 0 230 218,clip=true]{skewTetra.pdf}
+% \end{center}
+% \end{minipage} % }}}
+% \hfill
+% \begin{minipage}{.49\textwidth} % {{{
+% \begin{center}%\footnotesize Time dependent Lindblad maps
+% \includegraphics[width=.5\textwidth, viewport=0 0 230 218,clip=true]{CPTetra.pdf}
+% \end{center}
+% \end{minipage} % }}}
+% 
+% \vspace{1cm}
+% \begin{itemize}
+% \item Podemos encontrar que tipo de procesos podemos implementar con 
+% relajación  (ecuación de Lindblad)
+% \item Podemos encontrar que tipo de procesos podemos implementar con 
+% relajación dependiente del tiempo (ecuación de Lindblad dependiente del tiempo)
+% % \item Caracterizamos algebraica y geométricamente el conjunto \LDiv{} (y los otros)
+% % \item Podemos trazar rutas para implementar mapas de acuerdo a las restricciones experimentales
+% \end{itemize}
+% \end{frame} % }}}
+% }}}
 \end{document}
 
 
