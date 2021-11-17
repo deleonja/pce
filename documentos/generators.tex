@@ -1,6 +1,6 @@
 \section{Generators} % {{{
-\todo{Francois escribe una primera version del primer punto, y luego quizá Jose
-Alfredo o Carlos la terminan}
+%\todo{Francois escribe una primera version del primer punto, y luego quizá Jose
+%Alfredo o Carlos la terminan}
 
 %\janote{Mis sugerencias para esta sección son:\newline\indent (1) Es ilustrativo y bonito
 %explicar a punta de las figuras PCE cómo generar todos los canales PCE 
@@ -45,52 +45,66 @@ Alfredo o Carlos la terminan}
 %escribió eso. Toca hablarlo con Carlos.)
 %\end{itemize}}
 
-\esqueletoja{There exists a subset of PCE quantum channels that generate 
-all PCE's, and the existence of these PCE generators may be explained with 
-the vector space point of view.}
+\janote{\colorbox{yellow}{¡¡¡Léeme Carlos!!!:} Las frases nuevas que hacen
+parte del esqueleto y que no estaban ayer, miércoles, son las que aparecen 
+en las líneas 412, 422 y 425.} 
 
+There exists a subset of PCE quantum channels that generate 
+all PCE's, and the existence of these PCE generators may be explained with 
+the vector space point of view.
 \janote{Este párrafo lo voy a retocar. El enunciado de arriba es el primer enunciado
-del nuebo párrafo.}
+del nuevo párrafo. Ojo que hay que introducir la notación $\mcG$.}
 By standard theorems of linear algebra, any subspace $W$ can be extended to a
 maximal (non-trivial) subspace of dimension $2N-1$ by adjoining appropriate
 additional basis elements. This can clearly be done in different ways. We
 therefore arrive to the set of maximal extensions of $W$. Clearly, the
 intersection of all the elements of this set reduces to $W$ itself, leading to
 the result that all PCE's can be obtained as intersections of maximal PCE's. 
+\janote{Referenciar \Fref{fig:examplesPCE} y apéndice con una ilustración 
+del caso de 2 qubits usando los $\mcG$. Mostrar en ese apéndice todos
+los generadores de 2 qubits}
 
-\esqueletoja{For the case of 1 qubit the existence of PCE generators is  
-verified by Siudzińska~\cite{siudzinska2019geometry}.} \janote{Esto puede
+PCE generators may be characterized with a unique vector index
+$\vec\alpha$, and therefore, denoted as $\pceg$.
+
+For the case of 1 qubit, the existence of PCE generators $\pceg$ is  
+verified by Siudzińska~\cite{siudzinska2019geometry}.
+\janote{Esto puede
 ser un párrafo, o puede ser un comentario final dentro del párrafo antrerior.}
 
-\esqueletoja{The matrix $\san$ [see \eref{eq:san}] encodes all the information
-of PCE generators and, therefore, of the PCE quantum channels.} \janote{Aquí
+The matrix $\san$ [see \eref{eq:san}] encodes all the information
+of PCE generators $\pceg$ and, therefore, of the PCE quantum channels. \janote{Aquí
 tendrá que ir una prueba que aún se está cocinando}
 
-\janote{Aquí croe que podría hablar de las `simetrías de los PCEGs', pero necesito
-estar seguro a qué te refieres con eso, Carlos. Te refieres a aquella regla que 
-tú encontraste con la que se pueden encontrar todos los generadores? Que 
-para los tableritos es como ir desdoblando en mitades?}
+PCE generators $\pceg$ (and so $\san$'s rows and columns) obey a symmetry rule
+that defines uniquely every PCE generator.
 
-\esqueletoja{The set of all PCE quantum channels may be sorted in subsets, 
+PCE generators $\pceg$ may be classified by its local action on 
+all individual qubits in the system.
+
+
+-------------------------------------------------------------------
+The set of all PCE quantum channels may be sorted in subsets, 
 which we will call equivalence classes, whose
 elements are equivalent via particle swaps and local-basis element
-permutations. Then, the algorithm to generate all PCEs reduces to finding
-only representative elements of every equivalence class.} \janote{aquí planeo 
-hacer una referencia al apéndice que para ver la construccón en figuritas 
-del caso de 2 qubits}
+permutations. 
+\janote{El párrafo que pretendía ser este tendrá que ir en otra parte. 
+Aún hay que decidirlo con los demás.}
 
-Quizá poner las reglas de simetría de los generadores. 
-
-Quizá en un apendice poner todos los generadores de dos qubits. 
-
-También poner como se pueden calsificar los generadores y por aih poner la clasificacion de los 
-generadores en la figura.  o en el texto
-
-\begin{itemize}
-\item Clasificacion de los generadores, es decir que para dos qubits, lo podemos indicar con la acción sobre cada qubit individual
-\item Quizá mostrar algunas propiedades de simetrías. 
-\item Notar lo de los generadores y como sale la estructura jerárquica 
-\end{itemize}
+%Quizá en un apendice poner todos los generadores de dos qubits. 
+%\janote{Poner el comentario en algún lado de que hay que hacer una
+%referencia a un apéndice.}
+%
+%\janote{falta escribir un párrafo sobre la clasificación: (la clasificación 
+%es de que cada generador está caracterizado por un $\alpha$)}
+%También poner como se pueden calsificar los generadores y por aih poner la clasificacion de los 
+%generadores en la figura.  o en el texto
+%
+%\begin{itemize}
+%\item Clasificacion de los generadores, es decir que para dos qubits, lo podemos indicar con la acción sobre cada qubit individual
+%\item Quizá mostrar algunas propiedades de simetrías. 
+%\item Notar lo de los generadores y como sale la estructura jerárquica 
+%\end{itemize}
 % }}}
 
 
