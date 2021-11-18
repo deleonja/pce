@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usepackage[]{xcolor}
+% % \usetikzlibrary{positioning}
+% \usetikzlibrary{arrows,backgrounds}
+% 
+% \usepackage{amsmath, amsthm, amssymb}
+% \input{commondefinitions}
+% 	
+% 
+% 
+% \begin{document}
+% \pagestyle{empty}
+% %\providecommand{\openone}{\leavevmode\hbox{\small1\kern-3.8pt\normalsize1}}
+% 
+% % \documentclass[12pt]{article}
+% % \usepackage{psfrag}
+% \usepackage{tikz}
+% % \usetikzlibrary{positioning}
+% % \usetikzlibrary{arrows,backgrounds}
+ \usetikzlibrary{calc}
+\usepackage{bbold}
+
+
+\usepackage{amsmath, amsthm, amssymb}
+\colorlet{coscolor}{blue}
+
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+%Colors
+
+\definecolor{max}{rgb}{1,0.54,0.1}
+\definecolor{medium}{rgb}{1,0.8,0.6}
+\definecolor{min}{rgb}{1,0.9,0.8}
+\newcommand{\extrasfigs}[1]{
+\pagestyle{empty}
+\begin{tikzpicture}
+\node at (0,0) {\includegraphics[scale=0.7]{#1}};
+\node at (-1.8,-0.4) {\tiny $x$};
+\node at (-0.,-1.7) {\tiny $|1\rangle$};
+\node at (1.25,0.8) {\tiny $|\psi \rangle$};
+\node at (.95,-.9) {\tiny $y$};
+\node at (-0.,1.8) {\tiny $|0\rangle$};
+\node at (-.1,1.6) {\tiny $z$};
+\end{tikzpicture}
+}
+\newcommand{\extrasfigsnopsi}[1]{
+\pagestyle{empty}
+\begin{tikzpicture}
+\node at (0,0) {\includegraphics[scale=0.7]{#1}};
+\node at (-1.8,-0.4) {\tiny $x$};
+\node at (-0.,-1.7) {\tiny $|1\rangle$};
+% \node at (1.25,0.8) {\tiny $|\psi \rangle$};
+\node at (.95,-.9) {\tiny $y$};
+\node at (-0.,1.8) {\tiny $|0\rangle$};
+\node at (-.1,1.6) {\tiny $z$};
+\end{tikzpicture}
+}
+\begin{document}
+\extrasfigs{EjemplosBlochPCE_1.pdf} \clearpage
+\extrasfigs{EjemplosBlochPCE_2.pdf} \clearpage
+\extrasfigsnopsi{EjemplosBlochPCE_3.pdf} \clearpage
+\extrasfigsnopsi{EjemplosBlochPCE_4.pdf} \clearpage
+\extrasfigs{EjemplosBlochPCE_5.pdf} \clearpage
+\end{document}
+
+
+
