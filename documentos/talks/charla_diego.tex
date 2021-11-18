@@ -11,6 +11,9 @@
 % \usepackage{psfrag}
 % \usepackage{pst-node}
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+
 
 \definecolor{colora}{rgb}{0.898438, 0.621094, 0.}
 \definecolor{colorb}{rgb}{0.335938, 0.703125, 0.910156}
@@ -153,6 +156,29 @@
 \newcommand{\affiliationtwo}{$^\sharp$}
 \newcommand{\affiliationthree}{$^\natural$}
 % }}}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+
+\newcommand{\valpha}{{\vec \alpha}}
+\newcommand{\one}{\openone}
+\newcommand{\cuadritotikz}{
+% \pgfmathsetmacro{\unitstep}{5.2}
+% \node at (-0.5,0.5) {(a)} ;
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw[black!10] (0,0) rectangle (1,1); 
+%           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+         \end{scope}
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+ \draw (0,-3) rectangle (4,1);
+}
+
+\newcommand{\paulicomponents}{r_\valpha}
+\newcommand{\taus}{\tau_\valpha}
+\newcommand{\pceg}{\mcG_{\vec \alpha}}
 % \englishtrue
 % \englishtrue \espanolfalse
 \englishfalse \espanoltrue
@@ -177,7 +203,10 @@ $^3$Universidade Federal de Pernambuco (Brazil)\\
 $^4$Slovak Academy of Sciences
 }
 
-
+% 
+% \def\checkmark{\tikz
+% \fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;
+% } 
 
 
 
@@ -197,7 +226,8 @@ $^4$Slovak Academy of Sciences
 \begin{frame}[plain]
 % \begin{frame}<beamer>
 %     \frametitle{Outline}
-    \tableofcontents[sectionstyle=show/hide,subsectionstyle=hide/show/hide]
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide/show/hide]
+%     \tableofcontents[sectionstyle=show/hide,subsectionstyle=hide/show/hide]
   \end{frame}
   \addtocounter{framenumber}{-1}% If you don't want them to affect the slide number
 
@@ -230,26 +260,57 @@ $^4$Slovak Academy of Sciences
 \titlepage{}
 }% }}}
 \begin{frame}{\enges{General goal}{El objetivo general}} %{{{ 
-Los canales cuánticos de un qubit puede proyectar a algunas componentes, pero 
-no arbitrariamente. 
-
+Los canales cuánticos pueden proyectar a algunas componentes.
 
 % \begin{minipage}{.48\textwidth}
 \begin{center}
+\begin{tikzpicture}
+ %nodes
+% \draw[draw=white] (-2.7,-4.5) rectangle ++(5.5,5);
+\draw[draw=white] (-1.2,-4.1) rectangle ++(6.5,5.5);
+%  \node[punkt] (market) {Market (b)};
+% \filldraw [fill=Peach, draw=black] (11.1,5) rectangle (0.3,0.3);
+ % We make a dummy figure to make everything look nice.
+%  \node at (0, 0)  {\includegraphics[width=.99\textwidth]{spectraAll}};
+\node at (0, 0)  {%
+\only<1>{\includegraphics[width=.2\textwidth,page=1]{../images/blochs-crop}}%
+\only<2->{\includegraphics[width=.2\textwidth,page=2]{../images/blochs-crop}}%
+};
+\only<3->{
+\draw [-{Stealth[length=3mm, width=3mm]},line width=3pt] (1.4,0) -- (2.7,0); 
+\node at (2.,.3) {\color{green} \cmark};
+}
+\only<5->{
+\node at (2.,-2.5) {\color{red} \xmark};
+\draw [-{Stealth[length=3mm, width=3mm]},line width=3pt] (1.4,-2.8) -- (2.7,-2.8); 
+}
+\node at (4,  0)  {%
+\only<3->{\includegraphics[width=.2\textwidth,page=3]{../images/blochs-crop}}%
+% \only<2->{\includegraphics[width=.2\textwidth,page=2]{../images/blochs-crop}}%
+};
+\node at (0,  -2.8)  {%
+\only<4->{
+\includegraphics[width=.2\textwidth,page=5]{../images/blochs-crop}}%
+};
+\node at (4,  -2.8)  {%
+\only<5->{
+\includegraphics[width=.2\textwidth,page=4]{../images/blochs-crop}}%
+};
+\end{tikzpicture}
 % Sistemas naturales, estables\\[.2cm]
-Acá un dibujo en dos partes, con la esfera de Bloch en la primera indicando 
-algun punto que ava a viajar al disco central, luego una segunda con solo el 
-disco. Luego una segunda serie con eso, pero proyectado al eje z. 
+% Acá un dibujo en dos partes, con la esfera de Bloch en la primera indicando 
+% algun punto que ava a viajar al disco central, luego una segunda con solo el 
+% disco. Luego una segunda serie con eso, pero proyectado al eje z. 
 \end{center}
-\Large\pause
+\large\pause
 
-\begin{center}
-\begin{itemize}
-\item Entender un poco mejor porqué.
-\item ¿Qué sucede para más qubits?
-\item Salen matemáticas {\it muy} bonitas.
-\end{itemize}
-\end{center}
+\pause
+\pause
+\pause
+\pause
+% \only<6->{
+\begin{center} Entender un poco mejor qué sucede para muchos cuerpos \end{center}
+% }
 
 % \begin{tikzpicture}
  %nodes
@@ -310,52 +371,463 @@ superoperators.}{Son operadores lineales sobre el espacio de operadores
 implica que tienen espectro, eigenoperadores, simetrías, etc.}
 
 \end{frame} % }}}
+\begin{frame}{\enges{Quantum channels}{Canales cuánticos, propiedades}} %{{{ 
 
-\begin{frame}{\enges{Quantum channels}{Canales cuánticos}} %{{{ 
-Algunas propiedades matemáticas como que mapean matriz de densidad en matrices
-que preservan traza, que son lineales y que son completamente positivos. 
+Envían estados a estados $\mcE(\rho)=\rho'$
+\begin{itemize}
+\item Son lineales, $\mcE(\alpha \varsigma + \sigma)
+=\alpha \mcE(\alpha \varsigma) +  \mcE(\sigma)$.
+\item Preserva la traza, $\tr \mcE( \sigma) = \tr \sigma$.
+\item Preservan la hermiticidad de los estados, $ \mcE( \sigma) =\mcE( \sigma)^\dagger$
+si $ \sigma =\sigma^\dagger$.
+\item Preserva la positividad de la matriz de densidad, $ \mcE( \sigma) \ge 0 $
+si $ \sigma \ge 0 $.
+\end{itemize}
+ 
+\vspace{1cm}
+\pause
 
-Decir que la completa positividad se traduce en un reordenamiento de los indices. 
+Envían estados extendidos a estados extendidos
+\begin{itemize}
+\item Completa positividad, $(\mcE \otimes \openone_k)( \sigma) \ge 0 $
+si $ \sigma \ge 0 $.
+\end{itemize}
+Hay mapas que envían estados a estados, pero no estados extendidos a estados extendidos, 
+por ejemplo la operación transpuesta.
+
+
 \end{frame} % }}}
+\begin{frame}{\enges{Quantum channels}{Completa positividad}} %{{{ 
 
+\begin{itemize}
+\item La condición de completa positividad pide que, para todo $k$,
+$$(\mcE_n \otimes \openone_k)( \rho) \ge 0. $$
+% para todo $k$.
+\pause
+\item Basta estudiar el mapa actuando sobre el estado máximamente enlazado $k=n$ niveles:
+% $ |\text{Bell}_n\> = \sum_{i=1}^n |ii\>$.
+% Es decir 
+$$(\mcE_n \otimes \openone_n)( |\text{Bell}_n\>  \<\text{Bell}_n|) = \rho_\mcE \ge 0. $$
+% \pause
+% \item 
+Esto induce una identificación entre estados y mapas 
+llamado isomorfismo de Jamiołkowski. 
+% Se puede replantear como un reordenamiento de la matriz asociada a $\mcE$. 
+\pause
+\item Debemos revisar, diagonalizando $\rho_\mcE$, si sus eigenvalores son positivos.
+\end{itemize}
+
+
+% Decir que es necesario y suficiente que el maximamente enlazado sea positivo. 
+
+
+% Eso induce un isomorfimiso y que la matriz hay que diagonalizarla para ver sus 
+% eigenvalores
+% 
+
+% Condición rara
+
+% Se puede limitar a ver que se mapea un estado a un estado (el de bell)
+
+% Eso conduce al calculo de la positividad de una matriz con reordenamiento de indices
+
+
+
+
+\end{frame} % }}}
 \begin{frame}{\enges{Quantum channels}{Canales cuánticos de un qubit}} %{{{ 
-Ejemplos de como el canal de un qubit da algo bueno en un caso y algo malo en otro. 
+% Ejemplos de como el canal de un qubit da algo bueno en un caso y algo malo en otro. 
+
+
+\begin{minipage}{.35\textwidth}
+\includegraphics[width=.7\textwidth,page=3]{../images/blochs-crop} \\
+$
+\mcE[1+ \vec r \cdot \vec \sigma] = 1+ r_z \sigma_z
+$
+\end{minipage}
+\pause
+$
+\mcE =
+\begin{pmatrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1 
+\end{pmatrix}
+$
+\quad
+\begin{minipage}{.3\textwidth}
+\begin{center}
+$
+\rho_\mcE =
+\begin{pmatrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1 
+\end{pmatrix}
+$\\[.5cm]
+$
+\lambda_{\rho_\mcE} = (1,-1,0,0)
+$\\
+{\color{green} GOOD!}
+\end{center}
+\end{minipage}
+
+\pause
+\vfill
+\begin{minipage}{.35\textwidth}
+\includegraphics[width=.7\textwidth,page=4]{../images/blochs-crop} \\
+$
+\mcE[1+ \vec r \cdot \vec \sigma] = 1+ r_x \sigma_x + r_y \sigma_y
+$
+\end{minipage}
+\pause
+$
+\mcE =
+\begin{pmatrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1 
+\end{pmatrix}
+$
+\quad
+\begin{minipage}{.3\textwidth}
+\begin{center}
+$
+\rho_\mcE =
+\begin{pmatrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1 
+\end{pmatrix}
+$\\[.5cm]
+$
+\lambda_{\rho_\mcE} = (1,-1,0,0)
+$\\
+{\color{red} BAD!}
+\end{center}
+\end{minipage}
+
+
+% \begin{tabular}{cccc}
+% \end{tabular}
 \end{frame}
 
 % }}}
 % }}}
 \section{Mapeos y canales PCE} %{{{  
-\begin{frame}{PCE de un qubit y sus diagramas} %{{{ 
-Definicion de un mapeo PCE para un qubit
+\begin{frame}{PCE de un qubit} %{{{ 
+Un estado de 1 qubit puede escribirse como
+\begin{equation*}
+\rho
+=\frac{\openone +\vec r \cdot \vec \sigma}{2}
+=\frac{\openone + r_x \sigma_x + r_y \sigma_y   + r_z \sigma_z}{2},
+\end{equation*}
+\pause
+Los mapas PCE 
+% Consideremos un canal que 
+sólo proyectan sobre alguna(s) componente(s):
+\begin{equation*}
+\mcE(\rho)
+=\frac{\openone +\vec r' \cdot \vec \sigma}{2}, \quad
+r'_i = \tau_i r_i,\quad \tau_i \in \{0,1\}.
+% =\frac{\openone + r_x \sigma_x + r_y \sigma_y   + r_z \sigma_z}{2},
+\end{equation*}
+\pause
+\begin{itemize}
+\item Envían matrices de densidad a matrices de densidad
+\item Los mapas anteriores son PCE
+\item Son un subconjunto de los mapas de Pauli
+\item No siempre son completamente positivos
+\end{itemize}
 
-Mostrar que los mapeos anteriores son mapeos y que algunos son y que no son 
 
-Mostrar los diagramas para 1 qubit, decir cuales son y cuales no son. 
-
-Definicion para n qubits. 
-
-Diagramas para representar a los qubuts
-Ejemplos para un qubit. 
 \end{frame}
 % }}}
-\begin{frame}{PCE de n qubits } %{{{ 
+\begin{frame}{PCE de un qubit y sus diagramas} %{{{ 
+\begin{center}
+\begin{tikzpicture}[x=0.5cm, y=0.5cm] % {{{
+\pgfmathsetmacro{\unitstep}{3.5}
+% Coordenadas   {{{
+\node at (-0.6,0.5) {(a)} ;
+\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_0$} ;
+\begin{scope}[shift={(0,-1)}]
+\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_1$} ;
+\end{scope}
+\begin{scope}[shift={(0,-2)}]
+\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_2$} ;
+\end{scope}
+\begin{scope}[shift={(0,-3)}]
+\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_3$} ;
+\end{scope} 
+\draw (0,-3) rectangle (1,1); 
+% }}}
+\pause
+\begin{scope}[shift={(1*\unitstep,0)}] % Identity {{{
+% \begin{scope}[shift={(\unitstep*2,0)}]
+\node at (-0.6,0.5) {(b)} ;
+\fill[black] (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,0)}] % Dephasing {{{
+\node at (-0.6,0.5) {(c)} ;
+\fill[black] (0,0) rectangle (1,1);
+% \draw (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(3*\unitstep,0)}] % Depolarization {{{
+\node at (-0.6,0.5) {(d)} ;
+\fill[black] (0,0) rectangle (1,1);
+% \draw (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\pause
+\begin{scope}[shift={(4*\unitstep,0)}] % (e) canal malo {{{
+\node at (-0.6,0.5) {(e)} ;
+\fill[black] (0,0) rectangle (1,1);
+% \draw (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+\begin{itemize}
+\item Cada componente es representado por un cuadro.
+\item Puede ser negro (si se preserva) o blanco (si se borra)
+% \only<2->{
+\item<2-> (b) es el canal identidad, (c) es dephasing y (d) depolarizing. 
+% }
+% \only<3->{
+\item<3-> (e) es el mapa que proyecta al plano $xy$ 
+% }
+\end{itemize}
+\end{frame} % }}}
+\begin{frame}{PCE de $N$ qubits } %{{{ 
+\begin{itemize}
+\item 
+Un estado de $N$ qubits se puede escribir como 
+\begin{equation*}
+	\rho =\frac{1}{2^N} \sum_\valpha r_\valpha \sigma_\valpha,
+\end{equation*}
+con $\vec \alpha = (\alpha_1,\ldots,\alpha_N)$, y 
+$\sigma_{\vec \alpha} := \sigma_{\alpha_1}\otimes \ldots \otimes
+\sigma_{\alpha_N}$.
 
-Definicion para n qubits. 
+\pause
+\item 
+Un mapa PCE es tal que 
+\begin{equation*}
+% \begin{split}
+% 	\paulicomponents \mapsto \ \taus \paulicomponents,\hspace{.5cm}\\
+% 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
+	\paulicomponents \mapsto \taus \paulicomponents,\quad 
+	\taus = 0,1.
+% \end{split}
+\end{equation*}
+Este es nuestro objeto de estudio principal. 
+\pause
+\item 
+Para dos qubits, tenemos diagramas similares:
+\begin{center}
+\begin{tikzpicture}[x=0.35cm, y=0.35cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
+\begin{scope}[shift={(0*\unitstep,0)}] % Coordenadas {{{
+% \node at (-0.5,0.5) {(a)} ;
+% \cuadritotikz{}
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw[black!10] (0,0) rectangle (1,1); 
+%           \draw (0,0) rectangle (1,1); 
+          \node at (0.5,0.5) {\scalebox{.4}{$\tau_{(\y,\x)}$}};
+         \end{scope}
+%         \node at (0,-\y) (input\y) {$i_\y$};
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (input\y) -- (block\y);
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+ \draw (0,-3) rectangle (4,1);
+\end{scope} % }}}
+\begin{scope}[shift={(1*\unitstep,0)}] % Good channel {{{
+% \node at (-0.5,0.5) {(b)} ;
+\cuadritotikz{}
+%     \foreach \x in {0,1,2,3} {
+%       \foreach \y in {0,1,2,3} {
+%         \begin{scope}[shift={(\x,-\y)}] 
+%           \draw (0,0) rectangle (1,1); 
+% %           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+%          \end{scope}
+% %         \node at (0,-\y) (input\y) {$i_\y$};
+% %         \node[block] at (2,-\y) (block\y) {$f_\y$};
+% %         \draw[->] (input\y) -- (block\y);
+% %         \draw[->] (block\y.east) -- +(0.5,0);
+%     }
+%     }
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,0)}] % Good channel {{{
+% \node at (-0.5,0.5) {(c)} ;
+\cuadritotikz{}
+%     \foreach \x in {0,1,2,3} {
+%       \foreach \y in {0,1,2,3} {
+%         \begin{scope}[shift={(\x,-\y)}] 
+%           \draw (0,0) rectangle (1,1); 
+% %           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+%          \end{scope}
+% %         \node at (0,-\y) (input\y) {$i_\y$};
+% %         \node[block] at (2,-\y) (block\y) {$f_\y$};
+% %         \draw[->] (input\y) -- (block\y);
+% %         \draw[->] (block\y.east) -- +(0.5,0);
+%     }
+%     }
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+\end{itemize}
+\end{frame}
+% }}}
+% }}}
+\section{El problema y su solución} %{{{  
+\begin{frame}{Planteamiento del problema} %{{{ 
+\begin{center}
+\Large
+¿Cuales mapas PCE son canales cuánticos válidos?
+\end{center}
+\vfill
 
-Diagramas para representar a los qubuts de dos qubits
-Ejemplos para un qubit. 
+Esto nos ayudará a entender mejor la geometría de canales cuánticos de muchos
+cuerpos.
 \end{frame}
 % }}}
 \begin{frame}{Ejemplos y reglas} %{{{ 
 
-Mostrar los generadores, mostrar que solo se admiten cosas de $2^k$ componentes
-regla de espejo y otras cosas mas.
-\end{frame}
-% }}}
-% }}}
-\section{Solución del problema} %{{{  
-\begin{frame}{Planteamiento del problema} %{{{ 
-Escribir acá el problema, de forma general
+
+\begin{center}
+\begin{tikzpicture}[x=0.45cm, y=0.45cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
+\begin{scope}[shift={(1*\unitstep,0)}] % Depolirizng channel {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,0)}] % Interseccion {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(3*\unitstep,0)}] % E4 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(1*\unitstep,-\unitstep)}] % E7 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,-\unitstep)}] % E11 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(3*\unitstep,-\unitstep)}] % Identity channel {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+\begin{itemize}
+\item Solo se admiten PCEs que preservan $2^k$ componentes.
+\item No todos los que preservan $2^k$ componentes son canales.
+\item Hay el mismo número de canales que preservan $2^k$ y $2^{n-k}$ componentes.
+\item Hay un conjunto generador que conserva la mitad de componentes. 
+\end{itemize}
 \end{frame}
 % }}}
 \begin{frame}{Diagonalizacion de la matriz de Choi} %{{{ 
@@ -369,8 +841,6 @@ Planteamiento de coso como un espaico vectorial. Inversion de la matriz A,
 Conescuencias, como el numero de elementos del bicho ese 
 cuantos canales hay
 regla del arco iris.
-\end{frame} % }}}
-\begin{frame}{} %{{{ 
 \end{frame} % }}}
 % }}}
 \section{Los generadores y decoherencia} %{{{  
@@ -389,12 +859,12 @@ Cada generador lo podemos poner de una forma única.
 Operadores de Kraus para decoherencia
 \end{frame} % }}}
 % }}}
-\section{Conclusiones} %{{{  
+\section*{Conclusiones} %{{{  
 \begin{frame}{Conclusiones} %{{{ 
 
 \end{frame} % }}}
 % }}}
-\section{Adendum} %{{{  
+\section*{Adendum} %{{{  
 \begin{frame}{Sistemas de $d$ niveles} %{{{ 
 Mencionar las matrices encuestion que ayudan, mencionar que ya no forman un campo
 y las matemáticas son mas complicadas
