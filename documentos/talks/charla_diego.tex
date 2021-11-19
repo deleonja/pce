@@ -130,6 +130,7 @@
 \newcommand{\mcM}{\mathcal{M}}	
 \newcommand{\mcN}{\mathcal{N}}	
 \newcommand{\mcE}{\mathcal{E}}	
+\newcommand{\mcG}{\mathcal{G}}	
 \newcommand{\mcL}{\mathcal{L}}	
 \newcommand{\crit}{\text{crit}}	
 \newcommand{\env}{\text{env}}	
@@ -158,7 +159,11 @@
 % }}}
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 
+\def\ddyada#1{\mathinner{|{#1}\rangle\!\rangle\!\langle\!\langle{#1}|}}
+\def\ddyad#1#2{\mathinner{|{#1}\rangle\!\rangle\!\langle\!\langle{#2}|}}
+\def\bbrakket#1#2{\mathinner{\langle\!\langle {#1}|{#2}\rangle\!\rangle}}
 \newcommand{\valpha}{{\vec \alpha}}
+\newcommand{\vbeta}{{\vec \beta}}
 \newcommand{\one}{\openone}
 \newcommand{\cuadritotikz}{
 % \pgfmathsetmacro{\unitstep}{5.2}
@@ -450,8 +455,8 @@ $
 \mcE =
 \begin{pmatrix}
  1 & 0 & 0 & 0 \\
- 0 & 1 & 0 & 0 \\
- 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 \\
  0 & 0 & 0 & 1 
 \end{pmatrix}
 $
@@ -459,21 +464,22 @@ $
 \begin{minipage}{.3\textwidth}
 \begin{center}
 $
-\rho_\mcE =
+\rho_\mcE = 
 \begin{pmatrix}
- 1 & 0 & 0 & 0 \\
- 0 & 1 & 0 & 0 \\
- 0 & 0 & 1 & 0 \\
- 0 & 0 & 0 & 1 
+ \frac12 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & \frac12 
 \end{pmatrix}
 $\\[.5cm]
 $
-\lambda_{\rho_\mcE} = (1,-1,0,0)
+\lambda_{\rho_\mcE} = (\frac12,\frac12,0,0)
 $\\
 {\color{green} GOOD!}
 \end{center}
 \end{minipage}
-
+% \rule{\textwidth}{.2pt}
+\vspace{.5cm}
 \pause
 \vfill
 \begin{minipage}{.35\textwidth}
@@ -481,31 +487,36 @@ $\\
 $
 \mcE[1+ \vec r \cdot \vec \sigma] = 1+ r_x \sigma_x + r_y \sigma_y
 $
-\end{minipage}
-\pause
+\end{minipage} 
+\pause 
 $
 \mcE =
 \begin{pmatrix}
- 1 & 0 & 0 & 0 \\
+ \frac12 & 0 & 0 & \frac12 \\
  0 & 1 & 0 & 0 \\
  0 & 0 & 1 & 0 \\
- 0 & 0 & 0 & 1 
+ \frac12 & 0 & 0 & \frac12 
 \end{pmatrix}
+% \begin{pmatrix}
+%  1 & 0 & 0 & 0 \\
+%  0 & 1 & 0 & 0 \\
+%  0 & 0 & 1 & 0 \\
+%  0 & 0 & 0 & 1 
+% \end{pmatrix}
 $
-\quad
 \begin{minipage}{.3\textwidth}
 \begin{center}
 $
-\rho_\mcE =
+\rho_\mcE = 
 \begin{pmatrix}
- 1 & 0 & 0 & 0 \\
- 0 & 1 & 0 & 0 \\
- 0 & 0 & 1 & 0 \\
- 0 & 0 & 0 & 1 
+ \frac14 & 0 & 0 & \frac12 \\
+ 0 & \frac14 & 0 & 0 \\
+ 0 & 0 & \frac14 & 0 \\
+ \frac12 & 0 & 0 & \frac14 
 \end{pmatrix}
 $\\[.5cm]
 $
-\lambda_{\rho_\mcE} = (1,-1,0,0)
+\lambda_{\rho_\mcE} = (\frac34,-\frac14,\frac14,\frac14)
 $\\
 {\color{red} BAD!}
 \end{center}
@@ -831,39 +842,290 @@ cuerpos.
 \end{frame}
 % }}}
 \begin{frame}{Diagonalizacion de la matriz de Choi} %{{{ 
+\begin{itemize}
+\item El canal tiene la forma
+% \begin{equation*}
+$\hat{\mathcal{E}} = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}}
+\ddyada{\sigma_{\vec{\alpha} }}$.
+% \end{equation*}
+\pause
+\item Y su estado correspondiente cumple que 
+% \begin{equation*}
+$ \rho_\mcE
+   \propto \sum_{\vec{\alpha}} \tau_{\vec{\alpha}}
+       \bigotimes_{j=1}^N \sigma_{\alpha_j} \otimes \sigma_{\alpha_j}^*$.
+\pause
+\item Las matrices tensoriales conmutan $[
+\sigma_\alpha \otimes \sigma_\valpha^*,
+\sigma_{\valpha'} \otimes \sigma_{\valpha'}^*] =0$.
+% y tienen eigenvectores comunes $v_\vbeta$. 
+\pause
+\item Los eigenvectores comunes cumplen $(\sigma_\alpha \otimes
+\sigma_\valpha^*) v_\vbeta = 2^{-N} a^{\otimes N} v_\vbeta$ con
+$$
+a=
+\begin{pmatrix}
+1 &1 &1   &1   \\
+ 1 & 1  & -1&-1   \\
+1  & -1  & 1 & -1\\
+1&-1&-1&1  
+\end{pmatrix}.
+% =\frac12\sa^{-1}.
+$$
+%  \label{Choi_1}
+% \end{equation*}
+\pause
+\item Esto implica que los eigenvectores cumplen 
+$
+ \lambda_{\valpha} = \frac{1}{2^N} \sum_{\vbeta} \left( a^{\otimes N} \right)_{\valpha\vbeta}\tau_{\vbeta}
+$.
+\item Diagonalizamos la matriz de Choi para cualquier canal de Pauli.
+\end{itemize}
 \end{frame} % }}}
-\begin{frame}{Un espacio vectorial bonito} %{{{ 
-Planteamiento de coso como un espaico vectorial. Inversion de la matriz A, 
+\begin{frame}{Una relación entre indices de un canal} %{{{ 
+Basándonos en que 
+\begin{itemize}
+\item $A$ es casi idempotente: $A^{-1} = \frac14 A$
+\item Si $\lambda_{\valpha} \ge 0$ (como debe ser para canales cuánticos), entonces
+$\sum_{\valpha \in \Omega} \lambda_{\valpha} =0$ implica $\lambda_{\valpha} =0$,
+$\forall \valpha\in \Omega$,
+\end{itemize}
+\pause 
+podemos decir que si $\tau_\valpha = 1$ entonces  $\tau_{\vec\gamma} = \tau_{\vec\gamma'}$
+si
+$$
+A_{\vbeta\vec\gamma}=A_{\vbeta\vec{\gamma^\prime}}, \quad
+\forall \vec\beta: A_{\valpha \vbeta}=1.
+$$
+Esta es una relación entre los indices que son preservados en un canal. \\
+\pause
+Se
+puede reformular diciendo que si $\tau_{\valpha}=\tau_{\vbeta}=1$, 
+entonces $\tau_{\valpha \oplus \vbeta}=1$ con la suma entre componentes definida por:
+\begin{center}
+\begin{tabular}{| c | c c c c |}
+\hline
+$\oplus{}$ & 0 & 1& 2 & 3\\
+\hline
+0 & 0 & 1 & 2 & 3\\
+1 & 1 & 0 & 3 & 2\\
+2 & 2 & 3 & 0 & 1 \\
+3 &3 & 2 & 1 & 0\\
+\hline
+\end{tabular}.
+\end{center}
+
 \end{frame} % }}}
-\begin{frame}{Mas del espacio vectorial} %{{{ 
+\begin{frame}{Un espacio vectorial {\it hermoso}} %{{{ 
+\begin{itemize}
+\item
+Tenemos operación suma ($\oplus$) cerrada, y, si consideramos el campo 
+$\{0,1\}$, multiplicación por escalar. 
+\item
+Es decir, tenemos un espacio vectorial (sin producto interior). \pause
+\item 
+Dado que las componente preservadas de cada canal son cerradas bajo adición, a
+cada canal está asociado a un subespacio vectorial (y viceversa). 
+\end{itemize}
+\pause
+Ejemplos:\\
+\begin{minipage}{0.47\textwidth}
+\begin{center}
+\begin{tikzpicture}[x=0.35cm, y=0.35cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
+\begin{scope}[shift={(2*\unitstep,0)}] % Good channel {{{
+% \node at (-0.5,0.5) {(c)} ;
+\cuadritotikz{}
+%     \foreach \x in {0,1,2,3} {
+%       \foreach \y in {0,1,2,3} {
+%         \begin{scope}[shift={(\x,-\y)}] 
+%           \draw (0,0) rectangle (1,1); 
+% %           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+%          \end{scope}
+% %         \node at (0,-\y) (input\y) {$i_\y$};
+% %         \node[block] at (2,-\y) (block\y) {$f_\y$};
+% %         \draw[->] (input\y) -- (block\y);
+% %         \draw[->] (block\y.east) -- +(0.5,0);
+%     }
+%     }
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+Dos de sus elementos son\\[-.4cm]
+$$\valpha^{(1)} = (0,2), 
+\valpha^{(2)} = (1,0)$$\\[-.6cm] pero  
+$\valpha^{(1)} \oplus \valpha^{(2)} = (1,2)$
+y no se preserva. Entonces, este diagrama 
+no corresponde a un canal.
+\end{minipage}\hfill \pause
+\begin{minipage}{0.47\textwidth}
+\begin{center}
+\begin{tikzpicture}[x=0.35cm, y=0.35cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
+\begin{scope}[shift={(1*\unitstep,0)}] % Good channel {{{
+% \node at (-0.5,0.5) {(b)} ;
+\cuadritotikz{}
+%     \foreach \x in {0,1,2,3} {
+%       \foreach \y in {0,1,2,3} {
+%         \begin{scope}[shift={(\x,-\y)}] 
+%           \draw (0,0) rectangle (1,1); 
+% %           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+%          \end{scope}
+% %         \node at (0,-\y) (input\y) {$i_\y$};
+% %         \node[block] at (2,-\y) (block\y) {$f_\y$};
+% %         \draw[->] (input\y) -- (block\y);
+% %         \draw[->] (block\y.east) -- +(0.5,0);
+%     }
+%     }
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+Sus elementos son\\[-.8cm]
+\begin{align*}
+\valpha^{(0)} = (0,0), \quad \valpha^{(1)} = (0,3)\\
+\valpha^{(2)} = (3,0), \quad \valpha^{(1)} = (3,3)
+\end{align*}\\[-.8cm]
+que son cerrados bajo $\oplus$. Es decir {\it si}
+representa un canal. 
+\end{minipage}
+
 \end{frame} % }}}
 \begin{frame}{Algunas consecuencias} %{{{ 
-Conescuencias, como el numero de elementos del bicho ese 
-cuantos canales hay
-regla del arco iris.
+Lo que habíamos observado, surge como consecuencia de la 
+estructura vectorial de los canales. 
+\begin{itemize}
+\item El numero de elementos de un espacio vectorial con 
+campo escalar de $q$ elementos tiene $q^k$ vectores. 
+Es decir nuestros canales preservan exactamente $2^k$ componentes.  
+\item Analizando el numero de subespacios de dimensión $k$ y las bases 
+que lo pueden generar encontramos el número de canales que 
+preservan $2^k$ componentes 
+$S_{N,K}=\prod_{m=0}^{K-1} \frac{2^{2N-m}-1}{2^{K-m}-1}$.
+\item Verificamos la simetría $S_{N,K} = S_{N,2N-K}$
+\item Existen subespacios maximales (siguiente slide). 
+\end{itemize}
 \end{frame} % }}}
 % }}}
 \section{Los generadores y decoherencia} %{{{  
-\begin{frame}{Explicación intuitiva} %{{{ 
-Aca podemos mostrar algunos ejemplos, pero mostrar que no son unicas
+\begin{frame}{Aparición de los generadores} %{{{ 
+\begin{itemize}
+\item 
+Cualquier subespacio vectorial puede generarse como la intersección de subespacios
+maximales no triviales. 
+\item 
+Cualquier canal puede generarse como la composición de canales que preservan 
+la mitad de componentes. 
+\end{itemize}
+\pause
+\vspace{1cm}
+Ejemplo:
+\begin{center}
+\begin{tikzpicture}[x=0.45cm, y=0.45cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
+\begin{scope}[shift={(3*\unitstep,0)}] % E4 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(1*\unitstep,0)}] % E7 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,0)}] % E11 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(4.5*\unitstep,0)}] % Interseccion {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+Cualquier par (de los primeros canales) genera el ultimo canal. 
+
+
+
 \end{frame} % }}}
-\begin{frame}{Perspectiva desde los espacios vectoriales} %{{{ 
-\end{frame} % }}}
-\begin{frame}{Simetrías presentes} %{{{ 
-Las regals que encontramos de los generadores
-\end{frame} % }}}
-\begin{frame}{Clasificación de los generadores} %{{{ 
-Cada generador lo podemos poner de una forma única.
+\begin{frame}{Algunas propiedades de los generadores} %{{{ 
+Algunas consecuencias:
+\begin{itemize}
+\item 
+Las generadores tienen simetrías izquierda/derecha y arriba/abajo. Se puede comprobar 
+de las propiedades mostradas anteriormente. 
+\item 
+Cada generador se puede clasificar mediante la acción sobre cada qubit. 
+E.g. $\mcE_1=\mcG_{(1,1)}$, $\mcE_2=\mcE_{(3,1)}$, $\mcE_3=\mcE_{(2,1)}$,
+$\mcE_4=\mcE_{(0,1)}$.
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.7\textwidth, page=8, viewport=120 260 480 410, clip ]{../notas/francois.pdf}
+\end{center}
 \end{frame} % }}}
 \begin{frame}{Decoherencia generalizada} %{{{ 
-Operadores de Kraus para decoherencia
+Podemos construir los procesos físicos que generan estos canales, notando que
+los operadores de Kraus que corresponden a los generadores son 
+$$
+\mcG_{\vec \alpha} \longrightarrow
+\left\{\frac{\openone}{\sqrt2}, \frac{\sigma_{\vec \alpha}}{\sqrt2}\right\}. 
+$$
+Este se puede interpretar muy fácilmente y generar su ecuación de Lindblad. \par
+\vspace{1cm}
+Otros PCEs se pueden ser creados e interpretados a partir de 
+los generadores que lo produzcan. 
+
+
 \end{frame} % }}}
 % }}}
 \section*{Conclusiones} %{{{  
 \begin{frame}{Conclusiones} %{{{ 
 
+\begin{itemize}
+\item Se introducen los Pauli Component Erasing maps.
+\item Se logra diagonalizar de manera simple cualquier canal de Pauli.
+\item Se asocian a los PCEs espacios vectoriales, lo que simplifica su tratamiento
+\item Se encuentran los generadores y sus operadores de Kraus, lo que permitirá
+asociarlos a procesos físicos existentes. 
+\end{itemize}
+Si por ahí hay ganas, se puede comentar un poco de sistemas de $d$ niveles
 \end{frame} % }}}
 % }}}
+\end{document}
 \section*{Adendum} %{{{  
 \begin{frame}{Sistemas de $d$ niveles} %{{{ 
 Mencionar las matrices encuestion que ayudan, mencionar que ya no forman un campo
@@ -871,7 +1133,6 @@ y las matemáticas son mas complicadas
 
 \end{frame} % }}}
 % }}}
-\end{document}
 \begin{frame}{} %{{{ 
 \end{frame} % }}}
 \begin{frame}{} %{{{ 
