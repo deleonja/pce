@@ -419,7 +419,7 @@ Esto induce una identificación entre estados y mapas
 llamado isomorfismo de Jamiołkowski. 
 % Se puede replantear como un reordenamiento de la matriz asociada a $\mcE$. 
 \pause
-\item Debemos revisar, diagonalizando $\rho_\mcE$, si sus eigenvalores son positivos.
+\item Debemos revisar, diagonalizando $\rho_\mcE$ (proporcional a la matriz de Choi), si sus eigenvalores son positivos.
 \end{itemize}
 
 
@@ -677,7 +677,7 @@ Un mapa PCE es tal que
 Este es nuestro objeto de estudio principal. 
 \pause
 \item 
-Para dos qubits, tenemos diagramas similares:
+Para 2 qubits hay diagramas similares (la esfera de Bloch no sirve):
 \begin{center}
 \begin{tikzpicture}[x=0.35cm, y=0.35cm] % {{{
 \pgfmathsetmacro{\unitstep}{5.2}
@@ -836,7 +836,7 @@ cuerpos.
 \begin{itemize}
 \item Solo se admiten PCEs que preservan $2^k$ componentes.
 \item No todos los que preservan $2^k$ componentes son canales.
-\item Hay el mismo número de canales que preservan $2^k$ y $2^{n-k}$ componentes.
+\item Hay el mismo número de canales que preservan $2^k$ y $2^{2N-k}$ componentes.
 \item Hay un conjunto generador que conserva la mitad de componentes. 
 \end{itemize}
 \end{frame}
@@ -861,8 +861,9 @@ $ \rho_\mcE
 % y tienen eigenvectores comunes $v_\vbeta$. 
 \pause
 \item Los eigenvectores comunes cumplen $(\sigma_\alpha \otimes
-\sigma_\valpha^*) v_\vbeta = 2^{-N} a^{\otimes N} v_\vbeta$ con
+\sigma_\valpha^*) v_\vbeta = \frac{1}{2^N} A v_\vbeta$ con
 $$
+A=a^{\otimes N},\quad
 a=
 \begin{pmatrix}
 1 &1 &1   &1   \\
@@ -877,15 +878,15 @@ $$
 \pause
 \item Esto implica que los eigenvectores cumplen 
 $
- \lambda_{\valpha} = \frac{1}{2^N} \sum_{\vbeta} \left( a^{\otimes N} \right)_{\valpha\vbeta}\tau_{\vbeta}
+ \lambda_{\valpha} = \frac{1}{2^N}  A_{\valpha\vbeta}\tau_{\vbeta}
 $.
-\item Diagonalizamos la matriz de Choi para cualquier canal de Pauli.
+\item Diagonalizamos la matriz de Choi ($\propto \rho_\mcE$) para canales de Pauli.
 \end{itemize}
 \end{frame} % }}}
 \begin{frame}{Una relación entre indices de un canal} %{{{ 
 Basándonos en que 
 \begin{itemize}
-\item $A$ es casi idempotente: $A^{-1} = \frac14 A$
+\item $A$ es casi idempotente: $A^{-1} = \frac{1}{4^N} A$
 \item Si $\lambda_{\valpha} \ge 0$ (como debe ser para canales cuánticos), entonces
 $\sum_{\valpha \in \Omega} \lambda_{\valpha} =0$ implica $\lambda_{\valpha} =0$,
 $\forall \valpha\in \Omega$,
@@ -956,6 +957,7 @@ Ejemplos:\\
 \end{scope} % }}}
 \end{tikzpicture} % }}}
 \end{center}
+\textcolor{red}{EJEMPLO DE SUMA MENOS TRIVIAL}
 Dos de sus elementos son\\[-.4cm]
 $$\valpha^{(1)} = (0,2), 
 \valpha^{(2)} = (1,0)$$\\[-.6cm] pero  
@@ -1117,7 +1119,8 @@ los generadores que lo produzcan.
 
 \begin{itemize}
 \item Se introducen los Pauli Component Erasing maps.
-\item Se logra diagonalizar de manera simple cualquier canal de Pauli.
+\item Se logra diagonalizar de manera simple la matriz de Choi de cualquier
+canal de Pauli.
 \item Se asocian a los PCEs espacios vectoriales, lo que simplifica su tratamiento
 \item Se encuentran los generadores y sus operadores de Kraus, lo que permitirá
 asociarlos a procesos físicos existentes. 
