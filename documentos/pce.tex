@@ -17,33 +17,36 @@ property is needed to
 send convex combinations of density matrices into the convex combination of the
 evolution of such density matrices, this is, let $\mcE$ such linear operation,
 thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$. The
-trace preserving property is required for the process $\mcE$ to be deterministic, this
-is, $\tr\mcE[\rho]=\tr \rho =1$ is the probability that the process $\mcE$ will
-happen to the state $\rho$, with $\rho \in \mcS(\hilbert)$. The complete
+trace preserving property is required for the process $\mcE$ to be deterministic, \ie{} $\tr\mcE[\rho]=\tr \rho =1$ is the probability that the process $\mcE$ will
+happen to the state $\rho\in \mcS(\hilbert)$. The complete
 positivity condition is needed to preserve positive semidefiniteness and handle
 the non-local feature of quantum theory. A map $\mcE$ is positive if $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert), \ \ \Delta\geq 0$\cpnote{Francois, de tu nota, la $\Delta$ ya es hermitica, pues 
 decimos que es una matriz de densidad} \ddnote{$\Delta$ no es hermítico, sin embargo la definición de positividad-semidefinida se extiende a la parte hermítica por convención, revisé y en ningún libro mencionan la hermiticidad en este punto. Sin embargo esos casos no son relevantes en este contexto por supuesto}. In the other hand, a map is completely positive if
  $\id_k \otimes \mcE$ is a positive map for $k=1,2,\dots$, where 
-between the system and an ancilla with Hilbert space $\hilbert_k$\flnote{No creo que lo de Bell state sea conveniente. Mejor decir algo como: 
-E is totally positive if trivially extending E to the tensor product of H with an arbitrary dimensional ancilla space yields a positive operation. }\ddnote{ejecutado}. Therefore,
-complete positivity ensures that every positive semidefinite operator of any
+between the system and an ancilla with Hilbert space $\hilbert_k$. This ensures that every positive semidefinite operator of any
 extension of the system (where the quantum channel is now a local operation) is
-mapped into positive semidefinite operators, trace preserving is automatically
-fulfilled for all extensions if $\mcE$ is. Thus, any density matrix of a system
+mapped into positive semidefinite operators. The trace preserving is automatically
+fulfilled for all extensions if $\mcE$ fulfills it. Therefore, any density matrix of a system
 where $\mcE$ acts locally, is sent to a valid density matrix, this is the
 substance of complete positivity.
+\flnote{No creo que lo de Bell state sea conveniente. Mejor decir algo como: 
+E is totally positive if trivially extending E to the tensor product of H with an arbitrary dimensional ancilla space yields a positive operation. }\ddnote{ejecutado}
 
 Quantum channels can be characterized by means of the Choi-\jami{}
 isomorphism~\cite{choi,jamil}. This is, given a linear operation
-$\mcE:\mcB(\hilbert)\to \mcB(\hilbert)$, the so-called Choi matrix of it,
-$C_\mcE=\left(\id \otimes \mcE\right)[\proj{\Omega}{\Omega}]$, where
+$\mcE:\mcB(\hilbert)\to \mcB(\hilbert)$, the so-called Choi matrix of it is
+$\choi=\left(\id \otimes \mcE\right)[\proj{\Omega}{\Omega}]$ (also called dynamical matrix), where
 $\ket{\Omega}=1/\dim(\hilbert)\sum_i^{\dim(\hilbert)}\ket{i}\ket{i}$ is the
-Bell state between two copies of \hilbert, is positive semi-definite if and only
-if $\mcE$ is completely positive.
+Bell state between two copies of \hilbert. The map \mcE is completely positive if and only
+\choi is positive-semidefinite.
 
-Quantum channels have the well-known \textit{Kraus representation} (or
-operator-sum representation) which reads $\mcE[\rho]=\sum_i K_i \rho
-K^\dagger{}_i$ in fact, a linear operation is completely positive if and only
+Furthermore, quantum channels have the well-known \textit{Kraus representation} (or
+operator-sum representation) which reads 
+\begin{equation}
+\mcE[\rho]=\sum_i K_i \rho
+K_i^\dagger{}
+\end{equation}
+ in fact, a linear operation is completely positive if and only
 if it has a Kraus representation [cite Kraus book] 
 \flnote{
 probablemente convenga mostrar la ecuaci'on desplegada. Asimismo se debe decir que 
