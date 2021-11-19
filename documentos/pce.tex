@@ -12,15 +12,6 @@ be written as $\mcB(\hilbert)$.
 %here, $\mcT(\hilbert)$ and $\mcB(\hilbert)$ coincide~\cite{zimansbook}. 
 
 The construction of quantum channels includes basically three ingredients:
-linearity, trace preserving and complete positivity. The first one is needed to
-send convex combinations of density matrices into the convex combinations of the
-evolution of such density matrices, this is, let $\mcE$ such linear operation,
-thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$. The
-trace preserving is required for the process $\mcE$ to be deterministic, this
-is $\tr\mcE[\rho]=\tr \rho =1$ for any density matrix $\rho$, \ie{} the process $\mcE$ will
-happen with probability equal to one. The complete
-
-The construction of quantum channels includes basically three ingredients:
 linearity, trace preserving and complete positivity. The trace preserving
 property is needed to
 send convex combinations of density matrices into the convex combination of the
@@ -30,14 +21,11 @@ trace preserving property is required for the process $\mcE$ to be deterministic
 is, $\tr\mcE[\rho]=\tr \rho =1$ is the probability that the process $\mcE$ will
 happen to the state $\rho$, with $\rho \in \mcS(\hilbert)$. The complete
 positivity condition is needed to preserve positive semidefiniteness and handle
-the non-local character of quantum theory. This is, with positivity of the map
-$\mcE$ one has $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert)$ with
-$\Delta\geq 0$\cpnote{Francois, de tu nota, la $\Delta$ ya es hermitica, pues 
-decimos que es una matriz de densidad}. In the other hand, complete positivity
-of $\mcE$ reads $\id_k \otimes \mcE[\omega]\geq 0$ for $k=1,2,\dots$, where
-$\omega$ is the Bell state
+the non-local feature of quantum theory. A map $\mcE$ is positive if $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert), \ \ \Delta\geq 0$\cpnote{Francois, de tu nota, la $\Delta$ ya es hermitica, pues 
+decimos que es una matriz de densidad} \ddnote{$\Delta$ no es hermítico, sin embargo la definición de positividad-semidefinida se extiende a la parte hermítica por convención, revisé y en ningún libro mencionan la hermiticidad en este punto. Sin embargo esos casos no son relevantes en este contexto por supuesto}. In the other hand, a map is completely positive if
+ $\id_k \otimes \mcE$ is a positive map for $k=1,2,\dots$, where 
 between the system and an ancilla with Hilbert space $\hilbert_k$\flnote{No creo que lo de Bell state sea conveniente. Mejor decir algo como: 
-E is totally positive if trivially extending E to the tensor product of H with an arbitrary dimensional ancilla space yields a positive operation. }. Therefore,
+E is totally positive if trivially extending E to the tensor product of H with an arbitrary dimensional ancilla space yields a positive operation. }\ddnote{ejecutado}. Therefore,
 complete positivity ensures that every positive semidefinite operator of any
 extension of the system (where the quantum channel is now a local operation) is
 mapped into positive semidefinite operators, trace preserving is automatically
@@ -61,7 +49,7 @@ if it has a Kraus representation [cite Kraus book]
 probablemente convenga mostrar la ecuaci'on desplegada. Asimismo se debe decir que 
 $\sum_i K_i^\dagger K_i = 1$ para la trace-preserving property. 
 Creo qie ``hermiticity preserving'' es en parte consecuencia de la definición, pero esto no es muy importante
-}
+}\ddnote{trabajando en ello, hacia falta edicion aqui}
 
   \ddnote{[Choi representation, Kraus operators and Stinespring dilation]}
 
