@@ -40,31 +40,37 @@ $\ket{\Omega}=1/\dim(\hilbert)\sum_i^{\dim(\hilbert)}\ket{i}\ket{i}$ is the
 Bell state between two copies of \hilbert. The map \mcE is completely positive if and only
 \choi is positive-semidefinite.
 
-Furthermore, quantum channels have the well-known \textit{Kraus representation} (or
+Furthermore, quantum channels enjoy the well-known \textit{Kraus representation} (or
 operator-sum representation) which reads 
 \begin{equation}
 \mcE[\rho]=\sum_i K_i \rho
 K_i^\dagger{}
 \end{equation}
- in fact, a linear operation is completely positive if and only
-if it has a Kraus representation [cite Kraus book] 
+with $\sum_i K_i^\dagger{}K_i=\one$ (the trace preserving condition). In fact, a linear operation is completely positive if and only
+if it has a Kraus representation~\cite{Kraus1983}. The minimum number of Kraus operators $K_i$ needed to represent the channel is called \textit{Kraus rank}. 
+%
+It can be seen from Kraus decomposition that quantum channels preserve
+hermiticity, this has a practical consequence when using hermitian bases, \ie{} let $\left\{ \Delta_i \right\}$ a hermitian basis in $\mcB(\hilbert)$, then the entries of the matrix representation of the quantum channel $\mcE$, $\hat
+\mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$, are real. In particular in this work we use bases consisting in the so-called \textit{Pauli strings}, defined as 
+\begin{equation}
+\sigma_{\vec \alpha}:=\sigma_{\alpha_1}\otimes \sigma_{\alpha_2} \otimes \dots \otimes \sigma_{\alpha_N},
+\label{eq:pauli_strings}
+\end{equation}
+where $N$ is the number of two-level particles (\aka{} qubits), with $alpha_i$. Thus, the bases $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ are orthonormal
+
 \flnote{
 probablemente convenga mostrar la ecuaci'on desplegada. Asimismo se debe decir que 
 $\sum_i K_i^\dagger K_i = 1$ para la trace-preserving property. 
 Creo qie ``hermiticity preserving'' es en parte consecuencia de la definición, pero esto no es muy importante
-}\ddnote{trabajando en ello, hacia falta edicion aqui}
+}\ddnote{ejecutado, hacia falta edicion, sin embargo lo de hermiticity preserving es para hacer incapie en por que podemos trabajar en una representacion totalmente real de los canales.}
 
   \ddnote{[Choi representation, Kraus operators and Stinespring dilation]}
-
-It can be seen from Kraus decomposition that quantum channels preserve
-hermiticity, this has a practical consequence when using hermitian bases. $\hat
-\mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$
 
 % }}}
 \subsection{Single qubit case} % {{{
 \label{sec:single:qubit}
 \todo{David escribe una primera version y luego Carlos itera}
-Let us discuss the single qubit case of \pce{} maps, they are defined by its action over Bloch vectors, providing that
+\pce{} maps are defined as those valid quantum channels that \textit{nullify} \textit{Pauli strings} \ddnote{aqui introduzco el nombre estandar}, which in the case of one particle, it consist on maps nullifying averages $\langle \sigma_i \rangle$ with $i=1,2,3$. Let us discuss the single qubit case of \pce{} maps, they are defined by its action over Bloch vectors, providing that
 \begin{equation}
 \rho=\frac{\one +\vec r \cdot \vec \sigma}{2},
 \end{equation}
