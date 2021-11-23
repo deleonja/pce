@@ -56,7 +56,7 @@ hermiticity, this has a practical consequence when using hermitian bases, \ie{} 
 \sigma_{\vec \alpha}:=\sigma_{\alpha_1}\otimes \sigma_{\alpha_2} \otimes \dots \otimes \sigma_{\alpha_N},
 \label{eq:pauli_strings}
 \end{equation}
-where $N$ is the number of two-level particles (\aka{} qubits), $\alpha_i=0,1,2,3$ and $\sigma_0:=\one$, $\sigma_{1,2,3}:=\sigma_{x,y,z}$. Thus, the bases $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ are orthonormal in $\mcB(\hilbert)$.
+where $N$ is the number of two-level particles (\aka{} qubits), $\alpha_i=0,1,2,3$ and $\sigma_0:=\one$, $\sigma_{1,2,3}:=\sigma_{x,y,z}$. Thus, the bases $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ are orthonormal in $\mcB(\hilbert)$. Also notice that $\tr \sigma_{\vec \alpha}=\delta_{\vec\alpha,\vec 0} 2^{N}$.
 
 \flnote{
 probablemente convenga mostrar la ecuaci'on desplegada. Asimismo se debe decir que 
@@ -70,17 +70,21 @@ Creo qie ``hermiticity preserving'' es en parte consecuencia de la definición, 
 \subsection{Single qubit case} % {{{
 \label{sec:single:qubit}
 \todo{David escribe una primera version y luego Carlos itera}
-\pce{} maps are defined as those valid quantum channels that \textit{nullify} \textit{Pauli strings} \ddnote{aqui introduzco el nombre estandar}, thus, the case of one particle consists of maps nullifying the averages $r_\alpha:=\langle \sigma_\alpha \rangle$ with $\alpha=1,2,3$. Let us discuss the single qubit case of \pce{} maps, they are defined by its action over Bloch vectors, providing that
+\pce{} maps are defined as those valid quantum channels that \textit{nullify} \textit{Pauli strings} \ddnote{aqui introduzco el nombre estandar}, in the case of one qubit, they consist of maps nullifying the averages $r_\alpha:=\langle \sigma_\alpha \rangle$ with $\alpha=1,2,3$. The three components $r_\alpha$ form the well-known \textit{Bloch vector} $\vec r$, describing one qubit density matrices,
 \begin{equation}
-\rho=\frac{\one +\vec r \cdot \vec \sigma}{2},
+\rho=\frac{\one +\vec r \cdot \vec \sigma}{2}.
 \end{equation}
-then they are defined as follows
+Therefore, maps erasing components of $\vec r$ are parametrized in the following way,
 \begin{equation}
-r_i \mapsto \tau_i r_i
+r_\alpha \mapsto \tau_\alpha r_\alpha
 \end{equation}
-where $\tau_k$ is either $1$ or $0$. A direct evaluation of the 
-
- These operations have been studied in \cite{Ziman2005,davalosdivisibility} and are by definition diagonal in the Pauli basis $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$. They form a tetrahedron in the space of eigenvalues 
+where $\tau_k$ is either $1$ or $0$. It is well-known that not every operation like this is a quantum map, for example collapsing the entire Bloch ball into a disk of radio equal to one is not a quantum channel. A direct evaluation of the complete positivity conditions~\cite{zimansbook,davalosdivisibility},
+\begin{align}
+1+\tau_1+\tau_2+\tau_3 &\geq 0 \nonumber \\
+1+\tau_i-\tau_j-\tau_k &\geq 0 \ \ \forall i\neq j \neq k,
+\end{align}
+show that only five operations are \pce: the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and bit, phase, and bit-phase flip channels~\cite{chuangbook}. These channels can be pictured with one column tables, see~\fref{fig:one:qubit:examples}. Finally notice that the condition $\tau_0=1$ is needed to have trace-preserving maps.
+These operations have been studied in \cite{Ziman2005,davalosdivisibility} and are by definition diagonal in the Pauli basis $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$. They form a tetrahedron in the space of eigenvalues 
  
 with
 \begin{equation}
