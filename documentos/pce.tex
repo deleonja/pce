@@ -56,7 +56,7 @@ hermiticity, this has a practical consequence when using hermitian bases, \ie{} 
 \sigma_{\vec \alpha}:=\sigma_{\alpha_1}\otimes \sigma_{\alpha_2} \otimes \dots \otimes \sigma_{\alpha_N},
 \label{eq:pauli_strings}
 \end{equation}
-where $N$ is the number of two-level particles (\aka{} qubits), with $alpha_i$. Thus, the bases $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ are orthonormal
+where $N$ is the number of two-level particles (\aka{} qubits), $\alpha_i=0,1,2,3$ and $\sigma_0:=\one$, $\sigma_{1,2,3}:=\sigma_{x,y,z}$. Thus, the bases $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ are orthonormal in $\mcB(\hilbert)$.
 
 \flnote{
 probablemente convenga mostrar la ecuaci'on desplegada. Asimismo se debe decir que 
@@ -70,7 +70,7 @@ Creo qie ``hermiticity preserving'' es en parte consecuencia de la definición, 
 \subsection{Single qubit case} % {{{
 \label{sec:single:qubit}
 \todo{David escribe una primera version y luego Carlos itera}
-\pce{} maps are defined as those valid quantum channels that \textit{nullify} \textit{Pauli strings} \ddnote{aqui introduzco el nombre estandar}, which in the case of one particle, it consist on maps nullifying averages $\langle \sigma_i \rangle$ with $i=1,2,3$. Let us discuss the single qubit case of \pce{} maps, they are defined by its action over Bloch vectors, providing that
+\pce{} maps are defined as those valid quantum channels that \textit{nullify} \textit{Pauli strings} \ddnote{aqui introduzco el nombre estandar}, thus, the case of one particle consists of maps nullifying the averages $r_\alpha:=\langle \sigma_\alpha \rangle$ with $\alpha=1,2,3$. Let us discuss the single qubit case of \pce{} maps, they are defined by its action over Bloch vectors, providing that
 \begin{equation}
 \rho=\frac{\one +\vec r \cdot \vec \sigma}{2},
 \end{equation}
