@@ -85,29 +85,6 @@ where $\tau_k$ is either $1$ or $0$. It is well-known that not every operation l
 \end{align}
 show that only five operations are \pce: the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and bit, phase, and bit-phase flip channels~\cite{chuangbook}. These channels can be pictured with one column tables, see~\fref{fig:one:qubit:examples}. Finally notice that the condition $\tau_0=1$ is needed to have trace-preserving maps.
 These operations have been studied in \cite{Ziman2005,davalosdivisibility} and are by definition diagonal in the Pauli basis $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$. They form a tetrahedron in the space of eigenvalues 
- 
-with
-\begin{equation}
-\mcL_\alpha[\Delta]:= \frac{\gamma}{2}\left( \sigma_\alpha \Delta \sigma_\alpha -\Delta \right).
-\label{eq:1qubit_semigroup}
-\end{equation}
-We will show later that this can be trivially generalized to the $N$ qubit case.
-
-
-
-\begin{align}
-U_\alpha\ket{\psi} \ket{0}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}+\sigma_\alpha \ket{\psi}\ket{1} \right)\\
-U_\alpha\ket{\psi} \ket{1}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}-\sigma_\alpha \ket{\psi}\ket{1} \right)
-\label{eq:1qubit_stinespring}
-\end{align}
-similar to the semigroup generator, we will show later that this can be trivially generalized to the $N$ qubit case.
-
-
-\begin{itemize}
-\item The single qubit case, describe some of the features.
-\item Single qubit Kraus operators.
-\item Single qubit relation with decoherence. 
-\end{itemize}
 % }}}
 \subsection{Pauli component erasing maps} % {{{
 
@@ -286,7 +263,7 @@ qubit diagrams, so that each square corresponds to a single
 $\tau_{\alpha}$, $\alpha=0,1,2,3$. The diagrams in 
 (b), (c) and (d) correspond to the identity map, dephasing channel, and 
 total depolarization, respectively. In (e) we show a map that only erases the component
-$r_1$ and thus does not correspond to a quantum operation.}
+$r_1$, collapsing the Block sphere into a disk, and thus does not correspond to a quantum operation.}
 	\label{fig:one:qubit:examples}
 \end{figure} % }}}
 
