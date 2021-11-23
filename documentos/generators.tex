@@ -48,41 +48,101 @@
 There exists a subset of PCE quantum channels that generate 
 all PCE's, and the existence of these PCE generators may be explained with 
 the vector space point of view.
-\janote{Este párrafo lo voy a retocar. El enunciado de arriba es el primer enunciado
-del nuevo párrafo. Ojo que hay que introducir la notación $\mcG$.}
-By standard theorems of linear algebra, any subspace $W$ can be extended to a
+%\janote{Este párrafo lo voy a retocar. El enunciado de arriba es el primer enunciado
+%del nuevo párrafo. Ojo que hay que introducir la notación $\mcG$.}
+By standard theorems of linear algebra, any subspace $W$ [see. \Eref{eq:19}] can be extended to a
 maximal (non-trivial) subspace of dimension $2N-1$ by adjoining appropriate
-additional basis elements. This can clearly be done in different ways. We
-therefore arrive to the set of maximal extensions of $W$. Clearly, the
-intersection of all the elements of this set reduces to $W$ itself, leading to
-the result that all PCE's can be obtained as intersections of maximal PCE's. 
-\janote{Referenciar \Fref{fig:examplesPCE} y apéndice con una ilustración 
-del caso de 2 qubits usando los $\mcG$. Mostrar en ese apéndice todos
-los generadores de 2 qubits}
-For the case of 1 qubit, the existence of PCE generators $\pceg$ is  
-verified by Siudzińska~\cite{siudzinska2019geometry}.
-\janote{Esto puede
-ser un párrafo, o puede ser un comentario final dentro del párrafo antrerior.}
+additional basis elements. This can clearly be done in different ways. 
+We therefore arrive to the set of maximal extensions of $W$,
+where every maximal subspace corresponds to a PCE quantum channel that 
+preserves $2^{2N-1}$ (half the) Pauli components $\paulicomponents$ 
+of density matrix $\rho$. The
+intersection of all the elements of this set reduces to $W$ itself, meaning 
+that all PCE's can be obtained as intersections of maximal PCE's, the
+PCE generators $\mcG$. Intersections of the maximal subspaces translates into 
+compositions of the generators $\mcG$ to obtain any PCE.
+Compositions of generators $\mcG$ can be understood intuitively from PCE diagrams
+in \Fref{fig:examplesPCE}; the composition of any two 2-qubits PCE generators 
+in (c), (d), or (e) is represented by taking the intersection between them both
+and the three different possible compositions result in PCE channel in (b).
+The existence of the PCE generators $\mcG$ provide the program of 
+constructing all PCE channels a tool that avoids the usage of a 
+high-computational-cost method. In a moment, we will discuss how to find the 
+generators $\mcG$ from matrix $A$, given a symmetry that is obeyed both by the generators 
+$\mcG$ and matrix $A$ in \Eref{eq:san}.
+%For the case of 1 qubit, the existence of PCE generators $\pceg$ is  
+%verified by Siudzińska~\cite{siudzinska2019geometry}.
+%\janote{Esto puede
+%ser un párrafo, o puede ser un comentario final dentro del párrafo antrerior.}
 
-PCE generators may be characterized with a unique vector index
-$\vec\alpha$, and therefore, denoted as $\pceg$. El numero de generadores 
-concide con esa vaina. 
-PCE generators $\pceg$ may be classified by its local action on 
-all individual qubits in the system.
-\cpnote{Acuerdate de la referencia a la figura 4}
+PCE generators may be identified with a unique vector index
+$\vec\alpha$, and thus be denoted as $\pceg$.
+% El numero de generadores concide con esa vaina. 
+%Let us introduce a convention for the following discussion for 
+%the indices in $\vec\alpha$; the number 0 to 3 identifies
+Recall that indices $0,1,2,3$ in $\vec\alpha$ correspond to, respectively,
+the identity map and the 3 1-qubit PCE quantum channels that project the 
+Bloch sphere to the rectangular axes $x$, $y$ and $z$. 
+Therefore we will correspond every PCE generator to a collection of numbers 
+that tells what its local-action is on every individual qubit in the system.
+All of this collections of numbers happen to be all vector indices $\{\valpha\}$.
+For example, the PCE generator represented in \Fref{fig:examplesPCE}(c),
+whose local-action on the first qubit (first column) is to project the corresponding local Bloch sphere 
+to the $x$ axis and on the second qubit (first row) to map the corresponding
+local Bloch sphere to itself, may be characterized with the vector index (1,0). 
+Then, it is clear that in general one can associate a unique $\vec\alpha$ to 
+every PCE generator and so denote them as $\pceg$.
 
-
+PCE generators $\pceg$ obey a symmetry
+that defines uniquely every PCE generator. The coefficients  $\{\taus\}$ of every 
+generator $\pceg$ arranged in a hypercubic $N$-dimensional array 
+%of dimensions $\underbrace{4\times 4\times\ldots\times 4}_{N}$ 
+obey a symmetry with respect to the $N$ hyperplanes of dimension $N-1$
+\janote{según wikipedia, por definición, los hiperplanos son de dimensión 
+$N-1$. Así que podría quitarse la aclaración de la dimensión. Lo dejo así y 
+espero retroalimentación} 
+that separate the array into two half arrays \janote{No estoy tan satisfecho con la redacción de este enunciado}.
+See, in \Fref{fig:examplesPCE}, that generators $\mcG_{(1,3)}$, $\mcG_{(3,2)}$
+and $\mcG_{(2,2)}$ represented in (c), (d) and (e), respectively,
+are either symmetric or anti-symmetric with respect to the lines that cut vertically 
+and horizontally in half the diagrams. In fact, this symmetry may be used to
+construct all generators $\pceg$ as follows. Start out with $\tau_{0,\ldots,0}=1$
+and begin to ``unfold'' the array of all $\pceg$'s coefficients $\taus$ by deciding
+whether $\tau_{0,\ldots,0,1}$ be set to 1 or 0 (symmetric or anty-simmetric with 
+respect to $\tau_{0,\ldots,0}$), then choose the values of $\{\tau_{0,\ldots,0,2}, 
+\tau_{0,\ldots,0,3}\}$ to be symmetric or anti-symmetric with respect to 
+$\{\tau_{0,\ldots,0},\tau_{0,\ldots,0,1}\}$; you need to keep this procedure 
+for the remaining subsets with $2l$ coefficients $\taus$, with $l$ the cardinality of 
+the previous subset, by setting the coefficients $\taus=0,1$ in order to be symmetric or
+anti-symmetric to the previous subset. For example, let us illustrate the 
+procedure to construct $\mcG_{(3,2)}$ represented in \Fref{fig:examplesPCE}(d).
+One starts out choosing the value of $\tau_{(0,1)}$ to be anti-symmetric to $\tau_{(0,0)}$, then one chooses 
+$\qty{\tau_{(0,2)},\tau_{(0,3)}}$ symmetric to $\qty{\tau_{(0,0)},\tau_{(0,1)}}$,
+$\qty{\tau_{(1,0)},\tau_{(1,1)},\tau_{(1,2)},\tau_{(1,3)}}$ anti-symmetric 
+to $\qty{\tau_{(0,0)},\tau_{(0,1)},\tau_{(0,2)},\tau_{(0,3)}}$, and finally
+the last eight components $\tau_{\vec\alpha}$ anti-symmetric to the first 
+eight.
 
 The matrix $\san$ [see \eref{eq:san}] encodes all the information
-of PCE generators $\pceg$ and, therefore, of the PCE quantum channels. \janote{Aquí
-tendrá que ir una prueba que aún se está cocinando}
+of PCE generators $\pceg$ and, therefore, of all PCE quantum channels. 
+The rows and columns of matrix $A$ also obey the symmetry previously discussed 
+for PCE generators $\pceg$. It suffices to check that rows and columns of matrix $a$
+in \Eref{eq:1} obey the aforementioned symmetry when they are arranged in a hypercubic 
+$N$-dimensional array of order $4$.
+As a consequence of $a$'s elements being $\pm1$, the power tensor $a^{\otimes N}$ will hold the symmetry of the 
+rows and columns of $A$. 
+Therefore, this establishes a deep connection between the matrix $A$ and 
+PCE quantum channels. It allows one to infer the PCE generators $\pceg$
+by taking its corresponding coefficients $\{\taus\}$ as the rows or columns of $A$ 
+after taking $-1\mapsto0$. In \appref{sec:2_qubits} we illustrate this program 
+for 2-qubits PCE channels.
+In short, it is sufficient to have the matrix $A$ to construct 
+all PCE quantum channels.
+%\janote{Aquí
+%tendrá que ir una prueba que aún se está cocinando}
 
-PCE generators $\pceg$ (and so $\san$'s rows and columns) obey a symmetry rule
-that defines uniquely every PCE generator.
-\cpnote{Acuerdate de otra referencia a la figura 4}
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-
--------------------------------------------------------------------
 The set of all PCE quantum channels may be sorted in subsets, 
 which we will call equivalence classes, whose
 elements are equivalent via particle swaps and local-basis element
