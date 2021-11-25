@@ -50,7 +50,7 @@ all PCEs; the nature of these generators may be studied, as we
 shall see, with the properties of the aforementioned vector space.
 %\janote{Este párrafo lo voy a retocar. El enunciado de arriba es el primer enunciado
 %del nuevo párrafo. Ojo que hay que introducir la notación $\mcG$.}
-By standard theorems of linear algebra, any subspace $W$, see \Eref{eq:19}, 
+By standard theorems of linear algebra, any proper subspace $W$, see \Eref{eq:19}, 
 can be extended to a maximal non-trivial subspace of dimension $2N-1$ by
 adjoining appropriate additional basis elements. This can be done in
 different ways. We therefore arrive to the set of maximal extensions of $W$,
@@ -58,24 +58,39 @@ where every maximal subspace corresponds to a PCE quantum channel that
 preserves half of the Pauli components. The intersection of all the elements of
 this set reduces to $W$ itself,
 and since intersection of subspaces translates to composition of PCEs,
-this implies that all PCEs \cpnote{damm la identidad} can be obtained as
-compositions the PCEs corresponding to maximally non-trivial subspaces, 
-which we call generators. 
-\cpnote{Aca voy}
-Consider \Fref{fig:examplesPCE}; the composition of any two 2-qubits PCE
-generators 
-in (c), (d), or (e) is represented by taking the intersection between them both
-and the three different possible compositions result in PCE channel in (b).
+this implies that all PCEs can be obtained as
+compositions the PCEs corresponding to maximally non-trivial subspaces, plus
+the identity map. In other words, the set of PCEs that preserve half 
+of the components plus the identity map, are a generator set for 
+all PCE channels.
+% and the complete vector space (corresponding to the identity channel),
+% which we call generators. 
+% \cpnote{Aca tenemos un semigrupo y no se si incluir a la identidad como 
+% generador. De alguna manera es excepcional. Es problematico incluirla y es 
+% problematico no incluirla.}
+Consider \Fref{fig:examplesPCE}; subfigures (c), (d) and (e) represent nontrivial 
+generators and the composition of any two of them yield the PCE channel
+corresponding to (b). 
+% 
+% 
+% the composition of any two 2-qubits PCE
+% generators 
+% in (c), (d), or (e) is equivalent to taking the intersection between them both
+% and the three different possible compositions result in PCE channel in (b).
+\cpnote{Aca se me hace que hay un cambio brusco de tema. Ver que onda
+con Jose Alfredo}
 The existence of the PCE generators $\mcG$ provide the program of 
 constructing all PCE channels a tool that avoids the usage of a 
 high-computational-cost method. In a moment, we will discuss how to find the 
 generators $\mcG$ from matrix $A$, given a symmetry that is obeyed both by the generators 
-$\mcG$ and matrix $A$ in \Eref{eq:san}.
+$\mcG$ and matrix $A$ in \Eref{eq:san}\cpnote{Como que para que ahora se
+menciona entonces?}.
 %For the case of 1 qubit, the existence of PCE generators $\pceg$ is  
 %verified by Siudzińska~\cite{siudzinska2019geometry}.
 %\janote{Esto puede
 %ser un párrafo, o puede ser un comentario final dentro del párrafo antrerior.}
 
+\cpnote{Arreglar}
 PCE generators may be identified with a unique vector index
 $\vec\alpha$, and thus be denoted as $\pceg$.
 % El numero de generadores concide con esa vaina. 
@@ -94,6 +109,7 @@ local Bloch sphere to itself, may be characterized with the vector index (1,0).
 Then, it is clear that in general one can associate a unique $\vec\alpha$ to 
 every PCE generator and so denote them as $\pceg$.
 
+\cpnote{Mucha lora y no se prueba nada}
 PCE generators $\pceg$ obey a symmetry
 that defines uniquely every PCE generator. The coefficients  $\{\taus\}$ of every 
 generator $\pceg$ arranged in a hypercubic $N$-dimensional array 
@@ -124,13 +140,14 @@ to $\qty{\tau_{(0,0)},\tau_{(0,1)},\tau_{(0,2)},\tau_{(0,3)}}$, and finally
 the last eight components $\tau_{\vec\alpha}$ anti-symmetric to the first 
 eight.
 
-\begin{figure}
+\begin{figure} % {{{
 \centering
 \includegraphics[width=\columnwidth]{oneQ_PCEGs-crop}
 \caption{\janote{Propuesta de figura para mostrar que generadores 
 y la a obedecen las mismas simetrías.}}
-\end{figure}
+\end{figure} % }}}
 
+\cpnote{Mucha lora y no se prueba nada, again}
 The matrix $\san$ [see \eref{eq:san}] encodes all the information
 of PCE generators $\pceg$ and, therefore, of all PCE quantum channels. 
 The rows and columns of matrix $A$ also obey the symmetry previously discussed 
@@ -148,6 +165,10 @@ In short, it is sufficient to have the matrix $A$ to construct
 all PCE quantum channels.
 %\janote{Aquí
 %tendrá que ir una prueba que aún se está cocinando}
+
+
+\cpnote{Sienot que no tiene flujo. Quizá se le pueda dar flujo usando el final 
+del primer parrafo}
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
