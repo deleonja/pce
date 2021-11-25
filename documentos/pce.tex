@@ -57,6 +57,9 @@ hermiticity, this has a practical consequence when using hermitian bases, \ie{} 
 \label{eq:pauli_strings}
 \end{equation}
 where $N$ is the number of two-level particles (\aka{} qubits), $\alpha_i=0,1,2,3$ and $\sigma_0:=\one$, $\sigma_{1,2,3}:=\sigma_{x,y,z}$. Thus, the bases $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ are orthonormal in $\mcB(\hilbert)$. Also notice that $\tr \sigma_{\vec \alpha}=\delta_{\vec\alpha,\vec 0} 2^{N}$.
+%
+$1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$
+%
 
 \flnote{
 probablemente convenga mostrar la ecuaci'on desplegada. Asimismo se debe decir que 
@@ -83,8 +86,8 @@ where $\tau_k$ is either $1$ or $0$. It is well-known that not every operation l
 1+\tau_1+\tau_2+\tau_3 &\geq 0, \nonumber \\
 1+\tau_i-\tau_j-\tau_k &\geq 0 \ \ \forall i\neq j \neq k,
 \end{align}
-show that only five operations are \pce: the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and bit, phase, and bit-phase flip channels~\cite{chuangbook}. These channels can be pictured with one column tables showing the positions of $1$s and $0$s in the diagonal of the channel (in the Pauli basis), see~\fref{fig:one:qubit:examples}. Finally notice that the condition $\tau_0=1$ is needed to have trace-preserving maps.
-These operations have been studied in \cite{Ziman2005,davalosdivisibility} and are by definition diagonal in the Pauli basis $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$. They form a tetrahedron in the space of eigenvalues 
+where trace-preserving is already imposed ($\tau_0=1$), show that only five operations are \pce: the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and bit, phase, and the bit-phase flip channels~\cite{chuangbook}. These channels can be pictured with one column tables showing the positions of $1$s and $0$s in the diagonal of the channel (in the Pauli basis), see~\fref{fig:one:qubit:examples}.
+These operations have been studied in \cite{Ziman2005,davalosdivisibility} and are by definition diagonal in the Pauli basis, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$. They form a tetrahedron in the space of eigenvalues 
 % }}}
 \subsection{Pauli component erasing maps} % {{{
 
