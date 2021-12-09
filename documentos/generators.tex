@@ -45,11 +45,22 @@
 %escribió eso. Toca hablarlo con Carlos.)
 %\end{itemize}}
 
+Un párrafo de intro a las tres ideas 
+\begin{itemize}
+\item Existen los generadores 
+\item Clasificación de los generadores 
+\item Simetrías
+\end{itemize}
+
+In this section we will discuss the existence of a generator set for all PCE
+quantum channels, how to label each element of this set according to its local-action to 
+every qubit in the system, and, finally, we  	will discuss a symmetry of
+both PCE quantum channel generators and $A$, the matrix that diagonalizes
+the Choi matrix $\mcD_N$ of a PCE map.
+
 There exists a subset of PCE channels that generate 
 all PCEs; the nature of these generators may be studied, as we
 shall see, with the properties of the aforementioned vector space.
-%\janote{Este párrafo lo voy a retocar. El enunciado de arriba es el primer enunciado
-%del nuevo párrafo. Ojo que hay que introducir la notación $\mcG$.}
 By standard theorems of linear algebra, any proper subspace $W$, see \Eref{eq:19}, 
 can be extended to a maximal non-trivial subspace of dimension $2N-1$ by
 adjoining appropriate additional basis elements. This can be done in
@@ -59,7 +70,7 @@ preserves half of the Pauli components. The intersection of all the elements of
 this set reduces to $W$ itself,
 and since intersection of subspaces translates to composition of PCEs,
 this implies that all PCEs can be obtained as
-compositions the PCEs corresponding to maximally non-trivial subspaces, plus
+compositions of PCEs corresponding to maximally non-trivial subspaces, plus
 the identity map. In other words, the set of PCEs that preserve half 
 of the components plus the identity map, are a generator set for 
 all PCE channels.
@@ -69,7 +80,7 @@ all PCE channels.
 % generador. De alguna manera es excepcional. Es problematico incluirla y es 
 % problematico no incluirla.}
 Consider \Fref{fig:examplesPCE}; subfigures (c), (d) and (e) represent nontrivial 
-generators and the composition of any two of them yield the PCE channel
+PCE generators and the composition of any two of them yield the PCE channel
 corresponding to (b). 
 % 
 % 
@@ -77,41 +88,57 @@ corresponding to (b).
 % generators 
 % in (c), (d), or (e) is equivalent to taking the intersection between them both
 % and the three different possible compositions result in PCE channel in (b).
-\cpnote{Aca se me hace que hay un cambio brusco de tema. Ver que onda
-con Jose Alfredo}
-The existence of the PCE generators $\mcG$ provide the program of 
-constructing all PCE channels a tool that avoids the usage of a 
-high-computational-cost method. In a moment, we will discuss how to find the 
-generators $\mcG$ from matrix $A$, given a symmetry that is obeyed both by the generators 
-$\mcG$ and matrix $A$ in \Eref{eq:san}\cpnote{Como que para que ahora se
-menciona entonces?}.
+%\cpnote{Aca se me hace que hay un cambio brusco de tema. Ver que onda
+%con Jose Alfredo}
+%The existence of the PCE generators $\mcG$ provide the program of 
+%constructing all PCE channels a tool that avoids the usage of a 
+%high-computational-cost method. In a moment, we will discuss how to find the 
+%generators $\mcG$ from matrix $A$, given a symmetry that is obeyed both by the generators 
+%$\mcG$ and matrix $A$ in \Eref{eq:san}\cpnote{Como que para que ahora se
+%menciona entonces?}.
 %For the case of 1 qubit, the existence of PCE generators $\pceg$ is  
 %verified by Siudzińska~\cite{siudzinska2019geometry}.
 %\janote{Esto puede
 %ser un párrafo, o puede ser un comentario final dentro del párrafo antrerior.}
 
 \cpnote{Arreglar}
-PCE generators may be identified with a unique vector index
-$\vec\alpha$, and thus be denoted as $\pceg$.
+PCE generators may be characterized by its local-action on every qubit 
+in the system, and thus be denoted as $\mcG_{\vec\alpha}$. First, let us denote
+the four 1-qubit PCE generators as $\mcG_{\alpha}$, with $\alpha=0,1,2,3$.
+The first being the trivial generator and the remaining the channels that 
+map the Bloch sphere to each of the Cartesian axes.
+%PCE generator may be identified with a unique vector index
+%$\vec\alpha$, and thus be denoted as $\pceg$.
 % El numero de generadores concide con esa vaina. 
 %Let us introduce a convention for the following discussion for 
 %the indices in $\vec\alpha$; the number 0 to 3 identifies
-Recall that indices $0,1,2,3$ in $\vec\alpha$ correspond to, respectively,
-the identity map and the 3 1-qubit PCE quantum channels that project the 
-Bloch sphere to the rectangular axes $x$, $y$ and $z$. 
-Therefore we will correspond every PCE generator to a collection of numbers 
-that tells what its local-action is on every individual qubit in the system.
-All of this collections of numbers happen to be all vector indices $\{\valpha\}$.
-For example, the PCE generator represented in \Fref{fig:examplesPCE}(c),
-whose local-action on the first qubit (first column) is to project the corresponding local Bloch sphere 
-to the $x$ axis and on the second qubit (first row) to map the corresponding
-local Bloch sphere to itself, may be characterized with the vector index (1,0). 
-Then, it is clear that in general one can associate a unique $\vec\alpha$ to 
-every PCE generator and so denote them as $\pceg$.
+%Recall that indices $0,1,2,3$ in $\vec\alpha$ correspond to, respectively,
+%the identity map and the 3 1-qubit PCE quantum channels that project the 
+%Bloch sphere to the rectangular axes $x$, $y$ and $z$. 
+%If one sets all indices in $\vec\alpha$ to zero except for the $k$-th index.
+\janote{A rigorous explanation of why every $\vec\alpha$ is corresponded
+to every generator.}
+Therefore we can identify the index $\alpha_k$ in $\vec\alpha$ with the local-action
+of the PCE generator on the $k$-th qubit. In consequence, we will denote 
+PCE generators as $\mcG_{\vec\alpha}$. 
+See in \Fref{fig:appex:twoQ_PCEGs} the notation of  two-qubit PCE generators.
+%See, for example, non-trivial generators in subfigures (c), (d) and (e) of
+%\Fref{fig:examplesPCE} are denoted $\mcG_{(1,3)}$, $\mcG_{(3,2)}$ and
+%$\mcG_{(2,2)}$, respectively.
+%whose local-action on the first qubit (first column) is to project the corresponding local Bloch sphere 
+%to the $x$ axis and on the second qubit (first row) to map the corresponding
+%local Bloch sphere to itself, may be characterized with the vector index (1,0). 
+%Then, it is clear that in general one can associate a unique $\vec\alpha$ to 
+%every PCE generator and so denote them as $\pceg$.
 
 \cpnote{Mucha lora y no se prueba nada}
-PCE generators $\pceg$ obey a symmetry
-that defines uniquely every PCE generator. The coefficients  $\{\taus\}$ of every 
+The same symmetry can be identified for both the PCE generators $\pceg$ and
+matrix $A$ the diagonalizes PCE map's Choi matrix $\mcD_N$.
+%PCE generators $\pceg$ obey a symmetry
+%that defines uniquely every PCE generator. 
+For a PCE generator the symmetry is encoded in the array of $\taus$, and 
+for $A$ in its rows and columns.\janote{aquí voy}
+The coefficients  $\{\taus\}$ of every 
 generator $\pceg$ arranged in a hypercubic $N$-dimensional array 
 %of dimensions $\underbrace{4\times 4\times\ldots\times 4}_{N}$ 
 obey a symmetry with respect to the $N$ hyperplanes of dimension $N-1$
