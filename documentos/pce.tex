@@ -12,9 +12,8 @@ be written as $\mcB(\hilbert)$.
 %here, $\mcT(\hilbert)$ and $\mcB(\hilbert)$ coincide~\cite{zimansbook}. 
 
 The construction of quantum channels includes basically three ingredients:
-linearity, trace preserving and complete positivity. The trace preserving
-property is needed to
-send convex combinations of density matrices into the convex combination of the
+linearity, trace preserving and complete positivity. Linearity is needed to
+map every convex combination of density matrices into a convex combination of the
 evolution of such density matrices, this is, let $\mcE$ such linear operation,
 thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$. The
 trace preserving property is required for the process $\mcE$ to be deterministic, \ie{} $\tr\mcE[\rho]=\tr \rho =1$ is the probability that the process $\mcE$ will
@@ -51,12 +50,12 @@ if it has a Kraus representation~\cite{Kraus1983}. The minimum number of Kraus o
 %
 It can be seen from Kraus decomposition that quantum channels preserve
 hermiticity, this has a practical consequence when using hermitian bases, \ie{} let $\left\{ \Delta_i \right\}$ a hermitian basis in $\mcB(\hilbert)$, then the entries of the matrix representation of the quantum channel $\mcE$, $\hat
-\mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$, are real. In particular in this work we use bases consisting in the so-called \textit{Pauli strings}, defined as 
+\mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$, are real. In particular in this work we use bases containing the so-called \textit{Pauli strings}, defined as 
 \begin{equation}
 \sigma_{\vec \alpha}:=\sigma_{\alpha_1}\otimes \sigma_{\alpha_2} \otimes \dots \otimes \sigma_{\alpha_N},
 \label{eq:pauli_strings}
 \end{equation}
-where $N$ is the number of two-level particles (\aka{} qubits), $\alpha_i=0,1,2,3$ and $\sigma_0:=\one$, $\sigma_{1,2,3}:=\sigma_{x,y,z}$. Thus, the bases $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ are orthonormal in $\mcB(\hilbert)$. Also notice that $\tr \sigma_{\vec \alpha}=\delta_{\vec\alpha,\vec 0} 2^{N}$.
+where $N$ is the number of two-level particles (\aka{} qubits), $\alpha_i=0,1,2,3$ with $\sigma_0:=\one$, $\sigma_{1,2,3}:=\sigma_{x,y,z}$. Thus, the bases $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ are orthonormal in $\mcB(\hilbert)$. Also notice that $\tr \sigma_{\vec \alpha}=\delta_{\vec\alpha,\vec 0} 2^{N}$. In particular, for one qubit systems, the
 %
 $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$
 %
