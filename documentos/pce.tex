@@ -1,5 +1,5 @@
 \section{PCE Maps} 
-In this section we introduce the definition of Pauli component erasing maps, but first we go through several standard definitions needed for.
+In this section we introduce the definition of Pauli component erasing maps, but first we go through several standard definitions needed to discuss them.
 \subsection{Quantum channels} % {{{
 Quantum channels comprehend the most general linear operations that a quantum
 system undergo independently of its past~\cite{zimansbook,cirac}. To introduce
@@ -52,7 +52,7 @@ if it has a Kraus representation~\cite{Kraus1983}. The minimum number of Kraus o
 
 It can be seen from Kraus decomposition that quantum channels preserve
 hermiticity, this has a practical consequence when using hermitian bases, \ie{} let $\left\{ \Delta_i \right\}$ be a hermitian basis in $\mcB(\hilbert)$, then the entries of the matrix representation of the quantum channel $\mcE$, $\hat
-\mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$, are real. In particular, in this work we are interested in systems of $N$ qubits, and we use hermitian bases consisting of the so-called \textit{Pauli strings}, defined as 
+\mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$, are real. In particular, in this work we are interested in systems of $N$ qubits, and we use hermitian bases consisting of the so-called \textit{Pauli strings} \ddnote{aqui introduzco el nombre estandar}, defined as 
 \begin{equation}
 \sigma_{\vec \alpha}:=\sigma_{\alpha_1}\otimes \sigma_{\alpha_2} \otimes \dots \otimes \sigma_{\alpha_N},
 \label{eq:pauli_strings}
@@ -74,7 +74,7 @@ Creo qie ``hermiticity preserving'' es en parte consecuencia de la definición, 
 \subsection{Single qubit case} % {{{
 \label{sec:single:qubit}
 \todo{David escribe una primera version y luego Carlos itera}
-\pce{} maps are defined as those valid quantum channels that \textit{nullify} \textit{Pauli strings} \ddnote{aqui introduzco el nombre estandar}, in the case of one qubit, they consist of maps nullifying the averages $r_\alpha:=\langle \sigma_\alpha \rangle$ with $\alpha=1,2,3$. The three components $r_\alpha$ form the well-known \textit{Bloch vector} $\vec r$, describing one qubit density matrices,
+\pce{} maps are defined as those quantum channels that \textit{nullify} Pauli strings. In the case of one qubit, they consist of maps nullifying the averages $r_\alpha:=\langle \sigma_\alpha \rangle=\tr \left( \rho \sigma_\alpha \right)$ with $\alpha=1,2,3$. The three components $r_\alpha$ form the well-known \textit{Bloch vector} $\vec r$, describing one qubit density matrices,
 \begin{equation}
 \rho=\frac{\one +\vec r \cdot \vec \sigma}{2}.
 \end{equation}
@@ -87,7 +87,7 @@ where $\tau_k$ is either $1$ or $0$. It is well-known that not every operation l
 1+\tau_1+\tau_2+\tau_3 &\geq 0, \nonumber \\
 1+\tau_i-\tau_j-\tau_k &\geq 0 \ \ \forall i\neq j \neq k,
 \end{align}
-where trace-preserving is already imposed ($\tau_0=1$), show that only five operations are \pce: the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and bit, phase, and the bit-phase flip channels~\cite{chuangbook}. These channels can be pictured with one column tables showing the positions of $1$s and $0$s in the diagonal of the channel (in the Pauli basis), see~\fref{fig:one:qubit:examples}.
+where trace-preserving is already imposed ($\tau_0=1$), show that only five operations are \pce: the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and bit, phase, and the bit-phase flip channels~\cite{chuangbook}. These operations can be pictured using one column tables showing the positions of $1$s and $0$s in the diagonal of the channel (in the Pauli basis), see~\fref{fig:one:qubit:examples}.
 These operations have been studied in \cite{Ziman2005,davalosdivisibility} and are by definition diagonal in the Pauli basis, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$. They form a tetrahedron in the space of eigenvalues 
 % }}}
 \subsection{Pauli component erasing maps} % {{{
