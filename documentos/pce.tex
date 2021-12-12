@@ -1,35 +1,35 @@
 \section{PCE Maps} 
+In this section we introduce the definition of Pauli component erasing maps, but first we go through several standard definitions needed for.
 \subsection{Quantum channels} % {{{
 Quantum channels comprehend the most general linear operations that a quantum
 system undergo independently of its past~\cite{zimansbook,cirac}. To introduce
 their construction and properties, first let us define several objects. We will
 denote Hilbert spaces as \hilbert and $d$-dimensional Hilbert spaces as
 $\hilbert_d$. The set of linear operators over a Hilbert space \hilbert will
-be written as $\mcB(\hilbert)$.
+be written as $\mcB(\hilbert)$, and the set of density operators as $\mcS(\hilbert)$.
 %, the subset of density matrices as
 %$\mcS(\hilbert)$, which is in turn a subset of the so called trace-class
 %operators $\mcT(\hilbert)$, for the finite dimensional case, the one studied
 %here, $\mcT(\hilbert)$ and $\mcB(\hilbert)$ coincide~\cite{zimansbook}. 
 
 The construction of quantum channels includes basically three ingredients:
-linearity, trace preserving and complete positivity. Linearity is needed to
+linearity, trace preserving (TP) and complete positivity (CP). Linearity is needed to
 map every convex combination of density matrices into a convex combination of the
 evolution of such density matrices, this is, let $\mcE$ such linear operation,
-thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$. The
+thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$ with $0 \leq p\leq 1$. The
 trace preserving property is required for the process $\mcE$ to be deterministic, \ie{} $\tr\mcE[\rho]=\tr \rho =1$ is the probability that the process $\mcE$ will
-happen to the state $\rho\in \mcS(\hilbert)$. The complete
+take place to any state $\rho\in \mcS(\hilbert)$. The complete
 positivity condition is needed to preserve positive semidefiniteness and handle
-the non-local feature of quantum theory. A map $\mcE$ is positive if $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert), \ \ \Delta\geq 0$\cpnote{Francois, de tu nota, la $\Delta$ ya es hermitica, pues 
-decimos que es una matriz de densidad} \ddnote{$\Delta$ no es hermítico, sin embargo la definición de positividad-semidefinida se extiende a la parte hermítica por convención, revisé y en ningún libro mencionan la hermiticidad en este punto. Sin embargo esos casos no son relevantes en este contexto por supuesto}. In the other hand, a map is completely positive if
- $\id_k \otimes \mcE$ is a positive map for $k=1,2,\dots$, where 
-between the system and an ancilla with Hilbert space $\hilbert_k$. This ensures that every positive semidefinite operator of any
+the non-local feature of quantum theory. A map $\mcE$ is positive if $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert)$ hermitian with $\Delta\geq 0$\cpnote{Francois, de tu nota, la $\Delta$ ya es hermitica, pues 
+decimos que es una matriz de densidad} \ddnote{Aqui hablamos de matrices positivas definidas en general, estuve revisando en varios libros, y parece que lo mas estandar es suponer que si se dice que es positiva (o negativa) definida o semi-definida, automaticamente se dice que es hermítica. Sin embargo hay definiciones mas generales que involucran matrices no hermiticas, esas eran las que yo tenía en mente (pero parece que no son tan conocidas). Opto por mencionar que $\Delta$ es hermítico.}. In the other hand, a map is completely positive if
+ $\id_k \otimes \mcE$ is a positive map for $k=1,2,\dots$, where $\id_k$ is the identity channel over $\mcB(\hilbert_k)$. This ensures that every positive semidefinite operator of any
 extension of the system (where the quantum channel is now a local operation) is
-mapped into positive semidefinite operators. The trace preserving is automatically
+mapped to a positive semidefinite operator. The trace preserving is automatically
 fulfilled for all extensions if $\mcE$ fulfills it. Therefore, any density matrix of a system
 where $\mcE$ acts locally, is sent to a valid density matrix, this is the
 substance of complete positivity.
 \flnote{No creo que lo de Bell state sea conveniente. Mejor decir algo como: 
-E is totally positive if trivially extending E to the tensor product of H with an arbitrary dimensional ancilla space yields a positive operation. }\ddnote{ejecutado}
+E is totally positive if trivially extending E to the tensor product of H with an arbitrary dimensional ancilla space yields a positive operation. }\ddnote{ejecutado} Concluding, quantum channels are defined to be linear completely positive trace preserving maps (\cptp{}).
 
 Quantum channels can be characterized by means of the Choi-\jami{}
 isomorphism~\cite{choi,jamil}. This is, given a linear operation
@@ -38,26 +38,28 @@ $\choi=\left(\id \otimes \mcE\right)[\proj{\Omega}{\Omega}]$ (also called dynami
 $\ket{\Omega}=1/\dim(\hilbert)\sum_i^{\dim(\hilbert)}\ket{i}\ket{i}$ is the
 Bell state between two copies of \hilbert. The map \mcE is completely positive if and only
 \choi is positive-semidefinite.
-
+%
+%
 Furthermore, quantum channels enjoy the well-known \textit{Kraus representation} (or
 operator-sum representation) which reads 
 \begin{equation}
 \mcE[\rho]=\sum_i K_i \rho
-K_i^\dagger{}
+K_i^\dagger{},
 \end{equation}
 with $\sum_i K_i^\dagger{}K_i=\one$ (the trace-preserving condition). In fact, a linear operation is completely positive if and only
 if it has a Kraus representation~\cite{Kraus1983}. The minimum number of Kraus operators $K_i$ needed to represent the channel is called \textit{Kraus rank}. 
 %
+
 It can be seen from Kraus decomposition that quantum channels preserve
-hermiticity, this has a practical consequence when using hermitian bases, \ie{} let $\left\{ \Delta_i \right\}$ a hermitian basis in $\mcB(\hilbert)$, then the entries of the matrix representation of the quantum channel $\mcE$, $\hat
-\mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$, are real. In particular in this work we use bases containing the so-called \textit{Pauli strings}, defined as 
+hermiticity, this has a practical consequence when using hermitian bases, \ie{} let $\left\{ \Delta_i \right\}$ be a hermitian basis in $\mcB(\hilbert)$, then the entries of the matrix representation of the quantum channel $\mcE$, $\hat
+\mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$, are real. In particular, in this work we are interested in systems of $N$ qubits, and we use hermitian bases consisting of the so-called \textit{Pauli strings}, defined as 
 \begin{equation}
 \sigma_{\vec \alpha}:=\sigma_{\alpha_1}\otimes \sigma_{\alpha_2} \otimes \dots \otimes \sigma_{\alpha_N},
 \label{eq:pauli_strings}
 \end{equation}
-where $N$ is the number of two-level particles (\aka{} qubits), $\alpha_i=0,1,2,3$ with $\sigma_0:=\one$, $\sigma_{1,2,3}:=\sigma_{x,y,z}$. Thus, the bases $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ are orthonormal in $\mcB(\hilbert)$. Also notice that $\tr \sigma_{\vec \alpha}=\delta_{\vec\alpha,\vec 0} 2^{N}$. In particular, for one qubit systems, the
+where $N$ is the number qubits, $\alpha_i=0,1,2,3$ with $\sigma_0:=\one$ and $\sigma_{1,2,3}:=\sigma_{x,y,z}$. Thus, given $N$ and the fact that $\tr \sigma_{\vec \alpha}=\delta_{\vec\alpha,\vec 0} 2^{N}$, it is clear that the basis $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ is orthonormal in $\mcB(\hilbert_{2^N})$. The case with $N=1$ corresponds to the well-known \textit{Pauli basis},
 %
-$1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$
+$1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$.
 %
 
 \flnote{
