@@ -74,7 +74,7 @@ Creo qie ``hermiticity preserving'' es en parte consecuencia de la definición, 
 \subsection{Single qubit case} % {{{
 \label{sec:single:qubit}
 \todo{David escribe una primera version y luego Carlos itera}
-\pce{} maps are defined as those quantum channels that \textit{nullify} Pauli strings. In the case of one qubit, they consist of maps nullifying the averages $r_\alpha:=\langle \sigma_\alpha \rangle=\tr \left( \rho \sigma_\alpha \right)$ with $\alpha=1,2,3$. The three components $r_\alpha$ form the well-known \textit{Bloch vector} $\vec r$, describing one qubit density matrices,
+\pce{} maps are defined as those quantum channels\R{A1} that \textit{nullify} Pauli strings. In the case of one qubit, they consist of maps nullifying the averages $r_\alpha:=\langle \sigma_\alpha \rangle=\tr \left( \rho \sigma_\alpha \right)$ with $\alpha=1,2,3$. The three components $r_\alpha$ form the well-known \textit{Bloch vector} $\vec r$, describing one qubit density matrices,
 \begin{equation}
 \rho=\frac{\one +\vec r \cdot \vec \sigma}{2}.
 \end{equation}
@@ -232,7 +232,8 @@ density matrix. That is,
 	\taus = 0,1.
 % \end{split}
 \end{equation}
-It is worth noticing that not all PCE maps are quantum operations. For single 
+It is worth noticing that not all PCE maps are quantum operations\janote{aquí hay una contradicción
+con lo que se dice en la \lr{A1}}. For single 
 qubits, if just one of the $\taus=0$, the complete positivity condition 
 is not met, as discussed in \sref{sec:single:qubit}. It will be of central interest
 in this article to determine which $\taus$ lead to a valid quantum map.
