@@ -87,100 +87,7 @@ where $\tau_k$ is either $1$ or $0$. It is well-known that not every operation l
 1+\tau_1+\tau_2+\tau_3 &\geq 0, \nonumber \\
 1+\tau_i-\tau_j-\tau_k &\geq 0 \ \ \forall i\neq j \neq k,
 \end{align}
-where trace-preserving is already imposed ($\tau_0=1$), show that only five operations are \pce: the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and bit, phase, and the bit-phase flip channels~\cite{chuangbook}. These operations can be pictured using one column tables showing the positions of $1$s and $0$s in the diagonal of the channel (in the Pauli basis), see~\fref{fig:one:qubit:examples}.
-These operations have been studied in \cite{Ziman2005,davalosdivisibility} and are by definition diagonal in the Pauli basis, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$. They form a tetrahedron in the space of eigenvalues 
-% }}}
-\subsection{Pauli component erasing maps} % {{{
-
-The density matrix $\rho$ of a system of $N$ qubits can be written in Pauli
-matrices basis as 
-\begin{equation}\label{eq:N_qubits_rho}
-	\rho =\frac{1}{2^N} 
-            \sum_\valpha r_\valpha \sigma_\valpha,
-%             \quad r_{\vec0}=1,
-% 	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
-%             \sum_{\alpha_1,\ldots,\alpha_N=0}^3 \paulicomponents
-% 	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
-	%r_{0,\ldots,0}=1,
-\end{equation}
-where $\vec \alpha$ denotes a vector index $\qty(\alpha_1,\ldots,\alpha_N)$,
-$\sigma_{\vec \alpha} := \sigma_{\alpha_1}\otimes \ldots \otimes
-\sigma_{\alpha_N}$ is the tensor product of Pauli matrices, and 
-$r_{\vec \alpha}$ is the coefficient corresponding to the expansion
-of the density matrix in the complete orthonormal basis $\left\{ 2^{-N/2}\sigma_{\vec
-\alpha} \right\}$. In the sum each of the $N$ components of $\valpha$, i.e.
-$\alpha_{1,\cdots,N}$ is varied from $0$ to $3$. 
-Notice that $\sigma_{\vec 0} = \openone$, and since both $\tr \rho=1$ and 
-$\tr \sigma_\valpha=2^N\delta_{\valpha,\vec 0}$, then $r_{\vec 0}=1$. 
-We shall refer to $\paulicomponents$ as the ``Pauli components'' of the density
-matrix of a system of qubits. 
-
-Consider the linear operations that simply attenuate the Pauli components of 
-a multiqubit system:
-\begin{equation}
-	\paulicomponents \mapsto \taus \paulicomponents.
-% 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
-\label{eq:definition:Pauli}
-\end{equation}
-For the operation to preserve the trace of the density matrix, we require that
-$\tau_{\vec 0}=1$.  
-% These operations are diagonal in the basis $\left\{
-% 2^{-N/2}\sigma_{\vec \alpha} \right\}$, which follows from
-% \eref{eq:sigma_property}. 
-% The diagonal components are $\taus$, i.e. $\hat
-% \mcE=\diag(\taus)$. Additionally, they belong to the subset of unital channels
-% that can be written as convex combinations of unitary channels. \cpnote{Alguien 
-% puso aca que lo probarian, pero no lo hemos discutido y quizá no le veo 
-% el caso en este articulo}
-\cpnote{Creo qeu vale la pena mencionar la relacion con los canales de Ruskai. 
-Lo discutimos en pleno, o por lo menos cuando esten JA y FL. quizá tambien discutir
-si se mencionan a los canales  \cite{Siudzinska2020}}
-
-\cpnote{davalos, dale aca un pequeño rollo relevante quiza de una o dos
-frases de la importancia de esta familia.} \ddnote{De momento no he encontrado
-alguna reference, para qubits si, pero para los generales no}.
-
-
-
-A Pauli component erasing (PCE) operation is a Pauli diagonal operation
-%  A linear operation 
-% $\mcE$ 
-that either preserves or completely erases the Pauli components of a
-density matrix. That is, 
-% it transforms its Pauli components as 
-\begin{equation} \label{eq:PCE_definition}
-% \begin{split}
-% 	\paulicomponents \mapsto \ \taus \paulicomponents,\hspace{.5cm}\\
-% 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
-	\paulicomponents \mapsto \taus \paulicomponents,\quad 
-	\taus = 0,1.
-% \end{split}
-\end{equation}
-It is worth noticing that not all PCE maps are quantum operations. For single 
-qubits, if just one of the $\taus=0$, the complete positivity condition 
-is not met, as discussed in \sref{sec:single:qubit}. It will be of central interest
-in this article to determine which $\taus$ lead to a valid quantum map.
-
-%\ddnote{hay un typo en esta ecuacion}
-% A PCE operation is a trace-preserving operation that leaves invariant or erases 
-% the Pauli components of a density matrix of $n$ qubits. \janote{Ojo que aquí 
-% habrá que unificar la notación de subíndices. No lo hago porque no lo tengo del 
-% todo claro y no hay problema en dejarlo así por el momento.}
-% \cpnote{Aca voy} 
-
-A graphical representation for PCE maps may be introduced, being the
-two qubits case what has proved to be the most useful. Consider a $N$ dimensional 
-Cartesian grid, with $4^N$ places.  Each place has $N$ integer coordinates, ranging
-from 0 to 3, so each place corresponds to a given $\vec \alpha$ in 
-\eref{eq:N_qubits_rho}. For a given PCE, we shall fill 
-the square if the corresponding $\tau_{\vec \alpha}=1$. Otherwise, we leave it 
-empty. Examples for $N=1$ are provided in \fref{fig:one:qubit:examples}, whereas
-for two qubits, we exemplify them in \fref{fig:two:qubit:examples}. 
-% Notice
-% than in both cases we drop the label $\alpha$ for simplicity, as it will 
-% remain unchanged throughout this text \janote{No entiendo qué estás diciendo
-% aquí}. 
-
+where trace-preserving is already imposed ($\tau_0=1$), show that only five operations are \pce: the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and bit, phase, and the bit-phase flip channels~\cite{chuangbook}. These operations are by definition diagonal in the Pauli basis~\cite{Ziman2005,davalosdivisibility}, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$, and can be pictured using one column tables showing the positions of $1$s and $0$s in the diagonal of the channel (in the Pauli basis), see~\fref{fig:one:qubit:examples}.
 \begin{figure} % {{{
 \begin{center}
 \begin{tikzpicture}[x=0.5cm, y=0.5cm] % {{{
@@ -270,6 +177,95 @@ total depolarization, respectively. In (e) we show a map that only erases the co
 $r_1$, collapsing the Block sphere into a disk, and thus does not correspond to a quantum operation.}
 	\label{fig:one:qubit:examples}
 \end{figure} % }}}
+% }}}
+\subsection{Pauli component erasing maps} % {{{
+
+Similarly to the one qubit case, the density matrix $\rho$ of a system of $N$ qubits can be written using Pauli strings in the following way, 
+\begin{equation}\label{eq:N_qubits_rho}
+	\rho =\frac{1}{2^N} 
+            \sum_\valpha r_\valpha \sigma_\valpha,
+%             \quad r_{\vec0}=1,
+% 	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
+%             \sum_{\alpha_1,\ldots,\alpha_N=0}^3 \paulicomponents
+% 	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
+	%r_{0,\ldots,0}=1,
+\end{equation}
+where $\vec \alpha$ denotes a vector index $\qty(\alpha_1,\ldots,\alpha_N)$ such that $r_{\vec \alpha}:=\langle \sigma_{\vec \alpha} \rangle=\tr \left(\rho \sigma_{\vec \alpha} \right)$ is the coefficient corresponding to the expansion
+of the density matrix in the basis $\left\{ 2^{-N/2}\sigma_{\vec
+\alpha} \right\}$. The components of $\valpha$ range from $0$ to $3$. 
+Notice that given that $\tr \rho=1$ and $\sigma_{\vec 0} = \openone$, it is clear that $r_{\vec 0}=1$. 
+{\red We shall refer to $\paulicomponents$ as the ``Pauli components'' of the density
+matrix of a system of qubits. } \ddnote{esto se quita, ya lo definí arriba como Pauli strings.}
+
+As mentioned above, \pce{} maps nullify Pauli strings, thus Consider the linear operations that simply attenuate the Pauli components of 
+a multiqubit system:
+\begin{equation}
+	\paulicomponents \mapsto \taus \paulicomponents.
+% 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
+\label{eq:definition:Pauli}
+\end{equation}
+For the operation to preserve the trace of the density matrix, we require that
+$\tau_{\vec 0}=1$.  
+% These operations are diagonal in the basis $\left\{
+% 2^{-N/2}\sigma_{\vec \alpha} \right\}$, which follows from
+% \eref{eq:sigma_property}. 
+% The diagonal components are $\taus$, i.e. $\hat
+% \mcE=\diag(\taus)$. Additionally, they belong to the subset of unital channels
+% that can be written as convex combinations of unitary channels. \cpnote{Alguien 
+% puso aca que lo probarian, pero no lo hemos discutido y quizá no le veo 
+% el caso en este articulo}
+
+
+
+
+A Pauli component erasing (PCE) operation is a Pauli diagonal operation
+%  A linear operation 
+% $\mcE$ 
+that either preserves or completely erases the Pauli components of a
+density matrix. That is, 
+% it transforms its Pauli components as 
+\begin{equation} \label{eq:PCE_definition}
+% \begin{split}
+% 	\paulicomponents \mapsto \ \taus \paulicomponents,\hspace{.5cm}\\
+% 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
+	\paulicomponents \mapsto \taus \paulicomponents,\quad 
+	\taus = 0,1.
+% \end{split}
+\end{equation}
+It is worth noticing that not all PCE maps are quantum operations. For single 
+qubits, if just one of the $\taus=0$, the complete positivity condition 
+is not met, as discussed in \sref{sec:single:qubit}. It will be of central interest
+in this article to determine which $\taus$ lead to a valid quantum map.
+
+%\ddnote{hay un typo en esta ecuacion}
+% A PCE operation is a trace-preserving operation that leaves invariant or erases 
+% the Pauli components of a density matrix of $n$ qubits. \janote{Ojo que aquí 
+% habrá que unificar la notación de subíndices. No lo hago porque no lo tengo del 
+% todo claro y no hay problema en dejarlo así por el momento.}
+% \cpnote{Aca voy} 
+
+A graphical representation for PCE maps may be introduced, being the
+two qubits case what has proved to be the most useful. Consider a $N$ dimensional 
+Cartesian grid, with $4^N$ places.  Each place has $N$ integer coordinates, ranging
+from 0 to 3, so each place corresponds to a given $\vec \alpha$ in 
+\eref{eq:N_qubits_rho}. For a given PCE, we shall fill 
+the square if the corresponding $\tau_{\vec \alpha}=1$. Otherwise, we leave it 
+empty. Examples for $N=1$ are provided in \fref{fig:one:qubit:examples}, whereas
+for two qubits, we exemplify them in \fref{fig:two:qubit:examples}. 
+
+\cpnote{Creo qeu vale la pena mencionar la relacion con los canales de Ruskai. 
+Lo discutimos en pleno, o por lo menos cuando esten JA y FL. quizá tambien discutir
+si se mencionan a los canales  \cite{Siudzinska2020}}\ddnote{Eh estado trabajando en esto, pero el material que he encontrado va mejor en la introduccion, y en todo caso, creo que es muy pronto para mencionar detalles tecnicos sobre los canales que coinciden con los de Ruskai, pues ni siquiera hemos dicho que operaciones de las que definimos aqui, son válidas}
+
+\cpnote{davalos, dale aca un pequeño rollo relevante quiza de una o dos
+frases de la importancia de esta familia.} \ddnote{De momento no he encontrado
+alguna reference, para qubits si, pero para los generales no} \ddnote{Como comento arriba, no le veo sentido que eso esté aqui}.
+% Notice
+% than in both cases we drop the label $\alpha$ for simplicity, as it will 
+% remain unchanged throughout this text \janote{No entiendo qué estás diciendo
+% aquí}. 
+
+
 
 \begin{figure} % {{{
 \begin{tikzpicture}[x=0.55cm, y=0.55cm] % {{{
