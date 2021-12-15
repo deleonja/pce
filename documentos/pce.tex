@@ -198,26 +198,22 @@ Notice that given that $\tr \rho=1$ and $\sigma_{\vec 0} = \openone$, it is clea
 As mentioned above, \pce{} maps nullify Pauli strings, thus, consider the linear operations acting in the generalized Bloch vector $\vec r_{\vec \alpha}$,
 \begin{equation}
 	\paulicomponents \mapsto \taus \paulicomponents.
-% 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
+% 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1,
 \label{eq:definition:Pauli}
 \end{equation}
-Similar to the qubit case, not every operation with this form is a \cptp{} map. For the operation to be trace preserving, it is easy to prove that $\tau_{\vec 0}=1$. In the other hand, constructing and evaluating the conditions for complete positivity is involved and is the main problem addressed in this paper.  
+with $\tau_{\vec k}$ either $1$ or $0$.
+Similar to the qubit case, not every operation with this form is a \cptp{} map. For the operation to be trace preserving, it is easy to prove that $\tau_{\vec 0}=1$. On the other hand, constructing and evaluating the conditions for complete positivity is involved and is the main problem addressed in this paper. Moreover, these operations are by definition diagonal in the $\left\{ 2^{-N/2}\sigma_{\vec
+\alpha} \right\}$ basis.
 
-A Pauli component erasing (PCE) operation is a Pauli diagonal operation
-%  A linear operation 
-% $\mcE$ 
-that either preserves or completely erases the Pauli components of a
-density matrix. That is, 
-% it transforms its Pauli components as 
-\begin{equation} \label{eq:PCE_definition}
-% \begin{split}
-% 	\paulicomponents \mapsto \ \taus \paulicomponents,\hspace{.5cm}\\
-% 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
-	\paulicomponents \mapsto \taus \paulicomponents,\quad 
-	\taus = 0,1.
-% \end{split}
-\end{equation}
- determine which $\taus$ lead to a valid quantum map.
+\cpnote{Creo qeu vale la pena mencionar la relacion con los canales de Ruskai. 
+Lo discutimos en pleno, o por lo menos cuando esten JA y FL. quizá tambien discutir
+si se mencionan a los canales  \cite{Siudzinska2020}}\ddnote{Eh estado trabajando en esto, pero el material que he encontrado va mejor en la introduccion, y en todo caso, creo que es muy pronto para mencionar detalles tecnicos sobre los canales que coinciden con los de Ruskai, pues ni siquiera hemos dicho que operaciones de las que definimos aqui, son válidas}
+
+It is worth noticing that the set of \pce{} maps overlaps with the set of ``Pauli diagonal channels constant on axes'' defined in Ref.~\cite{nathanson2007pauli}, consisting of convex combinations of \textit{quantum-classical} channels. In particular, it can be shown that quantum-classical channels defined with the eigenbasis of some set of $2^N-1$ commuting Pauli observables~\cite{Lawrence2002}, is a \pce{} map with exactly $ 2^N $ components equal to $1$s in its diagonal.
+
+
+\cpnote{davalos, dale aca un pequeño rollo relevante quiza de una o dos
+frases de la importancia de esta familia.} \ddnote{hecho, pero de pronto quedo espeso. Me estan gustando las cosas que he estado encontrando, voy a investigar en esa direccion por mi cuenta, si sale algo interesante, los invito, como no}
 
 %\ddnote{hay un typo en esta ecuacion}
 % A PCE operation is a trace-preserving operation that leaves invariant or erases 
@@ -226,21 +222,8 @@ density matrix. That is,
 % todo claro y no hay problema en dejarlo así por el momento.}
 % \cpnote{Aca voy} 
 
-A graphical representation for PCE maps may be introduced, being the
-two qubits case what has proved to be the most useful. Consider a $N$ dimensional 
-Cartesian grid, with $4^N$ places.  Each place has $N$ integer coordinates, ranging
-from 0 to 3, so each place corresponds to a given $\vec \alpha$ in 
-\eref{eq:N_qubits_rho}. For a given PCE, we shall fill 
-the square if the corresponding $\tau_{\vec \alpha}=1$. Otherwise, we leave it 
-empty. Examples for $N=1$ are provided in \fref{fig:one:qubit:examples}, whereas
-for two qubits, we exemplify them in \fref{fig:two:qubit:examples}. 
+For the two qubits case, the operations illustrated in~\eref{eq:definition:Pauli} can be pictured using $4\times 4$ tables, showing the positions of the $0$s and $1$s of the diagonal using the Pauli string basis, see~\fref{fig:two:qubit:examples}. This way of representing \pce{} maps turned out to be very useful for their analysis throughout this work.
 
-\cpnote{Creo qeu vale la pena mencionar la relacion con los canales de Ruskai. 
-Lo discutimos en pleno, o por lo menos cuando esten JA y FL. quizá tambien discutir
-si se mencionan a los canales  \cite{Siudzinska2020}}\ddnote{Eh estado trabajando en esto, pero el material que he encontrado va mejor en la introduccion, y en todo caso, creo que es muy pronto para mencionar detalles tecnicos sobre los canales que coinciden con los de Ruskai, pues ni siquiera hemos dicho que operaciones de las que definimos aqui, son válidas}
-
-\cpnote{davalos, dale aca un pequeño rollo relevante quiza de una o dos
-frases de la importancia de esta familia.} \ddnote{hecho}.
 % Notice
 % than in both cases we drop the label $\alpha$ for simplicity, as it will 
 % remain unchanged throughout this text \janote{No entiendo qué estás diciendo
