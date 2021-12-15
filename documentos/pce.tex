@@ -1,24 +1,40 @@
 \section{PCE Maps} 
-In this section we introduce the definition of Pauli component erasing maps, but first we go through several standard definitions needed to discuss them.
+To introduce the family of Pauli component erasing maps we start with 
+review basic concepts of quantum channels that will allow us to introduce some 
+notation. 
+% In this section we introduce the definition of Pauli component erasing maps,
+% but first we go through several standard definitions needed to discuss them.
 \subsection{Quantum channels} % {{{
-Quantum channels comprehend the most general linear operations that a quantum
-system undergo independently of its past~\cite{zimansbook,cirac}. To introduce
-their construction and properties, first let us define several objects. We will
-denote Hilbert spaces as \hilbert and $d$-dimensional Hilbert spaces as
-$\hilbert_d$. The set of linear operators over a Hilbert space \hilbert will
-be written as $\mcB(\hilbert)$, and the set of density operators as $\mcS(\hilbert)$.
+
+Quantum channels are the most general linear operations that a quantum
+system undergo independently of its past~\cite{zimansbook,cirac}.
+The physical system under study will be associated with a Hilbert space
+denoted by \hilbert, and the set of linear operators over such space will 
+be denoted by $\mcB(\hilbert)$. That way, a density matrix $\rho$ of such system
+ is an element of $\mcB(\hilbert)$.
+
+
+
+
+% Quantum channels comprehend the most general linear operations that a quantum
+% system undergo independently of its past~\cite{zimansbook,cirac}. To introduce
+% their construction and properties, first let us define several objects. We will
+% denote Hilbert spaces as \hilbert and $d$-dimensional Hilbert spaces as
+% $\hilbert_d$. The set of linear operators over a Hilbert space \hilbert will
+% be written as $\mcB(\hilbert)$, and the set of density operators as $\mcS(\hilbert)$.
 %, the subset of density matrices as
 %$\mcS(\hilbert)$, which is in turn a subset of the so called trace-class
 %operators $\mcT(\hilbert)$, for the finite dimensional case, the one studied
 %here, $\mcT(\hilbert)$ and $\mcB(\hilbert)$ coincide~\cite{zimansbook}. 
 
 The construction of quantum channels includes basically three ingredients:
-linearity, trace preserving (TP) and complete positivity (CP). Linearity is needed to
+linearity, trace preservation and complete positivity. Linearity is needed to
 map every convex combination of density matrices into a convex combination of the
-evolution of such density matrices, this is, let $\mcE$ such linear operation,
-thus $p \rho_1 +(1-p) \rho_2 \mapsto p \mcE[\rho_1]+(1-p)\mcE[\rho_2]$ with $0 \leq p\leq 1$. The
-trace preserving property is required for the process $\mcE$ to be deterministic, \ie{} $\tr\mcE[\rho]=\tr \rho =1$ is the probability that the process $\mcE$ will
-take place to any state $\rho\in \mcS(\hilbert)$. The complete
+evolution of such density matrices. The
+trace preserving property is required for the process $\mcE$ to be
+deterministic, and reads $\tr\mcE[\rho]=\tr \rho =1$. 
+The
+complete
 positivity condition is needed to preserve positive semidefiniteness and handle
 the non-local feature of quantum theory. A map $\mcE$ is positive if $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert)$ hermitian with $\Delta\geq 0$\cpnote{Francois, de tu nota, la $\Delta$ ya es hermitica, pues 
 decimos que es una matriz de densidad} \ddnote{Aqui hablamos de matrices positivas definidas en general, estuve revisando en varios libros, y parece que lo mas estandar es suponer que si se dice que es positiva (o negativa) definida o semi-definida, automaticamente se dice que es hermítica. Sin embargo hay definiciones mas generales que involucran matrices no hermiticas, esas eran las que yo tenía en mente (pero parece que no son tan conocidas). Opto por mencionar que $\Delta$ es hermítico.}. In the other hand, a map is completely positive if
