@@ -36,16 +36,38 @@ deterministic, and reads $\tr\mcE[\rho]=\tr \rho =1$.
 The
 complete
 positivity condition is needed to preserve positive semidefiniteness and handle
-the non-local feature of quantum theory. A map $\mcE$ is positive if $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert)$ hermitian with $\Delta\geq 0$\cpnote{Francois, de tu nota, la $\Delta$ ya es hermitica, pues 
-decimos que es una matriz de densidad} \ddnote{Aqui hablamos de matrices positivas definidas en general, estuve revisando en varios libros, y parece que lo mas estandar es suponer que si se dice que es positiva (o negativa) definida o semi-definida, automaticamente se dice que es hermítica. Sin embargo hay definiciones mas generales que involucran matrices no hermiticas, esas eran las que yo tenía en mente (pero parece que no son tan conocidas). Opto por mencionar que $\Delta$ es hermítico.}. In the other hand, a map is completely positive if
- $\id_k \otimes \mcE$ is a positive map for $k=1,2,\dots$, where $\id_k$ is the identity channel over $\mcB(\hilbert_k)$. This ensures that every positive semidefinite operator of any
-extension of the system (where the quantum channel is now a local operation) is
-mapped to a positive semidefinite operator. The trace preserving is automatically
-fulfilled for all extensions if $\mcE$ fulfills it. Therefore, any density matrix of a system
-where $\mcE$ acts locally, is sent to a valid density matrix, this is the
-substance of complete positivity.
-\flnote{No creo que lo de Bell state sea conveniente. Mejor decir algo como: 
-E is totally positive if trivially extending E to the tensor product of H with an arbitrary dimensional ancilla space yields a positive operation. }\ddnote{ejecutado} Concluding, quantum channels are defined to be linear completely positive trace preserving maps (\cptp{}).
+the non-local feature of quantum theory. 
+A linear map $\mcE$ is positive if it maps density operators to density operators, \ie
+if $\mcE[\rho]\geq 0$ for all density matrices $\rho$. 
+% 
+% $\mcE[\Delta]\geq 0 \ \ \forall \Delta \in \mcB(\hilbert)$ hermitian with $\Delta\geq 0$\cpnote{Francois, de tu nota, la $\Delta$ ya es hermitica, pues 
+% decimos que es una matriz de densidad} \ddnote{Aqui hablamos de matrices
+% positivas definidas en general, estuve revisando en varios libros, y parece que
+% lo mas estandar es suponer que si se dice que es positiva (o negativa) definida
+% o semi-definida, automaticamente se dice que es hermítica. Sin embargo hay
+% definiciones mas generales que involucran matrices no hermiticas, esas eran las
+% que yo tenía en mente (pero parece que no son tan conocidas). Opto por
+% mencionar que $\Delta$ es hermítico.}. 
+%
+On the other hand, if one extends a positive map to include an ancilla, the resulting
+map is not always positive. If, for all dimensions of the ancilla, such extension
+results in a positive map, we say that the original map is completely
+positive~\cite{}.  Quantum channels are required to be completely positive
+so as to allow the proper evolution of potentially entangled states with an 
+ancilla. 
+% In the other hand, a map is completely positive if extending the 
+%  $\id_k \otimes \mcE$ is a positive map for $k=1,2,\dots$, where $\id_k$ is the identity channel over $\mcB(\hilbert_k)$. This ensures that every positive semidefinite operator of any
+% extension of the system (where the quantum channel is now a local operation) is
+% mapped to a positive semidefinite operator. The trace preserving is automatically
+% fulfilled for all extensions if $\mcE$ fulfills it. Therefore, any density matrix of a system
+% where $\mcE$ acts locally, is sent to a valid density matrix, this is the
+% substance of complete positivity.
+% \flnote{No creo que lo de Bell state sea conveniente. Mejor decir algo como: E
+% is totally positive if trivially extending E to the tensor product of H with an
+% arbitrary dimensional ancilla space yields a positive operation.
+% }\ddnote{ejecutado} 
+Concluding, quantum channels are linear completely positive trace preserving
+maps.
 
 Quantum channels can be characterized by means of the Choi-\jami{}
 isomorphism~\cite{choi,jamil}. This is, given a linear operation
