@@ -71,7 +71,7 @@ Creo qie ``hermiticity preserving'' es en parte consecuencia de la definición, 
   \ddnote{[Choi representation, Kraus operators and Stinespring dilation]}
 
 % }}}
-\subsection{Single qubit case} % {{{
+\subsection{One qubit \pce{} maps} % {{{
 \label{sec:single:qubit}
 \todo{David escribe una primera version y luego Carlos itera}
 \pce{} maps are defined as those quantum channels\R{A1} that \textit{nullify} Pauli strings. In the case of one qubit, they consist of maps nullifying the averages $r_\alpha:=\langle \sigma_\alpha \rangle=\tr \left( \rho \sigma_\alpha \right)$ with $\alpha=1,2,3$. The three components $r_\alpha$ form the well-known \textit{Bloch vector} $\vec r$, describing one qubit density matrices,
@@ -178,7 +178,7 @@ $r_1$, collapsing the Block sphere into a disk, and thus does not correspond to 
 	\label{fig:one:qubit:examples}
 \end{figure} % }}}
 % }}}
-\subsection{Pauli component erasing maps} % {{{
+\subsection{$\mathbf{N}$ qubits Pauli component erasing maps} % {{{
 
 Similarly to the one qubit case, the density matrix $\rho$ of a system of $N$ qubits can be written using Pauli strings in the following way, 
 \begin{equation}\label{eq:N_qubits_rho}
@@ -193,30 +193,15 @@ Similarly to the one qubit case, the density matrix $\rho$ of a system of $N$ qu
 where $\vec \alpha$ denotes a vector index $\qty(\alpha_1,\ldots,\alpha_N)$ such that $r_{\vec \alpha}:=\langle \sigma_{\vec \alpha} \rangle=\tr \left(\rho \sigma_{\vec \alpha} \right)$ is the coefficient corresponding to the expansion
 of the density matrix in the basis $\left\{ 2^{-N/2}\sigma_{\vec
 \alpha} \right\}$. The components of $\valpha$ range from $0$ to $3$. 
-Notice that given that $\tr \rho=1$ and $\sigma_{\vec 0} = \openone$, it is clear that $r_{\vec 0}=1$. 
-{\red We shall refer to $\paulicomponents$ as the ``Pauli components'' of the density
-matrix of a system of qubits. } \ddnote{esto se quita, ya lo definí arriba como Pauli strings.}
+Notice that given that $\tr \rho=1$ and $\sigma_{\vec 0} = \openone$, it is clear that $r_{\vec 0}=1$. Additionally, observe that $\vec r_{\vec \alpha}$ can be understood as a generalization of the Bloch vector for $N$ qubits.
 
-As mentioned above, \pce{} maps nullify Pauli strings, thus Consider the linear operations that simply attenuate the Pauli components of 
-a multiqubit system:
+As mentioned above, \pce{} maps nullify Pauli strings, thus, consider the linear operations acting in the generalized Bloch vector $\vec r_{\vec \alpha}$,
 \begin{equation}
 	\paulicomponents \mapsto \taus \paulicomponents.
 % 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
 \label{eq:definition:Pauli}
 \end{equation}
-For the operation to preserve the trace of the density matrix, we require that
-$\tau_{\vec 0}=1$.  
-% These operations are diagonal in the basis $\left\{
-% 2^{-N/2}\sigma_{\vec \alpha} \right\}$, which follows from
-% \eref{eq:sigma_property}. 
-% The diagonal components are $\taus$, i.e. $\hat
-% \mcE=\diag(\taus)$. Additionally, they belong to the subset of unital channels
-% that can be written as convex combinations of unitary channels. \cpnote{Alguien 
-% puso aca que lo probarian, pero no lo hemos discutido y quizá no le veo 
-% el caso en este articulo}
-
-
-
+Similar to the qubit case, not every operation with this form is a \cptp{} map. For the operation to be trace preserving, it is easy to prove that $\tau_{\vec 0}=1$. In the other hand, constructing and evaluating the conditions for complete positivity is involved and is the main problem addressed in this paper.  
 
 A Pauli component erasing (PCE) operation is a Pauli diagonal operation
 %  A linear operation 
@@ -232,11 +217,7 @@ density matrix. That is,
 	\taus = 0,1.
 % \end{split}
 \end{equation}
-It is worth noticing that not all PCE maps are quantum operations\janote{aquí hay una contradicción
-con lo que se dice en la \lr{A1}}. For single 
-qubits, if just one of the $\taus=0$, the complete positivity condition 
-is not met, as discussed in \sref{sec:single:qubit}. It will be of central interest
-in this article to determine which $\taus$ lead to a valid quantum map.
+ determine which $\taus$ lead to a valid quantum map.
 
 %\ddnote{hay un typo en esta ecuacion}
 % A PCE operation is a trace-preserving operation that leaves invariant or erases 
@@ -259,8 +240,7 @@ Lo discutimos en pleno, o por lo menos cuando esten JA y FL. quizá tambien disc
 si se mencionan a los canales  \cite{Siudzinska2020}}\ddnote{Eh estado trabajando en esto, pero el material que he encontrado va mejor en la introduccion, y en todo caso, creo que es muy pronto para mencionar detalles tecnicos sobre los canales que coinciden con los de Ruskai, pues ni siquiera hemos dicho que operaciones de las que definimos aqui, son válidas}
 
 \cpnote{davalos, dale aca un pequeño rollo relevante quiza de una o dos
-frases de la importancia de esta familia.} \ddnote{De momento no he encontrado
-alguna reference, para qubits si, pero para los generales no} \ddnote{Como comento arriba, no le veo sentido que eso esté aqui}.
+frases de la importancia de esta familia.} \ddnote{hecho}.
 % Notice
 % than in both cases we drop the label $\alpha$ for simplicity, as it will 
 % remain unchanged throughout this text \janote{No entiendo qué estás diciendo
