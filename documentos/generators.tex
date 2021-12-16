@@ -52,9 +52,9 @@
 %\item Simetrías
 %\end{itemize}
 
-In this section we will discuss the existence of a generator set for all PCE
-quantum channels, how to label each of them uniquely according to its local action 
-on every qubit in the system, and, finally, we  	will discuss a symmetry of
+We now discuss the existence of a generator set for all PCE quantum channels, 
+how to label each of them uniquely as $\pceg$ according to its local action 
+on every qubit in the system, and, finally, we will discuss a symmetry of
 both PCE quantum channel generators and $A$, the matrix that diagonalizes
 the Choi matrix $\mcD_N$ of a PCE map.
 
@@ -82,32 +82,14 @@ all PCE channels.
 Consider \Fref{fig:examplesPCE}; subfigures (c), (d) and (e) represent nontrivial 
 PCE generators and the composition of any two of them yield the PCE channel
 corresponding to (b). 
-% 
-% 
-% the composition of any two 2-qubits PCE
-% generators 
-% in (c), (d), or (e) is equivalent to taking the intersection between them both
-% and the three different possible compositions result in PCE channel in (b).
-%\cpnote{Aca se me hace que hay un cambio brusco de tema. Ver que onda
-%con Jose Alfredo}
-%The existence of the PCE generators $\mcG$ provide the program of 
-%constructing all PCE channels a tool that avoids the usage of a 
-%high-computational-cost method. In a moment, we will discuss how to find the 
-%generators $\mcG$ from matrix $A$, given a symmetry that is obeyed both by the generators 
-%$\mcG$ and matrix $A$ in \Eref{eq:san}\cpnote{Como que para que ahora se
-%menciona entonces?}.
-%For the case of 1 qubit, the existence of PCE generators $\pceg$ is  
-%verified by Siudzińska~\cite{siudzinska2019geometry}.
-%\janote{Esto puede
-%ser un párrafo, o puede ser un comentario final dentro del párrafo antrerior.}
 
 %\cpnote{Arreglar}
 PCE generators may be characterized by its local action on every qubit 
 in the system, and thus each of them be denoted as $\mcG_{\vec\alpha}$, 
-with $\vec\alpha$ each of the $4^{n}$ different vector indices. For 1-qubit
+with $\vec\alpha$ each of the $4^{N}$ different vector indices. For 1-qubit
 the PCE generators are the identity map plus the channels that map the Bloch 
 sphere to each Cartesian axis, as their associated vector subspaces are trivial
-to prove and their dimension 1 is met. 
+to prove and their dimension $2(1)-1=1$ is met. 
 \janote{Here goes the bla bla for the discussion of the proof for the $N$-qubit
 \pce{} generators}
 Therefore, we can identify the index $\alpha_k$ in $\vec\alpha$ by the local action
@@ -124,66 +106,45 @@ the matrix $A$ that diagonalizes the Choi matrix $\mcD_N$ of a PCE map.
 %PCE generators $\pceg$ obey a symmetry
 %that defines uniquely every PCE generator. 
 The symmetry for a PCE generator $\pceg$ is encoded in the 
-parameters $\{\taus\}$, the $N$-dimensional Cartesian grid associated with it 
-(the set) is either symmetric or anti-symmetric under reflection of the 
+$N$-dimensional array of all $\taus$, the Cartesian grid associated with it 
+is either symmetric or anti-symmetric under reflection of the 
 indices in the $k$-th position in $\vec\alpha$ as
 \begin{align}
 \alpha_{0}\mapsto\alpha_3,\quad\alpha_{3}\mapsto\alpha_0,
 \quad\alpha_1\mapsto\alpha_2, \quad\alpha_2\mapsto\alpha_1.
 \end{align}
-the $N$ hyperplanes of dimension $N-1$ that divide the grid in half.
-For instance, see that the diagrams representing the generators 
-$\mcG_{(1,3)}$, $\mcG_{(3,2)}$ and $\mcG_{(2,2)}$ in subfigures 
-(c), (d) and (e) of \Fref{fig:two:qubit:examples}, respectively,
-are either symmetric or anti-symmetric with respect to the lines that divide vertically 
-and horizontally the diagrams in half. In fact, this symmetry may be used to
-construct all generators $\pceg$ as follows.\janote{sintetizar} Start out with $\tau_{0,\ldots,0}=1$
-and begin to ``unfold'' the array of all $\pceg$'s coefficients $\taus$ by deciding
-whether $\tau_{0,\ldots,0,1}$ be set to 1 or 0 (symmetric or anty-simmetric with 
-respect to $\tau_{0,\ldots,0}$), then choose the values of $\{\tau_{0,\ldots,0,2}, 
-\tau_{0,\ldots,0,3}\}$ to be symmetric or anti-symmetric with respect to 
-$\{\tau_{0,\ldots,0},\tau_{0,\ldots,0,1}\}$; you need to keep this procedure 
-for the remaining subsets with $2l$ coefficients $\taus$, with $l$ the cardinality of 
-the previous subset, by setting the coefficients $\taus=0,1$ in order to be symmetric or
-anti-symmetric to the previous subset. For example, let us illustrate the 
-procedure to construct $\mcG_{(3,2)}$ represented in \Fref{fig:examplesPCE}(d).
-One starts out choosing the value of $\tau_{(0,1)}$ to be anti-symmetric to $\tau_{(0,0)}$, then one chooses 
-$\qty{\tau_{(0,2)},\tau_{(0,3)}}$ symmetric to $\qty{\tau_{(0,0)},\tau_{(0,1)}}$,
-$\qty{\tau_{(1,0)},\tau_{(1,1)},\tau_{(1,2)},\tau_{(1,3)}}$ anti-symmetric 
-to $\qty{\tau_{(0,0)},\tau_{(0,1)},\tau_{(0,2)},\tau_{(0,3)}}$, and finally
-the last eight components $\tau_{\vec\alpha}$ anti-symmetric to the first 
-eight.
-
-\begin{align}
-\tau_{(\vec\alpha)}
-\end{align}
+\janote{Aquí iría la prueva de la simetría de reflexión que está en el horno aún.}
+For instance, see that the 2-qubit PCE generators 
+$\mcG_{(1,0)}$, $\mcG_{(3,2)}$ and $\mcG_{(2,2)}$
+represented in subfigures (c), (d) and (e) of \Fref{fig:two:qubit:examples}, 
+respectively, are either symmetric or anti-symmetric under reflection with 
+respect to lines that divide the diagram in half vertically and horizontally. 
+The same symmetry is identified for the rows and columns of $A$ if one 
+labels each position in a row or column $A^{(i)}$ as $A^{(i)}_{\vec\alpha}$,
+where $\vec\alpha$ is the same vector index used throughout in this manuscript.
+\janote{Aquí habría que agregar la prueva de simetría para la $A$.}
 
 \begin{figure} % {{{
 \centering
 \includegraphics[width=\columnwidth]{oneQ_PCEGs-crop}
-\caption{\janote{Propuesta de figura para mostrar que generadores 
-y la a obedecen las mismas simetrías.}}
+\caption{Connection between rows and columns of $a$ and 1-qubit PCE generators.
+The rows or columns of $a$ and the diagrams of the generators are either 
+symmetric or anti-symmetric under reflection.
+\janote{Propuesta de figura para mostrar que generadores 
+y la a obedecen las mismas simetrías.}
+}
+\label{fig:A_and_PCEGs_connection}
 \end{figure} % }}}
 
-\cpnote{Mucha lora y no se prueba nada, again}
-The matrix $\san$ (and thus $a$) [see \eref{eq:san}] encodes all the information
-of PCE generators $\pceg$ and, therefore, of all PCE quantum channels. 
-The rows and columns of matrix $A$ also obey the symmetry previously discussed 
-for PCE generators $\pceg$. It suffices to check that rows and columns of matrix $a$
-in \Eref{eq:1} obey the aforementioned symmetry when they are arranged in a hypercubic 
-$N$-dimensional array of order $4$.
-As a consequence of $a$'s elements being $\pm1$, the power tensor $a^{\otimes N}$ will hold the symmetry of the 
-rows and columns of $A$. \janote{falta prueba}
-Therefore, this establishes a deep connection between the matrix $A$ and 
-PCE quantum channels. It allows one to infer the PCE generators $\pceg$
-by taking its corresponding coefficients $\{\taus\}$ as the rows or columns of $A$ 
-after taking $-1\mapsto0$. In \appref{sec:2_qubits} we illustrate this program 
-for 2-qubits PCE channels.
-In short, it is sufficient to have the matrix $A$ to construct 
-all PCE quantum channels.
-%\janote{Aquí
-%tendrá que ir una prueba que aún se está cocinando}
-
+%\cpnote{Mucha lora y no se prueba nada, again}
+Given that both matrix $\san$ and PCE generators $\pceg$ have the same 
+symmetries, it is worth pointing out that $\san$ (and thus $a$) [see \eref{eq:san}] 
+encodes all the information of PCE generators $\pceg$ and, therefore, of all PCE quantum channels. 
+From the tensor power of matrix $a$ one can infer the $\{\taus\}$ of a PCE
+generator $\pceg$ by taking any row or column $A^{(i)}$ and mapping 
+all entries with $-1$ to $0$. In \Fref{fig:A_and_PCEGs_connection} we illustrate
+this connection between $a$ and 1-qubit PCE generators.
+In \appref{sec:2_qubits} we illustrate this program for 2-qubits PCE channels.
 
 \cpnote{Sienot que no tiene flujo. Quizá se le pueda dar flujo usando el final 
 del primer parrafo}
