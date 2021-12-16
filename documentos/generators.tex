@@ -2,56 +2,6 @@
 %\todo{Francois escribe una primera version del primer punto, y luego quizá Jose
 %Alfredo o Carlos la terminan}
 
-%\janote{Mis sugerencias para esta sección son:\newline\indent (1) Es ilustrativo y bonito
-%explicar a punta de las figuras PCE cómo generar todos los canales PCE 
-%de 2 qubits. Sólo es necesario mostrar cómo se generan elementos representativos
-%de cada clase de equivalencia. [Ya se habló de las clases de equivalencia a
-%esta altura del artículo?] Esto es algo que se puede poner en un apéndice.\newline\indent
-%(2) Para el caso de 1 qubit, nuestra noción de generadores es compatible 
-%con los resultados de Siudzinska \cite{siudzinska2019geometry} sobre 
-%el espacio en el tetraedro de los canales cuánticos que son accesibles 
-%mediante generadores locales de tiempo. Quizás una referencia es 
-%apropiada.\newline\indent
-%(3) Hablar sobre la relación entre los generadores y filas o columnas de la $A$.
-%Esto lo podemos discutir con más detalles, Carlos. 
-%}
-
-%\esqueletoja{By standard theorems of linear algebra, any subspace $W$ 
-%in \eqref{eq:19}, associated with a unique PCE quantum channel, can be 
-%extended to a maximal subspace of dimension $2N-1$ by adjoining appropiate
-%additional basis elements.}
-
-%\colorbox{yellow}{\textcolor{blue}{Esqueleto}}
-%\textcolor{jacolor}{
-%\begin{itemize}
-%\item Siguiendo la discusión de los espacios vectoriales de la sección anterior, 
-%introducir de forma consecuente los generadores como subespacios maximales. 
-%Es decir, darle una retocada a lo que ya escribió Francois, pero que armonice 
-%con lo que viene de la sección anterior.
-%\item Ilustrar el algoritmo para construir todos los PCEs como 
-%concatenaciones de los generadores. Comentar al final del párrafo que, para 
-%1 qubit, nuestro descubrimiento de los PCEGs es compatible con los resultados 
-%de Siudzinska~\cite{siudzinska2019geometry} sobre el espacio en el tetrahedro 
-%en el que ella encontró que viven los canales cuánticos que son accesibles 
-%mediante generadores. **en algún lado aquí se puede decir que en el apéndice 
-%se muestra con los tableros como generar todo el caso de 2 qubits
-%\item Ya que expusimos en el párrafo anterior la utilidad de los generadores, 
-%hablar de la relación de los generadores con la $A$, como una forma de 
-%obtenerlos. El enunciado principal podría ser algo como "The matrix $A$ 
-%contains all the information of PCE quantum channels". Es una frase fuerte, 
-%pero creo que con un poco de meditación es cierto; de la $A$ puedes sacar 
-%los generadores, y con ellos todos los PCEs, se acabó. 
-%\item Hablar de las simetrías de los generadores. (No sé a qué se refiere quien 
-%escribió eso. Toca hablarlo con Carlos.)
-%\end{itemize}}
-%
-%Un párrafo de intro a las tres ideas 
-%\begin{itemize}
-%\item Existen los generadores 
-%\item Clasificación de los generadores 
-%\item Simetrías
-%\end{itemize}
-
 We now discuss the existence of a generator set for all PCE quantum channels, 
 how to label each of them uniquely as $\pceg$ according to its local action 
 on every qubit in the system, and, finally, we will discuss a symmetry of
@@ -74,19 +24,13 @@ compositions of PCE channels corresponding to maximally non-trivial subspaces, p
 the identity map. In other words, the set of PCE quantum channels that preserve half 
 of the components plus the identity map, are a generator set for 
 all PCE channels.
-% and the complete vector space (corresponding to the identity channel),
-% which we call generators. 
-% \cpnote{Aca tenemos un semigrupo y no se si incluir a la identidad como 
-% generador. De alguna manera es excepcional. Es problematico incluirla y es 
-% problematico no incluirla.}
 Consider \Fref{fig:examplesPCE}; subfigures (c), (d) and (e) represent nontrivial 
 PCE generators and the composition of any two of them yield the PCE channel
 corresponding to (b). 
 
-%\cpnote{Arreglar}
 PCE generators may be characterized by its local action on every qubit 
 in the system, and thus each of them be denoted as $\mcG_{\vec\alpha}$, 
-with $\vec\alpha$ each of the $4^{N}$ different vector indices. For 1-qubit
+with $\vec\alpha$ each of the $4^{N}$ different vector indices. For a single qubit
 the PCE generators are the identity map plus the channels that map the Bloch 
 sphere to each Cartesian axis, as their associated vector subspaces are trivial
 to prove and their dimension $2(1)-1=1$ is met. 
@@ -100,11 +44,8 @@ Bloch sphere to de $x$-axis, and on the second qubit (first row) acts an identit
 hence it is labeled $\mcG_{(1,0)}$.
 See \Fref{fig:appex:twoQ_PCEGs} for the notation of all 2-qubit PCE generators.
 
-%\cpnote{Mucha lora y no se prueba nada}
 A reflection symmetry is identified for both PCE generators $\pceg$ and
 the matrix $A$ that diagonalizes the Choi matrix $\mcD_N$ of a PCE map.
-%PCE generators $\pceg$ obey a symmetry
-%that defines uniquely every PCE generator. 
 The symmetry for a PCE generator $\pceg$ is encoded in the 
 $N$-dimensional array of all $\taus$, the Cartesian grid associated with it 
 is either symmetric or anti-symmetric under reflection of the 
@@ -126,7 +67,7 @@ labels each position in a row or column $A^{(i)}$ as $A^{(i)}_{\vec\alpha}$.
 \begin{figure} % {{{
 \centering
 \includegraphics[width=\columnwidth]{oneQ_PCEGs-crop}
-\caption{Connection between rows and columns of $a$ and 1-qubit PCE generators.
+\caption{Connection between rows and columns of $a$ and single qubit PCE generators.
 The rows or columns of $a$ and the diagrams of the generators are either 
 symmetric or anti-symmetric under reflection.
 \janote{Propuesta de figura para mostrar que generadores 
@@ -135,14 +76,13 @@ y la a obedecen las mismas simetrías.}
 \label{fig:A_and_PCEGs_connection}
 \end{figure} % }}}
 
-%\cpnote{Mucha lora y no se prueba nada, again}
 Given that both matrix $\san$ and PCE generators $\pceg$ have the same 
 symmetries, it is worth pointing out that $\san$ (and thus $a$) [see \eref{eq:san}] 
 encodes all the information of PCE generators $\pceg$ and, therefore, of all PCE quantum channels. 
 From the tensor power of matrix $a$ one can infer the $\{\taus\}$ of a PCE
 generator $\pceg$ by taking any row or column $A^{(i)}$ and mapping 
 all entries with $-1$ to $0$. In \Fref{fig:A_and_PCEGs_connection} we illustrate
-this connection between $a$ and 1-qubit PCE generators.
+this connection between $a$ and single qubit PCE generators.
 In \appref{sec:2_qubits} we illustrate this program for 2-qubits PCE channels.
 
 \cpnote{Sienot que no tiene flujo. Quizá se le pueda dar flujo usando el final 
@@ -157,20 +97,6 @@ permutations.
 \janote{El párrafo que pretendía ser este tendrá que ir en otra parte. 
 Aún hay que decidirlo con los demás.}
 
-%Quizá en un apendice poner todos los generadores de dos qubits. 
-%\janote{Poner el comentario en algún lado de que hay que hacer una
-%referencia a un apéndice.}
-%
-%\janote{falta escribir un párrafo sobre la clasificación: (la clasificación 
-%es de que cada generador está caracterizado por un $\alpha$)}
-%También poner como se pueden calsificar los generadores y por aih poner la clasificacion de los 
-%generadores en la figura.  o en el texto
-%
-%\begin{itemize}
-%\item Clasificacion de los generadores, es decir que para dos qubits, lo podemos indicar con la acción sobre cada qubit individual
-%\item Quizá mostrar algunas propiedades de simetrías. 
-%\item Notar lo de los generadores y como sale la estructura jerárquica 
-%\end{itemize}
 % }}}
 
 
