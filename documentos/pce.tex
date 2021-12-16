@@ -79,7 +79,8 @@ $\choi=\left(\id \otimes \mcE\right)[\proj{\Omega}{\Omega}]$, where
 $\ket{\Omega}=1/\dim(\hilbert)\sum_i^{\dim(\hilbert)}\ket{i}\ket{i}$ is a 
 maximally entangled state between the original system and an ancilla.
 Remarkably, the map \mcE is completely positive
-if and only \choi (also called dynamical matrix) is positive-semidefinite.
+if and only \choi (also called dynamical matrix) is
+positive-semidefinite~\cite{jamil,choi}.
 
 %  the
 % Bell state between two copies of \hilbert. 
@@ -103,26 +104,26 @@ if and only \choi (also called dynamical matrix) is positive-semidefinite.
 % needed to represent the channel is called \textit{Kraus rank}. 
 %
 
-It can be seen from Kraus decomposition that quantum channels preserve
-hermiticity, this has a practical consequence when using hermitian bases, \ie{}
-let $\left\{ \Delta_i \right\}$ be a hermitian basis in $\mcB(\hilbert)$, then
-the entries of the matrix representation of the quantum channel $\mcE$, $\hat
-\mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$, are real. In particular,
-in this work we are interested in systems of $N$ qubits, and we use hermitian
-bases consisting of the so-called \textit{Pauli strings} \ddnote{aqui
-introduzco el nombre estandar}, defined as 
-\begin{equation}
-\sigma_{\vec \alpha}:=\sigma_{\alpha_1}\otimes \sigma_{\alpha_2} \otimes \dots \otimes \sigma_{\alpha_N},
-\label{eq:pauli_strings}
-\end{equation}
-where $N$ is the number qubits, $\alpha_i=0,1,2,3$ with $\sigma_0:=\one$ and
-$\sigma_{1,2,3}:=\sigma_{x,y,z}$. Thus, given $N$ and the fact that $\tr
-\sigma_{\vec \alpha}=\delta_{\vec\alpha,\vec 0} 2^{N}$, it is clear that the
-basis $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ is orthonormal in
-$\mcB(\hilbert_{2^N})$. The case with $N=1$ corresponds to the well-known
-\textit{Pauli basis},
-%
-$1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$.
+% It can be seen from Kraus decomposition that quantum channels preserve
+% hermiticity, this has a practical consequence when using hermitian bases, \ie{}
+% let $\left\{ \Delta_i \right\}$ be a hermitian basis in $\mcB(\hilbert)$, then
+% the entries of the matrix representation of the quantum channel $\mcE$, $\hat
+% \mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$, are real. In particular,
+% in this work we are interested in systems of $N$ qubits, and we use hermitian
+% bases consisting of the so-called \textit{Pauli strings} \ddnote{aqui
+% introduzco el nombre estandar}, defined as 
+% \begin{equation}
+% \sigma_{\vec \alpha}:=\sigma_{\alpha_1}\otimes \sigma_{\alpha_2} \otimes \dots \otimes \sigma_{\alpha_N},
+% \label{eq:pauli_strings}
+% \end{equation}
+% where $N$ is the number qubits, $\alpha_i=0,1,2,3$ with $\sigma_0:=\one$ and
+% $\sigma_{1,2,3}:=\sigma_{x,y,z}$. Thus, given $N$ and the fact that $\tr
+% \sigma_{\vec \alpha}=\delta_{\vec\alpha,\vec 0} 2^{N}$, it is clear that the
+% basis $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ is orthonormal in
+% $\mcB(\hilbert_{2^N})$. The case with $N=1$ corresponds to the well-known
+% \textit{Pauli basis},
+% $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$.
+
 %
 
 % \flnote{
@@ -136,34 +137,82 @@ $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$.
 % }}}
 \subsection{Pauli component erasing maps} % {{{
 \label{sec:single:qubit}
-\todo{David escribe una primera version y luego Carlos itera}
-\pce{} maps are defined as those quantum channels\janote{David, los mapas PCE no son necesariamente canales cuánticos. Por esto, 
-estás siendo incosistente en el uso de ``\pce{} maps'' en las líneas \lr{A1}, \lr{A2} y \lr{A3} del PDF. 
-Especialmente, en la línea \lr{A1} seguro te estás refiriendo a todos los 
-mapas, no sólo a los canales cuánticos} that \textit{nullify} Pauli strings. 
-\janote{Por el comentario que hice antes propongo la siguiente reformulación:} 
-\janote{
-\pce{} maps are defined as positive trace-preserving (PTP) maps that 
-\textit{nullify} Pauli strings.}
-In the case of one qubit, they consist of maps nullifying the averages $r_\alpha:=\langle \sigma_\alpha \rangle=\tr \left( \rho \sigma_\alpha \right)$ with $\alpha=1,2,3$. The three components $r_\alpha$ form the well-known \textit{Bloch vector} $\vec r$, describing one qubit density matrices,
+% \todo{David escribe una primera version y luego Carlos itera}
+
+We shall start exploring a single qubit scenario, where the most general 
+density matrix can be written as
 \begin{equation}
-\rho=\frac{\one +\vec r \cdot \vec \sigma}{2}.
+% \rho=\frac{\one +\vec r \cdot \vec \sigma}{2}.
+\rho=\frac12 {\sum_{\alpha=0}^3 r_\alpha \sigma_\alpha},
 \end{equation}
-Therefore, maps erasing components of $\vec r$ are parametrized in the following way,
+with $\sigma_0= \one$, and $\sigma_{1,2,3}$ the usual Pauli matrices. 
+Normalization requires that $r_0=1$ and the remaining $r_{1,2,3}$ 
+form the Bloch vector. Consider the map that projects
+each component 
+in the following way,
 \begin{equation}
 r_\alpha \mapsto \tau_\alpha r_\alpha
 \end{equation}
-where $\tau_\alpha$ is either $1$ or $0$. It is well-known that not every operation like this is a quantum map, for example collapsing the entire Bloch ball into a disk of radio equal to one is not a quantum channel. A direct evaluation of the complete positivity conditions~\cite{zimansbook,davalosdivisibility},
+where $\tau_\alpha$ is either $1$ or $0$. Not every
+operation like this is a quantum map; for example collapsing the entire Bloch
+ball to the $xy$ plane (setting $\tau_3=0$ and the rest to 1) is not a quantum
+channel. A direct evaluation of the complete positivity
+conditions~\cite{zimansbook,davalosdivisibility}, 
 \begin{align}
 1+\tau_1+\tau_2+\tau_3 &\geq 0, \nonumber \\
-1+\tau_i-\tau_j-\tau_k &\geq 0 \ \ \forall i\neq j \neq k,
+1+\tau_\alpha-\tau_\beta-\tau_\gamma &\geq 0 \ \ \forall \alpha\neq \beta \neq \gamma,
 \end{align}
-where trace-preserving is already imposed ($\tau_0=1$), show that only five operations are \pce:
-\janote{Derivado de mi comentario sobre el uso de ``PCE maps''
-también propongo que en vez de ``show that only five operations are \pce{}''
-se cambie por ``show that five out of the eight 1-qubit PCE maps are quantum
-channels''} 
-the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and completely bit, phase, and the bit-phase flip channels~\cite{chuangbook}. These operations are by definition diagonal in the Pauli basis~\cite{Ziman2005,davalosdivisibility}, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$, and can be pictured using one column tables showing the positions of $1$s and $0$s in the diagonal of the channel (in the Pauli basis), see~\fref{fig:one:qubit:examples}.
+where trace-preserving is already imposed ($\tau_0=1$), show that five out of
+the eight 1-qubit PCE maps are quantum channels.
+% 
+% show that only five
+% operations are \pce:
+% \janote{Derivado de mi comentario sobre el uso de ``PCE maps''
+% también propongo que en vez de ``show that only five operations are \pce{}''
+% se cambie por ``show that five out of the eight 1-qubit PCE maps are quantum
+% channels''} 
+These operations are the identity map, the completely depolarizing channel
+($\rho \mapsto \one/2$); and completely bit, phase, and the bit-phase flip
+channels~\cite{chuangbook}, 
+% These operations are by definition diagonal in the
+% Pauli basis~\cite{Ziman2005,davalosdivisibility}, \ie{} $\hat
+% \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$
+and can be pictured using one column tables showing the positions of $0$s and
+$1$s, see~\fref{fig:one:qubit:examples}.
+
+
+
+% \pce{} maps are defined as those quantum channels\janote{David, los mapas PCE
+% no son necesariamente canales cuánticos. Por esto, estás siendo incosistente en
+% el uso de ``\pce{} maps'' en las líneas \lr{A1}, \lr{A2} y \lr{A3} del PDF.
+% Especialmente, en la línea \lr{A1} seguro te estás refiriendo a todos los
+% mapas, no sólo a los canales cuánticos} that \textit{nullify} Pauli strings.
+% \janote{Por el comentario que hice antes propongo la siguiente reformulación:} 
+% \janote{
+% \pce{} maps are defined as positive trace-preserving (PTP) maps that 
+% \textit{nullify} Pauli strings.}
+% In the case of one qubit, they consist of maps nullifying the averages
+% $r_\alpha:=\langle \sigma_\alpha \rangle=\tr \left( \rho \sigma_\alpha \right)$
+% with $\alpha=1,2,3$. The three components $r_\alpha$ form the well-known
+% \textit{Bloch vector} $\vec r$, describing one qubit density matrices,
+% \begin{equation}
+% \rho=\frac{\one +\vec r \cdot \vec \sigma}{2}.
+% \end{equation}
+% Therefore, maps erasing components of $\vec r$ are parametrized in the following way,
+% \begin{equation}
+% r_\alpha \mapsto \tau_\alpha r_\alpha
+% \end{equation}
+% where $\tau_\alpha$ is either $1$ or $0$. It is well-known that not every operation like this is a quantum map, for example collapsing the entire Bloch ball into a disk of radio equal to one is not a quantum channel. A direct evaluation of the complete positivity conditions~\cite{zimansbook,davalosdivisibility},
+% \begin{align}
+% 1+\tau_1+\tau_2+\tau_3 &\geq 0, \nonumber \\
+% 1+\tau_i-\tau_j-\tau_k &\geq 0 \ \ \forall i\neq j \neq k,
+% \end{align}
+% where trace-preserving is already imposed ($\tau_0=1$), show that only five operations are \pce:
+% \janote{Derivado de mi comentario sobre el uso de ``PCE maps''
+% también propongo que en vez de ``show that only five operations are \pce{}''
+% se cambie por ``show that five out of the eight 1-qubit PCE maps are quantum
+% channels''} 
+% the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and completely bit, phase, and the bit-phase flip channels~\cite{chuangbook}. These operations are by definition diagonal in the Pauli basis~\cite{Ziman2005,davalosdivisibility}, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$, and can be pictured using one column tables showing the positions of $1$s and $0$s in the diagonal of the channel (in the Pauli basis), see~\fref{fig:one:qubit:examples}.
 \begin{figure} % {{{
 \begin{center}
 \begin{tikzpicture}[x=0.5cm, y=0.5cm] % {{{
@@ -256,7 +305,31 @@ $r_1$, collapsing the Block sphere into a disk, and thus does not correspond to 
 % }}}
 % \subsection{$\mathbf{N}$ qubits Pauli component erasing maps} % {{{
 
-Similarly to the one qubit case, the density matrix $\rho$ of a system of $N$ qubits can be written using Pauli strings in the following way, 
+
+In order to present and work the $N$ qubit case, it is useful 
+to introduce 
+the so-called \textit{Pauli strings}, defined as 
+\begin{equation}
+\sigma_{\vec \alpha}=\sigma_{\alpha_1}\otimes \sigma_{\alpha_2} \otimes \dots \otimes \sigma_{\alpha_N},
+\label{eq:pauli_strings}
+\end{equation}
+where $\vec \alpha$ denotes a vector index $\qty(\alpha_1,\ldots,\alpha_N)$
+and $\alpha_i=0,1,2,3$. These hermitian operators form an orthogonal 
+basis in the space of operators acting on $N$ qubits. In fact, 
+$\tr \sigma_{\vec \alpha} \sigma_{\vec \alpha'}=2^N\delta_{\alpha \alpha'}$
+and 
+$\tr \sigma_{\vec \alpha}=\delta_{\vec\alpha,\vec 0} 2^{N}$.
+% 
+% Thus, given $N$ and the fact that $\tr
+% \sigma_{\vec \alpha}=\delta_{\vec\alpha,\vec 0} 2^{N}$, it is clear that the
+% basis $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ is orthonormal in
+% $\mcB(\hilbert_{2^N})$. The case with $N=1$ corresponds to the well-known
+% \textit{Pauli basis},
+% $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$.
+
+
+Similarly to the one qubit case, the density matrix $\rho$ of a system of $N$
+qubits can be written using Pauli strings in the following way, 
 \begin{equation}\label{eq:N_qubits_rho}
 	\rho =\frac{1}{2^N} 
             \sum_\valpha r_\valpha \sigma_\valpha,
@@ -266,10 +339,64 @@ Similarly to the one qubit case, the density matrix $\rho$ of a system of $N$ qu
 % 	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
 	%r_{0,\ldots,0}=1,
 \end{equation}
-where $\vec \alpha$ denotes a vector index $\qty(\alpha_1,\ldots,\alpha_N)$ such that $r_{\vec \alpha}:=\langle \sigma_{\vec \alpha} \rangle=\tr \left(\rho \sigma_{\vec \alpha} \right)$ is the coefficient corresponding to the expansion
-of the density matrix in the basis $\left\{ 2^{-N/2}\sigma_{\vec
-\alpha} \right\}$. The components of $\valpha$ range from $0$ to $3$. 
-Notice that given that $\tr \rho=1$ and $\sigma_{\vec 0} = \openone$, it is clear that $r_{\vec 0}=1$. Additionally, observe that $\vec r_{\vec \alpha}$ can be understood as a generalization of the Bloch vector for $N$ qubits.
+so $r_{\vec \alpha}=\langle \sigma_{\vec \alpha} \rangle=\tr \left(\rho
+\sigma_{\vec \alpha} \right)$ is the coefficient corresponding to the expansion
+of the density matrix in the normalized basis of Pauli strings. Again,
+normalization of the state requires that $r_{\vec 0}=1$.
+We shall refer to $\paulicomponents$ as the ``Pauli components'' of the density
+matrix of a system of qubits. 
+
+% The components of $\valpha$ range from $0$ to $3$.  Notice that
+% given that $\tr \rho=1$ and $\sigma_{\vec 0} = \openone$, it is clear that
+% $r_{\vec 0}=1$. Additionally, observe that $\vec r_{\vec \alpha}$ can be
+% understood as a generalization of the Bloch vector for $N$ qubits.
+% 
+
+
+
+% The density matrix $\rho$ of a system of $N$ qubits can be written in Pauli
+% matrices basis as 
+% \begin{equation}\label{eq:N_qubits_rho}
+% 	\rho =\frac{1}{2^N} 
+%             \sum_\valpha r_\valpha \sigma_\valpha,
+% %             \quad r_{\vec0}=1,
+% % 	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
+% %             \sum_{\alpha_1,\ldots,\alpha_N=0}^3 \paulicomponents
+% % 	\sigma_{\alpha_1}\otimes \ldots \otimes \sigma_{\alpha_N},
+% 	%r_{0,\ldots,0}=1,
+% \end{equation}
+% where $\vec \alpha$ denotes a vector index $\qty(\alpha_1,\ldots,\alpha_N)$,
+% $\sigma_{\vec \alpha} := \sigma_{\alpha_1}\otimes \ldots \otimes
+% \sigma_{\alpha_N}$ is the tensor product of Pauli matrices, and 
+% $r_{\vec \alpha}$ is the coefficient corresponding to the expansion
+% of the density matrix in the complete orthonormal basis $\left\{ 2^{-N/2}\sigma_{\vec
+% \alpha} \right\}$. In the sum each of the $N$ components of $\valpha$, i.e.
+% $\alpha_{1,\cdots,N}$ is varied from $0$ to $3$. 
+% Notice that $\sigma_{\vec 0} = \openone$, and since both $\tr \rho=1$ and 
+% $\tr \sigma_\valpha=2^N\delta_{\valpha,\vec 0}$, then $r_{\vec 0}=1$. 
+% We shall refer to $\paulicomponents$ as the ``Pauli components'' of the density
+% matrix of a system of qubits. 
+
+
+A Pauli component erasing (PCE) operation is a Pauli diagonal operation
+that either preserves or completely erases the Pauli components of a
+density matrix. That is, 
+% it transforms its Pauli components as 
+\begin{equation} \label{eq:PCE_definition}
+% \begin{split}
+% 	\paulicomponents \mapsto \ \taus \paulicomponents,\hspace{.5cm}\\
+% 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
+	\paulicomponents \mapsto \taus \paulicomponents,\quad 
+	\taus = 0,1.
+% \end{split}
+\end{equation}
+It is worth noticing that not all PCE maps are quantum operations. For single 
+qubits, if just one of the $\taus=0$, the complete positivity condition 
+is not met, as discussed in \sref{sec:single:qubit}. It will be of central interest
+in this article to determine which $\taus$ lead to a valid quantum map.
+
+
+
 
 As mentioned above, \pce{} maps\R{A1} nullify Pauli strings, thus, consider the linear operations acting in the generalized Bloch vector $\vec r_{\vec \alpha}$,
 \begin{equation}
@@ -304,7 +431,25 @@ frases de la importancia de esta familia.} \ddnote{hecho, pero de pronto quedo e
 % todo claro y no hay problema en dejarlo así por el momento.}
 % \cpnote{Aca voy} 
 
-For the two qubits case, the operations illustrated in~\eref{eq:definition:Pauli} can be pictured using $4\times 4$ tables, showing the positions of the $0$s and $1$s of the diagonal using the Pauli string basis, see~\fref{fig:two:qubit:examples}. This way of representing \pce{} maps\R{A3} turned out to be very useful for their analysis throughout this work.
+For the two qubits case, the operations illustrated
+in~\eref{eq:definition:Pauli} can be pictured using $4\times 4$ tables, showing
+the positions of the $0$s and $1$s of the diagonal using the Pauli string
+basis, see~\fref{fig:two:qubit:examples}. This way of representing \pce{}
+maps\R{A3} turned out to be very useful for their analysis throughout this
+work.
+
+
+
+A graphical representation for PCE maps may be introduced, being the
+two qubits case what has proved to be the most useful. Consider a $N$ dimensional 
+Cartesian grid, with $4^N$ places.  Each place has $N$ integer coordinates, ranging
+from 0 to 3, so each place corresponds to a given $\vec \alpha$ in 
+\eref{eq:N_qubits_rho}. For a given PCE, we shall fill 
+the square if the corresponding $\tau_{\vec \alpha}=1$. Otherwise, we leave it 
+empty. Examples for $N=1$ are provided in \fref{fig:one:qubit:examples}, whereas
+for two qubits, we exemplify them in \fref{fig:two:qubit:examples}. 
+
+
 
 % Notice
 % than in both cases we drop the label $\alpha$ for simplicity, as it will 
