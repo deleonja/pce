@@ -137,7 +137,15 @@ $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$.
 \subsection{Pauli component erasing maps} % {{{
 \label{sec:single:qubit}
 \todo{David escribe una primera version y luego Carlos itera}
-\pce{} maps are defined as those quantum channels\R{A1} that \textit{nullify} Pauli strings. In the case of one qubit, they consist of maps nullifying the averages $r_\alpha:=\langle \sigma_\alpha \rangle=\tr \left( \rho \sigma_\alpha \right)$ with $\alpha=1,2,3$. The three components $r_\alpha$ form the well-known \textit{Bloch vector} $\vec r$, describing one qubit density matrices,
+\pce{} maps are defined as those quantum channels\janote{David, los mapas PCE no son necesariamente canales cuánticos. Por esto, 
+estás siendo incosistente en el uso de ``\pce{} maps'' en las líneas \lr{A1}, \lr{A2} y \lr{A3} del PDF. 
+Especialmente, en la línea \lr{A1} seguro te estás refiriendo a todos los 
+mapas, no sólo a los canales cuánticos} that \textit{nullify} Pauli strings. 
+\janote{Por el comentario que hice antes propongo la siguiente reformulación:} 
+\janote{
+\pce{} maps are defined as positive trace-preserving (PTP) maps that 
+\textit{nullify} Pauli strings.}
+In the case of one qubit, they consist of maps nullifying the averages $r_\alpha:=\langle \sigma_\alpha \rangle=\tr \left( \rho \sigma_\alpha \right)$ with $\alpha=1,2,3$. The three components $r_\alpha$ form the well-known \textit{Bloch vector} $\vec r$, describing one qubit density matrices,
 \begin{equation}
 \rho=\frac{\one +\vec r \cdot \vec \sigma}{2}.
 \end{equation}
@@ -150,7 +158,12 @@ where $\tau_\alpha$ is either $1$ or $0$. It is well-known that not every operat
 1+\tau_1+\tau_2+\tau_3 &\geq 0, \nonumber \\
 1+\tau_i-\tau_j-\tau_k &\geq 0 \ \ \forall i\neq j \neq k,
 \end{align}
-where trace-preserving is already imposed ($\tau_0=1$), show that only five operations are \pce: the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and completely bit, phase, and the bit-phase flip channels~\cite{chuangbook}. These operations are by definition diagonal in the Pauli basis~\cite{Ziman2005,davalosdivisibility}, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$, and can be pictured using one column tables showing the positions of $1$s and $0$s in the diagonal of the channel (in the Pauli basis), see~\fref{fig:one:qubit:examples}.
+where trace-preserving is already imposed ($\tau_0=1$), show that only five operations are \pce:
+\janote{Derivado de mi comentario sobre el uso de ``PCE maps''
+también propongo que en vez de ``show that only five operations are \pce{}''
+se cambie por ``show that five out of the eight 1-qubit PCE maps are quantum
+channels''} 
+the identity map, the completely depolarizing channel ($\rho \mapsto \one/2$); and completely bit, phase, and the bit-phase flip channels~\cite{chuangbook}. These operations are by definition diagonal in the Pauli basis~\cite{Ziman2005,davalosdivisibility}, \ie{} $\hat \mcE=\diag{\left(1,\tau_x, \tau_y, \tau_z \right)}$, and can be pictured using one column tables showing the positions of $1$s and $0$s in the diagonal of the channel (in the Pauli basis), see~\fref{fig:one:qubit:examples}.
 \begin{figure} % {{{
 \begin{center}
 \begin{tikzpicture}[x=0.5cm, y=0.5cm] % {{{
@@ -258,7 +271,7 @@ of the density matrix in the basis $\left\{ 2^{-N/2}\sigma_{\vec
 \alpha} \right\}$. The components of $\valpha$ range from $0$ to $3$. 
 Notice that given that $\tr \rho=1$ and $\sigma_{\vec 0} = \openone$, it is clear that $r_{\vec 0}=1$. Additionally, observe that $\vec r_{\vec \alpha}$ can be understood as a generalization of the Bloch vector for $N$ qubits.
 
-As mentioned above, \pce{} maps nullify Pauli strings, thus, consider the linear operations acting in the generalized Bloch vector $\vec r_{\vec \alpha}$,
+As mentioned above, \pce{} maps\R{A1} nullify Pauli strings, thus, consider the linear operations acting in the generalized Bloch vector $\vec r_{\vec \alpha}$,
 \begin{equation}
 	\paulicomponents \mapsto \taus \paulicomponents.
 % 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1,
@@ -278,7 +291,7 @@ diagonal in the $\left\{ 2^{-N/2}\sigma_{\vec
 Lo discutimos en pleno, o por lo menos cuando esten JA y FL. quizá tambien discutir
 si se mencionan a los canales  \cite{Siudzinska2020}}\ddnote{Eh estado trabajando en esto, pero el material que he encontrado va mejor en la introduccion, y en todo caso, creo que es muy pronto para mencionar detalles tecnicos sobre los canales que coinciden con los de Ruskai, pues ni siquiera hemos dicho que operaciones de las que definimos aqui, son válidas}
 
-It is worth noticing that the set of \pce{} maps overlaps with the set of ``Pauli diagonal channels constant on axes'' defined in Ref.~\cite{nathanson2007pauli}, consisting of convex combinations of \textit{quantum-classical} channels. In particular, it can be shown that quantum-classical channels defined with the eigenbasis of some set of $2^N-1$ commuting Pauli observables~\cite{Lawrence2002}, is a \pce{} map with exactly $ 2^N $ components equal to $1$s in its diagonal.
+It is worth noticing that the set of \pce{} maps \R{A2} overlaps with the set of ``Pauli diagonal channels constant on axes'' defined in Ref.~\cite{nathanson2007pauli}, consisting of convex combinations of \textit{quantum-classical} channels. In particular, it can be shown that quantum-classical channels defined with the eigenbasis of some set of $2^N-1$ commuting Pauli observables~\cite{Lawrence2002}, is a \pce{} map with exactly $ 2^N $ components equal to $1$s in its diagonal.
 
 
 \cpnote{davalos, dale aca un pequeño rollo relevante quiza de una o dos
@@ -291,7 +304,7 @@ frases de la importancia de esta familia.} \ddnote{hecho, pero de pronto quedo e
 % todo claro y no hay problema en dejarlo así por el momento.}
 % \cpnote{Aca voy} 
 
-For the two qubits case, the operations illustrated in~\eref{eq:definition:Pauli} can be pictured using $4\times 4$ tables, showing the positions of the $0$s and $1$s of the diagonal using the Pauli string basis, see~\fref{fig:two:qubit:examples}. This way of representing \pce{} maps turned out to be very useful for their analysis throughout this work.
+For the two qubits case, the operations illustrated in~\eref{eq:definition:Pauli} can be pictured using $4\times 4$ tables, showing the positions of the $0$s and $1$s of the diagonal using the Pauli string basis, see~\fref{fig:two:qubit:examples}. This way of representing \pce{} maps\R{A3} turned out to be very useful for their analysis throughout this work.
 
 % Notice
 % than in both cases we drop the label $\alpha$ for simplicity, as it will 

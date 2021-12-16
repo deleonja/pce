@@ -53,8 +53,8 @@
 %\end{itemize}
 
 In this section we will discuss the existence of a generator set for all PCE
-quantum channels, how to label each element of this set according to its local-action to 
-every qubit in the system, and, finally, we  	will discuss a symmetry of
+quantum channels, how to label each of them uniquely according to its local action 
+on every qubit in the system, and, finally, we  	will discuss a symmetry of
 both PCE quantum channel generators and $A$, the matrix that diagonalizes
 the Choi matrix $\mcD_N$ of a PCE map.
 
@@ -102,45 +102,35 @@ corresponding to (b).
 %ser un párrafo, o puede ser un comentario final dentro del párrafo antrerior.}
 
 %\cpnote{Arreglar}
-\janote{Discutir con Carlos}
-PCE generators may be characterized by its local-action on every qubit 
-in the system, and thus be denoted as $\mcG_{\vec\alpha}$. First, let us denote
-the four 1-qubit PCE generators as $\mcG_{\alpha}$, with $\alpha=0,1,2,3$.
-The first being the trivial generator and the remaining the channels that 
-map the Bloch sphere to each of the Cartesian axes.
-%PCE generator may be identified with a unique vector index
-%$\vec\alpha$, and thus be denoted as $\pceg$.
-% El numero de generadores concide con esa vaina. 
-%Let us introduce a convention for the following discussion for 
-%the indices in $\vec\alpha$; the number 0 to 3 identifies
-%Recall that indices $0,1,2,3$ in $\vec\alpha$ correspond to, respectively,
-%the identity map and the 3 1-qubit PCE quantum channels that project the 
-%Bloch sphere to the rectangular axes $x$, $y$ and $z$. 
-%If one sets all indices in $\vec\alpha$ to zero except for the $k$-th index.
-\janote{A rigorous explanation of why every $\vec\alpha$ is corresponded
-to every generator.}
-Therefore we can identify the index $\alpha_k$ in $\vec\alpha$ with the local-action
-of the PCE generator on the $k$-th qubit. In consequence, we will denote 
-PCE generators as $\mcG_{\vec\alpha}$. 
-See in \Fref{fig:appex:twoQ_PCEGs} the notation of  two-qubit PCE generators.
-%See, for example, non-trivial generators in subfigures (c), (d) and (e) of
-%\Fref{fig:examplesPCE} are denoted $\mcG_{(1,3)}$, $\mcG_{(3,2)}$ and
-%$\mcG_{(2,2)}$, respectively.
-%whose local-action on the first qubit (first column) is to project the corresponding local Bloch sphere 
-%to the $x$ axis and on the second qubit (first row) to map the corresponding
-%local Bloch sphere to itself, may be characterized with the vector index (1,0). 
-%Then, it is clear that in general one can associate a unique $\vec\alpha$ to 
-%every PCE generator and so denote them as $\pceg$.
+PCE generators may be characterized by its local action on every qubit 
+in the system, and thus each of them be denoted as $\mcG_{\vec\alpha}$, 
+with $\vec\alpha$ each of the $4^{n}$ different vector indices. For 1-qubit
+the PCE generators are the identity map plus the channels that map the Bloch 
+sphere to each Cartesian axis, as their associated vector subspaces are trivial
+to prove and their dimension 1 is met. 
+\janote{Here goes the bla bla for the discussion of the proof for the $N$-qubit
+\pce{} generators}
+Therefore, we can identify the index $\alpha_k$ in $\vec\alpha$ by the local action
+of the PCE generator on the $k$-th qubit. 
+See, for example, that the 2-qubits PCE generator represented in subfigure (c)
+of \Fref{fig:examplesPCE} acts on the first qubit (first column) as mapping its
+Bloch sphere to de $x$-axis, and on the second qubit (first row) acts an identity,
+hence it is labeled $\mcG_{(1,0)}$.
+See \Fref{fig:appex:twoQ_PCEGs} for the notation of all 2-qubit PCE generators.
 
 %\cpnote{Mucha lora y no se prueba nada}
-A symmetry is identified for both PCE generators $\pceg$ and
-the matrix $A$ the diagonalizes a PCE map's Choi matrix $\mcD_N$.
+A reflection symmetry is identified for both PCE generators $\pceg$ and
+the matrix $A$ that diagonalizes the Choi matrix $\mcD_N$ of a PCE map.
 %PCE generators $\pceg$ obey a symmetry
 %that defines uniquely every PCE generator. 
-For a PCE generator the symmetry is encoded in the parameters $\{\taus\}$, and 
-for $A$ in its rows and columns.
-The $N$-dimensional Cartesian grid associated with $\{\tau_{\vec\alpha}\}$
-is either symmetric or anti-symmetric with respect to
+The symmetry for a PCE generator $\pceg$ is encoded in the 
+parameters $\{\taus\}$, the $N$-dimensional Cartesian grid associated with it 
+(the set) is either symmetric or anti-symmetric under reflection of the 
+indices in the $k$-th position in $\vec\alpha$ as
+\begin{align}
+\alpha_{0}\mapsto\alpha_3,\quad\alpha_{3}\mapsto\alpha_0,
+\quad\alpha_1\mapsto\alpha_2, \quad\alpha_2\mapsto\alpha_1.
+\end{align}
 the $N$ hyperplanes of dimension $N-1$ that divide the grid in half.
 For instance, see that the diagrams representing the generators 
 $\mcG_{(1,3)}$, $\mcG_{(3,2)}$ and $\mcG_{(2,2)}$ in subfigures 
@@ -163,6 +153,10 @@ $\qty{\tau_{(1,0)},\tau_{(1,1)},\tau_{(1,2)},\tau_{(1,3)}}$ anti-symmetric
 to $\qty{\tau_{(0,0)},\tau_{(0,1)},\tau_{(0,2)},\tau_{(0,3)}}$, and finally
 the last eight components $\tau_{\vec\alpha}$ anti-symmetric to the first 
 eight.
+
+\begin{align}
+\tau_{(\vec\alpha)}
+\end{align}
 
 \begin{figure} % {{{
 \centering
