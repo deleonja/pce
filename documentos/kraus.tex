@@ -59,30 +59,11 @@ which in turn imply that
 two matrices, or define a new $a$ and $A$}
 % with $a$ the matrix that appears in \eqref{eq:eigvals-PCE}. 
 Next, consider the action of a channel with Kraus representation 
-\eqref{eq:kraus:PCE} on an $N$ qubit system:\janote{acá abajo tenías un $\&$ dentro 
-del entorno \texttt{equation} y no compilaba}\janote{había otro en algún lado que quité 
-también.}
-\begin{equation}
-% \begin{align}
-\rho 
-%& 
-\to 
- \frac{\rho}{2} 
- + \sum_{\vec \beta} \frac{\tau_{\vec \beta}}{2}
-\sigma_{\vec \alpha} \sigma_{\vec \beta} \sigma_{\vec \alpha}  
-= 
-  \sum_{\vec \beta} 
-   \tau_{\vec \beta}\frac{1+\san_{\vec \alpha \vec \beta}}{2}\sigma_{\vec \beta}. 
-% 
-% 
-% \frac{\otimes_k \sigma_{i_k}}{\sqrt{2}} \rho
-% \frac{\otimes_k \sigma_{i_k}}{\sqrt{2}} \\
-% &=\frac12 \left(\rho + \bigotimes_k \sigma_{i_k} \rho \bigotimes_k \sigma_{i_k} \right)\\
-% &=\frac12 \rho
-% + \frac12\sum_{j_1, \ldots,j_n} r_{j_1 \ldots j_n} \bigotimes_k  \sigma_{i_k} \sigma_{j_k}  \sigma_{i_k} \\
-% &=
-% \sum_{j_1, \ldots,j_n} r_{j_1 \ldots j_n} \frac{1+\prod_k a^{i_k}_{j_k}}{2} \bigotimes_k  \sigma_{j_k} . 
-\end{equation}
+\eqref{eq:kraus:PCE} on an $N$ qubit system:
+\begin{align}
+\rho \mapsto &\frac{1}{2^N}\sum_{\vec \beta} r_{\vec \beta} \left( \frac{1}{2} \sigma_{\vec \beta} + \frac{1}{2} \sigma_{\vec \alpha} \sigma_{\vec \beta} \sigma_{\vec \alpha} \right)\nonumber \\
+=&\frac{1}{2^N}\sum_{\vec \beta} r_{\vec \beta} \frac{1+A_{\vec \alpha \vec \beta}}{ 2}\sigma_{\vec \beta}
+\end{align}
 However, since $\san_{\vec \alpha \vec \beta} = \pm 1$, the channel characterized
 by Kraus operators  \eref{eq:kraus:PCE} is a PCE. Moreover, One can notice that, 
 except for the first row, half of the matrix elements of each row is $+1$ and 
@@ -96,9 +77,9 @@ half $-1$, which implies that the aforementioned channel is a PCEG.
 % so the channel is a PCEG. 
 
 Notice also that a different choice of $\vec \alpha$ in \eref{eq:kraus:PCE}
-lead to different channels. This can be seen noticing that if two channels were
+leads to different channels. This can be seen noticing that if two channels were
 the same, this would imply that the matrix representation of the corresponding
-superoperator of $\sigma_{\vec \alpha} \cdot \sigma_{\vec \alpha}$
+superoperator of $\sigma_{\vec \alpha} \cdot \sigma_{\vec \alpha}$ \ddnote{en este punto me confundio bastante esta notacion, contrapropongo $\rho \mapsto \sigma_{\vec \alpha}\rho \sigma_{\vec \alpha}$, que es una notación que hemos venido usando.}
 would have to be the same which is clearly false. Since there are $4^n$ different 
 $\vec \alpha$, this implies that all PCEG (plus the identity map) are in one to 
 one correspondence.  
