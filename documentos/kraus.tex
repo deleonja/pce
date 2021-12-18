@@ -56,16 +56,16 @@ which in turn imply that
 \label{eq:sigma_property}
 \end{equation}
 \cpnote{This is the original $a$, not $H \otimes H$. See how to relate these
-two matrices, or define a new $a$ and $A$}
+two matrices, or define a new $a$ and $A$} \ddnote{tengo entendido que nunca se define o redefine $a$ como $H \otimes H$, ni en el apendice, solo se dice que se intercambian para ciertos calculos. Creo que la notacion es segura.}
 % with $a$ the matrix that appears in \eqref{eq:eigvals-PCE}. 
 Next, consider the action of a channel with Kraus representation 
 \eqref{eq:kraus:PCE} on an $N$ qubit system:
 \begin{align}
 \rho \mapsto &\frac{1}{2^N}\sum_{\vec \beta} r_{\vec \beta} \left( \frac{1}{2} \sigma_{\vec \beta} + \frac{1}{2} \sigma_{\vec \alpha} \sigma_{\vec \beta} \sigma_{\vec \alpha} \right)\nonumber \\
-=&\frac{1}{2^N}\sum_{\vec \beta} r_{\vec \beta} \frac{1+A_{\vec \alpha \vec \beta}}{ 2}\sigma_{\vec \beta}
+=&\frac{1}{2^N}\sum_{\vec \beta}  \frac{1+A_{\vec \alpha \vec \beta}}{ 2} r_{\vec \beta} \sigma_{\vec \beta}
 \end{align}
 However, since $\san_{\vec \alpha \vec \beta} = \pm 1$, the channel characterized
-by Kraus operators  \eref{eq:kraus:PCE} is a PCE. Moreover, One can notice that, 
+by Kraus operators  \eref{eq:kraus:PCE} is a PCE channel\ddnote{agrego 'channel', aqui el PCE map si es por construccion un canal}. Moreover, One can notice that, 
 except for the first row, half of the matrix elements of each row is $+1$ and 
 half $-1$, which implies that the aforementioned channel is a PCEG. 
 
@@ -91,6 +91,12 @@ can add a sentence about it, but I will wait till JA writes his part.}
 % number of generators here is trivial. It is simply $4^n-1$ as previously noticed 
 % from other arguments. 
 
+PCE channels can be seen as the fixed points of some decoherence process. We will show this first for PCEGs. Consider the following dynamical process that \textit{implements} the PCEG $\mcG_{\vec \alpha}$ when $t\to \infty$,
+\begin{align}
+\mcG_{\vec \alpha,t}[\rho]&=e^{- \gamma t} \rho + (1-e^{-\gamma t})\mcG_{\vec \alpha}[\rho]\nonumber \\
+&=\frac{\left( 1+e^{- \gamma t} \right)}{2} \rho +\frac{\left( 1-e^{- \gamma t} \right)}{2} \sigma_{\vec \alpha} \rho \sigma_{\vec \alpha}.
+\end{align}
+It is easy to prove that the family of channels $\mcG_{\vec \alpha, t}$ parametrized with $t \geq 0$ forms a one-parametric semigroup, \ie{} $\mcG_{\vec \alpha, t_1}\mcG_{\vec \alpha, t_2}=\mcG_{\vec \alpha, t_1+t_2}$, therefore $\mcG_{\vec \alpha, t}$ describes a dissipative Markovian process
 \begin{itemize}
 \item Relate to decoherence, for PCEG
 \item Play with non PCEG PCEs
