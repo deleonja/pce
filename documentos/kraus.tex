@@ -91,7 +91,7 @@ can add a sentence about it, but I will wait till JA writes his part.}
 % number of generators here is trivial. It is simply $4^n-1$ as previously noticed 
 % from other arguments. 
 
-PCE channels can be seen as the fixed points of some decoherence process. We will show this first for PCEGs. Consider the following dynamical process that \textit{implements} the PCEG $\mcG_{\vec \alpha}$ when $t\to \infty$,
+Any PCE channel can be seen as the fixed point of some decoherence process. We will show this first for PCEGs. Consider the following dynamical process that \textit{implements} the PCEG $\mcG_{\vec \alpha}$ when $t\to \infty$,
 \begin{align}
 \mcG_{\vec \alpha,t}[\rho]&=e^{- \gamma t} \rho + (1-e^{-\gamma t})\mcG_{\vec \alpha}[\rho]\nonumber \\
 &=\frac{\left( 1+e^{- \gamma t} \right)}{2} \rho +\frac{\left( 1-e^{- \gamma t} \right)}{2} \sigma_{\vec \alpha} \rho \sigma_{\vec \alpha},
@@ -118,9 +118,9 @@ U_{\vec\alpha}\ket{\psi} \ket{0}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}+\
 U_{\vec\alpha}\ket{\psi} \ket{1}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}-\sigma_{\vec\alpha} \ket{\psi}\ket{1} \right).
 \label{eq:Nqubit_stinespring}
 \end{align}
-Therefore, any concatenation of PCEGs can be described as a collision model with as many collisions as generators needed. In fact, generators are described with one collision. For the general case, consider some PCE channel $\mcE$ generated with $\left\{ \mcG_{\vec \alpha_1}, \mcG_{\vec \alpha_2}, \dots, \mcG_{\vec \alpha_M} \right\}$. For this, we have an environment consisting of $M$ qubits initially in the state $\left( \projj{0} \right)^{\otimes M}$ (or equivalently, one qubit environment with the additional assumption that its state is erased and transformed again $\ket{0}$ after each collision). The collision with the $k\text{th}$ particle is described by $U_{\vec \alpha_k}$
+Therefore, any concatenation of PCEGs can be described as a collision model with as many collisions as generators needed. In fact, generators are described with one collision. For the general case, consider some PCE channel $\mcE$ generated with $\left\{ \mcG_{\vec \alpha_1}, \mcG_{\vec \alpha_2}, \dots, \mcG_{\vec \alpha_M} \right\}$. For this, we have an environment consisting of $M$ qubits initially in the state $\left( \projj{0} \right)^{\otimes M}$ (or equivalently, one qubit environment with the additional assumption that its state is erased and transformed again $\ket{0}$ after each collision). The collision with the $k\text{th}$ particle is described by $U_{\vec \alpha_k}$, which acts solely over the system and the $k\text{th}$ particle. Therefore $\mcE$ can be written as follows,
 \begin{equation}
-\mcE[\rho]=\tr_{\text{E}} \left( U \left( \rho \projj{0}^{\otimes M}\right) \right)
+\mcE[\rho]=\tr_{\text{E}} \left( (U_{\vec\alpha_1}) \left( \rho \projj{0}^{\otimes M}\right) \right)
 \end{equation}
 Described as the system \textit{colliding} with qubit particles
 \begin{itemize}
