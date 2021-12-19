@@ -96,7 +96,7 @@ Any PCE channel can be seen as the fixed point of some decoherence process. We w
 \mcG_{\vec \alpha,t}[\rho]&=e^{- \gamma t} \rho + (1-e^{-\gamma t})\mcG_{\vec \alpha}[\rho]\nonumber \\
 &=\frac{\left( 1+e^{- \gamma t} \right)}{2} \rho +\frac{\left( 1-e^{- \gamma t} \right)}{2} \sigma_{\vec \alpha} \rho \sigma_{\vec \alpha},
 \end{align}
-where $\gamma>0$. It is easy to prove that the family of channels $\mcG_{\vec \alpha, t}$ parametrized with $t \geq 0$ forms a one-parametric semigroup, \ie{} $\mcG_{\vec \alpha, t_1}\mcG_{\vec \alpha, t_2}=\mcG_{\vec \alpha, t_1+t_2}$, therefore $\mcG_{\vec \alpha, t}$ describes a dissipative time-homogeneous Markovian process. The Lindblad generator~\cite{lindblad}, $\mcL_{\vec \alpha}$, can be obtained with the standard procedure,  
+where $\gamma>0$. It is easy to prove that the family of channels $\mcG_{\vec \alpha, t}$ parametrized with $t \geq 0$ forms a one-parametric semigroup, \ie{} $\mcG_{\vec \alpha, t_1}\mcG_{\vec \alpha, t_2}=\mcG_{\vec \alpha, t_1+t_2}$, therefore $\mcG_{\vec \alpha, t}$ describes a dissipative time-homogeneous Markovian process, those are always characterized by some Lindblad generator~\cite{lindblad}. The Lindblad generator of $\mcG_{\vec \alpha, t}$, $\mcL_{\vec \alpha}$, can be obtained with the standard procedure,  
 \begin{equation}
 \mcL_{\vec \alpha}[\rho]=\left. \frac{d\mcG_{\vec \alpha,t}[\rho]}{dt}\right|_{t=0}=\frac{\gamma\left(\sigma_{\vec \alpha}\rho \sigma_{\vec \alpha} -\rho \right)}{2},
 \end{equation}
@@ -110,7 +110,7 @@ where $\gamma_{(0,3)}$ and $\gamma_{(3,3)}$ are positive and correspond to the L
 
 In addition to the implementation via decoherence processes, PCE channels can also be described with collision models [cita]. To see this, observe that PCEGs can always be implemented using an unitary over the system and an ancilla [Stinespring citation]. For any PCEG, a qubit can always be chosen as the ancilla, concretely,
 \begin{equation}
-\mcG_{\vec \alpha}[\rho]:=\tr_{\text{qubit}} \left( U_{\vec \alpha} \rho\otimes \projj{0} U^\dagger{}_{\vec \alpha} \right),
+\mcG_{\vec \alpha}[\rho]:=\tr_{\text{qubit}} \left( U_{\vec \alpha} \left(\rho\otimes \projj{0}\right) U^\dagger{}_{\vec \alpha} \right),
 \end{equation}
 where $\tr_{\text{qubit}}$ denotes partial trace over the ancillary qubit, with
 \begin{align}
@@ -120,8 +120,10 @@ U_{\vec\alpha}\ket{\psi} \ket{1}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}-\
 \end{align}
 Therefore, any concatenation of PCEGs can be described as a collision model with as many collisions as generators needed. In fact, generators are described with one collision. For the general case, consider some PCE channel $\mcE$ generated with $\left\{ \mcG_{\vec \alpha_1}, \mcG_{\vec \alpha_2}, \dots, \mcG_{\vec \alpha_M} \right\}$. For this, we have an environment consisting of $M$ qubits initially in the state $\left( \projj{0} \right)^{\otimes M}$ (or equivalently, one qubit environment with the additional assumption that its state is erased and transformed again $\ket{0}$ after each collision). The collision with the $k\text{th}$ particle is described by $U_{\vec \alpha_k}$, which acts solely over the system and the $k\text{th}$ particle. Therefore $\mcE$ can be written as follows,
 \begin{equation}
-\mcE[\rho]=\tr_{\text{E}} \left( (U_{\vec\alpha_1}) \left( \rho \projj{0}^{\otimes M}\right) \right)
+\mcE[\rho]=\tr_{\text{E}} \left( \left(U_{\vec \alpha_1} \dots U_{\vec \alpha_M}\right)\left( \rho \otimes \projj{0}^{\otimes M}\right) \left(U_{\vec \alpha_1} \dots U_{\vec \alpha_M} \right)^\dagger{} \right),
 \end{equation}
+where $\tr_{\text{E}}$ is the partial trace over the total of the ancillary qubits. Notice that as PCEGs commute, the order of the collisions can be changed, taking care also of the order of the partial traces.
+$U_{\vec\alpha_M}U_{\vec\alpha_{M-1}}\dots U_{\vec\alpha_1}$
 Described as the system \textit{colliding} with qubit particles
 \begin{itemize}
 \item Relate to decoherence, for PCEG
