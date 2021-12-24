@@ -1,0 +1,186 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{makeidx}
+\usepackage{graphicx}
+
+\usepackage{physics}
+\usepackage{dsfont}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
+\definecolor{jacolor}{RGB}{200,40,0} 
+\FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{José Alfredo de León}
+\title{Hoja de trabajo 2}
+\begin{document}
+\maketitle
+
+\textbf{Instrucciones:} Resuelva de forma clara y ordenada (a papel y lapiz o 
+utilizando \LaTeX) los ejercicios y suba su solución a más tardar para la fecha
+XXX a la plataforma de Google Classroom. La calificación de esta hoja de trabajo
+será por cantidad de ejercicios \textbf{resueltos completamente}.
+
+\textbf{Se recomienda fuertemente utilizar algún software, como Python
+o Mathematica, para resolver operaciones entre matrices, calcular eigenvalores 
+y eigenvectores o cualquier otro procedimiento algebraico repetitivo y largo.}
+
+\subsubsection*{Ejercicio 1. Estados estacionarios y evolución temporal.}
+Se denota como $\psi(n)$ a los estados estacionarios 
+ortonormales de un sistema cuya energ\'ia correspondiente es $E_n$. 
+Supongamos que la funci\'on de onda normalizada
+del sistema en el tiempo $t=0$ es $\Psi(x,0)$ y supongamos que una medici\'on
+de la energ\'ia da como resultado el valor $E_1$ con probabilidad $1/2$, $E_2$
+con probabilidad $3/8$ y $E_3$ con probabilidad $1/8$. 
+\begin{enumerate}
+\item ¿Qu\'e significa que un estado sea estacionario?
+\item ¿Escriba la expansi\'on m\'as general para $\Psi(x,0)$ consistente con 
+esta informaci\'on.
+\item ¿Cu\'al es la expansi\'on para la funci\'on de onda del sistema para un tiempo 
+$t>0$, $\Psi(x,t)$?
+\item ¿Muestre que el valor esperado del Hamiltoniano no cambia en el tiempo.
+\end{enumerate}
+
+\subsubsection*{Ejercicio 2. Medición de la energía.}
+Un sistema compuesto por dos átomos de dos niveles (estado fundamental + 
+estado excitado) es un sistema cuántico de 4 niveles, por consiguiente, su 
+espacio de estados es $\mathcal{H}=\mathbb{C}^4$. Supongamos un estado
+inicial, en $t=0$, de la forma
+\begin{align}
+\ket{\psi(0)}&=\frac{1}{\sqrt{3}}\ket{\phi_1}+\frac{1}{2}\ket{\phi_2}
++\frac{1}{\sqrt{6}}\ket{\phi_3}+\frac{1}{2}\ket{\phi_4},
+\end{align}
+donde $\{ \ket{\phi_i}\}$ son los eigenestados ortonormales del Hamiltoniano
+$\hat H$ del sistema. 
+\begin{enumerate}
+\item Si los eigenestados $\ket{\phi_i}$ del Hamiltoniano tienen
+energías $E_i$, respectivamente, escriba el estado
+$\ket{\psi(t)}$, para $t>0$.
+\item ¿Cuáles son los posibles resultados de medir la energía de este sistema
+en el estado $\ket{\psi(t)}$ y con qué probabilidad ocurrirán?
+\item Encuentre el valor esperado del Hamiltoniano del sistema en $t=0$
+y $t=10$ s. ¿De qué forma tendría que ser el estado $\ket{\psi(0)}$ para que 
+el valor esperado del Hamiltoniano $\hat H$ sea constante en el tiempo?
+\end{enumerate}
+
+\subsubsection*{Ejercicio 3. Conjunto completo de operadores 
+que conmutan I.}
+El fotón (partícula de espín 1), cuando sólo consideramos sus grados de 
+libertad de espín,
+es un sistema cuántico de 3 niveles, \textit{i.e.} $\mathcal{H}=\mathbb{C}^3$.
+\begin{enumerate}
+\item ¿Cuál es la dimensión de las matrices que representan a los observables que 
+actúan sobre el espacio de estados del fotón? Convánzase de que la dimensión 
+debe ser $3\times 3$.
+\end{enumerate}
+Considere que el Hamiltoniano $\hat H$ y un operador $\hat A$ que actúan 
+sobre el espacio 
+de estados del fotón están dados por 
+\begin{align}
+\hat H&=\epsilon_0\mqty(-2&0&0\\ 0&1&0\\ 0&0&1),
+&
+\hat A&=a_0\mqty(5&0&0\\ 0&0&2\\ 0&2&0),
+\end{align}
+donde $\epsilon_0$ tiene dimensionales de energ\'ia.
+\begin{enumerate}
+\item ¿Los operadores $\hat H$ y $\hat A$ conmutan? Si es as\'i
+encuentre la base de eigenvectores en com\'un.
+\item ¿Cu\'al de los siguientes conjuntos de operadores forman un conjunto 
+completo de operadores que conmutan: $\{ \hat H\}$, $\{ \hat A\}$, 
+$\{ \hat H, \hat A\}$, $\{ \hat H^2, \hat A \}$?
+\end{enumerate}
+
+\subsubsection*{Ejercicio 4. Medición de la energía. CSCO y 
+mediciones consecutivas.}
+Consideremos de nuevo a un sistema cuántico compuesto por un fotón
+cuyo Hamiltoniano $\hat H$ y estado inicial $\ket{\psi(0)}$ son
+\begin{align}
+\hat H&=\epsilon_0\mqty(1&-1&0\\-1&1&0\\0&0&-1),
+&
+\ket{\psi(0)}=\frac{1}{\sqrt{6}}\mqty(1\\1\\2),
+\end{align}
+donde $\epsilon_0$ tiene dimensionales de energía. 
+\begin{enumerate}
+\item ¿Cuáles valores se obtendrían al medir la energía del estado 
+$\ket{\psi(0)}$ y con qué probabilidades?
+\item Calcule el valor esperado del Hamiltoniano $\hat H$ en el estado 
+$\ket{\psi(0)}$.
+\end{enumerate}
+
+\subsubsection*{Ejercicio 5}
+De nuevo, consideremos a nuestro buen fotón como sistema cuántico,
+cuyo estado $\ket{\psi}$ y dos observables $A$ y $B$ están dados por 
+\begin{align}
+\ket{\psi}&=\frac{1}{3}\mqty(-i\\2\\0),&
+A&=\frac{1}{\sqrt{2}}\mqty(1&i&1\\-i&0&0\\1&0&0),&
+B&=\mqty(3&0&0\\0&1&i\\0&-i&1).
+\end{align}
+\begin{enumerate}
+\item ¿Los operadores $A$ y $B$ son compatibles? ¿Cuáles de los conjuntos 
+$\{ \hat A\}$, $\{ \hat B\}$,$\{ \hat A,\hat B\}$ forman un conjunto completo 
+de operadores que conmutan?
+\item Se mide $\hat A$ primero e inmediatamente después $\hat B$. Encuentre
+la probabilidad de obtener el valor $-1$ para $\hat A$ y el valor $3$ para $B$.
+\item Ahora se mide en el orden inverso que en el inciso anterior. Encuentre
+la probabilidad de obtener el valor $3$ para $B$ y el valor $-1$ para $\hat A$.
+\item Compare y explique los resultados de los incisos b y c.
+\end{enumerate}
+
+\subsubsection*{Ejercicio 6}
+De nuevo, consideremos a nuestro buen fotón como sistema cuántico,
+cuyo estado $\ket{\psi}$ y dos observables $A$ y $B$ están dados por 
+\begin{align}
+\ket{\psi}&=\mqty(5\\1\\3),&
+A&=\frac{1}{\sqrt{2}}\mqty(2&0&0\\0&1&1\\0&1&1),&
+B&=\mqty(1&0&0\\0&0&1\\0&1&0).
+\end{align}
+\begin{enumerate}
+\item ¿Los operadores $A$ y $B$ son compatibles? 
+\item ¿Cuáles de los conjuntos $\{ \hat A\}$, $\{ \hat B\}$,$\{ \hat A,\hat B\}$ 
+forman un conjunto completo de operadores que conmutan?
+\end{enumerate}
+\textbf{Advertencia:} la respuesta de los inciso a. y b. son suficientes
+para contestar a los insisos siguientes sin tener que hacer un sólo 
+cálculo. Tómese unos minutos para meditar la respuesta y discútalo con
+sus compañeros. Si decide hacer los cálculos y no los hará con ayuda del algún 
+software, ni siquiera intente hacerlos a mano, sólo perderá su tiempo y se frustrará.
+\begin{enumerate}
+\item[c.] Se realiza una medición donde $A$ se mide primero y luego $B$ 
+inmediatamente 
+después. Encuentre la probabilidad de obtener el valor de $\sqrt{2}$ para $A$
+y el valor de $-1$ para $B$.
+\item[d.] Ahora se mide $B$ primero e inmediatamente después $A$. Encuentre 
+la probabilidad de obtener el valor $-1$ para $B$ y el valor $\sqrt{2}$ para $A$.
+\item[e.] Compare los resultados de los incisos a y b. Explique.
+\end{enumerate}
+
+\subsubsection*{Ejercicio 7}
+Considere un sistema cuántico de 3 niveles que tiene tres observables
+que se representan por las siguientes matrices:
+\begin{align}
+A&=\mqty(1&0&0\\0&0&1\\0&1&0),&
+B&=\mqty(0&0&-1\\0&0&i\\-1&-i&4),&
+C&=\mqty(2&0&0\\0&1&3\\0&3&1).
+\end{align}
+\begin{enumerate}
+\item Encuentre los posibles resultados de medir cada uno de los observables 
+$A$, $B$ y $C$.
+\item De los 3 observables, ¿cuáles de ellos son compatibles?
+Encuentre la base de eigenvectores en común a ese/esos conjunto/os 
+xde observables. 
+\item ¿Cuáles de los conjuntos de operadores $\{ \hat A\}$, $\{ \hat B\}$, 
+$\{ \hat C\}$
+$\{ \hat A, \hat B\}$, $\{ \hat B, \hat C\}$, $\{ \hat A, \hat C\}$ y
+$\{ \hat A, \hat B, \hat C\}$ forman un conjunto completo de observables que 
+conmutan? 
+\end{enumerate}
+
+
+\end{document}

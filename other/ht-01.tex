@@ -1,0 +1,203 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{makeidx}
+\usepackage{graphicx}
+
+\usepackage{physics}
+\usepackage{dsfont}
+
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
+\definecolor{jacolor}{RGB}{200,40,0} \FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
+
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\author{José Alfredo de León}
+\title{Hoja de trabajo 1}
+\begin{document}
+\maketitle
+
+\textbf{Instrucciones:} Resuelva de forma clara y ordenada (a papel y lapiz o 
+utilizando \LaTeX) los ejercicios y suba su solución a más tardar para la fecha
+XXX a la plataforma de Google Classroom. La calificación de esta hoja de trabajo
+será por cantidad de ejercicios \textbf{resueltos completamente}.
+
+\subsubsection*{Ejercicio 1. Notación de Dirac.}
+Si consideramos únicamente los grados de libertad de espín, el fotón es un 
+sistema cuántico de 3 niveles. Es decir, el espacio de Hilbert de un fotón es 
+$\mathcal{H}=\mathbb{C}^3$. Consideremos ahora una base ortonormal 
+de este espacio $\qty{\ket{\phi_i}}$ y también dos estados del 
+fotón $\ket{\psi_1}=i\ket{\phi_1}+3i\ket{\phi_2}-\ket{\phi_3}$
+y $\ket{\psi_2}=\ket{\phi_1}-i\ket{\phi_2}+5i\ket{\phi_3}$, donde $\qty{\phi_i}$.
+\begin{enumerate}
+\item El producto interior, llamado ``bracket'' en la notación de Dirac, 
+cuántifica la proyección de un estado (vector) sobre otro estado
+(vector). Calcule los brackets
+$\braket{\phi_i}{\phi_j}$, cuando $i=j$ y cuando $i\ne j$.
+\item Calcule $\braket{\psi_i}{\psi_j}$ para $i,j=1,2$ y, a partir de estos
+resultados, calcule 
+$\Big(\bra{\psi_1}+\bra{\psi_2}\Big)\Big(\ket{(\psi_1}+\ket{\psi_2}\Big)$.
+\item En general, para cualesquiera dos estados $\ket{\psi_1}$ y
+$\ket{\psi_2}$, ¿los brackets $\braket{\psi_1}{\psi_2}$ y
+$\braket{\psi_2}{\psi_1}$ son iguales? ¿Por qué?
+\end{enumerate}
+\textit{Checkpoint: (medí cuánta física has aprendido)} Cualquier estado $\ket{\psi}$
+del fotón puede escribirse como
+\begin{align}
+\ket{\psi}=\sum_{i=1}^3c_i\ket{\varphi_i}
+\end{align}
+Matemáticamente (y en notación de Dirac), ¿qué es lo que debés calcular si
+te preguntan por la proyección del estado $\ket{\psi}$ sobre cada uno de los 
+elementos de la base $\qty{\ket{\varphi_i}}$?
+\begin{enumerate}
+\item[d.]
+Los operadores que actúan sobre $\mathcal{H}$ también se pueden 
+escribir en la notación de Dirac como productos externos de ket's con bra's.
+Calcule $\dyad{\psi_1}{\psi_2}$ y $\dyad{\psi_2}{\psi_1}$.
+\item[e.] Dada una base ortonormal $\qty{\ket{\phi_i}}$
+y un operador $\Lambda$, la traza de $\Lambda$ se calcula como
+\begin{align}
+\Tr (\Lambda)&=\sum_i \matrixel{\phi_i}{\Lambda}{\phi_i}
+\end{align}
+Calcule la traza de los operadores en (d).
+\item 
+Repita los cálculos de los incisos (b), (c), (d) y (e) usando la representación 
+matricial. \textit{Ayuda para repetir (d):} calcule $\dyad{\phi_1}{\phi_1}$, 
+$\dyad{\phi_2}{\phi_1}$ y $\dyad{\phi_3}{\phi_2}$ y note la relación entre 
+los índices $i$ y $j$ del producto $\dyad{\phi_i}{\phi_j}$ y las posiciones del
+elemento no nulo en la matriz de $3\times 3$.
+\item[f.] Escriba los conjugados Hermíticos de $\ket{\psi_1}$, $\ket{\psi_2}$,
+$\dyad{\psi_1}{\psi_2}$ y $\dyad{\psi_2}{\psi_1}$ en notación de Dirac
+y en su representación matricial asumiendo que $\qty{\ket{\phi_i}}$ es la base
+canónica.
+\end{enumerate}
+
+\subsection*{Ejercicio 2. De la notación de Dirac a la representación
+matricial.}
+Repita los incisos d, e y f del ejercicio 1 calculando la representación matricial 
+de $\dyad{\psi_1}{\psi_2}$ y $\dyad{\psi_2}{\psi_1}$.\newline
+
+\textit{Ayuda:} Los indices $i,j$ del operador $\lambda \dyad{\phi_i}{\phi_j}$ se 
+corresponden con la posición del escalar $\lambda$ en la matriz de $3\times 3$.
+Por ejemplo, 
+\begin{align}
+3\dyad{\phi_1}{\phi_3}=\mqty(0&0&3\\0&0&0\\0&0&0).
+\end{align}
+
+\subsection*{Ejercicio 3. Operadores I.}
+Considere un sistema de dos niveles, como una partícula de espín $1/2$ (un 
+electrón, por ejemplo). Considere la matriz de Pauli $\hat \sigma_z$ que se define 
+como $\hat \sigma_z\ket{0}=\ket{0}$ y $\hat \sigma_z\ket{1}=-\ket{1}$; $\ket{0}$ 
+y $\ket{1}$ son ortonormales,
+\begin{enumerate}
+\item ¿Los estados $\ket{0}$ y $\ket{1}$ forman una base del espacio
+de estados? ¿Por qué?
+%\item[(b)] Considere el operador $\hat \Lambda=\dyad{0}{1}$. ¿Es $\hat \Lambda$ hermítico?
+\item Muestre que $\hat \Lambda^2=0$.
+\item Un operador $\hat P$ que es un proyector satisface la condición
+$\hat P^2=\hat P$. Muestre que $\hat \Lambda \hat \Lambda^{\dagger}$ y 
+$\hat \Lambda^{\dagger} \hat \Lambda$ son proyectores.
+\item Los operadores unitarios son importantes en física porque describen 
+la evolución de los sistemas cuánticos cerrados. Por otro lado, el conmutador 
+de dos operadores en mecánica cuántica nos proporciona información sobre 
+la implicación que podría tener alterar el orden de dos mediciones sucesivas.
+
+Un operador $\hat U$ se dice que es unitario si satisface la condición
+$\hat U\hat U^{\dagger}=\hat U^{\dagger}\hat U=\mathds{1}$ ($\mathds{1}$ el operador identidad).
+El conmutador de dos operadores $\hat \Lambda$ y $\hat B$ se define como
+$\comm{\hat \Lambda}{\hat B}=\hat \Lambda\hat B-\hat B\hat \Lambda$. 
+Muestre que el operador 
+$\hat \Lambda\hat \Lambda^{\dagger}-\hat \Lambda^{\dagger}\hat \Lambda$ es unitario.
+\end{enumerate}
+
+\subsection*{Ejercicio 4. Operadores II.}
+Considere el estado $\ket{\psi}$ del fotón, que está dado en términos de la 
+base ortonormal $\qty{\ket{\phi_k}}$, de la forma
+\begin{align}
+\ket{\psi}=a\bigg(\frac{i}{\sqrt{15}}\ket{\phi_1}+
+\frac{1}{\sqrt{3}}\ket{\phi_2}-
+\frac{i}{\sqrt{5}}\ket{\phi_3}\bigg),
+\end{align}
+donde $a\in \mathbb{R}$ y $\ket{\phi_k}$ son eigenestados del 
+operador $\hat B$, tal que satisface la ecuación de eigenvalores siguiente,
+\begin{align}
+\hat B\ket{\phi_k}=k\ket{\phi_k}.
+\end{align}
+\begin{enumerate}
+\item Encuentre la constante de normalización $a$ del estado $\ket{\psi}$. 
+\item Encuentre el valor de expectación de $\hat B$ para el estado $\ket{\psi}$.
+\item Encuentre el valor de expectación de $\hat B^2$ para el estado 
+$\ket{\psi}$. 
+\end{enumerate}
+
+\subsection*{Ejercicio 5. Operadores III.}
+Considere el operador
+\begin{align}
+\hat A=\dyad{\phi_1}{\phi_1}+\dyad{\phi_2}{\phi_2}+\dyad{\phi_3}{\phi_3}
+-i\dyad{\phi_1}{\phi_2}-\dyad{\phi_1}{\phi_3}+i\dyad{\phi_2}{\phi_1}
+-\dyad{\phi_3}{\phi_1},
+\end{align}
+donde $\qty{\ket{\phi_i}}$ forma una base ortonormal y completa.
+\begin{enumerate}
+\item ¿Es $\hat A$ hermítico?
+\item ¿Es $\hat A$ un proyector?
+\item Encuentre la representación matricial de $\hat A$ en la base $\qty{\ket{\phi}}$.
+\item Encuentre los eigenvalores y eigenvectores de la matriz. 
+\end{enumerate}
+
+\subsection*{Ejercicio 6. Representación en bases discretas.}
+\janote{Hacer este ejercicio para $\Tr (AB)=\Tr (BA)$ en el taller.}
+Supongamos tres operadores $\hat \Lambda$, $\hat B$ y $\hat C$ que actúan sobre 
+el espacio de Hilbert de un sistema cuántico de dimensión finita. Utilizando
+notación de Dirac, muestre que
+\begin{align}
+\Tr \big(\hat \Lambda\hat B\hat C \big)=\Tr \big(\hat C\hat \Lambda\hat B \big)
+=\Tr \big(\hat B\hat C\hat \Lambda \big).
+\end{align}
+Esta se conoce como la ``propiedad cíclica'' de la traza y es generalizable
+para cualquier cantidad de operadores. La traza de la multiplicación de $n$
+operadores es invariante ante permutaciones de cíclicas del producto de los
+operadores.
+
+\subsection*{Ejercicio 7. Representación en bases continuas.}
+\janote{Dar pistas en el taller. Quizás hacer el caso inverso?}
+Utilizando la notación de Dirac muestre que la función de onda $\psi(x)$ es 
+la transformada de Fourier de la función de onda $\Psi (p)$. Utilice el hecho 
+de que el cambio de base del espacio de los momenta al de posiciones está 
+dado por
+\begin{align}
+\braket{x}{p}=\frac{1}{\qty(2\pi\hbar)^{3/2}}e^{ipx/\hbar}.
+\end{align}
+
+\subsection*{Ejercicio 8. Mecánica matricial.}
+El Hamiltoniano de un sistema de dos niveles está dado por 
+\begin{align}
+\hat H=E\qty(\dyad{\phi_1}{\phi_1}-\dyad{\phi_2}{\phi_2}-i\dyad{\phi_1}{\phi_2}
++i\dyad{\phi_2}{\phi_1}),
+\end{align}
+donde $\ket{\phi_1}$ y $\ket{\phi_2}$ forman una base ortonormal y completa, y
+$E$ es una constante real que tiene dimensionales de energía.
+\begin{enumerate}
+\item ¿Es $\hat H$ Hermítico? Utilizando la notación de Dirac, 
+calcule la traza de $\hat H$.
+\item Encuentra la representación matricial de $\hat H$ en la base 
+$\ket{\phi_1}$ y $\ket{\phi_2}$ y calcule los eigenvalores y eigenvectores
+de la matriz. Ahora que tiene la matriz que representa a $\hat H$ calcule de nuevo
+la traza (sumando los elementos de la diagonal) y comparelo con el resultado
+del inciso (a).
+\item Calcule $\comm{\hat H}{\dyad{\phi_1}{\phi_1}}$, $\comm{\hat H}
+{\dyad{\phi_2}{\phi_2}}$ y $\comm{\hat H}{\dyad{\phi_1}{\phi_2}}$.
+\end{enumerate}
+
+\subsection*{Respuestas}
+\begin{enumerate}
+\item[2.a.] $a=\sqrt{5/3}$
+\item[2.b.] $\matrixel{\psi}{\hat B}{\psi}=20/9$
+\item[2.c.] $\matrixel{\psi}{\hat B^2}{\psi}=16/3$
+\end{enumerate}
+\end{document}
