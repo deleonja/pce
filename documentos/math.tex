@@ -5,13 +5,12 @@ the complete positivity condition i.e. that all the eigenvalues of the Choi matr
 associated to the channel are non-negative.  To do so, we calculate
 and diagonalize the Choi matrix associated with general Pauli maps, first for a
 single qubit and then for $N$ qubits. We then restrict to PCEs and, for quantum
-channels, associate a vector space to the set of coefficients
-$\{\tau_\valpha\}$ in \eref{eq:PCE_definition}, from which we are able to
+channels, associate a vector subspace to the set of coefficients
+$\{\tau_\valpha\}$ in \eref{eq:PCE_definition}. This allows us  to
 derive several important conclusions. 
 % }}}
 \subsection{Diagonalization of Choi matrix} % {{{
 
-\flnote{
 We now construct the Choi matrix associated to the single qubit map
 $\mathcal{E}$. As described above, $\mathcal{E}$ is a linear map from
 $\mcB(\hilbert)$ to itself. We shall denote elements of
@@ -20,7 +19,6 @@ $\kket{\sigma_\alpha}$ represents the Pauli matrix $\sigma_\alpha$ understood
 as a vector belonging to $\mcB(\hilbert)$, for the present case, in which
 $\hilbert={\mathbb{C}^2}$. Since the scalar product on $\mcB(\hilbert)$ is
 given by  $\bbrakket{A_1}{A_2}=\tr A_1^\star A_2$,
-} 
 % We now study the matrix form of the single qubit map $\mathcal{E}$ in
 % order to construct the associated Choi matrix. 
 % To do so, we shall denote operators in the superoperator space with the symbol

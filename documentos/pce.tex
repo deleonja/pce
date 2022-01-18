@@ -154,16 +154,17 @@ in the following way,
 \begin{equation}
 r_\alpha \mapsto \tau_\alpha r_\alpha
 \end{equation}
-where $\tau_\alpha$ is either $1$ or $0$. Not every
-operation like this is a quantum map; for example collapsing the entire Bloch
-ball to the $xy$ plane (setting $\tau_3=0$ and the rest to 1) is not a quantum
+where $\tau_\alpha$ is either $1$ or $0$ (trace preserving requires
+that $\tau_0=1$). Not every
+such operation  is a quantum map; for example collapsing the entire Bloch
+ball to the $xy$ plane (setting $\tau_{1,2}=1$ and  $\tau_3=0$) is not a quantum
 channel. A direct evaluation of the complete positivity
 conditions~\cite{zimansbook,davalosdivisibility}, 
 \begin{align}
 1+\tau_1+\tau_2+\tau_3 &\geq 0, \nonumber \\
 1+\tau_\alpha-\tau_\beta-\tau_\gamma &\geq 0 \ \ \forall \alpha\neq \beta \neq \gamma,
 \end{align}
-where trace-preserving is already imposed ($\tau_0=1$), show that five out of
+where trace-preserving is already imposed, show that five out of
 the eight 1-qubit PCE maps are quantum channels.
 % 
 % show that only five
@@ -307,7 +308,7 @@ $r_1$, collapsing the Block sphere into a disk, and thus does not correspond to 
 % \subsection{$\mathbf{N}$ qubits Pauli component erasing maps} % {{{
 
 
-In order to present and work the $N$ qubit case, it is useful 
+In order to present and develop the $N$ qubit case, it is useful 
 to introduce 
 the so-called \textit{Pauli strings}, defined as 
 \begin{equation}
@@ -344,7 +345,7 @@ so $r_{\vec \alpha}=\langle \sigma_{\vec \alpha} \rangle=\tr \left(\rho
 \sigma_{\vec \alpha} \right)$ is the coefficient corresponding to the expansion
 of the density matrix in the normalized basis of Pauli strings. Again,
 normalization of the state requires that $r_{\vec 0}=1$.
-We shall refer to $\paulicomponents$ as the ``Pauli components'' of the density
+We shall refer to $\paulicomponents$ as the {\it Pauli components} of the density
 matrix of a system of qubits. 
 
 % The components of $\valpha$ range from $0$ to $3$.  Notice that
@@ -399,10 +400,10 @@ quantum operations.
 On the other hand, constructing and
 evaluating the conditions for complete positivity is involved and is the main
 problem addressed in this paper. 
-If we refer to the map  $\paulicomponents \mapsto \taus \paulicomponents$, 
+We shall refer to the map  $\paulicomponents \mapsto \taus \paulicomponents$, 
 with arbitrary values of 
 % but allow the 
-$\taus$ (only restricted by complete positivity) as Pauli diagonal operations. 
+$\taus$ (only restricted by complete positivity) as {\it Pauli diagonal operations}. 
 
 
 % For single 
@@ -445,6 +446,18 @@ $\taus$ (only restricted by complete positivity) as Pauli diagonal operations.
 % tecnicos sobre los canales que coinciden con los de Ruskai, pues ni siquiera
 % hemos dicho que operaciones de las que definimos aqui, son válidas}
 
+A graphical representation for PCE maps may be introduced, being the
+two qubits case what has proved to be the most useful. Consider a $N$ dimensional 
+Cartesian grid, with $4^N$ places.  Each place has $N$ integer coordinates, ranging
+from 0 to 3, so each place corresponds to a given $\vec \alpha$ in 
+\eref{eq:N_qubits_rho}. For a given PCE, we shall fill 
+the square if the corresponding $\tau_{\vec \alpha}=1$. Otherwise, we leave it 
+empty. Examples for $N=1$ are provided in \fref{fig:one:qubit:examples}, whereas
+for two qubits, we exemplify them in \fref{fig:two:qubit:examples}. 
+
+
+
+
 It is worth noticing that the set of \pce{} maps \R{A2} overlaps with the set
 of ``Pauli diagonal channels constant on axes'' defined in
 Ref.~\cite{nathanson2007pauli}, consisting of convex combinations of
@@ -474,17 +487,6 @@ commuting Pauli observables~\cite{Lawrence2002}, is a \pce{} map with exactly $
 % maps\R{A3} turned out to be very useful for their analysis throughout this
 % work.
 % 
-
-
-A graphical representation for PCE maps may be introduced, being the
-two qubits case what has proved to be the most useful. Consider a $N$ dimensional 
-Cartesian grid, with $4^N$ places.  Each place has $N$ integer coordinates, ranging
-from 0 to 3, so each place corresponds to a given $\vec \alpha$ in 
-\eref{eq:N_qubits_rho}. For a given PCE, we shall fill 
-the square if the corresponding $\tau_{\vec \alpha}=1$. Otherwise, we leave it 
-empty. Examples for $N=1$ are provided in \fref{fig:one:qubit:examples}, whereas
-for two qubits, we exemplify them in \fref{fig:two:qubit:examples}. 
-
 
 
 % Notice
