@@ -1,36 +1,44 @@
 \section{Kraus operators and decoherence  propuesta: Physical implementations of PCE maps} % {{{
-\cpnote{HAcer esta seccion despues de que david ponga lo de decoherencia, 
-para servirla bien}
+% Intro {{{
+\cpnote{Crep qe hay que hacer una mini introduccion en donde se explique el porqué de
+esta seccion. Básicamente la idea es conectar estos bichos con procesos fisicos.
+Siento que la introduccion propuesta est´a un poco debil}
+
+% \cpnote{HAcer esta seccion despues de que david ponga lo de decoherencia, 
+% para servirla bien}
 % \todo{Carlos hace una version}
 
-{\red [texto viejo introductorio de la seccion] Furthermore, quantum channels enjoy the well-known \textit{Kraus
-representation} (or operator-sum representation) which reads 
+% {\red [texto viejo introductorio de la seccion] Furthermore, quantum channels enjoy the well-known \textit{Kraus
+% representation} (or operator-sum representation) which reads 
+% \begin{equation}
+% \mcE[\rho]=\sum_i K_i \rho
+% K_i^\dagger{},
+% \end{equation}
+% with $\sum_i K_i^\dagger{}K_i=\one$ (the trace-preserving condition)~\cite{Kraus1983}.
+% 
+% The Kraus operators of PCE channels provide an insight in the physical processes
+% that yield such channels. In this section we investigate and construct such 
+% operators and explore the corresponding processes. To study the Kraus operators corresponding to PCE, it is enough to study 
+% the ones corresponding to generators, as all PCEs commute and thus to get the 
+% Kraus operators of an arbitrary PCE, one can easily combine the Kraus
+% operators of its generators. }
+
+Given that \pce{} channels are projections, we might ask whether they are fixed
+points of some memory-less (Markovian) process or not. In this section we prove
+that they are, and give two examples of Markovian implementations. The first
+one consist in identifying each \pce{} channel as a fixed point of some pure
+dissipative process. The second, in identifying each \pce{} channel as fixed
+points of some memory-less collision model.
+% }}}
+\subsection{Kraus representation} % {{{
+To derive the aforementioned implementations, we exploit the existence of the
+PCEGs and their \textit{Kraus representation} (or operator-sum representation)
+which, for an arbitrary channel $\mcE$,  reads 
 \begin{equation}
 \mcE[\rho]=\sum_i K_i \rho
 K_i^\dagger{},
 \end{equation}
 with $\sum_i K_i^\dagger{}K_i=\one$ (the trace-preserving condition)~\cite{Kraus1983}.
-
-The Kraus operators of PCE channels provide an insight in the physical processes
-that yield such channels. In this section we investigate and construct such 
-operators and explore the corresponding processes. To study the Kraus operators corresponding to PCE, it is enough to study 
-the ones corresponding to generators, as all PCEs commute and thus to get the 
-Kraus operators of an arbitrary PCE, one can easily combine the Kraus
-operators of its generators. }
-
-{\blue [texto nuevo introductorio de la seccion]
-Given that \pce{} channels are projections, we might ask whether they are fixed points of some memory-less (Markovian) process or not. In this section we prove that they are, and give two examples of Markovian implementations. The first one consist in identifying each \pce{} channel as a fixed point of some pure dissipative process. The second, in identifying each \pce{} channel as fixed points of some memory-less collision model.
-
-\subsection{Kraus representation}
-To derive the aforementioned implementations, we exploit the existence of the PCEGs and their \textit{Kraus representation} (or operator-sum representation), which reads 
-\begin{equation}
-\mcE[\rho]=\sum_i K_i \rho
-K_i^\dagger{},
-\end{equation}
-with $\sum_i K_i^\dagger{}K_i=\one$ (the trace-preserving condition)~\cite{Kraus1983}.
-}
-
-
 % The Kraus operators corresponding to one single qubit PCEs are 
 % $\{\openone/\sqrt2, \sigma_i/\sqrt2\}$,
 % % \begin{equation}
@@ -39,20 +47,21 @@ with $\sum_i K_i^\dagger{}K_i=\one$ (the trace-preserving condition)~\cite{Kraus
 % % \end{equation}
 % corresponding to the operation that leaves the component $\sigma_i$
 % invariant~\cite{nielsen_chuang_2011}.
-Inspection of the Kraus operators of two qubit PCEG lead to
+Inspection of the Kraus operators of two qubit PCEG leads to
 the ansatz that the Kraus operators for the generator of 
-$\mcG_{\vec \alpha}$ is 
+$\mcG_{\vec \alpha}$ are 
 \begin{equation}
-\left\{\frac{\openone}{\sqrt2}, \frac{\sigma_{\vec \alpha}}{\sqrt2}\right\}. 
-% \left\{\openone/\sqrt2, \left(\bigotimes_{k=1}^N \sigma_{\alpha_k}\right)/\sqrt2\right\}. 
+K_0=\frac{\openone}{\sqrt2}, \quad K_1=\frac{\sigma_{\vec \alpha}}{\sqrt2},
+% \left\{\openone/\sqrt2, 
+% \left(\bigotimes_{k=1}^N \sigma_{\alpha_k}\right)/\sqrt2\right\}. 
 \label{eq:kraus:PCE}
 \end{equation}
-Indeed, the Kraus operators corresponding to one single qubit PCEs are 
+since the Kraus operators corresponding to one single qubit PCEs are 
 $\{\openone/\sqrt2, \sigma_\alpha/\sqrt2\}$,
 corresponding to the operation that leaves the component $\sigma_\alpha$
 invariant~\cite{nielsen_chuang_2011}.
 
-We shall first show that the aforementioned Kraus operators indeed produce a PCE. 
+We shall first show that the aforementioned Kraus operators produce a PCE. 
 Notice that 
 % \begin{equation}
 $\sigma_\alpha \sigma_\beta \sigma_\alpha =a_{\alpha \beta} \sigma_\beta$,
@@ -64,19 +73,17 @@ which in turn imply that
 =\san_{\vec \alpha \vec \beta} \sigma_{\vec \beta}.
 \label{eq:sigma_property}
 \end{equation}
-\cpnote{This is the original $a$, not $H \otimes H$. See how to relate these
-two matrices, or define a new $a$ and $A$} \ddnote{tengo entendido que nunca se define o redefine $a$ como $H \otimes H$, ni en el apendice, solo se dice que se intercambian para ciertos calculos. Creo que la notacion es segura.}
 % with $a$ the matrix that appears in \eqref{eq:eigvals-PCE}. 
 Next, consider the action of a channel with Kraus representation 
 \eqref{eq:kraus:PCE} on an $N$ qubit system:
 \begin{align}
 \rho \mapsto &\frac{1}{2^N}\sum_{\vec \beta} r_{\vec \beta} \left( \frac{1}{2} \sigma_{\vec \beta} + \frac{1}{2} \sigma_{\vec \alpha} \sigma_{\vec \beta} \sigma_{\vec \alpha} \right)\nonumber \\
-=&\frac{1}{2^N}\sum_{\vec \beta} r_{\vec \beta} \frac{1+A_{\vec \alpha \vec \beta}}{ 2}\sigma_{\vec \beta}
+=&\frac{1}{2^N}\sum_{\vec \beta} r_{\vec \beta} \frac{1+A_{\vec \alpha \vec \beta}}{ 2}\sigma_{\vec \beta}.
 \end{align}
 However, since $\san_{\vec \alpha \vec \beta} = \pm 1$, the channel characterized
-by Kraus operators  \eref{eq:kraus:PCE} is a PCE channel\ddnote{agrego 'channel', aqui el PCE map si es por construccion un canal}. Moreover, One can notice that, 
+by Kraus operators  \eref{eq:kraus:PCE} is a PCE channel. Moreover, one can notice that, 
 except for the first row, half of the matrix elements of each row is $+1$ and 
-half $-1$, which implies that the aforementioned channel is a PCEG. 
+half $-1$, which implies that the channel is a PCEG. 
 
 % We still have to show that except for $i_1=\cdots=i_n=0$, half of the numbers 
 % $(1+\prod_k a^{i_k}_{j_k})/2=1$, or equivalently, half of $\prod_k a^{i_k}_{j_k}=1$. 
@@ -86,20 +93,25 @@ half $-1$, which implies that the aforementioned channel is a PCEG.
 % so the channel is a PCEG. 
 
 Notice also that a different choice of $\vec \alpha$ in \eref{eq:kraus:PCE}
-leads to different channels. This can be seen noticing that if two channels were
+leads to different channels. This follows from the fact that if two channels were
 the same, this would imply that the matrix representation of the corresponding
-superoperator of $\sigma_{\vec \alpha} \cdot \sigma_{\vec \alpha}$ \ddnote{en este punto me confundio bastante esta notacion, contrapropongo $\rho \mapsto \sigma_{\vec \alpha}\rho \sigma_{\vec \alpha}$, que es una notación que hemos venido usando.}
+superoperator of $\rho \mapsto \sigma_{\vec \alpha}\rho \sigma_{\vec \alpha}$
+% $\sigma_{\vec \alpha} \cdot \sigma_{\vec \alpha}$ 
+% \ddnote{en este punto me confundio bastante esta notacion, contrapropongo $\rho
+% \mapsto \sigma_{\vec \alpha}\rho \sigma_{\vec \alpha}$, que es una notación que
+% hemos venido usando.}
 would have to be the same which is clearly false. Since there are $4^n$ different 
 $\vec \alpha$, this implies that all PCEG (plus the identity map) are in one to 
 one correspondence.  
 
-\cpnote{We might have spoken about the notation of the generators and here we 
-can add a sentence about it, but I will wait till JA writes his part.}
+% \cpnote{We might have spoken about the notation of the generators and here we 
+% can add a sentence about it, but I will wait till JA writes his part.}
 % Two remarks. (i) The notation that we develop with Jose Alfredo coincides with the 
 % generator. This notation is based on the action on each individual qubit. (ii) Counting the
 % number of generators here is trivial. It is simply $4^n-1$ as previously noticed 
 % from other arguments. 
-\subsection{Pure dissipative implementation}
+% }}}
+\subsection{Pure dissipative implementation} % {{{
 Any PCE channel can be seen as the fixed point of some decoherence process. We will show this first for PCEGs. Consider the following dynamical process that \textit{implements} the PCEG $\mcG_{\vec \alpha}$ when $t\to \infty$,
 \begin{align}
 \mcG_{\vec \alpha,t}[\rho]&=e^{- \gamma t} \rho + (1-e^{-\gamma t})\mcG_{\vec \alpha}[\rho]\nonumber \\
@@ -117,7 +129,8 @@ Since PCEGs commute, we can describe easily any other PCE channel as a fixed poi
 \end{equation}
 where $\gamma_{(0,3)}$ and $\gamma_{(3,3)}$ are positive and correspond to the Lindblad operators $\sigma_{(0,3)}$ and $\sigma_{(3,3)}$. Notice that such election of Lindblad operators is not unique, as the PCE channel described here is also equal to $\mcG_{(0,3)}\mcG_{(3,0)}$.
 
-\subsection{Collision model implementation}
+% }}}
+\subsection{Collision model implementation} % {{{
 PCE channels can also be described with \textit{simple collision models}~\cite{Ziman2010}. To prove this, observe that PCEGs can always be implemented using an unitary over the system and an ancilla~\cite{Stinespring2006}. Since PCEG always have Kraus rank $2$, one can always choose a qubit as the ancillary system, concretely,
 \begin{equation}
 \mcG_{\vec \alpha}[\rho]:=\tr_{\text{qubit}} \left( U_{\vec \alpha} \left(\rho\otimes \projj{0}\right) U^\dagger{}_{\vec \alpha} \right),
@@ -148,4 +161,5 @@ dilataciones sencillas y razonables por lo menos a los canales generadores.\ddno
 \end{equation}
 
 
+% }}}
 % }}}
