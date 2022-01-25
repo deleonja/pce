@@ -1,3 +1,6 @@
 \section{Quantum-Classical channels}
 \label{quantum_classical}
-A Quantum-classical channels is defined using orthonormal basis in the Hilbert space. Let $B=\left\{ \ket{\psi_i} \right\}$ an orthonormal basis in $\hilbert_{2^N}$
+A Quantum-classical (CQ) channel is defined  is defined using orthonormal basis in the Hilbert space. Let $B=\left\{ \ket{\psi_i} \right\}$ a orthonormal basis in $\hilbert$ with $\dim(\hilbert)=2^N$, the QC associated to $B$ is
+\begin{equation}
+\mcE^{\text{QC}}_B[\rho]=\sum_{i=1}^{2^N} \bra{\psi_i}\rho \ket{\psi_i} \projj{\psi_i}.
+\end{equation}

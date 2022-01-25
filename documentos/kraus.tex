@@ -3,7 +3,7 @@
 para servirla bien}
 % \todo{Carlos hace una version}
 
-Furthermore, quantum channels enjoy the well-known \textit{Kraus
+{\red [texto viejo introductorio de la seccion] Furthermore, quantum channels enjoy the well-known \textit{Kraus
 representation} (or operator-sum representation) which reads 
 \begin{equation}
 \mcE[\rho]=\sum_i K_i \rho
@@ -13,13 +13,22 @@ with $\sum_i K_i^\dagger{}K_i=\one$ (the trace-preserving condition)~\cite{Kraus
 
 The Kraus operators of PCE channels provide an insight in the physical processes
 that yield such channels. In this section we investigate and construct such 
-operators and explore the corresponding processes. 
-
-
-To study the Kraus operators corresponding to PCE, it is enough to study 
+operators and explore the corresponding processes. To study the Kraus operators corresponding to PCE, it is enough to study 
 the ones corresponding to generators, as all PCEs commute and thus to get the 
 Kraus operators of an arbitrary PCE, one can easily combine the Kraus
-operators of its generators. 
+operators of its generators. }
+
+{\blue [texto nuevo introductorio de la seccion]
+Given that \pce{} channels are projections, we might ask whether they are fixed points of some memory-less (Markovian) process or not. In this section we prove that they are, and give two examples of Markovian implementations. The first one consist in identifying each \pce{} channel as a fixed point of some pure dissipative process. The second, in identifying each \pce{} channel as fixed points of some memory-less collision model.
+
+\subsection{Kraus representation}
+To derive the aforementioned implementations, we exploit the existence of the PCEGs and their \textit{Kraus representation} (or operator-sum representation), which reads 
+\begin{equation}
+\mcE[\rho]=\sum_i K_i \rho
+K_i^\dagger{},
+\end{equation}
+with $\sum_i K_i^\dagger{}K_i=\one$ (the trace-preserving condition)~\cite{Kraus1983}.
+}
 
 
 % The Kraus operators corresponding to one single qubit PCEs are 
@@ -90,17 +99,17 @@ can add a sentence about it, but I will wait till JA writes his part.}
 % generator. This notation is based on the action on each individual qubit. (ii) Counting the
 % number of generators here is trivial. It is simply $4^n-1$ as previously noticed 
 % from other arguments. 
-
+\subsection{Pure dissipative implementation}
 Any PCE channel can be seen as the fixed point of some decoherence process. We will show this first for PCEGs. Consider the following dynamical process that \textit{implements} the PCEG $\mcG_{\vec \alpha}$ when $t\to \infty$,
 \begin{align}
 \mcG_{\vec \alpha,t}[\rho]&=e^{- \gamma t} \rho + (1-e^{-\gamma t})\mcG_{\vec \alpha}[\rho]\nonumber \\
 &=\frac{\left( 1+e^{- \gamma t} \right)}{2} \rho +\frac{\left( 1-e^{- \gamma t} \right)}{2} \sigma_{\vec \alpha} \rho \sigma_{\vec \alpha},
 \end{align}
-where $\gamma>0$. It is easy to prove that the family of channels $\mcG_{\vec \alpha, t}$ parametrized with $t \geq 0$ forms a one-parametric semigroup, \ie{} $\mcG_{\vec \alpha, t_1}\mcG_{\vec \alpha, t_2}=\mcG_{\vec \alpha, t_1+t_2}$, therefore $\mcG_{\vec \alpha, t}$ describes a dissipative time-homogeneous Markovian process, those are always characterized by some Lindblad generator~\cite{lindblad}. The Lindblad generator of $\mcG_{\vec \alpha, t}$, denoted by $\mcL_{\vec \alpha}$, can be obtained with the standard procedure,  
+where $\gamma>0$. It is easy to show that the family of channels $\mcG_{\vec \alpha, t}$ parametrized with $t \geq 0$ forms a one-parametric semigroup, \ie{} $\mcG_{\vec \alpha, t_1}\mcG_{\vec \alpha, t_2}=\mcG_{\vec \alpha, t_1+t_2}$, therefore $\mcG_{\vec \alpha, t}$ describes a dissipative time-homogeneous Markovian process, those are always characterized by some Lindblad generator~\cite{lindblad}. The Lindblad generator of $\mcG_{\vec \alpha, t}$, denoted by $\mcL_{\vec \alpha}$, can be obtained with the standard procedure,  
 \begin{equation}
 \mcL_{\vec \alpha}[\rho]=\left. \frac{d\mcG_{\vec \alpha,t}[\rho]}{dt}\right|_{t=0}=\frac{\gamma\left(\sigma_{\vec \alpha}\rho \sigma_{\vec \alpha} -\rho \right)}{2},
 \end{equation}
-where the unique Lindblad operator associated with the relaxation ratio $\gamma/2$ is simply $\sigma_{\vec \alpha}$.
+where the unique Lindblad operator associated with the relaxation ratio $\gamma/2$ is simply $\sigma_{\vec \alpha}$. Notice that $\sigma_{\vec \alpha}$ is trace-less, therefore the process is pure dissipative~\cite{cirac}.
 
 Since PCEGs commute, we can describe easily any other PCE channel as a fixed point of a decoherence process. For them, the Lindblad generators are the sum of the Lindbladians of the corresponding generators. As an example, consider the channel depicted in \fref{fig:two:qubit:examples} b), it is equal to $\mcG_{(0,3)}\mcG_{(3,3)}$, therefore it is the fixed point of the dissipation process described with the following Lindbladian,
 \begin{equation}
@@ -108,19 +117,20 @@ Since PCEGs commute, we can describe easily any other PCE channel as a fixed poi
 \end{equation}
 where $\gamma_{(0,3)}$ and $\gamma_{(3,3)}$ are positive and correspond to the Lindblad operators $\sigma_{(0,3)}$ and $\sigma_{(3,3)}$. Notice that such election of Lindblad operators is not unique, as the PCE channel described here is also equal to $\mcG_{(0,3)}\mcG_{(3,0)}$.
 
+\subsection{Collision model implementation}
 PCE channels can also be described with \textit{simple collision models}~\cite{Ziman2010}. To prove this, observe that PCEGs can always be implemented using an unitary over the system and an ancilla~\cite{Stinespring2006}. Since PCEG always have Kraus rank $2$, one can always choose a qubit as the ancillary system, concretely,
 \begin{equation}
 \mcG_{\vec \alpha}[\rho]:=\tr_{\text{qubit}} \left( U_{\vec \alpha} \left(\rho\otimes \projj{0}\right) U^\dagger{}_{\vec \alpha} \right),
 \end{equation}
-where $\tr_{\text{qubit}}$ denotes partial trace over the ancillary qubit, with the unitary defined as,
+where $\tr_{\text{qubit}}$ denotes partial trace over the ancillary qubit, with the unitary defined as follows,
 \begin{align}
 U_{\vec\alpha}\ket{\psi} \ket{0}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}+\sigma_{\vec\alpha} \ket{\psi}\ket{1} \right),\\
 U_{\vec\alpha}\ket{\psi} \ket{1}:=\frac{1}{\sqrt{2}} \left( \ket{\psi} \ket{0}-\sigma_{\vec\alpha} \ket{\psi}\ket{1} \right).
 \label{eq:Nqubit_stinespring}
 \end{align}
-Therefore, any concatenation of PCEGs can be described as a collision model with as many collisions as generators needed. In fact, generators are described with one collision. For the general case, consider some PCE channel $\mcE$ generated with $\left\{ \mcG_{\vec \alpha_1}, \mcG_{\vec \alpha_2}, \dots, \mcG_{\vec \alpha_M} \right\}$. For this, we can define an environment consisting of $M$ qubits initially in the state $\left( \projj{0} \right)^{\otimes M}$ (or equivalently, one qubit with the additional assumption that its state is reset to $\ket{0}$ after each collision). The collision with the $k\text{th}$ particle is described by $U_{\vec \alpha_k}$, which acts solely over the system and the $k\text{th}$ particle. Therefore $\mcE$ can be written as follows,
+Therefore, any concatenation of PCEGs can be described as a collision model with as many collisions as generators needed. In fact, generators are described with one collision. For the general case consider some PCE channel $\mcE$ generated with $\left\{ \mcG_{\vec \alpha_1}, \mcG_{\vec \alpha_2}, \dots, \mcG_{\vec \alpha_M} \right\}$. For this we can define an environment consisting of $M$ qubits initially in the state $\left( \projj{0} \right)^{\otimes M}$, or equivalently one qubit with the additional assumption that its state is reset to $\ket{0}$ after each collision (memory-less collisions). The collision with the $k\text{th}$ particle is described by $U_{\vec \alpha_k}$, which acts solely over the system and the $k\text{th}$ particle. Therefore $\mcE$ can be written as follows,
 \begin{equation}
-\mcE[\rho]=\tr_{\text{E}} \left( \left(U_{\vec \alpha_1} \dots U_{\vec \alpha_M}\right)\left( \rho \otimes \projj{0}^{\otimes M}\right) \left(U_{\vec \alpha_1} \dots U_{\vec \alpha_M} \right)^\dagger{} \right),
+\mcE[\rho]=\tr_{\text{E}} \left[ \left(U_{\vec \alpha_1} \dots U_{\vec \alpha_M}\right) \rho \otimes \left(\projj{0}\right)^{\otimes M} \left(U_{\vec \alpha_1} \dots U_{\vec \alpha_M} \right)^\dagger{} \right],
 \end{equation}
 where $\tr_{\text{E}}$ is the partial trace over the total of the ancillary qubits. Notice that as PCEGs commute, the order of the collisions can be any.
 \begin{itemize}
