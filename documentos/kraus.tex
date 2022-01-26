@@ -115,7 +115,7 @@ one correspondence.
 Any PCE channel can be seen as the fixed point of some decoherence process\cpnote{esto suena obvio, pero no lo es. Es decir no todos los canales son resultado de
 lindblad. Me gustaria modificar esta frase para que pueda ser apreciada mejor}. We
 will show this first for PCEGs. Consider the following dynamical process that
-\textit{implements} \cpnote{porque en italicas? Me cae gordo} the PCEG $\mcG_{\vec \alpha}$ when $t\to \infty$,
+implements \cpnote{porque en italicas? Me cae gordo} the PCEG $\mcG_{\vec \alpha}$ when $t\to \infty$,
 \begin{align}
 \mcG_{\vec \alpha,t}[\rho]&=e^{- \gamma t} \rho + (1-e^{-\gamma t})\mcG_{\vec \alpha}[\rho]\nonumber \\
 &=\frac{\left( 1+e^{- \gamma t} \right)}{2} \rho +\frac{\left( 1-e^{- \gamma t} \right)}{2} \sigma_{\vec \alpha} \rho \sigma_{\vec \alpha},
@@ -142,7 +142,7 @@ the channel depicted in \fref{fig:two:qubit:examples} b), it is equal to
 $\mcG_{(0,3)}\mcG_{(3,3)}$, therefore it is the fixed point of the dissipation
 process described with the following Lindbladian,
 \begin{equation}
-\mcL=\frac{\gamma_{(0,3)}\left(\sigma_{(0,3)}\rho\sigma_{(0,3)}-\rho \right)}{2}
+\mcL[\rho]=\frac{\gamma_{(0,3)}\left(\sigma_{(0,3)}\rho\sigma_{(0,3)}-\rho \right)}{2}
    +\frac{\gamma_{(3,3)}\left(\sigma_{(3,3)}\rho\sigma_{(3,3)}-\rho
 \right)}{2},
 \end{equation}
@@ -151,7 +151,7 @@ where $\gamma_{(0,3)}$ and $\gamma_{(3,3)}$ are positive and correspond to the L
 
 % }}}
 \subsection{Collision model implementation} % {{{
-We now show that PCE channels can also be described with \textit{simple
+We now show that PCE channels can also be implemented with \textit{simple
 collision models}~\cite{Ziman2010} \cpnote{can also be implemented can result 
 from collision models o ago asi. No cre oqeu uno describa un PCE con un modelo
 de colision}. First, observe that PCEGs can
