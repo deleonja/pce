@@ -1,6 +1,6 @@
 \section{PCE Maps} 
-To introduce the family of Pauli component erasing maps we start \sout{with 
-review}\janote{reviewing} basic concepts of quantum channels that will allow us to introduce some 
+To introduce the family of Pauli component erasing maps we start  
+reviewing basic concepts of quantum channels that will allow us to introduce some 
 notation. 
 % In this section we introduce the definition of Pauli component erasing maps,
 % but first we go through several standard definitions needed to discuss them.
@@ -32,7 +32,7 @@ map every convex combination of density matrices into a convex combination of th
 evolution of such density matrices. The
 trace preserving property is required for the process $\mcE$ to be
 deterministic, and reads $\tr\mcE[\rho]=\tr \rho =1$. 
-Often, this condition is easy to test.\janote{El comentario anterior se me hace de más}
+Often, this condition is easy to test.
 The
 complete
 positivity condition is needed to preserve positive semidefiniteness and handle
@@ -137,17 +137,14 @@ is positive-semidefinite~\cite{jamil,choi}.
 \subsection{Pauli component erasing maps} % {{{
 \label{sec:single:qubit}
 % \todo{David escribe una primera version y luego Carlos itera}
-\janote{Siento que la subsección comienza de golpe con 'hablemos de los PCE 
-de 1 qubit' y hace falta una transición de lo de arriba a los PCE, además 
-de una frase que resuma de qué hablamos en II.B. Propongo 
-la siguiente reformulación:}
+\janote{Se añadió un primer párrafo para hacer una transición suave del A
+al B y decir qué discutimos aquí.}
+Now that we have discussed the main features of quantum channels
+we are going to introduce the Pauli component erasing maps.
+We shall start exploring the single qubit scenario 
+and continue with the $N$-qubit case. 
 
-\janote{Now that we have discussed the main features of quantum channels
-we are going to introduce the Pauli component erasing maps.}
-We shall start exploring \sout{a}\janote{the} single qubit scenario 
-\janote{to finish developing the $N$-qubit case}\sout{, where the most general 
-density matrix can be written as}\janote{The most general 
-single qubit density matrix can be written as}
+The most general single qubit density matrix can be written as
 \begin{equation}
 % \rho=\frac{\one +\vec r \cdot \vec \sigma}{2}.
 \rho=\frac12 {\sum_{\alpha=0}^3 r_\alpha \sigma_\alpha},
@@ -302,9 +299,11 @@ $1$s, see~\fref{fig:one:qubit:examples}.
 \end{scope} % }}}
 \end{tikzpicture} % }}}
 \end{center}
-	\caption{In (a) we introduce the positions of 
-\janote{\textbf{in}(?) the diagrams that picture the single qubit \pce{} maps}
-\sout{the single qubit diagrams}\janote{para que sea autocontenida la caption}, so that each square corresponds to a single 
+	\caption{\janote{Le modificamos la primera frase a esta caption para que la Fig sea
+	autocontenida}
+In (a) we introduce the notation
+in the diagrams that represent the single qubit \pce{} maps,
+so that each square corresponds to a single 
 $\tau_{\alpha}$, $\alpha=0,1,2,3$. The diagrams in 
 (b), (c) and (d) correspond to the identity map, dephasing channel, and 
 total depolarization, respectively. In (e) we show a map that only erases the component
