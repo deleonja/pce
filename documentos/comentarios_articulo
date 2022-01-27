@@ -1,0 +1,17 @@
+- caption fig 1 (PCE diagrams of 1 qubit): 
+    agregar enunciado inicial "PCE maps of 1 qubit can be pictured using one column tables."
+    * Cambiar "The diagrams in (b), (c) and (d) correspond to the identity map, dephasing channel, and total depolarization, respectively." por
+    "The diagrams in (b), (c) and (d) correspond to the identity map, COMPLETELY dephasing channel, and total depolarization, respectively."
+    * Typo en "Bloch sphere" y ponerse de acuerdo si Bloch Sphere o Bloch ball. Bloch aparece en la sección II.B después de eq (4)
+
+- separar en dos enunciados la última frase en el párrafo que vas después de (5) que son las desigualdades para CP 
+
+- II.B No me gusta que se tarde tanto en introducir que es un mapa PCE. Me gustaba que desde el primer enunciado se dijera qué son
+
+- está incompleto el último enunciado del párrafo en el que se dice algo sobre las PAuli diagonal operations
+
+- último enunciado párrafo de ruskai: is a PCE map with exactly 2^N PAULI component equal to 1 in its diagonal
+
+- último párrafo II.B ya no podemos decir que vamos a "introducir" una representación gráfica de los mapas PCE, en todo caso a generalizar lo que se habló de 1 qubit
+    
+
