@@ -11,6 +11,37 @@
 Notar que el hecho de que cada generador tiene un indice alpha. 
 Decir que ese alpha es la accion del operador 
 
+
+We shall now study the reduced action of a PCE map over a particular qubit. To do 
+so, we introduce the partial trace over everything except qubit $k$; this 
+operation  will be denoted by $\tr_{\not k}$. We also introduce basis vectors for multi index 
+$\valpha$. Define $\vec e_k$ via its components as
+$[\vec e_k]_j = \delta_{jk}$. Then, we can write the partial trace 
+of the generic state $\rho$, see \eref{eq:N_qubits_rho}, as
+$$
+\rho_k = 
+\tr_{\not k} \rho = 
+\sum_\alpha r_{\alpha \vec e_k} \sigma_\alpha.
+$$
+
+Consider now the multi qubit Pauli map defined by coefficients $\{ \tau_\valpha\}$, 
+whose action is 
+$$
+\mcE_{\{ \tau_\valpha\}}[\rho] = \sum_\valpha \tau_\valpha r_\valpha \sigma_\valpha.
+$$
+The action on qubit $k$ is determined solely by the four 
+coefficients $\{ \tau_{\alpha \vec e_k}\}$ in the sense that
+$$
+\tr_{\not k} \mcE_{\{ \tau_\valpha\}}[\rho]  = 
+\mcE_{\{ \tau_\alpha \vec e_k\}}[\rho_k].
+% = \sum_\valpha \tau_\valpha r_\valpha \sigma_\valpha.
+$$
+% where $\mcE_{\{ \tau_{\alpha } \}}
+
+
+E completo, luego trazado, es equivalente a E reducido aplicado a la traza del estado. 
+
+
 For a single qubit
 the PCE generators are the identity map plus the channels that map the Bloch 
 sphere to each Cartesian axis, as their associated vector subspaces are trivial
@@ -19,7 +50,6 @@ to prove and their dimension $2(1)-1=1$ is met.
 \pce{} generators}
 Therefore, we can identify the index $\alpha_k$ in $\vec\alpha$ by the local action
 of the PCE generator on the $k$-th qubit. 
-
 
 
 Próximamente... \Fref{fig:appex:twoQ_PCEGs}
