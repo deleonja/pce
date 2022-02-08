@@ -8,65 +8,131 @@
 % The proof is simplified if one uses the Kraus representation developed in 
 % \sref{sec:kraus}, so we postpone the demonstration to appendix \ref{sec:2_qubits}.
 
-Notar que el hecho de que cada generador tiene un indice alpha. 
-Decir que ese alpha es la accion del operador 
+% Notar que el hecho de que cada generador tiene un indice alpha. 
+% Decir que ese alpha es la accion del operador 
 
 
-1. La acción sobre el estado está determinada por la alpha. Eso ya se sabe. 
+% 1. La acción sobre el estado está determinada por la alpha. Eso ya se sabe. 
 
-Para generadores la accion fisica del elemento alpha_k es como actua sobre 
-el qubit k (o quizá el j). 
-
-Esto es equivalente al canal k sobre un qubut, y se puede extrapolar de la Figura 1. 
+% Para generadores la accion fisica del elemento alpha_k es como actua sobre 
+% el qubit k (o quizá el j). 
 
 
-Así podemos leer la accion y relacionar las figuras con la notacion de las alphas.
-
-We shall now study the reduced action of a PCE map over a particular qubit. To do 
-so, we introduce the partial trace over everything except qubit $k$; this 
-operation  will be denoted by $\tr_{\not k}$. We also introduce basis vectors for multi index 
-$\valpha$. Define $\vec e_k$ via its components as
-$[\vec e_k]_j = \delta_{jk}$. Then, we can write the partial trace 
-of the generic state $\rho$, see \eref{eq:N_qubits_rho}, as
-$$
-\rho_k = 
-\tr_{\not k} \rho = 
-\sum_\alpha r_{\alpha \vec e_k} \sigma_\alpha.
-$$
-
-Consider now the multi qubit Pauli map defined by coefficients $\{ \tau_\valpha\}$, 
-whose action is 
-$$
-\mcE_{\{ \tau_\valpha\}}[\rho] = \sum_\valpha \tau_\valpha r_\valpha \sigma_\valpha.
-$$
-The action on qubit $k$ is determined solely by the four 
-coefficients $\{ \tau_{\alpha \vec e_k}\}$ in the sense that
-$$
-\tr_{\not k} \mcE_{\{ \tau_\valpha\}}[\rho]  = 
-\mcE_{\{ \tau_\alpha \vec e_k\}}[\rho_k].
-% = \sum_\valpha \tau_\valpha r_\valpha \sigma_\valpha.
-$$
-% where $\mcE_{\{ \tau_{\alpha } \}}
-
-
-E completo, luego trazado, es equivalente a E reducido aplicado a la traza del estado. 
-
-
-For a single qubit
-the PCE generators are the identity map plus the channels that map the Bloch 
-sphere to each Cartesian axis, as their associated vector subspaces are trivial
-to prove and their dimension $2(1)-1=1$ is met. 
-\janote{Here goes the bla bla for the discussion of the proof for the $N$-qubit
-\pce{} generators}
-Therefore, we can identify the index $\alpha_k$ in $\vec\alpha$ by the local action
-of the PCE generator on the $k$-th qubit. 
-
-
-Próximamente... \Fref{fig:appex:twoQ_PCEGs}
-
-\begin{figure}
+\begin{figure} % {{{
 \centering
 \includegraphics[width=\columnwidth]{twoQ_generator_diagrams-crop}
-\caption{PCE generators of 2 qubits.}
+\caption{PCE generators of 2 qubits. \cpnote{Mejorar el caption}}
 \label{fig:appex:twoQ_PCEGs}
-\end{figure}
+\end{figure} % }}}
+
+
+
+The action of a generator $\mcG_\valpha$ depends only, as its notations suggests  on 
+the multi index $\valpha$. To interpret the meaning of $\valpha$, we consider the action
+of the generator on a reduced density matrix. In fact, 
+\begin{align}
+\tr_{\not k} \mcG_\valpha [\rho] &= 
+\frac12 \tr_{\not k} (\rho + \sigma_\valpha \rho \sigma_\valpha)\nonumber \\
+&= \frac{\rho_k}{2} + \frac{\sigma_{\alpha_k} \rho_k \sigma_{\alpha_k}}{2}\nonumber \\
+&= \mcG_{\alpha_k} [\rho_k ],
+\label{eq:generator:individual:qubit}
+\end{align}
+where the partial trace over everything except qubit $k$ is
+denoted by $\tr_{\not k}$. The last line denotes a single qubit PCE generator
+corresponding to the index $\alpha_k$, which is the $k$-th component 
+of $\valpha$. 
+
+
+We now connect particular elements of a PCE map with the action 
+over particular qubits. To do so, we define basis vectors $\vec e_k$ via its components as
+$[\vec e_k]_j = \delta_{jk}$. This means that 
+$\valpha = \sum_k \alpha_k \vec e_k$.
+If we denote 
+\begin{equation}
+\mcE_{\{ \tau_\valpha\}}[\rho] = \sum_\valpha \tau_\valpha r_\valpha \sigma_\valpha,
+\end{equation}
+we can verify using direct calculation that 
+\begin{equation}
+\tr_{\not k} \mcE_{\{ \tau_\valpha\}}[\rho]  = 
+\mcE_{\{ \tau_{\alpha_k} \}}[\rho_k].
+\label{eq:trnottrnot}
+\end{equation}
+% = \sum_\valpha \tau_\valpha r_\valpha \sigma_\valpha.
+
+
+\Eref{eq:trnottrnot} means that the action of a channel over the $k$-th qubit is determined
+by the four numbers $\tau_{alpha_k \vec e_k}$ which, for the two qubit case correspond 
+to the first column (if $k=1$) or the first row (if $k=2$). For larger $N$ the generalization 
+is immediate. Connecting \eref{eq:trnottrnot} 
+and \eref{eq:generator:individual:qubit} allows us to interpret  easily 
+the multi-index in each generator. In \fref{fig:appex:twoQ_PCEGs} we present 
+all two qubit generators and their corresponding $\valpha$. 
+
+
+
+\cpnote{Quiza una figura con la accion de la identidad, la X Y y Z?}
+
+% Comentarios viejos {{{
+% Esto es equivalente al canal k sobre un qubut, y se puede extrapolar de la Figura 1. 
+
+% Así podemos leer la accion y relacionar las figuras con la notacion de las alphas.
+
+
+%  Then, we can write the partial trace 
+% of the generic state $\rho$, see \eref{eq:N_qubits_rho}, as
+% $$
+% \rho_k = 
+% \tr_{\not k} \rho = 
+% \sum_\alpha r_{\alpha \vec e_k} \sigma_\alpha.
+% $$
+
+
+% Conectar los elementos tau de la primera fila con la accion sobre el qubit individual. 
+
+% We also introduce basis vectors for multi index 
+% This means that 
+
+
+% We shall now study the reduced action of a PCE map over a particular qubit. To do 
+% so, we introduce the partial trace over everything except qubit $k$; this 
+% operation  will be denoted by $\tr_{\not k}$. We also introduce basis vectors for multi index 
+% $\valpha$. Define $\vec e_k$ via its components as
+% $[\vec e_k]_j = \delta_{jk}$. Then, we can write the partial trace 
+% of the generic state $\rho$, see \eref{eq:N_qubits_rho}, as
+% $$
+% \rho_k = 
+% \tr_{\not k} \rho = 
+% \sum_\alpha r_{\alpha \vec e_k} \sigma_\alpha.
+% $$
+
+% Consider now the multi qubit Pauli map defined by coefficients $\{ \tau_\valpha\}$, 
+% whose action is 
+% $$
+% \mcE_{\{ \tau_\valpha\}}[\rho] = \sum_\valpha \tau_\valpha r_\valpha \sigma_\valpha.
+% $$
+% The action on qubit $k$ is determined solely by the four 
+% coefficients $\{ \tau_{\alpha \vec e_k}\}$ in the sense that
+% $$
+% \tr_{\not k} \mcE_{\{ \tau_\valpha\}}[\rho]  = 
+% \mcE_{\{ \tau_\alpha \vec e_k\}}[\rho_k].
+% % = \sum_\valpha \tau_\valpha r_\valpha \sigma_\valpha.
+% $$
+% % where $\mcE_{\{ \tau_{\alpha } \}}
+
+
+% E completo, luego trazado, es equivalente a E reducido aplicado a la traza del estado. 
+
+
+% For a single qubit
+% the PCE generators are the identity map plus the channels that map the Bloch 
+% sphere to each Cartesian axis, as their associated vector subspaces are trivial
+% to prove and their dimension $2(1)-1=1$ is met. 
+% \janote{Here goes the bla bla for the discussion of the proof for the $N$-qubit
+% \pce{} generators}
+% Therefore, we can identify the index $\alpha_k$ in $\vec\alpha$ by the local action
+% of the PCE generator on the $k$-th qubit. 
+% 
+
+% Próximamente... \Fref{fig:appex:twoQ_PCEGs}
+% }}}
+
