@@ -1,13 +1,14 @@
 \section{Mathematical considerations} 
 % Intro {{{
-This section is devoted to derive the conditions a Pauli map needs to satisfy 
+This section is devoted to derive the conditions a Pauli diagonal map needs to satisfy 
 the complete positivity condition i.e. that all the eigenvalues of the Choi matrix
 associated to the channel are non-negative.  To do so, we calculate
-and diagonalize the Choi matrix associated with general Pauli maps, first for a
+and diagonalize the Choi matrix associated with general Pauli diagonal maps, first for a
 single qubit and then for $N$ qubits. We then restrict to PCEs and, for quantum
 channels, associate a vector subspace to the set of coefficients
-$\{\tau_\valpha\}$ in \eref{eq:PCE_definition}. This allows us  to
-derive several important conclusions. 
+$\{\tau_\valpha\}$ in \eref{eq:PCE_definition}. This allows us to
+derive several important \janote{properties of this particular family of channels.}
+\sout{conclusions. }
 % }}}
 \subsection{Diagonalization of Choi matrix} % {{{
 
@@ -24,7 +25,7 @@ given by  $\bbrakket{A_1}{A_2}=\tr A_1^\star A_2$,
 % To do so, we shall denote operators in the superoperator space with the symbol
 % $\kket{\cdot}$. For example, $\kket{\sigma_{\alpha}}$ correspond to the
 % vectorized 
-elements of the Pauli basis and satisfy the relation 
+elements of the Pauli basis satisfy the relation 
 $\bbrakket{{\sigma_{\alpha}} }{{\sigma_{\alpha'} }} = \tr
 \left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2
 \delta_{\alpha\alpha'}$.
