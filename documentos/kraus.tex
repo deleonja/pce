@@ -27,12 +27,23 @@ Siento que la introduccion propuesta est´a un poco debil}
 % Kraus operators of an arbitrary PCE, one can easily combine the Kraus
 % operators of its generators. }
 
-Given that \pce{} channels are projections, we might ask whether they are fixed
+{\red [anterior]Given that \pce{} channels are projections, we might ask whether they are fixed
 points of some memory-less (Markovian) process or not. In this section we prove
 that they are, and give two examples of Markovian implementations. The first
 one consist in identifying each \pce{} channel as a fixed point of some pure
 dissipative process. The second, in identifying each \pce{} channel as fixed
+points of some memory-less collision model.}
+{\blue [nuevo, sigo trabajando] It is known that not every quantum channel can be seen as a snapshot of a Markovian decoherence process~\cite{cirac,davalosdivisibility}, \ie{} a process described with a Markovian master equation,
+\begin{multline}
+\dot \rho(t)=-i [H(t),\rho(t)]+\\
+\sum_k \gamma_k(t)\left( V_k(t)\rho(t)V_k^{\dagger{}}-\frac{1}{2} \left\{V_k^\dagger{} V_k(t),\rho(t) \right\}\right)
+\end{multline}
+ \pce{} channels erase information
+The first
+one consist in identifying each \pce{} channel as a fixed point of some pure
+dissipative process. The second, in identifying each \pce{} channel as fixed
 points of some memory-less collision model.
+}
 % }}}
 \subsection{Kraus representation} % {{{
 To derive the aforementioned implementations, we exploit the existence of the
