@@ -112,10 +112,13 @@ we chose the aforementioned definition as some later considerations [see
 
 The same program can be carried out for $N$ qubits. In this case, 
 the vectorized Pauli operators are defined as follows, 
-\begin{equation}
-\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\cdots
-\otimes\kket{\sigma_{\alpha_N}}.
+\begin{equation}\label{eq:vectorized_pauli_strings}
+\kket{\sigma_{\vec{\alpha} }}=
+\kket{\sigma_{\alpha_1}\otimes\cdots\otimes \sigma_{\alpha_N}}.
+%\kket{\sigma_{\alpha_1}}\otimes\cdots\otimes\kket{\sigma_{\alpha_N}}.
 \end{equation}
+\janote{Ojo que cambié la eq. \eqref{eq:vectorized_pauli_strings}. Eso también
+modifica el comentario de la frase que le sigue a este comentario. Luego lo cambio yo}
 This vectorization must not be confused with the direct vectorization of $\sigma_{\vec \alpha}$, since the tensor product and the vectorization process generally do not commute~\cite{Gilchrist2009}.
 % 
 % $\janote{aquí hay algo extraño, pues los operadores 
