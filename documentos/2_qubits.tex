@@ -30,6 +30,10 @@
 The action of a generator $\mcG_\valpha$ depends only, as its notations suggests  on 
 the multi index $\valpha$. To interpret the meaning of $\valpha$, we consider the action
 of the generator on a reduced density matrix. In fact, 
+\janote{me confunde este enunciado. Yo sugiero el siguiente cambio}
+\janote{To interpret the meaning of $\valpha$, we consider the reduced 
+density matrix of the $k$-th qubit after the action of the generator $\mcG_\valpha$
+on the whole system,}
 \begin{align}
 \tr_{\not k} \mcG_\valpha [\rho] &= 
 \frac12 \tr_{\not k} (\rho + \sigma_\valpha \rho \sigma_\valpha)\nonumber \\
@@ -41,7 +45,9 @@ where the partial trace over everything except qubit $k$ is
 denoted by $\tr_{\not k}$. The last line denotes a single qubit PCE generator
 corresponding to the index $\alpha_k$, which is the $k$-th component 
 of $\valpha$. 
-
+\janote{Ya no entiendo para qué sirve todo lo que va después. 
+Si el objetivo era relacionar las $\vec\alpha$ con la acción local de cada generador
+para mí hasta aquí es suficiente.}
 
 We now connect particular elements of a PCE map with the action 
 over particular qubits. To do so, we define basis vectors $\vec e_k$ via its components as
@@ -59,9 +65,10 @@ we can verify using direct calculation that
 \end{equation}
 % = \sum_\valpha \tau_\valpha r_\valpha \sigma_\valpha.
 
-
+\janote{El enunciado a continuación no lo entendí, incluso meditándolo un rato.
+Tal vez ya estoy cansado, pero preferiría que me expliques.}
 \Eref{eq:trnottrnot} means that the action of a channel over the $k$-th qubit is determined
-by the four numbers $\tau_{alpha_k \vec e_k}$ which, for the two qubit case correspond 
+by the four numbers $\tau_{\alpha_k \vec e_k}$ which, for the two qubit case correspond 
 to the first column (if $k=1$) or the first row (if $k=2$). For larger $N$ the generalization 
 is immediate. Connecting \eref{eq:trnottrnot} 
 and \eref{eq:generator:individual:qubit} allows us to interpret  easily 
