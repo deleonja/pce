@@ -3,22 +3,28 @@
 This section is devoted to derive the conditions a Pauli diagonal map needs to satisfy 
 the complete positivity condition i.e. that all the eigenvalues of the Choi matrix
 associated to the channel are non-negative.  To do so, we calculate
-and diagonalize the Choi matrix associated with general Pauli diagonal maps, first for a
-single qubit and then for $N$ qubits. We then restrict to PCEs and, for quantum
+and diagonalize the Choi matrix of a general Pauli diagonal map, first for a
+single qubit and then for $N$ qubits. 
+\janote{Finally, we restrict Pauli diagonal maps to PCE maps, and provide a connection
+between a vector subspace to the set of coefficients $\{\tau_\valpha\}$ 
+in \eref{eq:PCE_definition} of a PCE quantum channel.}
+{\red [anterior]
+We then restrict to PCEs and, for quantum
 channels, associate a vector subspace to the set of coefficients
-$\{\tau_\valpha\}$ in \eref{eq:PCE_definition}. This allows us to
-derive several important \janote{properties of this particular family of channels.}
-\sout{conclusions. }
+$\{\tau_\valpha\}$ in \eref{eq:PCE_definition}.} 
+This allows us to
+derive several important properties of this particular family of channels.
+%\sout{conclusions. }
 % }}}
 \subsection{Diagonalization of Choi matrix} % {{{
-
-We now construct the Choi matrix associated to the single qubit map
+We now construct the Choi matrix of a single qubit Pauli diagonal map
+%We now construct the Choi matrix associated to the single qubit map
 $\mathcal{E}$. As described above, $\mathcal{E}$ is a linear map from
 $\mcB(\hilbert)$ to itself. We shall denote elements of
 $\mcB(\hilbert)$ by the notation $\kket{\cdot}$. Thus, for instance,
 $\kket{\sigma_\alpha}$ represents the Pauli matrix $\sigma_\alpha$ understood
 as a vector belonging to $\mcB(\hilbert)$, for the present case, in which
-$\hilbert={\mathbb{C}^2}$. Since the scalar product on $\mcB(\hilbert)$ is
+$\hilbert={\mathbb{C}^2}$. Since the scalar product in $\mcB(\hilbert)$ is
 given by  $\bbrakket{A_1}{A_2}=\tr A_1^\dagger{} A_2$,
 % We now study the matrix form of the single qubit map $\mathcal{E}$ in
 % order to construct the associated Choi matrix. 
@@ -29,7 +35,7 @@ elements of the Pauli basis satisfy the relation
 $\bbrakket{{\sigma_{\alpha}} }{{\sigma_{\alpha'} }} = \tr
 \left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2
 \delta_{\alpha\alpha'}$.
-In this language, the state reads
+In this language, the state of a single qubit reads
 $\kket{\rho}=2^{-1}\sum_{\alpha=0}^{3} r_{\alpha} \kket{\sigma_{\alpha}}$
 and the matrix form of the map $\mathcal{E}$ is
 % 
@@ -38,7 +44,7 @@ and the matrix form of the map $\mathcal{E}$ is
 \ddyada{\sigma_{\alpha}}.
 \end{equation}
 After some steps, detailed from \eref{eq:inicio:canal:pauli} to
-\eref{Choi_Pauli_1q}, it is possible to show that the associated Choi matrix
+\eref{Choi_Pauli_1q}, it is possible to show that the Choi matrix of $\mathcal{E}$
 reads
 \begin{equation}
  \mathcal{D} = \frac{1}{2}\sum_{\alpha=0}^{3} \tau_{\alpha} \sigma_{\alpha}
@@ -85,10 +91,10 @@ where
 \label{eq:1}
 \end{equation}
 We wish to add that one can replace $a$ with $H \otimes H$, with $H$ the
-Hadamard matrix, and still diagonalize the same Choi matrix. This is due to the
+Hadamard matrix, and still diagonalize the same Choi matrix $\mathcal{D}$. This is due to the
 fact that $a$ corresponds to a permutation of rows of  $H \otimes H$. However,
 we chose the aforementioned definition as some later considerations [see
-\eref{eq:sigma_property}] cannot be written easily in terms of $H \otimes H$.
+\eref{eq:sigma_property}] cannot be easily written in terms of $H \otimes H$.
 
 % $\sa=2^{-1}H\otimes H$ and $H$ is the Hadamard matrix,
 % \cpnote{Decidir si se usa esa $a$ o la otra para ser consistente con lo de los 
@@ -111,15 +117,20 @@ we chose the aforementioned definition as some later considerations [see
 % 
 
 The same program can be carried out for $N$ qubits. In this case, 
-the vectorized Pauli operators are defined as follows, 
+%the vectorized Pauli operators are defined as follows, 
+one uses the vectorized Pauli strings, 
 \begin{equation}\label{eq:vectorized_pauli_strings}
 \kket{\sigma_{\vec{\alpha} }}=
 \kket{\sigma_{\alpha_1}\otimes\cdots\otimes \sigma_{\alpha_N}}.
 %\kket{\sigma_{\alpha_1}}\otimes\cdots\otimes\kket{\sigma_{\alpha_N}}.
 \end{equation}
-\janote{Ojo que cambié la eq. \eqref{eq:vectorized_pauli_strings}. Eso también
-modifica el comentario de la frase que le sigue a este comentario. Luego lo cambio yo}
-This vectorization must not be confused with the direct vectorization of $\sigma_{\vec \alpha}$, since the tensor product and the vectorization process generally do not commute~\cite{Gilchrist2009}.
+\janote{Cambié la eq. \eqref{eq:vectorized_pauli_strings}. Eso también
+modificó la frase que le sigue a este comentario.}
+This vectorization must not be confused with the 
+%direct vectorization of $\sigma_{\vec \alpha}$
+tensor product of  all $\kket{\sigma_{\alpha_i}}$, 
+since the tensor product and the vectorization 
+process generally do not commute~\cite{Gilchrist2009}.
 % 
 % $\janote{aquí hay algo extraño, pues los operadores 
 % que utilizamos son la vectorización del producto tensorial de las paulis, no los
