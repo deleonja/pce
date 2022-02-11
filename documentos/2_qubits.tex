@@ -79,6 +79,36 @@ all two qubit generators and their corresponding $\valpha$.
 
 \cpnote{Quiza una figura con la accion de la identidad, la X Y y Z?}
 
+\janote{Mi contrapropuesta:}
+\janote{Está cruda. Falta iterarla una vez.}
+The local-action of a generator $\mcG_\valpha$ on every qubit in the 
+system depends only, as its notations suggests, on the multi index $\valpha$. 
+For this matter, it will show instructive to start discussing the generators 
+$\mcG_\alpha$ of single qubit PCE quantum channels. As shown in 
+\fref{fig:A_and_PCEGs_connection}, $\mcG_0$ corresponds to the identity map,
+and the remaining $\mcG_{1,2,3}$  are the completely bit, phase and bit-phase
+flip channels. In the PCE diagrams picture the index $\alpha$ is associated
+with the black positions except for $\mcG_0$ that has all positions black.
+To interpret the meaning of $\valpha$ in $\mcG_\valpha$, we consider the reduced 
+density matrix of the $k$-th qubit after the action of the generator $\mcG_\valpha$
+on the whole system,
+\begin{align}
+\tr_{\not k} \mcG_\valpha [\rho] &= 
+\frac12 \tr_{\not k} (\rho + \sigma_\valpha \rho \sigma_\valpha)\nonumber \\
+&= \frac{\rho_k}{2} + \frac{\sigma_{\alpha_k} \rho_k \sigma_{\alpha_k}}{2}\nonumber \\
+&= \mcG_{\alpha_k} [\rho_k ],
+\label{eq:generator:individual:qubit}
+\end{align}
+where the partial trace over everything except qubit $k$ is
+denoted by $\tr_{\not k}$. The last line denotes a single qubit PCE generator
+corresponding to the index $\alpha_k$, which is the $k$-th component 
+of $\valpha$. Hence, each component of the vector-index $\vec\alpha$ 
+provides what the local-action of $\mcG_\valpha$ is on each qubit in
+the system. For two qubits, the local-action of PCE quantum channels 
+in the diagrams is seen in the first row (qubit 1) and first column (qubit 2).
+We present in \fref{fig:appex:twoQ_PCEGs}
+all two qubit generators and their corresponding notation $\mcG_\valpha$. 
+
 % Comentarios viejos {{{
 % Esto es equivalente al canal k sobre un qubut, y se puede extrapolar de la Figura 1. 
 
