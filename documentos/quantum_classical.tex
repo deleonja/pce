@@ -1,13 +1,13 @@
 \section{Quantum-Classical channels}
 \label{quantum_classical}
 \ddnote{Alguien revise este apendice, tiene solo una iterada}
-A Quantum-classical (QC) channel is defined using an orthonormal basis in the Hilbert space. Let $B=\left\{ \ket{\psi_i} \right\}$ such a basis in $\hilbert$ with $\dim(\hilbert)=2^N$, the QC associated to $B$ is
+A Quantum-classical (QC) channel is defined using an orthonormal basis in the Hilbert space. Let $B=\left\{ \ket{\psi_i} \right\}$ such a basis in $\hilbert$ with $\dim(\hilbert)=2^N$, the QC channel associated to $B$ is
 \begin{equation}
 \mcE^{\text{QC}}_B[\rho]=\sum_{i=1}^{2^N} \bra{\psi_i}\rho \ket{\psi_i} \projj{\psi_i},
 \end{equation}
 this is, QC channels project density matrices onto the corresponding diagonal matrix in the basis $B$~\cite{nathanson2007pauli}.
 
-Consider now that the basis $B$ is the simultaneous eigenbasis of a maximal set of commuting Pauli strings denoted by $\text{set}(B)$, such set contains $2^N$ elements (including the identity), and there are $2^N+1$ of such sets~\cite{Lawrence2002}. We will prove that the QCs defined in this way are \pce{} channels with $2^N$ on their diagonal.
+Consider now that the basis $B$ is the simultaneous eigenbasis of a maximal set of commuting Pauli strings denoted by $\text{set}(B)$, such set contains $2^N$ elements (including the identity), and there are $2^N+1$ of such sets~\cite{Lawrence2002}. We will prove that the QCs defined in this way are \pce{} channels with $2^N$ $1$s on their diagonal.
 
 First we compute the components of $\mcE^{\text{QC}}_B$ in the basis $2^{-N/2}\left\{\sigma_{\vec \alpha}\right\}$,
 \begin{equation}

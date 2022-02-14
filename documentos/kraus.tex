@@ -7,6 +7,7 @@
 \cpnote{Crep qe hay que hacer una mini introduccion en donde se explique el porqué de
 esta seccion. Básicamente la idea es conectar estos bichos con procesos fisicos.
 Siento que la introduccion propuesta est´a un poco debil}
+\ddnote{hecha miniintroduccion, es basicamente la misma idea, pero con detalles y justificaciones matematicas}
 
 % \cpnote{HAcer esta seccion despues de que david ponga lo de decoherencia, 
 % para servirla bien}
@@ -33,11 +34,18 @@ that they are, and give two examples of Markovian implementations. The first
 one consist in identifying each \pce{} channel as a fixed point of some pure
 dissipative process. The second, in identifying each \pce{} channel as fixed
 points of some memory-less collision model.}
-{\blue [nuevo, sigo trabajando] It is known that not every quantum channel can be seen as a snapshot of a Markovian decoherence process~\cite{cirac,davalosdivisibility}, \ie{} a process described with a Markovian master equation,
+{\blue [nuevo, sigo trabajando] It is known that not every quantum channel can be seen as a snapshot of a Markovian decoherence process~\cite{cirac,davalosdivisibility}, \ie{} a process described with a Markovian master equation~\cite{lindblad,kossa,kossa2,Gorini1976},
 \begin{multline}
 \dot \rho(t)=-i [H(t),\rho(t)]+\\
-\sum_k \gamma_k(t)\left( V_k(t)\rho(t)V_k^{\dagger{}}-\frac{1}{2} \left\{V_k^\dagger{} V_k(t),\rho(t) \right\}\right)
+\sum_k \gamma_k(t)\left( V_k(t)\rho(t)V_k^{\dagger{}}-\frac{1}{2} \left\{V_k^\dagger{} V_k(t),\rho(t) \right\}\right),
 \end{multline}
+where the first part is the so-called Hamiltonian term, the second the dissipative term with $\gamma_k(t)\geq 0$ the relaxation ratios associated with the Lindblad operators $V_k(t)$.
+%
+In the particular case where the Hamiltonian, relaxation rations and Lindblad operators are independent of time, we recover the well-known Lindblad master equations~\cite{lindblad}. Such equations model time-homogeneous processes, implying one-parameter semigroup structures that will be exploited later.
+%
+Besides, these processes lead to a monotonically lose of information~\cite{breuerreview} and describe non invertible channels in the asymptotic limit $t\to \infty$. Furthermore, channels belonging to one-parameter semigroup families usually have non-negative eigenvalues~\cite{davalosdivisibility}
+%
+Thus we might ask whether 
  \pce{} channels erase information
 The first
 one consist in identifying each \pce{} channel as a fixed point of some pure
