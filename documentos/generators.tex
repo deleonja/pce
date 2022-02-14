@@ -47,9 +47,6 @@ Bloch sphere to de $x$-axis, and on the second qubit (first row) acts an identit
 hence it is labeled $\mcG_{(1,0)}$.
 See \Fref{fig:appex:twoQ_PCEGs} for the notation of all 2-qubit PCE generators.
 
-\cpnote{Notas, no entiendo que es 3+3. Ceo qe no es suma de Klein tampoco 
-por un aparente contraejemeplo: 
-$3=\Sigma(0) = \Sigma(0+0) = \Sigma(0)+\Sigma(0) = 3+3 = ??$}
 \cpnote{Este es un mapeo que depende de $k$, por lo que propondria ponerle
 o un subindice o un superindice $(k)$. }
 \cpnote{La simetría clasifica también al generador!! Quizá podemos quitar el miniapendice
@@ -59,19 +56,21 @@ the matrix $A$ that diagonalizes the Choi matrix $\mcD_N$ of a PCE map.
 The symmetry for a PCE generator $\pceg$ is encoded in the 
 $N$-dimensional array of all $\taus$. The Cartesian grid associated with it 
 is either symmetric or anti-symmetric under reflection of the 
-indices in the $k$-th position in $\vec\alpha$ as
+indices in the $k$-th position in $\vec\alpha$. Consider the map
 \begin{equation}
-\Sigma: 0\mapsto3,\quad3\mapsto0,\quad1\mapsto2,\quad2\mapsto1
+% \Sigma: 
+0\mapsto3,\quad3\mapsto0,\quad1\mapsto2,\quad2\mapsto1
+\label{eq:Sigma}
 \end{equation}
 Indeed, any generator is a subspace containing half the elements of the full vector space.  
-The map $\Sigma$ has the following properties
+Map \eref{eq:Sigma} applied to the $k$-th qubit has the following properties
 \begin{enumerate}
-\item $\Sigma(\vec\alpha)+\Sigma(\vec\beta)=\vec\alpha+\vec\beta$.
+\item $\Sigma(\vec\alpha)\oplus \Sigma(\vec\beta)=\vec\alpha\oplus \vec\beta$.
 \item $\Sigma(\vec\alpha)\neq\vec\alpha$
 \end{enumerate}
 From the first property, we now obtain
 \begin{equation}
-\vec\alpha=\Sigma(\vec\alpha)+\Sigma(\vec0)
+\vec\alpha=\Sigma(\vec\alpha) \oplus \Sigma(\vec0)
 \end{equation}
 We now see that, depending on whether $\Sigma(\vec0)$ belongs (respectively does not belong) to the generator,
 $\vec\alpha$ belongs to the generator if and only if $\Sigma(\vec\alpha)$ belongs (respectively does not belong) to the generator.  
