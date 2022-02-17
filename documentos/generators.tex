@@ -48,7 +48,7 @@ hence it is labeled $\mcG_{(1,0)}$.
 See \Fref{fig:appex:twoQ_PCEGs} for the notation of all 2-qubit PCE generators.
 
 A reflection symmetry is identified for both PCE generators $\pceg$ and
-the matrix $A$ that diagonalizes the Choi matrix $\mcD_N$ of a PCE map\cpnote{Creo que aun 
+matrix $A$ \cpnote{Creo que aun 
 no tenemos el link entre el generador y la matriz A}.
 Consider the map $\Sigma^{(k)}$ that reflects an index $\valpha$ with 
 respect to the $k$-th axis. This map leaves all components of $\valpha$
@@ -59,32 +59,37 @@ invariant, except the $k$-th component, which is transformed according to
 \label{eq:Sigma}
 \end{equation}
 % and the associated 
-All $N$ maps have the following properties:
+The maps have the following properties:
 \begin{enumerate}
-\item $\Sigma^{(k)}(\vec\alpha)\oplus \Sigma^{(k)}(\vec\beta)=\vec\alpha\oplus \vec\beta$.
+\item $\Sigma^{(k)}(\vec\alpha)\oplus \Sigma^{(k)}(\vec\beta)=\vec\alpha\oplus \vec\beta$, and
 \item $\Sigma^{(k)}(\vec\alpha)\neq\vec\alpha$.
 \end{enumerate}
 From the first property, we now obtain
 \begin{equation}
-\valpha=\Sigma^{(k)}(\valpha) \oplus \Sigma^{(k)}(\vec0), 
+\valpha=\Sigma^{(k)}(\valpha) \oplus \Sigma^{(k)}(\vec0). 
 \label{eq:Sigma}
 \end{equation}
-which means that if $\Sigma^{(k)}(\vec0)$ belongs
+This implies that if $\Sigma^{(k)}(\vec0)$ belongs
 to a channel then 
 $\tau_\valpha = \tau_{\Sigma^{(k)}(\vec\alpha)}$, where we used 
 the fact that for channels, the non-zero elements are closed
 under $\oplus$. In other words, the components of a PCE channel
-are symmetric under reflection over the $k$-th axis. \cpnote{Quizá 
-referencia a algunas figuras}. Now consider the case in which 
+are symmetric under reflection over the $k$-th axis. Now consider the case in which 
  $\Sigma^{(k)}(\vec0)$ does not belong to generator. Then 
 $\tau_\valpha \ne \tau_{\Sigma^{(k)}(\vec\alpha)}$, since
 the case $\tau_\valpha = \tau_{\Sigma^{(k)}(\vec\alpha)}=1$
 is forbidden due to \eref{eq:Sigma} and the case 
 $\tau_\valpha = \tau_{\Sigma^{(k)}(\vec\alpha)}=0$ is also forbidden 
 because for generators, the codimension of the associated vector space 
-is 1. 
+is 1. This means that the components of a PCE channel are antisymmetric
+with respect to reflection over the $k$-th axis. 
+Indeed, the 2-qubit PCE generators 
+$\mcG_{(1,0)}$, $\mcG_{(3,2)}$ and $\mcG_{(2,2)}$
+represented in subfigures (c), (d) and (e) of \Fref{fig:two:qubit:examples}, 
+respectively, are either symmetric or anti-symmetric under reflection with 
+respect to lines that divide the diagram in half vertically and horizontally. 
 
-
+\cpnote{De aca al resto de la seccion o establecemos la conexion con A o lo quitamos}
 % 
 % 
 % The symmetry for a PCE generator $\pceg$ is encoded in the 
@@ -111,12 +116,12 @@ is 1.
 % $\vec\alpha$ belongs to the generator if and only if $\Sigma(\vec\alpha)$ belongs (respectively does not belong) to the generator.  
 % 
 
-\janote{Aquí iría la prueva de la simetría de reflexión que está en el horno aún.}
-For instance, see that the 2-qubit PCE generators 
-$\mcG_{(1,0)}$, $\mcG_{(3,2)}$ and $\mcG_{(2,2)}$
-represented in subfigures (c), (d) and (e) of \Fref{fig:two:qubit:examples}, 
-respectively, are either symmetric or anti-symmetric under reflection with 
-respect to lines that divide the diagram in half vertically and horizontally. 
+% \janote{Aquí iría la prueva de la simetría de reflexión que está en el horno aún.}
+% For instance, see that the 2-qubit PCE generators 
+% $\mcG_{(1,0)}$, $\mcG_{(3,2)}$ and $\mcG_{(2,2)}$
+% represented in subfigures (c), (d) and (e) of \Fref{fig:two:qubit:examples}, 
+% respectively, are either symmetric or anti-symmetric under reflection with 
+% respect to lines that divide the diagram in half vertically and horizontally. 
 The same symmetry is identified for the rows and columns of $A$ if one 
 labels each position in a row or column $A^{(i)}$ as $A^{(i)}_{\vec\alpha}$.
 \janote{Aquí habría que agregar la prueva de simetría para la $A$.}
@@ -143,17 +148,17 @@ all entries with $-1$ to $0$. In \Fref{fig:A_and_PCEGs_connection} we illustrate
 this connection between $a$ and single qubit PCE generators.
 In \appref{sec:2_qubits} we illustrate this program for 2-qubits PCE channels.
 
-\cpnote{Sienot que no tiene flujo. Quizá se le pueda dar flujo usando el final 
-del primer parrafo}
+% \cpnote{Sienot que no tiene flujo. Quizá se le pueda dar flujo usando el final 
+% del primer parrafo}
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-The set of all PCE quantum channels may be sorted in subsets, 
-which we will call equivalence classes, whose
-elements are equivalent via particle swaps and local-basis element
-permutations. 
-\janote{El párrafo que pretendía ser este tendrá que ir en otra parte. 
-Aún hay que decidirlo con los demás.}
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% 
+% The set of all PCE quantum channels may be sorted in subsets, 
+% which we will call equivalence classes, whose
+% elements are equivalent via particle swaps and local-basis element
+% permutations. 
+% \janote{El párrafo que pretendía ser este tendrá que ir en otra parte. 
+% Aún hay que decidirlo con los demás.}
 
 % }}}
 
