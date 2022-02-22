@@ -1,20 +1,39 @@
-\section{PCE Maps}
+\section{Pauli component erasing maps}
 \label{sec:pce_maps}
-\janote{Propuesta: hacer un switch de títulos entre el título de II y de II.B}
-\janote{En este primer agregué las referencias a en cuáles secciones hablamos de qué}
-To introduce in \ref{sec:single:qubit} the family of Pauli component erasing 
-maps we start in \ref{subsec:qtm_ch} reviewing basic concepts of quantum 
-channels that will allow us to introduce some notation. 
+% \janote{Propuesta: hacer un switch de títulos entre el título de II y de II.B}
+% \janote{En este primer agregué las referencias a en cuáles secciones hablamos de qué}
+% To introduce in \ref{sec:single:qubit} the family of Pauli component erasing 
+% maps we start in \ref{subsec:qtm_ch} reviewing basic concepts of quantum 
+% channels that will allow us to introduce some notation. 
 
-\afnote{Propongo que cambiemos el inicio de esta sección por: This section is devoted to introduce the family of Pauli component erasing maps. Let us start our discussion with a brief review of several basic concepts of quantum channels that will allow us to introduce some notation.}
+% \afnote{Propongo que cambiemos el inicio de esta sección por: 
+In this section we introduce the family of Pauli component erasing (PCE)
+\cpnote{Revisar despues de escribir la intro que no se ha introducido la sigla}
+maps. Let us start our discussion with a brief review of several basic concepts
+of quantum channels that will allow us to introduce some notation, 
+and finish with the definition of PCE maps, some generalities. We further 
+introduce a useful graphical representation  for them.
+% of the aforementioned maps. 
+% and finish with the definition of PCE maps, some generalities and a graphical representation. 
+% }
 % In this section we introduce the definition of Pauli component erasing maps,
 % but first we go through several standard definitions needed to discuss them.
 \subsection{Quantum channels} \label{subsec:qtm_ch}% {{{
-\afnote{Creo que podríamos empezar la sección introduciendo el espacio de Hilbert y esas cosas y después si dedicarse solamente a Quantum channels. Si están de acuerdo, entonces sólo tendriamos que cambiar el orden de las dos primeras frases en el primer párrafo.}
-Quantum channels are the most general linear operations that a quantum system undergo independently of its past~\cite{zimansbook,cirac}.
-The physical system under study will be associated with a Hilbert space denoted by \hilbert{}, and the set of linear operators over such space will be denoted by $\mcB(\hilbert)$. That way, a density matrix $\rho$ of such system is an element of $\mcB(\hilbert)$.
-\afnote{En esta última parte podriamos cambiar asi:}
-\afnote{The state of the physical system under study is associated to a Hilbert space \hilbert{}, and the set of linear operators over such space is denoted by $\mcB(\hilbert)$. In this way, a density matrix $\rho$ of such system is an element of $\mcB(\hilbert)$.}
+% \afnote{Creo que podríamos empezar la sección introduciendo el espacio de
+% Hilbert y esas cosas y después si dedicarse solamente a Quantum channels. Si
+% están de acuerdo, entonces sólo tendriamos que cambiar el orden de las dos
+% primeras frases en el primer párrafo.}
+Quantum channels are the most general linear operations that a quantum system
+undergo independently of its past~\cite{zimansbook,cirac}.  The physical system
+under study will be associated with a Hilbert space denoted by \hilbert{}, and
+the set of linear operators over such space will be denoted by
+$\mcB(\hilbert)$. That way, a density matrix $\rho$ of such system is an
+element of $\mcB(\hilbert)$.
+% \afnote{En esta última parte podriamos cambiar asi:}
+% \afnote{The state of the physical system under study is associated to a
+% Hilbert space \hilbert{}, and the set of linear operators over such space is
+% denoted by $\mcB(\hilbert)$. In this way, a density matrix $\rho$ of such
+% system is an element of $\mcB(\hilbert)$.}
 % Quantum channels comprehend the most general linear operations that a quantum
 % system undergo independently of its past~\cite{zimansbook,cirac}. To introduce
 % their construction and properties, first let us define several objects. We will
@@ -30,13 +49,13 @@ The construction of quantum channels includes basically three ingredients:
 linearity, trace preservation and complete positivity. Linearity is needed to
 map every convex combination of density matrices into a convex combination of the
 evolution of such density matrices. The
-trace preserving property is required for the process $\mcE$ {\red [viejo]to be
-deterministic}{\blue [nuevo] to happen with probability $1$}, and reads $\tr\mcE[\rho]=\tr \rho =1$. 
-Often, this condition is easy to test \afnote{Podríamos decir que tanto linealidad como preservación de la traza son faciles de checar.}.
+trace preserving property is required for the process $\mcE$ 
+ to happen with probability $1$, and reads $\tr\mcE[\rho]=\tr \rho =1$. 
+Often, this condition is easy to test.
 The
 complete
 positivity condition is needed to preserve positive semidefiniteness and handle
-the non-local feature of quantum theory \afnote{(... the non-local nature of QT.)}. 
+the non-local nature of quantum theory.
 A linear map $\mcE$ is positive if it maps density operators to density operators, \ie{}
 if $\mcE[\rho]\geq 0$ for all density matrices $\rho$. 
 % 
@@ -50,11 +69,15 @@ if $\mcE[\rho]\geq 0$ for all density matrices $\rho$.
 % mencionar que $\Delta$ es hermítico.}. 
 %
 On the other hand, if one extends a positive map to include an ancilla, the resulting
-map is not always positive. If, for all dimensions of the ancilla \afnote{(for any ancillary system of arbitrary dimension)}, such extension
+map is not always positive. If, for an ancillary system of arbitrary dimension, such extension
 results in a positive map, we say that the original map is completely
 positive~\cite{bengtsson_zyczkowski_2017}.
 Quantum channels are required to be completely positive
-so as to allow the proper evolution of potentially entangled states with an ancilla. \afnote{Sería bueno mencionar también que la tarea de determinar la CP de un mapa es no trivial, lo que sirviría también como conector o preambulo del siguiente párrafo.}
+so as to allow the proper evolution of potentially entangled states with an
+ancilla; to test this condition we require some additional steps. 
+% \afnote{Sería bueno mencionar también que la tarea de determinar la CP
+% de un mapa es no trivial, lo que sirviría también como conector o preambulo del
+% siguiente párrafo.}
 % In the other hand, a map is completely positive if extending the 
 %  $\id_k \otimes \mcE$ is a positive map for $k=1,2,\dots$, where $\id_k$ is the identity channel over $\mcB(\hilbert_k)$. This ensures that every positive semidefinite operator of any
 % extension of the system (where the quantum channel is now a local operation) is
@@ -75,82 +98,42 @@ was developed by
 One first exploits an isomorphism that maps a channel $\mcE$ to the state
 $\choi=\left(\id \otimes \mcE\right)[\proj{\Omega}{\Omega}]$, where
 $\ket{\Omega}=1/\dim(\hilbert)\sum_i^{\dim(\hilbert)}\ket{i}\ket{i}$ is a 
-maximally entangled state between the original system and an ancilla.
+maximally entangled state between the original system and an ancilla and
+``$\id$'' is the identity channel.
 Remarkably, the map \mcE{} is completely positive
 if and only \choi{} (also called Choi or dynamical matrix of $\mcE$) 
 is positive-semidefinite~\cite{jamil,choi}. 
-\afnote{No sé si es algo obvio, pero creo que seria bueno comentar que es el objeto $\id$.}
+% \afnote{No sé si es algo obvio, pero creo que seria bueno comentar que es el objeto $\id$.}
 %  the
 % Bell state between two copies of \hilbert. 
 
-
-% Quantum channels can be characterized by means of the Choi-\jami{}
-% isomorphism~\cite{choi,jamil}. This is, given a linear operation
-% $\mcE:\mcB(\hilbert)\to \mcB(\hilbert)$, the so-called Choi matrix of it is
-% $\choi=\left(\id \otimes \mcE\right)[\proj{\Omega}{\Omega}]$ (also called
-% dynamical matrix), where
-% $\ket{\Omega}=1/\dim(\hilbert)\sum_i^{\dim(\hilbert)}\ket{i}\ket{i}$ is the
-% Bell state between two copies of \hilbert. The map \mcE is completely positive
-% if and only \choi is positive-semidefinite.
-%
-%
-
-% In fact,
-% a linear operation is completely positive if and only if it has a Kraus
-% representation~\cite{Kraus1983}.
-% The minimum number of Kraus operators $K_i$
-% needed to represent the channel is called \textit{Kraus rank}. 
-%
-
-% It can be seen from Kraus decomposition that quantum channels preserve
-% hermiticity, this has a practical consequence when using hermitian bases, \ie{}
-% let $\left\{ \Delta_i \right\}$ be a hermitian basis in $\mcB(\hilbert)$, then
-% the entries of the matrix representation of the quantum channel $\mcE$, $\hat
-% \mcE_{ij}=\tr\left( \Delta_i \mcE[\Delta_j] \right)$, are real. In particular,
-% in this work we are interested in systems of $N$ qubits, and we use hermitian
-% bases consisting of the so-called \textit{Pauli strings} \ddnote{aqui
-% introduzco el nombre estandar}, defined as 
-% \begin{equation}
-% \sigma_{\vec \alpha}:=\sigma_{\alpha_1}\otimes \sigma_{\alpha_2} \otimes \dots \otimes \sigma_{\alpha_N},
-% \label{eq:pauli_strings}
-% \end{equation}
-% where $N$ is the number qubits, $\alpha_i=0,1,2,3$ with $\sigma_0:=\one$ and
-% $\sigma_{1,2,3}:=\sigma_{x,y,z}$. Thus, given $N$ and the fact that $\tr
-% \sigma_{\vec \alpha}=\delta_{\vec\alpha,\vec 0} 2^{N}$, it is clear that the
-% basis $\left\{ 2^{N/2} \sigma_{\vec \alpha} \right\}$ is orthonormal in
-% $\mcB(\hilbert_{2^N})$. The case with $N=1$ corresponds to the well-known
-% \textit{Pauli basis},
-% $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$.
-
-%
-
-% \flnote{
-% probablemente convenga mostrar la ecuaci'on desplegada. Asimismo se debe decir que 
-% $\sum_i K_i^\dagger K_i = 1$ para la trace-preserving property. 
-% Creo qie ``hermiticity preserving'' es en parte consecuencia de la definición, pero esto no es muy importante
-% }\ddnote{ejecutado, hacia falta edicion, sin embargo lo de hermiticity preserving es para hacer incapie en por que podemos trabajar en una representacion totalmente real de los canales.}
-% 
-%   \ddnote{[Choi representation, Kraus operators and Stinespring dilation]}
-\afnote{Creo que el párrafo conector que ha introducido JA queda mejor antes del título de la siguiente subsección, es decir:}
-
-\afnote{We have discussed the main features associated to quantum channels, now we turn our attention to introduce the Pauli component erasing maps. We start by exploring the single qubit scenario and then we treat the $N$-qubit case.}
 % }}}
-\subsection{Pauli component erasing maps} % {{{
+\subsection{Structure of PCE maps} % {{{
 \label{sec:single:qubit}
 % \todo{David escribe una primera version y luego Carlos itera}
-\janote{Se añadió un primer párrafo para hacer una transición suave del A
-al B y decir qué discutimos aquí.}
-Now that we have discussed the main features of quantum channels
-we are going to introduce the Pauli component erasing maps.
-We shall start exploring the single qubit scenario 
-and continue with the $N$-qubit case. 
+% Now that we have discussed the main features of quantum channels
+% we are going to introduce the Pauli component erasing maps.
+% We shall start exploring the single qubit scenario 
+% and continue with the $N$-qubit case. 
+% 
+% \afnote{
+We have discussed the main features of quantum channels, now
+we turn our attention to introduce the Pauli component erasing maps. We start
+by exploring the single qubit scenario and then we treat the $N$-qubit case.
+% }
 
 The most general single qubit density matrix can be written as
 \begin{equation}
 % \rho=\frac{\one +\vec r \cdot \vec \sigma}{2}.
 \rho=\frac12 {\sum_{\alpha=0}^3 r_\alpha \sigma_\alpha},
 \end{equation}
-\afnote{Creo que este párrafo queda mejor así: where $\{\sigma_{0},\sigma_{1},\sigma_{2},\sigma_{3}\}=\{\one,\sigma_{x},\sigma_{y},\sigma_{z}\}$, with $\one$ the $2\times 2$ identity matrix and $\sigma_{j}$ the usual Pauli matrices. Note that normalization requires that $r_0=1$. On the other hand, the remaining $r_{j}$ coefficients constitute the so called Bloch vector $\vec{r}=(r_{x},r_{y},r_{z})$. Consider the map that projects each component in the following way:}
+% \afnote{Creo que este párrafo queda mejor así: where
+% $\{\sigma_{0},\sigma_{1},\sigma_{2},\sigma_{3}\}=\{\one,\sigma_{x},\sigma_{y},\sigma_{z}\}$,
+% with $\one$ the $2\times 2$ identity matrix and $\sigma_{j}$ the usual Pauli
+% matrices. Note that normalization requires that $r_0=1$. On the other hand, the
+% remaining $r_{j}$ coefficients constitute the so called Bloch vector
+% $\vec{r}=(r_{x},r_{y},r_{z})$. Consider the map that projects each component in
+% the following way:}
 % 
 with $\sigma_0= \one$, and $\sigma_{1,2,3}$ the usual Pauli matrices.  
 Normalization requires that $r_0=1$ and the remaining $r_{1,2,3}$ 
@@ -164,8 +147,22 @@ r_\alpha \mapsto \tau_\alpha r_\alpha
 \label{EqPCE}
 \end{equation}
 where $\tau_\alpha$ is either $0$ or $1$ (trace preserving requires
-that $\tau_0=1$ \afnote{Esto ya fue dicho y creo que sobra aquí.}). \afnote{From now on we refer to any operation like that described in Eq. \ref{EqPCE}, as single qubit \textit{Pauli Component Erasing} (\pce{}) maps}. \afnote{It is worth to mention that not all PCE operations correspond to a quantum channel; for example...} Not every
-such operation  is a quantum map; for example, collapsing the entire Bloch ball to \afnote{a disk on} the $xy$ plane ($\tau_{1}=\tau_{2}=1$ and  $\tau_3=0$) is not a quantum channel \afnote{(Aquí podemos colocar en vez de ``is not a quantum channel'', ``leads to a violation of the CP conditions, indeed a direct evaluation \cite{zimansbook,davalosdivisibility}'')}. A direct evaluation of the complete positivity conditions~\cite{zimansbook,davalosdivisibility}, 
+that $\tau_0=1$). 
+From now on we refer to any operation like that described in
+\eref{EqPCE}, as single qubit \textit{Pauli component erasing} (\pce{}) maps.
+Not every such operation  is a quantum channel;
+for example, collapsing the entire Bloch ball to a disk on the $xy$
+plane ($\tau_{1}=\tau_{2}=1$ and  $\tau_3=0$) 
+leads
+to a violation of the CP conditions. Indeed a direct evaluation
+of such conditions yield~\cite{zimansbook,davalosdivisibility}, 
+% 
+% 
+% is not a quantum channel
+% \afnote{(Aquí podemos colocar en vez de ``is not a quantum channel'', ``leads
+% to a violation of the CP conditions, indeed a direct evaluation
+% \cite{zimansbook,davalosdivisibility}'')}. A direct evaluation of the complete
+% positivity conditions~\cite{zimansbook,davalosdivisibility}, 
 \begin{align}
 1+\tau_1+\tau_2+\tau_3 &\geq 0, \nonumber \\
 1+\tau_\alpha-\tau_\beta-\tau_\gamma &\geq 0 \ \ \forall ~\alpha\neq \beta \neq \gamma,
@@ -302,16 +299,29 @@ $1$s, see~\fref{fig:one:qubit:examples}.
 \end{scope} % }}}
 \end{tikzpicture} % }}}
 \end{center}
-	\caption{\janote{Le modificamos la primera frase a esta caption para que la Fig sea
-	autocontenida}
+	\caption{
+% \janote{Le modificamos la primera frase a esta caption para que la Fig sea
+% 	autocontenida}
 In (a) we introduce the notation
 in the diagrams that represent the single qubit \pce{} maps,
 so that each square corresponds to a single 
 $\tau_{\alpha}$, $\alpha=0,1,2,3$. The diagrams in 
 (b), (c) and (d) correspond to the identity map, dephasing channel, and 
-total depolarization, respectively. In (e) we show a map that only erases the component
-$r_1$, collapsing the Bloch sphere into a disk, and thus does not correspond to a quantum operation.\afnote{Propongo el siguiente caption: (a) Pictorial representation of a single qubit \pce{} map.
-The color of each square indicates the value attained by the corresponding $\tau_{\alpha}$, either 0 (white) or 1 (black). The diagrams in (b), (c) and (d) correspond to the identity map, dephasing channel, and total depolarization, respectively. In (e) we show a map that only erases the component $r_1$, collapsing the Bloch sphere into a disk, and thus does not correspond to a quantum operation.}}
+total depolarization, respectively, 
+as the color of each square indicates the value attained by the corresponding
+$\tau_{\alpha}$, either 0 (white) or 1 (black). 
+In (e) we show a map that only erases the component
+$r_1$, collapsing the Bloch sphere into a disk, and thus does not correspond to
+a quantum operation.
+% \afnote{Propongo el siguiente caption: (a) Pictorial
+% representation of a single qubit \pce{} map.
+% The color of each square indicates the value attained by the corresponding
+% $\tau_{\alpha}$, either 0 (white) or 1 (black). The diagrams in (b), (c) and
+% (d) correspond to the identity map, dephasing channel, and total
+% depolarization, respectively. In (e) we show a map that only erases the
+% component $r_1$, collapsing the Bloch sphere into a disk, and thus does not
+% correspond to a quantum operation.}
+}
 	\label{fig:one:qubit:examples}
 \end{figure} % }}}
 % }}}
@@ -353,7 +363,8 @@ qubits can be written using Pauli strings in the following way,
 \end{equation}
 so $r_{\vec \alpha}=\langle \sigma_{\vec \alpha} \rangle=\tr \left(\rho
 \sigma_{\vec \alpha} \right)$ is the coefficient corresponding to the expansion
-of the density matrix in the normalized basis of Pauli strings \afnote{Me parece que no hay necesidad de colocar el ``normalized''}.  Again, normalization of the state requires that $r_{\vec 0}=1$.
+of the density matrix in the normalized basis of Pauli strings.  Again,
+normalization of the state requires that $r_{\vec 0}=1$.
 We shall refer to $\paulicomponents$ as the {\it Pauli components} of the density
 matrix of a system of qubits. 
 
@@ -389,7 +400,8 @@ matrix of a system of qubits.
 % matrix of a system of qubits. 
 
 
-\afnote{Thus in general,} a Pauli component erasing (PCE) map is a map
+% Thus, i
+In general, a Pauli component erasing (PCE) map is a map
 %  Pauli diagonal operation
 that either preserves or completely erases the Pauli components of a
 density matrix. That is, 
@@ -402,17 +414,17 @@ density matrix. That is,
 	\taus = 0,1.
 % \end{split}
 \end{equation}
-\afnote{In addition,} for the operation to be trace preserving, it is required that $\tau_{\vec
+In addition, for the operation to be trace preserving, it is required that $\tau_{\vec
 0}=1$. 
 It is worth noticing that, as for the single qubit case, not all PCE maps are
 quantum operations. 
 On the other hand, constructing and
-evaluating the conditions for complete positivity is involved and is the main
-problem addressed in this paper \afnote{Propongo cambiar el ``involved'' por un sinónimo}. 
+evaluating the conditions for complete positivity is non-trivial and is the main
+problem addressed in this paper.
 We shall refer to the map  $\paulicomponents \mapsto \taus \paulicomponents$, 
 with arbitrary values of 
 % but allow the 
-$\taus$ (only restricted by complete positivity \afnote{También dejamos libre la condicion de preservación de la traza?}) as {\it Pauli diagonal operations}. 
+$\taus$ (only restricted by complete positivity) as {\it Pauli diagonal operations}. 
 
 
 % For single 
@@ -459,10 +471,11 @@ A graphical representation for PCE maps may be introduced, being the
 two qubits case what has proved to be the most useful. Consider a $N$ dimensional 
 Cartesian grid, with $4^N$ places.  Each place has $N$ integer coordinates, ranging
 from 0 to 3, so each place corresponds to a given $\vec \alpha$ in 
-\eref{eq:N_qubits_rho}. For a given PCE, we shall fill 
+\eref{eq:N_qubits_rho}. For a given PCE, we shall fill  \janote{Jose Alfredo quizá itera}
 the square if the corresponding $\tau_{\vec \alpha}=1$. Otherwise, we leave it 
-empty. Examples for $N=1$ are provided in \fref{fig:one:qubit:examples}, whereas
-for two qubits, we exemplify them in \fref{fig:two:qubit:examples}. \afnote{Propongo cambiar esta ultima parte asi: Examples for $N=1$ and $N=2$ are provided in \fref{fig:one:qubit:examples} and \fref{fig:two:qubit:examples}, respectively.}
+empty. 
+Examples for $N=1$ and $N=2$ are provided in \fref{fig:one:qubit:examples} and
+\fref{fig:two:qubit:examples}, respectively.
 
 
 
@@ -473,7 +486,10 @@ Ref.~\cite{nathanson2007pauli}, consisting of convex combinations of
 \textit{quantum-classical} channels. In particular, it can be shown that
 quantum-classical channels defined with the eigenbasis of some set of $2^N-1$
 commuting Pauli observables~\cite{Lawrence2002}, is a \pce{} map with exactly $
-2^N $ components equal to $1$s in its diagonal \afnote{Aquí me parece que falta información. Creo que hay que decir que es lo que es diagonal y en que base}. \afnote{For details, we refer the reader to} appendix~\sref{quantum_classical}.
+2^N $ components equal to $1$s in its diagonal.
+% \afnote{Aquí me parece que falta información. Creo que hay que decir que es lo
+% que es diagonal y en que base.} 
+For details, we refer the reader to appendix~\ref{quantum_classical}.
 
 
 % \cpnote{davalos, dale aca un pequeño rollo relevante quiza de una o dos

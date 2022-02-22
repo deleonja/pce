@@ -1,6 +1,6 @@
 
 \subsection{PCE quantum channels as vector spaces} % {{{
-\cpnote{Ojo, cambie el nombre de la seccion. Pendiente de sus comentarios}
+% \cpnote{Ojo, cambie el nombre de la seccion. Pendiente de sus comentarios}
 % \ddnote{propongo channels as vector spaces como titulo de seccion, pues lo
 % actual se entiende mas en el sentido estandar: canales como miembros de un
 % espacio vectorial, que tambien es cierto, pero no es el punto aqui}
@@ -15,11 +15,9 @@
 In this subsection we will provide a one-to-one relation between PCE quantum
 channels and the subspaces of a discrete vector subspace associated with the
 indices $\valpha$ labeling the components of a state; see
-\eref{eq:N_qubits_rho}. \cpnote{Some established facts about vector spaces will allow
-us to draw conclusions for PCE quantum channels.}
-\janote{Prefiero esta frase:}
-\janote{Some established facts about vector spaces will allow
-us to derive the main features of PCE quantum channels.}
+\eref{eq:N_qubits_rho}. 
+Some established facts about vector spaces will allow
+us to derive the main features of PCE quantum channels.
 
 
 Let us start by recalling that the problem of determining complete positivity
@@ -423,18 +421,26 @@ of exploring the exponentially large space of all PCE maps.  \par
 \end{tikzpicture} % }}}
 \end{center}
 \caption{
-\cpnote{Revisar, solo tiene una iteracion por parte mia}
-Examples of diagrams for several PCE quantum channels. In
- (a) the totally depolarizing channel is represented whereas
-in (b) a PCE channel that preserves four components.  (c), (d)
-and (e) show three generators \cpnote{Quizá poner los nombres de los generadores acá}; the combination of any two of them
-yields the channel in (b). (f) represents the identity map. 
+% \cpnote{Revisar, solo tiene una iteracion por parte mia}
+% Examples of diagrams for several 2-qubit PCE quantum channels: (a) the totally
+% depolarizing channel, (b) a PCE channel that preserves four components.
+% (c), (d) and (e) show three generators \cpnote{Quizá poner los nombres de los
+% generadores acá}; the combination of any two of them yields the channel in (b).
+% (f) represents the identity map. 
 % 
 % \cpnote{Mejorar el caption cuando me ponga de acuerdo con la gente}
 % Aca poner 6 PCEs. (f) Identidad, (a) totally depolarizing, (c, d y e) tres
 % generadores, (b) un canal que resulte del generador. Sobra un espacio para
 % ilustrar alguna otra cosa. Quiza poner otro generador para que se vea que no
 % hay una manera unica de generar esos bichos.
+Examples of diagrams for several 2-qubit PCE quantum channels: (a) the totally
+depolarizing channel, (b) a PCE channel that preserves four components, the
+normalization component, one local component of qubit 2 and two correlations between the 
+two qubits.
+(c), (d) and (e) show the three generators $\mcG_{(1,0)}$, $\mcG_{(3,2)}$ and
+$\mcG_{(2,2)}$, respectively; the combination (overlap of diagrams) of any two
+of them yields the channel in (b).
+(f) represents the identity map. 
 }
 \label{fig:examplesPCE}
 \end{figure} % }}}
