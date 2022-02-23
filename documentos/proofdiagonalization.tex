@@ -2,6 +2,7 @@
 \label{sec:appendix:diagonalization}
 % 
 \subsection{Single qubit} % {{{
+\ddnote{Alejo, por fa revise q no se me fue un typo con el asunto de mod 2, ya corregí toda la notación y removi los otros comentarios, que ya fueron aclarados en la reunion y trataban de lo mismo}
 In order to simplify the derivation of the relations, let us employ pairs of
 binary indices instead of a single quaternary, i.e. $\alpha\to j +2 k$. For
 the sake of clarity, we will use Latin symbols for binary indices, and
@@ -9,20 +10,14 @@ reserve Greek letters for quaternary ones.
 We can write the elements of the Pauli basis
 $(\sigma_{0},\sigma_{1},i\sigma_{2},\sigma_{3})$, 
 compactly as
-$\sigma_{k l }=\sum_{j=0}^{1} (-1)^{j k }\dyad{j}{j\oplus l }$. In vectorized form
-\begin{align}
-\kket{\sigma_{k l }}=\sum_{j=0}^{1} (-1)^{j k }\kket{j,j\oplus l },\\
-\janote{
-\kket{\sigma_{k l }}=\sum_{j=0}^{1} (-1)^{j k }\ket{j,j+l} \text{ (mod 2)},
-}
-\label{CompToPau}
-\end{align}
-and its inverse relation \ddnote{falta definir que es el $\oplus$ en este contexto, y no solo eso, sino quienes son los vectores del lado derecho, \ie{} $\kket{k,l}$}
-\janote{yo creo que es mejor dejar el $\oplus$ para la suma de Francois y usar otro símbolo para suma módulo 2. Además, creo que es mejor escribir $\ket{j,j+l'} \text{ (mod 2)}$ 
-para que sea claro que esos son vectores canónicos (son los canónicos, verdad?)},
-\afnote{La base usada es la computacional, pero en esta parte no sabria como nombrarla. Tal vez ``Vectorized computational basis"? En relación al símbolo $\oplus$, creo que es mejor especificar dentro del texto que esta es una suma modulo 2, y en la parte de François que es suma módulo 4, esto con el fin de no sobrecargar la notación dentro de las ecuaciones.}
+$\sigma_{k l }=\sum_{j=0}^{1} (-1)^{j k }\dyad{j}{j + l ( \text{mod}2) }$. In vectorized form
 \begin{equation}
-\kket{k,k\oplus l}=\frac{1}{2}\sum_{j=0}^{1} (-1)^{jk}\kket{\sigma_{jl}}.
+\kket{\sigma_{k l }}=\sum_{j=0}^{1} (-1)^{j k }\ket{j} \ket{j+l(\text{mod } 2) },
+\label{CompToPau}
+\end{equation}
+and its inverse relation
+\begin{equation}
+\ket{k}\ket{k+l (\text{mod } 2)}=\frac{1}{2}\sum_{j=0}^{1} (-1)^{jk}\kket{\sigma_{jl}}.
 \label{PauToComp}
 \end{equation}
 On the other hand, the matrix form of an arbitrary Pauli map $\mathcal{E}$ may
@@ -31,18 +26,17 @@ be written as
 \hat{\mathcal{E}} & = 
 \frac{1}{2}\sum_{l m=0}^{1} \tau_{l m} \ddyada{\sigma_{l m}} 
 \label{eq:inicio:canal:pauli}\\
-& = \frac{1}{2}\sum_{jkl m} \tau_{l m} (-1)^{l (j+k)} 
-     \ddyad{j,j\oplus m}{k,k\oplus m}.
-% \label{Map_Pauli}
+& = \frac{1}{2}\sum_{jkl m} \tau_{l m} (-1)^{l (j+k)} \nonumber\\
+     & \hspace{1cm} \times \ket{j}\ket{j +m  (\text{mod } 2)}\bra{k}\bra{k +m (\text{mod } 2)}.
 \end{align}
 After applying the reshuffling operation on $\hat{\mathcal{E}}$, we obtain the
 Choi matrix associated to the map. It reads
-\begin{equation}
+\begin{multline}
  \mathcal{D} = 
-  \frac{1}{2}\sum_{jklm} \tau_{lm} (-1)^{l(j+k)} 
-      \ddyad{j,k}{j\oplus m,k\oplus m}.
+  \frac{1}{2}\sum_{jklm} \tau_{lm} (-1)^{l(j+k)} \\
+     \times \ket{j}\ket{k}\bra{j+ m(\text{mod}2)}\bra{k+m(\text{mod}2)}.
 \label{Choi_a1}
-\end{equation}
+\end{multline}
 Note furthermore that the expression above may also be written as a combination
 of tensor products of Pauli matrices
 \begin{equation}
@@ -50,17 +44,17 @@ of tensor products of Pauli matrices
    \frac{1}{2}\sum_{l m } \tau_{l m } \sigma_{l m } \otimes \sigma_{l m }^*.
  \label{Choi_Pauli_1q}
 \end{equation}
-Back to the Eq. \ref{Choi_a1}), let us apply the index relabeling $k\to j\oplus
-k$, then the Choi matrix reads
-\begin{equation}
+Back to the Eq. \ref{Choi_a1}), let us apply the index relabeling $k\to j+
+k (\text{mod} 2)$, then the Choi matrix reads
+\begin{multline}
  \mathcal{D} =
-    \frac{1}{2}\sum_{jk lm} \tau_{ lm} (-1)^{ l k} 
-        \ddyad{j,j\oplus k}{j\oplus m,j\oplus m\oplus k},
+    \frac{1}{2}\sum_{jk lm} \tau_{ lm} (-1)^{ l k} \\
+       \times \ket{j}\ket{j +k(\text{mod } 2)}\bra{j+ m(\text{mod } 2)}\bra{j+ m+ k(\text{mod } 2)},
 \nonumber
 % \label{Choi_a1}
-\end{equation}
+\end{multline}
 % thanks to a simplification in the argument of the power of $-1$. To continue, 
-since $ (-1)^{j+j\oplus k} = (-1)^k $. To continue, we 
+since $ (-1)^{j+(j+ k (\text{mod} 2))} = (-1)^k $ \ddnote{Alejo, por fas checa esto, se me hace curioso que el modulo 2 solo este solo en la segunda suma del exponente}. To continue, we 
 use the relation between computational and Pauli elements [\eref{PauToComp}],
 and notice that $\sum_j(-1)^{j(m\pm n)}=2\delta_{mn}$. We arrive to the
 simple expression 
@@ -137,11 +131,16 @@ each entry $\alpha_i$ of $\valpha$ is identified with the pair $j_i$ and $k_i$ a
 single qubit case of the previous subsection. Then, all the steps leading to 
 \eref{eq:lambda:is:tau:appendix} can be redone, but with vector indices instead of binary scalars. 
 
-The tensor product of Pauli matrices, in vector form,  will be denoted by 
+\ddnote{Poner atencion a lo siguiente}
+{\red[viejo y mal]The tensor product of Pauli matrices, in vector form,  will be denoted by 
 $\kket{\sigma_{\vec{k}\vec{l} }} = \kket{\sigma_{k_1l_1}}\otimes \cdots \otimes \kket{\sigma_{k_Nl_N}}$
 and fulfill the orthogonality relation 
 $\bbrakket{\sigma_{\vec{k}\vec{l} }}{\sigma_{\vec{k}'\vec{l}'}} = 
-2^N \delta_{\vec{k}\vec{k}'}\delta_{\vec{l}\vec{l}'}$. 
+2^N \delta_{\vec{k}\vec{k}'}\delta_{\vec{l}\vec{l}'}$.}
+{\blue [nuevo y correcto y breve, la condicion de ortogonalidad no se usa explicitamente y es trivial]
+The tensor product of Pauli matrices, in vector form,  will be denoted by 
+$\kket{\sigma_{\vec{k}\vec{l} }}$.
+}
 % \begin{equation}
 % \bbrakket{\sigma_{\vec{k}\vec{l} }}{\sigma_{\vec{k}'\vec{l}'}} = 2^N \delta_{\vec{k}\vec{k}'}\delta_{\vec{l}\vec{l}'}.
 % \end{equation}
@@ -157,9 +156,9 @@ The generalization of Eqs.~(\ref{CompToPau}) and (\ref{PauToComp}) read
 \ddnote{corregir el angulo doble y tambien el oplus}
 \begin{align}
 \kket{\sigma_{\vec{k}\vec{l} }}  & = 
-   \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{k}} \kket{\vec{j},\vec{j}\oplus \vec{l}},\\
+   \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{k}} \ket{\vec{j}}\ket{\vec{j}+ \vec{l}(\text{mod}2)},\\
 %
- \kket{\vec{l},\vec{l}\oplus \vec{n}} & = 
+ \ket{\vec{l}}\ket{\vec{l}+ \vec{n}(\text{mod}2)} & = 
    \frac{1}{2^N}\sum_{\vec{m}} (-1)^{\vec{m}\cdot\vec{l}}\kket{\sigma_{\vec{m}\vec{n} }}.
 \end{align}
 % \afnote{Cambiar los $\mu$ y $\nu$ por indices latinos.}
@@ -191,15 +190,15 @@ The generalization of Eqs.~(\ref{CompToPau}) and (\ref{PauToComp}) read
 % \end{widetext}
 By employing the previous relations, we can write the matrix representation of
 the map, $\hat{\mathcal{E}}_N $ in the $N$-qubits computational basis as
-\begin{align}
+\begin{multline}
 \hat{\mathcal{E}} 
 % & = \frac{1}{2}\sum_{l m=0}^{1} \tau_{l m} \ddyada{\sigma_{l m}} 
-& = \frac{1}{2}\sum_{\vec j\vec k\vec l \vec m} 
-     \tau_{\vec l \vec m} (-1)^{\vec l (\vec j+\vec k)} 
-     \ddyad{\vec j,\vec j\oplus \vec m}{\vec k,\vec k\oplus \vec m}.
+= \frac{1}{2}\sum_{\vec j\vec k\vec l \vec m} 
+     \tau_{\vec l \vec m} (-1)^{\vec l (\vec j+\vec k)} \\
+     \times\ket{\vec j}\ket{\vec j+\vec m (\text{mod}2)}\bra{\vec k}\bra{\vec k+\vec m(\text{mod}2)}.
 % \label{eq:inicio:canal:pauli:N}
 % \label{Map_Pauli}
-\end{align}
+\end{multline}
 % 
 % 
 % \begin{align}
