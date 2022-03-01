@@ -85,10 +85,14 @@ The local-action of a generator $\mcG_\valpha$ on every qubit in the
 system depends only, as its notations suggests, on the multi index $\valpha$. 
 For this matter, it will show instructive to start discussing the generators 
 $\mcG_\alpha$ of single qubit PCE quantum channels. As shown in 
-\fref{fig:A_and_PCEGs_connection}, $\mcG_0$ corresponds to the identity map,
+\fref{fig:A_and_PCEGs_connection}, $\mcG_0$ corresponds to the identity map, 
 and the remaining $\mcG_{1,2,3}$  are the completely bit, phase and bit-phase
 flip channels. In the PCE diagrams picture the index $\alpha$ is associated
 with the black positions except for $\mcG_0$ that has all positions black.
+\janote{
+Recall that, besides $\tau_0=1$ for every PCE quantum channel, $\mcG_{0,1,2,3}$
+are charecterized by which $\tau$ are equal to one.
+}
 \janote{This will be the basis for the following discussion.}
 To interpret the meaning of $\valpha$ in $\mcG_\valpha$, we consider the reduced 
 density matrix of the $k$-th qubit after the action of the generator $\mcG_\valpha$
@@ -101,12 +105,16 @@ on the whole system,
 \label{eq:generator:individual:qubit}
 \end{align}
 where the partial trace over everything except qubit $k$ is
-denoted by $\tr_{\not k}$; \janote{note that Pauli components of $\rho_k$
-are of the form $r_{0,\ldots,j_k,\ldots,0}$. Therefore,
-the action of the single qubit generator in the
-last line of \eqref{eq:generator:individual:qubit} act on $\rho_k$
-as $r_{0,\ldots,j_k,\ldots,0}
-\mapsto \tau_{0,\ldots,j_k,\ldots,0}r_{0,\ldots,j_k,\ldots,0}$.}  
+denoted by $\tr_{\not k}$.
+\janote{In the last line of \eqref{eq:generator:individual:qubit} 
+$\mcG_{\alpha_k}$ is a single qubit PCE generator and the Pauli components
+of $k$-th qubit's reduced density matrix $\rho_k$ are of the form
+$r_{0,\ldots,j_k,\ldots,0}$. 
+Therefore, $\mcG_{\alpha_k}$ acts on $\rho_k$ as 
+$r_{0,\ldots,j_k,\ldots,0}\mapsto 
+\tau_{0,\ldots,j_k,\ldots,0}r_{0,\ldots,j_k,\ldots,0}$.
+This lets us characterize[?] every PCE generator depending on the
+values of $\tau_{0,\ldots,j_k,\ldots,0}$}  
 The last line denotes a single qubit PCE generator
 corresponding to the index $\alpha_k$, which is the $k$-th component 
 of $\valpha$. Hence, each component of the vector-index $\vec\alpha$ 
