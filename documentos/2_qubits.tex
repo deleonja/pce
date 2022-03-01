@@ -89,6 +89,7 @@ $\mcG_\alpha$ of single qubit PCE quantum channels. As shown in
 and the remaining $\mcG_{1,2,3}$  are the completely bit, phase and bit-phase
 flip channels. In the PCE diagrams picture the index $\alpha$ is associated
 with the black positions except for $\mcG_0$ that has all positions black.
+\janote{This will be the basis for the following discussion.}
 To interpret the meaning of $\valpha$ in $\mcG_\valpha$, we consider the reduced 
 density matrix of the $k$-th qubit after the action of the generator $\mcG_\valpha$
 on the whole system,
@@ -100,7 +101,13 @@ on the whole system,
 \label{eq:generator:individual:qubit}
 \end{align}
 where the partial trace over everything except qubit $k$ is
-denoted by $\tr_{\not k}$. The last line denotes a single qubit PCE generator
+denoted by $\tr_{\not k}$; \janote{note that Pauli components of $\rho_k$
+are of the form $r_{0,\ldots,j_k,\ldots,0}$. Therefore,
+the action of the single qubit generator in the
+last line of \eqref{eq:generator:individual:qubit} act on $\rho_k$
+as $r_{0,\ldots,j_k,\ldots,0}
+\mapsto \tau_{0,\ldots,j_k,\ldots,0}r_{0,\ldots,j_k,\ldots,0}$.}  
+The last line denotes a single qubit PCE generator
 corresponding to the index $\alpha_k$, which is the $k$-th component 
 of $\valpha$. Hence, each component of the vector-index $\vec\alpha$ 
 provides what the local-action of $\mcG_\valpha$ is on each qubit in
