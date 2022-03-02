@@ -79,24 +79,25 @@ all two qubit generators and their corresponding $\valpha$.
 
 \cpnote{Quiza una figura con la accion de la identidad, la X Y y Z?}
 
-\janote{Mi contrapropuesta:}
-\janote{Está cruda. Falta iterarla una vez.}
+\janote{Mi contrapropuesta}
+
 The local-action of a generator $\mcG_\valpha$ on every qubit in the 
 system depends only, as its notations suggests, on the multi index $\valpha$. 
-For this matter, it will show instructive to start discussing the generators 
-$\mcG_\alpha$ of single qubit PCE quantum channels. As shown in 
+For this matter, it is necessary to start discussing the PCE
+single qubit generators $\mcG_\alpha$. They are shown in 
 \fref{fig:A_and_PCEGs_connection}, $\mcG_0$ corresponds to the identity map, 
 and the remaining $\mcG_{1,2,3}$  are the completely bit, phase and bit-phase
-flip channels. In the PCE diagrams picture the index $\alpha$ is associated
-with the black positions except for $\mcG_0$ that has all positions black.
+flip channels;
 \janote{
-Recall that, besides $\tau_0=1$ for every PCE quantum channel, $\mcG_{0,1,2,3}$
-are charecterized by which $\tau$ are equal to one.
+recall that in a PCE diagram every square's color indicates the value 
+attained by the corresponding $\tau_{\alpha}$.
+That is to say, without regarding $\tau_0$, $\alpha=j$ when only one $\tau_{j}=1$,
+and $\alpha=0$ when all $\tau_{j}=1$.
 }
-\janote{This will be the basis for the following discussion.}
-To interpret the meaning of $\valpha$ in $\mcG_\valpha$, we consider the reduced 
-density matrix of the $k$-th qubit after the action of the generator $\mcG_\valpha$
-on the whole system,
+Now, \janote{to generalize this characterization rule for a $N$-qubit 
+PCE generator $\mcG_\valpha$} we consider the reduced 
+density matrix of the $k$-th qubit after generator $\mcG_\valpha$ acts
+on the entire system,
 \begin{align}
 \tr_{\not k} \mcG_\valpha [\rho] &= 
 \frac12 \tr_{\not k} (\rho + \sigma_\valpha \rho \sigma_\valpha)\nonumber \\
@@ -104,27 +105,46 @@ on the whole system,
 &= \mcG_{\alpha_k} [\rho_k ],
 \label{eq:generator:individual:qubit}
 \end{align}
-where the partial trace over everything except qubit $k$ is
-denoted by $\tr_{\not k}$.
-\janote{In the last line of \eqref{eq:generator:individual:qubit} 
+where $\not k$ means all qubits except for the $k$-th one are traced out.
+\janote{
+Note in the second line of \eqref{eq:generator:individual:qubit} that 
+$\alpha_k$ not only characterizes $\mcG_{\alpha_k}$ but actually tells 
+us which channel is locally acting on the $k$-th qubit, whether a 
+completely bit, phase, bit-phase, or identity channel.
+In the last line of \eqref{eq:generator:individual:qubit} 
 $\mcG_{\alpha_k}$ is a single qubit PCE generator and the Pauli components
 of $k$-th qubit's reduced density matrix $\rho_k$ are of the form
-$r_{0,\ldots,j_k,\ldots,0}$. 
-Therefore, $\mcG_{\alpha_k}$ acts on $\rho_k$ as 
+$r_{0,\ldots,j_k,\ldots,0}$, 
+meaning that $\mcG_{\alpha_k}$ acts on $\rho_k$ as 
 $r_{0,\ldots,j_k,\ldots,0}\mapsto 
 \tau_{0,\ldots,j_k,\ldots,0}r_{0,\ldots,j_k,\ldots,0}$.
-This lets us characterize[?] every PCE generator depending on the
-values of $\tau_{0,\ldots,j_k,\ldots,0}$}  
-The last line denotes a single qubit PCE generator
-corresponding to the index $\alpha_k$, which is the $k$-th component 
-of $\valpha$. Hence, each component of the vector-index $\vec\alpha$ 
-provides what the local-action of $\mcG_\valpha$ is on each qubit in
-the system. For two qubits, the local-action of PCE quantum channels 
-in the diagrams is seen in the first row (qubit 1) and first column (qubit 2).
-We present in \fref{fig:appex:twoQ_PCEGs}
-all two qubit generators and their corresponding notation $\mcG_\valpha$. 
-\cpnote{Falta justo lo que va en la segunda parte de mi texto. Es decir asociar la 
-accion local sobre cada qubit con la primer fila o oclumna, etc del diagrama}
+Thus, the general characterization rule of all PCE generators $\mcG_\valpha$ 
+is clear now:
+without considering $\tau_{0,\ldots,0}$,
+if only one $\tau_{0,\ldots,j_k,\ldots,0}=1$, then 
+$\alpha_k=j_k$, or if all $\tau_{0,\ldots,j_k,\ldots,0}=1$, 
+then $\alpha_k=0$.
+Let us give an example to illustrate the PCE generators characterization. 
+For two qubits, the vector index $\valpha$ is of the form $(j_1,j_2)$,
+where $j_1$ equals to 0, 1, 2, or 3 depending on the values $\tau_{j_1,0}$
+and the aforementioned rule; the same follows for $j_2$.
+In PCE diagrams language this means
+that the vector index $\valpha$ is encoded in the first column and row of 
+a diagram. See $\mcG_{(0,2)}$ in \fref{fig:appex:twoQ_PCEGs},
+all $\tau_{j_1,0}=1$ and $\tau_{(0,2)}=1$, then $\valpha=(0,2)$. 
+In \fref{fig:appex:twoQ_PCEGs} we show all two qubits PCE generators
+and their corresponding notation $\mcG_\valpha$.
+}  
+%The last line denotes a single qubit PCE generator
+%corresponding to the index $\alpha_k$, which is the $k$-th component 
+%of $\valpha$. Hence, each component of the vector-index $\vec\alpha$ 
+%provides what the local-action of $\mcG_\valpha$ is on each qubit in
+%the system. For two qubits, the local-action of PCE quantum channels 
+%in the diagrams is seen in the first row (qubit 1) and first column (qubit 2).
+%We present in \fref{fig:appex:twoQ_PCEGs}
+%all two qubit generators and their corresponding notation $\mcG_\valpha$. 
+%\cpnote{Falta justo lo que va en la segunda parte de mi texto. Es decir asociar la 
+%accion local sobre cada qubit con la primer fila o oclumna, etc del diagrama}
 
 % Comentarios viejos {{{
 % Esto es equivalente al canal k sobre un qubut, y se puede extrapolar de la Figura 1. 
