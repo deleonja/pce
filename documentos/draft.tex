@@ -223,32 +223,32 @@ We study a generalization of decoherence maps to maps erasing components of the 
 % }}}
 \newcommand{\sa}{\ensuremath{\textit{a}}}
 \newcommand{\san}{\ensuremath{\textit{A}}}
-\section*{Propuesta de notacion} % {{{
-Todos los comandos sencillos trabajan dentro y fuera de ambientes matematicos, solo pongan \verb!\ensuremath! cuando creen comandos nuevos.
-\begin{itemize}
-\item Single qubit matrix to diagonalize $\sa$: \verb!\sa!
-\item Many qubit matrix to diagonalize $\san$: \verb!\san!
-\item Channels (calligraphic letters) \mcE: \verb!\mcE! %\janote{canales cuánticos?}\ddnote{claro!}
-\item Matrix representation of channels (Pauli basis) $\hat \mcE$: \verb!\hat\mcE! (no se si valga la pena hacerle un macro a este)
-\item Sets of PCE channels of $N$ particles $\pce_N$: \verb!\pce_N!
-\item Vector spaces \spV, \spW: \verb!\spV!, \verb!\spW!
-\item Hilbert space \hilbert: \verb!\hilbert!
-\item Set of bounded, trace-class and density matrices over the Hilbert space $\mcB(\hilbert)$, $\mcT(\hilbert)$, $\mcS(\hilbert)$:  \verb!\mcB(\hilbert)!, \verb!\mcT(\hilbert)!, \verb!\mcS(\hilbert)!
-\item Indices in the Bloch decomposition $\tau$ \verb!\tau!
-\item Number of particles $N$ \verb!N!
-\item Identity $\one$ \verb!\one!
-\item Indices for Pauli matrices $\alpha,\beta,\gamma$ \verb!\alpha,\beta,\gamma!. I guess these should also be used for the $a$ and $A$ matrices, so that
-$a_{\alpha \beta}$ and $\san_{\vec \alpha \vec \beta}$ are scalars
-\item Labeling the particles $1,\dots,k,\dots,N$
-\item Generator corresponding to indices $\vec \alpha$ $\mcG_{\vec \alpha}$
-\item Pauli Component erasing maps abbreviation: \pce{}: \verb!\pce{}!
-\item Choi matrices: $\choi$: \verb!\choi!
-\item Choi matrix of $N$ particles: $\choi_N$: \verb!\choi_N!
-\item Quantum channels in Pauli and Pauli product basis (depending on the case): $\hat \mcE$: \verb!\hat\mcE!
-\item {\red Ojo: hay que revisar si hay incosistencias de $\vec\tau$ cuando
-se haga la revisión general.}
-\end{itemize}
-% }}}
+%\section*{Propuesta de notacion} % {{{
+%Todos los comandos sencillos trabajan dentro y fuera de ambientes matematicos, solo pongan \verb!\ensuremath! cuando creen comandos nuevos.
+%\begin{itemize}
+%\item Single qubit matrix to diagonalize $\sa$: \verb!\sa!
+%\item Many qubit matrix to diagonalize $\san$: \verb!\san!
+%\item Channels (calligraphic letters) \mcE: \verb!\mcE! %\janote{canales cuánticos?}\ddnote{claro!}
+%\item Matrix representation of channels (Pauli basis) $\hat \mcE$: \verb!\hat\mcE! (no se si valga la pena hacerle un macro a este)
+%\item Sets of PCE channels of $N$ particles $\pce_N$: \verb!\pce_N!
+%\item Vector spaces \spV, \spW: \verb!\spV!, \verb!\spW!
+%\item Hilbert space \hilbert: \verb!\hilbert!
+%\item Set of bounded, trace-class and density matrices over the Hilbert space $\mcB(\hilbert)$, $\mcT(\hilbert)$, $\mcS(\hilbert)$:  \verb!\mcB(\hilbert)!, \verb!\mcT(\hilbert)!, \verb!\mcS(\hilbert)!
+%\item Indices in the Bloch decomposition $\tau$ \verb!\tau!
+%\item Number of particles $N$ \verb!N!
+%\item Identity $\one$ \verb!\one!
+%\item Indices for Pauli matrices $\alpha,\beta,\gamma$ \verb!\alpha,\beta,\gamma!. I guess these should also be used for the $a$ and $A$ matrices, so that
+%$a_{\alpha \beta}$ and $\san_{\vec \alpha \vec \beta}$ are scalars
+%\item Labeling the particles $1,\dots,k,\dots,N$
+%\item Generator corresponding to indices $\vec \alpha$ $\mcG_{\vec \alpha}$
+%\item Pauli Component erasing maps abbreviation: \pce{}: \verb!\pce{}!
+%\item Choi matrices: $\choi$: \verb!\choi!
+%\item Choi matrix of $N$ particles: $\choi_N$: \verb!\choi_N!
+%\item Quantum channels in Pauli and Pauli product basis (depending on the case): $\hat \mcE$: \verb!\hat\mcE!
+%\item {\red Ojo: hay que revisar si hay incosistencias de $\vec\tau$ cuando
+%se haga la revisión general.}
+%\end{itemize}
+%% }}}
 \input{intro}
 \input{pce}
 \input{math}
