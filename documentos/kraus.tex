@@ -123,7 +123,7 @@ $\{\openone/\sqrt2, \sigma_\alpha/\sqrt2\}$,
 corresponding to the operation that leaves the component $\sigma_\alpha$
 invariant~\cite{nielsen_chuang_2011}.
 
-We shall first show that the aforementioned Kraus operators produce a PCE. 
+We shall first show that the Kraus operators in \eref{eq:kraus:PCE} produce a PCE. 
 Notice that 
 % \begin{equation}
 $\sigma_\alpha \sigma_\beta \sigma_\alpha =a_{\alpha \beta} \sigma_\beta$,
@@ -174,11 +174,19 @@ one correspondence.
 % from other arguments. 
 % }}}
 \subsection{Pure dissipative implementation} % {{{
-{\red [viejo] Any PCE channel can be seen as the fixed point of some decoherence process\cpnote{esto suena obvio, pero no lo es. Es decir no todos los canales son resultado de
-lindblad.}
-{\blue [nuevo] In this section we show that any PCE channel can be seen as the fixed point of some decoherence process, this is a property that is not accomplished by any channel, as mentioned above.} Me gustaria modificar esta frase para que pueda ser apreciada mejor} \ddnote{la modificacion fue leve debido a que la mayor parte del contenido esta en la introduccion de la seccion}. We
-will show this first for PCEGs. Consider the following dynamical process that
-implements the PCEG $\mcG_{\vec \alpha}$ when $t\to \infty$,
+% {\red [viejo] Any PCE channel can be seen as the fixed point of some
+% decoherence process\cpnote{esto suena obvio, pero no lo es. Es decir no todos
+% los canales son resultado de lindblad.}
+In this section we show that any PCE channel can be seen as the
+fixed point of some decoherence process, starting with PCEGs and 
+then generalizing to more general channels. 
+% Me gustaria modificar esta
+% frase para que pueda ser apreciada mejor} \ddnote{la modificacion fue leve
+% debido a que la mayor parte del contenido esta en la introduccion de la
+% seccion}. 
+% We start with PCEGs. 
+Consider the following dynamical process that
+implements $\mcG_{\vec \alpha}$ when $t\to \infty$,
 \begin{align}
 \mcG_{\vec \alpha,t}[\rho]&=e^{- \gamma t} \rho + (1-e^{-\gamma t})\mcG_{\vec \alpha}[\rho]\nonumber \\
 &=\frac{\left( 1+e^{- \gamma t} \right)}{2} \rho +\frac{\left( 1-e^{- \gamma t} \right)}{2} \sigma_{\vec \alpha} \rho \sigma_{\vec \alpha},
