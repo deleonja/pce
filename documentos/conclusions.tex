@@ -13,14 +13,35 @@ one.} \janote{Me gusta esto que puso David, pero lo movería a las conclusiones.
 % ideas{{{
 \textcolor{jacolor}{
 \begin{enumerate}
-\item We introduced a novel type of Pauli maps: Pauli component erasing maps (PCE).
-\item We provided exact diagonalization of all Pauli diagonal maps.
-\item We then restricted ourseleves to PCE maps and understood all 
-properties of PCE quantum channels from the vector structure of this
-novel channels.
+\item We introduced a novel type of Pauli maps: Pauli component erasing (PCE) maps.
+PCE maps are operators that totally project the density matrix of a system on $N$ 
+qubits onto subsets of elements of Pauli strings basis. PCE maps either
+preserve or completely erase the projections of the density matrix 
+onto the elements of Pauli strings basis. By construction, PCE maps are
+trace-preserving. In Figs \ref{fig:one:qubit:examples} and 
+\ref{fig:two:qubit:examples} we introduced diagrams to represent PCE maps
+of 1 and 2 qubits. We were interested in investigating PCE maps 
+that represent quantum physical evolutions, i.e., PCE maps that are
+quantum channels. The problem is reduced to finding the conditions for
+a PCE map to be completely positive.
+\item We provided exact diagonalization for Pauli diagonal maps in general.
+To evaluate the CP condition we evaluated the positivity of Choi matrix of
+a PCE map, as established in the Choi-Jamiokolwsky isomorphism. Exact 
+diagonalization shows a structure where the CP conditions of general 
+Pauli diagonal maps are encoded in a matrix of 1 qubit.
+\item We then restricted to PCE maps and investigated the algebraic structure
+of PCE quantum channels. We showed that PCE quantum channels have an associated
+vector space structure over the field of two elements $\{0,1\}$. 
+From there, we derived all properties of PCE 
+quantum channels. PCE quantum channels are not only characterized by the number
+of Pauli components preserved but for the particular sets of components preserved too.
+The coefficients of Pauli components must form a vector space.
 \item We showed that PCE quantum channels posses generators, understood
-as maximal vector subspaces. PCE quantum channels have symmetries. 
-\item Kraus operators of PCE quantum channels are easy.
+as maximal vector subspaces. PCE quantum channels have symmetries. From
+the vector structure it follows the existence of PCE generators as 
+maximal non trivial subspaces. This PCE generatos have symmetries.
+\item Kraus operators of PCE quantum channels are easy. They are the 
+identity plus...
 \item Physical implementation of PCE maps.
 \end{enumerate} }
 % }}}
