@@ -1,0 +1,93 @@
+\documentclass[11pt,dvipsnames]{article} % {{{
+
+\usepackage{geometry}
+\geometry{total={170mm,240mm}, left=20mm, top=20mm}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{enumerate} 
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{physics}
+
+\usepackage{bbold}
+
+% To add graphics
+\usepackage{graphicx}
+% Path to figures
+\graphicspath{ {../images/} }
+
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
+\definecolor{jacolor}{RGB}{200,40,0} \FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
+
+
+%% commands
+\newcommand{\valpha}{\vec\alpha}
+\newcommand{\pceg}{\mathcal{G}_{\valpha}}
+\newcommand{\1}{\mathbb{1}}
+
+\author{José Alfredo de León}
+\title{a and generators}
+\begin{document}
+\maketitle
+
+One can express $\vec \tau(\pceg)$, the vector $\vec\tau$
+of a PCE generator $\pceg$, in terms of $a(\alpha_{j_k})$, the rows or columns
+of matrix 
+\begin{align}
+a=
+\left(
+\begin{array}{cccc}
+ 1 & 1 & 1 & 1 \\
+ 1 & 1 & -1 & -1 \\
+ 1 & -1 & 1 & -1 \\
+ 1 & -1 & -1 & 1 \\
+\end{array}
+\right).
+\end{align}
+The aforementioned expression is 
+\begin{align}
+\vec \tau(\pceg)=\frac{a(\alpha_{j_1})\otimes\ldots\otimes a(\alpha_{j_N})+\1_{4^N}}{2},
+\end{align}
+where $\1_{4^N}$ is a $4^N$-length vector with all its components equal to 1.
+
+Note that the rows or columns $a(\alpha_{j_k})$ of matrix $a$ 
+are eigenvectors of the reflection matrix
+\begin{align}
+R=
+\left(
+\begin{array}{cccc}
+ 0 & 0 & 0 & 1 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 1 & 0 & 0 & 0 \\
+\end{array}
+\right)
+\end{align}
+with eigenvalues $r_{0,1,2,3}=1,-1,-1,1$. In other words, we can identify
+the `symmetric' (`anti-symmetric') eigenvectors as those with eigenvalues
+1 (-1).
+
+\janote{probar que (2) si es la tau de un generador}
+We shall start proving that $\vec \tau(\pceg)$ has $4^{N-1}$ components 
+equal to 1 and the rest 0.
+
+The vector $a(\alpha_{j_1})\otimes\ldots\otimes a(\alpha_{j_N})$ has 
+$n_-$  and $n_+$ number of components with minus and plus sign, respectively.
+\begin{align}
+n_{\pm}&=\sum_k\mathbb{n}_{\pm}\big[a(\alpha_{j_k})\big],
+\end{align}
+with $\mathbb{n}_{\pm}\big[a(\alpha_{j_k})\big]$ the number of components
+with sign $\pm$ in vector $a(\alpha_{j_k})$.\janote{asumiendo que ya 
+se probó que el número de +1 es $4^{N-1}$ o $4^{N}$ y de -1 $4^{N-1}$ o 0:}
+
+Now we shall prove the symmetry.
+\begin{align}
+\Sigma^{(k)}\big[\vec \tau(\pceg)\big]=
+\frac{a(\alpha_{j_1})\otimes\ldots\otimes R\big[ a(\alpha_{j_k})\big]\ldots\otimes a(\alpha_{j_N})+\1_{4^N}}{2}
+\end{align}
+
+\end{document}
