@@ -1,27 +1,9 @@
-\section{propuestas abajo}\label{sec:2_qubits}
-{\red propuestas de CP y JA: (la democracia decidirá)}
-
-\cpnote{Labeling and diagrams of PCE generators}
-
-\janote{Local-action and labeling of PCE generators}
-%\cpnote{Cambiar el nombre al apendice cuando lo tengamos mas pulido}
-
-% This action can be encoded using a vector index $\vec\alpha$, 
-% as in \eqref{eq:pauli_strings}, hence each of the different $4^N$ 
-% vector indices may be uniquely related to each of the PCE generators
-% and thus denoted as $\mcG_{\vec\alpha}$.
-% The proof is simplified if one uses the Kraus representation developed in 
-% \sref{sec:kraus}, so we postpone the demonstration to appendix \ref{sec:2_qubits}.
-
-% Notar que el hecho de que cada generador tiene un indice alpha. 
-% Decir que ese alpha es la accion del operador 
+\section{tssss}
+\cpnote{Labeling and diagrams of PCE generators} \janote{Local-action and labeling of PCE generators}
+\label{sec:2_qubits}
 
 
-% 1. La acción sobre el estado está determinada por la alpha. Eso ya se sabe. 
-
-% Para generadores la accion fisica del elemento alpha_k es como actua sobre 
-% el qubit k (o quizá el j). 
-
+\janote{Que lo revise la gente}
 
 \begin{figure} % {{{
 \centering
@@ -32,58 +14,6 @@
 
 
 
-% The action of a generator $\mcG_\valpha$ depends only, as its notations suggests  on 
-% the multi index $\valpha$. To interpret the meaning of $\valpha$, we consider the action
-% of the generator on a reduced density matrix. In fact, 
-% \janote{me confunde este enunciado. Yo sugiero el siguiente cambio}
-% \janote{To interpret the meaning of $\valpha$, we consider the reduced 
-% density matrix of the $k$-th qubit after the action of the generator $\mcG_\valpha$
-% on the whole system,}
-% \begin{align}
-% \tr_{\not k} \mcG_\valpha [\rho] &= 
-% \frac12 \tr_{\not k} (\rho + \sigma_\valpha \rho \sigma_\valpha)\nonumber \\
-% &= \frac{\rho_k}{2} + \frac{\sigma_{\alpha_k} \rho_k \sigma_{\alpha_k}}{2}\nonumber \\
-% &= \mcG_{\alpha_k} [\rho_k ],
-% \label{eq:generator:individual:qubit}
-% \end{align}
-% where the partial trace over everything except qubit $k$ is
-% denoted by $\tr_{\not k}$\ddnote{esta curiosa esta notacion, sugiero algo mas discreto, como $\tr_{\overline{k}}$}. The last line denotes a single qubit PCE generator
-% corresponding to the index $\alpha_k$, which is the $k$-th component 
-% of $\valpha$. 
-% \janote{Ya no entiendo para qué sirve todo lo que va después. 
-% Si el objetivo era relacionar las $\vec\alpha$ con la acción local de cada generador
-% para mí hasta aquí es suficiente.}
-% 
-% We now connect particular elements of a PCE map with the action 
-% over particular qubits. To do so, we define basis vectors $\vec e_k$ via its components as
-% $[\vec e_k]_j = \delta_{jk}$. This means that 
-% $\valpha = \sum_k \alpha_k \vec e_k$.
-% If we denote 
-% \begin{equation}
-% \mcE_{\{ \tau_\valpha\}}[\rho] = \sum_\valpha \tau_\valpha r_\valpha \sigma_\valpha,
-% \end{equation}
-% we can verify using direct calculation that 
-% \begin{equation}
-% \tr_{\not k} \mcE_{\{ \tau_\valpha\}}[\rho]  = 
-% \mcE_{\{ \tau_{\alpha_k} \}}[\rho_k].
-% \label{eq:trnottrnot}
-% \end{equation}
-% % = \sum_\valpha \tau_\valpha r_\valpha \sigma_\valpha.
-% 
-% \janote{El enunciado a continuación no lo entendí, incluso meditándolo un rato.
-% Tal vez ya estoy cansado, pero preferiría que me expliques.}
-% \Eref{eq:trnottrnot} means that the action of a channel over the $k$-th qubit is determined
-% by the four numbers $\tau_{\alpha_k \vec e_k}$ which, for the two qubit case correspond 
-% to the first column (if $k=1$) or the first row (if $k=2$). For larger $N$ the generalization 
-% is immediate. Connecting \eref{eq:trnottrnot} 
-% and \eref{eq:generator:individual:qubit} allows us to interpret  easily 
-% the multi-index in each generator. In \fref{fig:appex:twoQ_PCEGs} we present 
-% all two qubit generators and their corresponding $\valpha$. 
-
-
-
-\cpnote{mi contra-contra propuesta}
-\janote{Que lo revise la gente}
 
 
 The local-action of a generator $\mcG_\valpha$ on every qubit in the 
@@ -277,4 +207,26 @@ and their corresponding notation $\mcG_\valpha$.
 
 % Próximamente... \Fref{fig:appex:twoQ_PCEGs}
 % }}}
+
+
+An interesting relation of the generators and the $A$ matrix can be derived 
+with the tools developed. 
+Consider the generator 
+$\mcG_\valpha$, and its Pauli components $\tau^{(\valpha)}_\vbeta$. We 
+can calculate the former studying the action of the generator on the 
+non-normalized state $\varrho =  \sum_\vgamma \sigma_\vgamma$:
+Let us proceed with such calculation, using the Kraus decomposition \eref{eq:kraus:PCE}:
+\begin{align}
+\tau^{(\valpha)}_\vbeta &= \tr \sigma_\vbeta \mcG_\valpha[\varrho] \\
+&= \frac12 \sum_\vgamma \tr \left[ \sigma_\vbeta \sigma_\vgamma
++ \sigma_\vbeta \sigma_\valpha \sigma_\vgamma \sigma_\valpha \right] \\
+&= \frac12 \left(1+ A_{\valpha \vbeta} \right)
+\end{align}
+where we have used the orthogonality relations of Pauli matrices and \eref{eq:sigma_property}.
+This means that one can read the $\alpha$-th generators directly from matrix $A$, see 
+\fref{fig:A_and_PCEGs_connection} for the $n=1$ case. Alternatively 
+one could construct the $A$ matrix for $n=2$, from \fref{fig:appex:twoQ_PCEGs}, 
+where the first row of this matrix is read from $\mcG_{(0,0)}$, replacing
+black (white) squares with 1's ($-1$s), the second row from $\mcG_{(0,1)}$, etc. 
+
 
