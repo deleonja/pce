@@ -47,9 +47,7 @@ Bloch sphere to de $x$-axis, and on the second qubit (first row) acts an identit
 hence it is labeled $\mcG_{(1,0)}$.
 See \Fref{fig:appex:twoQ_PCEGs} for the notation of all 2-qubit PCE generators.
 
-A reflection symmetry is identified for both PCE generators $\pceg$ and
-matrix $A$ \cpnote{Creo que aun 
-no tenemos el link entre el generador y la matriz A}.
+A reflection symmetry is identified for PCE generators.
 Consider the map $\Sigma^{(k)}$ that reflects an index $\valpha$ with 
 respect to the $k$-th axis. This map leaves all components of $\valpha$
 invariant, except the $k$-th component, which is transformed according to 
@@ -89,7 +87,7 @@ represented in subfigures (c), (d) and (e) of \Fref{fig:two:qubit:examples},
 respectively, are either symmetric or anti-symmetric under reflection with 
 respect to lines that divide the diagram in half vertically and horizontally. 
 
-\cpnote{De aca al resto de la seccion o establecemos la conexion con A o lo quitamos}
+\cpnote{Revisar este párrfo. Solo ha pasado una persona por ahi}
 % 
 % 
 % The symmetry for a PCE generator $\pceg$ is encoded in the 
@@ -122,9 +120,9 @@ respect to lines that divide the diagram in half vertically and horizontally.
 % represented in subfigures (c), (d) and (e) of \Fref{fig:two:qubit:examples}, 
 % respectively, are either symmetric or anti-symmetric under reflection with 
 % respect to lines that divide the diagram in half vertically and horizontally. 
-The same symmetry is identified for the rows and columns of $A$ if one 
-labels each position in a row or column $A^{(i)}$ as $A^{(i)}_{\vec\alpha}$.
-\janote{Aquí habría que agregar la prueva de simetría para la $A$.}
+% The same symmetry is identified for the rows and columns of $A$ if one 
+% labels each position in a row or column $A^{(i)}$ as $A^{(i)}_{\vec\alpha}$.
+% \janote{Aquí habría que agregar la prueva de simetría para la $A$.}
 
 \begin{figure} % {{{
 \centering
@@ -138,15 +136,15 @@ y la a obedecen las mismas simetrías.}
 \label{fig:A_and_PCEGs_connection}
 \end{figure} % }}}
 
-\ddnote{Tengo entendido que esto se queria probar usando las simetrias, esto ya esta probado en la secc V}
-Given that both matrix $\san$ and PCE generators $\pceg$ have the same 
-symmetries, it is worth pointing out that $\san$ (and thus $a$) [see \eref{eq:san}] 
+% \ddnote{Tengo entendido que esto se queria probar usando las simetrias, esto ya
+% esta probado en la secc V}
+It is worth pointing out that $\san$ (and thus $a$) [see \eref{eq:san}] 
 encodes all the information of PCE generators $\pceg$ and, therefore, of all PCE quantum channels. 
-From the tensor power of matrix $a$ one can infer the $\{\taus\}$ of a PCE
-generator $\pceg$ by taking any row or column $A^{(i)}$ and mapping 
-all entries with $-1$ to $0$. In \Fref{fig:A_and_PCEGs_connection} we illustrate
-this connection between $a$ and single qubit PCE generators.
-In \appref{sec:2_qubits} we illustrate this program for 2-qubits PCE channels.
+From the tensor power of matrix $a$ one can infer the components $\{\taus\}$ of a PCE
+generator $\pceg$ by taking row (or column) $\alpha$ of $A$ and replacing
+$-1$ with $0$. 
+The proof is given in \appref{sec:2_qubits} and in \fref{fig:A_and_PCEGs_connection} we illustrate
+this connection for the single qubit case.
 
 % \cpnote{Sienot que no tiene flujo. Quizá se le pueda dar flujo usando el final 
 % del primer parrafo}
