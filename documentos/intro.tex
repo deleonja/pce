@@ -1,36 +1,15 @@
 \section{Introduction} % {{{
-\ddnote{Generalization of the notion that squeezing the Bloch sphere into a disk is not a channel. Quantum channels have a astonishing number of parameters as the dimension grows, so studies like ours is important to understand less parametric families of quantum channels. }
-Several PRA articles go straight into matter. I guess we will write what we have to write
-
-
-Creo que puede quedar bonito, honesto y util si comenzamos motivando el
-problema desde un punto de vista matemático, y luego seguimos platicando de las
-consecuencias físicas, es decir mostrando que el problema como lo planteamos
-tiene aplicaciones practicas. 
-
-\ddnote{Yo agregare un parrafo delineando la literatura alrededor de Ruskai}
-Nathanson, Ruskai~\cite{nathanson2007pauli} based on MUBs... Based on mutually unbiased measurements~\cite{Siudzinska2020}
-Generalization of \textit{completely decoherence Pauli channels}, such as completely dephasing,
-\begin{equation}
-\rho \mapsto \rho_{00}\projj{0}+\rho_{11}\projj{1},
-\end{equation}
-and \textit{completely depolarizing},
-\begin{equation}
-\rho \mapsto \frac{\one}{2} \tr \rho,
-\end{equation}
-These channels correspond in collapsing the Bloch sphere into a line and a point, respectively. [...] Other families of channels inspired in leaving 
-\newline
-{\blue [Aqui arranco con la introduccion]\\}
-The identification of families of quantum channels among the whole convex set of quantum channels associated to a Hilbert space is crucial to understand quantum noise~\cite{davalosdivisibility,ruskai}, open quantum systems dynamics, and recently, even coarse graining~\cite{Duarte2017,pinedacg}. One of the main difficulties is that, similar to quantum states, the parameters needed to describe quantum channels increases overwhelmingly rapid respect to the dimension of the Hilbert space. For a Hilbert space of dimension $d$, the space of quantum channels is parametrized with $d^4-d^2$ real numbers which are not fully independent (the complete positivity condition imposes which regions have physical meaning, see Ref.~\cite{zimansbook}). Therefore, even the qubit case is difficult to analyze, having $12$ parameters corresponding to $6$ angles, $3$ components of the displacement vector and $3$ describing the compression of the Bloch sphere~\cite{ruskai}. Thus, understanding families of channels sharing a common property usually gives a good insight about the jungle of quantum operations. For the qubit case there are several studies concerning only unital channels, which non-trivial properties can be described using only $3$ parameters, which in turn form the tetrahedron of Pauli channels~\cite{Rybar2012,ruskai,davalosdivisibility}. For general finite-dimensional channels, families of channels defined as convex combinations of quantum-classical channels, in turn defined with bases that belong to a mutually unbiased basis (MUB), are studied in Ref.~\cite{nathanson2007pauli}. These channels have properties in common with unital qubit channels with positive eigenvalues, and give a generalization of the Bloch sphere in terms of the generators of the MUBs. Similarly, channels based on mutually unbiased measurements are studied in Ref.~\cite{Siudzinska2020} as another attempt to generalize unital qubit channels.
+%
+The identification of families of quantum channels among the whole convex set of quantum channels associated to a Hilbert space, is crucial to understand quantum noise~\cite{davalosdivisibility,ruskai}, open quantum systems dynamics, and recently, even coarse graining~\cite{Duarte2017,pinedacg}. One of the main difficulties is that, similar to quantum states, the parameters needed to describe quantum channels increases overwhelmingly rapid respect to the dimension of the Hilbert space. For a Hilbert space of dimension $d$, the space of quantum channels is parametrized with $d^4-d^2$ real parameters which are not fully independent (the complete positivity condition imposes the regions that physical meaning, see Ref.~\cite{zimansbook}). Therefore, even the qubit case is difficult to analyze having $12$ parameters corresponding to $6$ angles, $3$ components of the displacement vector and $3$ describing the compression of the Bloch sphere~\cite{ruskai}. Thus, understanding families of channels sharing a common property usually gives a good insight about the jungle of quantum operations. For the qubit case there are several studies concerning the unital case, which non-trivial properties can be described using only $3$ parameters, which in turn form the tetrahedron of Pauli channels~\cite{Rybar2012,ruskai,davalosdivisibility}. For general finite-dimensional channels, several families of channels have been defined in order to explore the huge parametric space of channels. In~Ref.~\cite{nathanson2007pauli} channels defined as convex combinations of quantum-classical channels, in turn defined with mutually unbiased basis (MUB), are introduced. These channels have properties in common with unital qubit channels with positive eigenvalues, and give a generalization of the Bloch sphere in terms of the generators of the MUBs. Similar studies a re Similarly, channels based on mutually unbiased measurements are studied in Ref.~\cite{Siudzinska2020} as another attempt to generalize unital qubit channels.
 %
 [Other references]
 
 \par
-In the present work, we give a generalization of the qubit flip operations (bit, phase and bit-phase) to the 
+In this work we present a generalization of Pauli channels that are also idempotent, \ie{} the qubit flip operations (bit, phase and bit-phase), total depolarizing qubit channel and the identity channel. It is known that not every linear operation mapping density matrices into density matrices is a valid quantum operation
 [Role of completely positivity]
 %
 \par
-The paper is organized as follows, in section~\ref{sec:pce_maps}
+The paper is organized as follows, in section~\ref{sec:pce_maps} we give a refreshing of quantum channels theory and the definition of \textit{Pauli component erasing maps} (\pce{}), being the generalization of idempotent Pauli channels aforementioned. In section~\ref{sec:math} we derive the 
 % }}}
 
 
