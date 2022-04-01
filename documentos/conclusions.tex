@@ -10,6 +10,47 @@ rules will give you the rest of components to make the target operation a CPTP
 one.} \janote{Me gusta esto que puso David, pero lo movería a las conclusiones.}
 \par % }}}
 
+In this work we introduce and fully characterize 
+a novel type of Pauli maps: Pauli component erasing (PCE) maps.
+%PCE maps are operations that project a $N$-qubit density matrix 
+%onto subsets of the Pauli strings basis. 
+A PCE map is an operation that acts over the density matrix of a system 
+of qubits and either preserves or completely erases the projections of 
+the density matrix onto the elements of Pauli strings basis; 
+we call this projections the Pauli components of the density matrix
+of a system of qubits.
+%By construction, PCE maps are trace-preserving.
+We introduce in Figs. \ref{fig:one:qubit:examples} and 
+\ref{fig:two:qubit:examples} diagrams to schematically represent PCE maps
+of 1 and 2 qubits. 
+%We study the conditions for a PCE map to represent a 
+%quantum physical evolution, i.e. to be a quantum channel, thus we 
+%investigated the conditions a PCE map needs to fulfill to 
+%be completely positive. 
+We study the complete positivity condition a PCE map has to fulfill to represent
+a quantum physical evolution, i.e. to be a quantum channel, and we 
+describe in detail the properties of PCE quantum channels.
+
+We provide an exact diagonalization for Pauli diagonal maps' 
+Choi matrix and evaluate the complete positivity condition, 
+as established in the Choi-Jamiokolwsky isomorphism. 
+Then, restricting ourselves to PCE maps we find an interesting algebraic structure:
+if we number the Pauli matrices by pairs of binary indices and describe a Pauli string as the
+corresponding vector of binary numbers, 
+%the set on which a given PCE quantum channel is equal to 1,
+the set of indices vectors of the Pauli strings to which 
+the density matrix is projected by a given PCE quantum channel is
+a vector space over the field of two elements $\{0,1\}$.
+From this, we derive all properties of PCE quantum channels.
+They are not only characterized by the number
+of Pauli components preserved but for the particular sets of components preserved too.
+If one wishes, say, to preserve at least a given set of strings, the vector space structure 
+determines uniquely the minimal set of Pauli strings we must add to obtain  a quantum channel.
+Furthermore, PCE quantum channels posses generators, understood
+as maximal vector subspaces. PCE quantum channels have symmetries. From
+the vector structure it follows the existence of PCE generators as 
+maximal non trivial subspaces. This PCE generators have symmetries.
+
 % ideas{{{
 \textcolor{jacolor}{
 \begin{enumerate}
