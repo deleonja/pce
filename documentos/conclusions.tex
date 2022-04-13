@@ -1,36 +1,39 @@
 \section{Conclusions}
 \label{sec:conclusions}
-\todo{al final}
-\ddnote{Avienten ideas en cualquier idioma de lo que quieren que venga en las conclusiones}
-   
-% Frase de David {{{
-\ddnote{Agrego esto:} A final remarks of the derivation as a tool. Concepts
-might be complicated, but the tool gives some simple rules to the reader:
-\textit{tell me what components you want to keep, and the (vector) summation
-rules will give you the rest of components to make the target operation a CPTP
-one.} \janote{Me gusta esto que puso David, pero lo movería a las conclusiones.}
-\par % }}}
+%\todo{al final}
+%\ddnote{Avienten ideas en cualquier idioma de lo que quieren que venga en las conclusiones}
+%   
+%% Frase de David {{{
+%\ddnote{Agrego esto:} A final remarks of the derivation as a tool. Concepts
+%might be complicated, but the tool gives some simple rules to the reader:
+%\textit{tell me what components you want to keep, and the (vector) summation
+%rules will give you the rest of components to make the target operation a CPTP
+%one.} \janote{Me gusta esto que puso David, pero lo movería a las conclusiones.}
+%\par % }}}
 
 In this work we introduce and fully characterize 
 a novel type of Pauli maps: Pauli component erasing (PCE) maps.
 %PCE maps are operations that project a $N$-qubit density matrix 
 %onto subsets of the Pauli strings basis. 
-A PCE map is an operation that acts over the density matrix of a system 
-of qubits and either preserves or completely erases the projections of 
-the density matrix onto the elements of Pauli strings basis; 
-we call this projections the Pauli components of the density matrix
-of a system of qubits.
+We call the Pauli components of the density matrix of a system of qubits 
+to the projections of the density matrix onto the elements of Pauli string 
+basis.
+Then, a PCE map is defined as a \janote{positive and} linear operation acting over 
+the density matrix of a system of qubits either preserving or 
+completely erasing its Pauli components.
 %By construction, PCE maps are trace-preserving.
-We introduce in Figs. \ref{fig:one:qubit:examples} and 
-\ref{fig:two:qubit:examples} diagrams to schematically represent PCE maps
-of 1 and 2 qubits. 
+In Figs. \ref{fig:one:qubit:examples} and \ref{fig:two:qubit:examples} 
+we introduce diagrams that graphically represent PCE maps of 1 and 2 qubits. 
 %We study the conditions for a PCE map to represent a 
 %quantum physical evolution, i.e. to be a quantum channel, thus we 
 %investigated the conditions a PCE map needs to fulfill to 
 %be completely positive. 
-We study the complete positivity condition a PCE map has to fulfill to represent
-a quantum physical evolution, i.e. to be a quantum channel, and we 
-describe in detail the properties of PCE quantum channels.
+PCE maps are by construction positive and trace-preserving but not 
+completely positive in order to be a quantum physical evolution, i.e.
+a quantum channel.
+Hence, we study the conditions a PCE map needs to met to be 
+a PCE quantum channel, and we describe in detail the properties 
+of this subset of all PCE maps.
 
 We provide an exact diagonalization for Pauli diagonal maps' 
 Choi matrix and evaluate the complete positivity condition, 
@@ -38,54 +41,41 @@ as established in the Choi-Jamiokolwsky isomorphism.
 Then, restricting ourselves to PCE maps we find an interesting algebraic structure:
 if we number the Pauli matrices by pairs of binary indices and describe a Pauli string as the
 corresponding vector of binary numbers, 
-%the set on which a given PCE quantum channel is equal to 1,
 the set of indices vectors of the Pauli strings to which 
 the density matrix is projected by a given PCE quantum channel is
 a vector space over the field of two elements $\{0,1\}$.
-From this, we derive all properties of PCE quantum channels.
-They are not only characterized by the number
-of Pauli components preserved but for the particular sets of components preserved too.
-If one wishes, say, to preserve at least a given set of strings, the vector space structure 
-determines uniquely the minimal set of Pauli strings we must add to obtain  a quantum channel.
-Furthermore, PCE quantum channels posses generators, understood
-as maximal vector subspaces. PCE quantum channels have symmetries. From
-the vector structure it follows the existence of PCE generators as 
-maximal non trivial subspaces. This PCE generators have symmetries.
+In other words, we find that PCE quantum channels may 
+be understood as vector subspaces and from this 
+derive all their properties.
+PCE quantum channels are not only characterized by the number
+of Pauli components preserved but in fact 
+for the particular sets of components preserved 
+[see \Fref{fig:two:qubit:examples}].
+If one wishes, say, to preserve at least a given set of Pauli components, 
+the vector space structure determines uniquely the minimal set of 
+Pauli components we must add to obtain a quantum channel.
 
-% ideas{{{
-\textcolor{jacolor}{
-\begin{enumerate}
-\item We introduced a novel type of Pauli maps: Pauli component erasing (PCE) maps.
-PCE maps are operators that totally project the density matrix of a system on $N$ 
-qubits onto subsets of elements of Pauli strings basis. PCE maps either
-preserve or completely erase the projections of the density matrix 
-onto the elements of Pauli strings basis. By construction, PCE maps are
-trace-preserving. In Figs \ref{fig:one:qubit:examples} and 
-\ref{fig:two:qubit:examples} we introduced diagrams to represent PCE maps
-of 1 and 2 qubits. We were interested in investigating PCE maps 
-that represent quantum physical evolutions, i.e., PCE maps that are
-quantum channels. The problem is reduced to finding the conditions for
-a PCE map to be completely positive.
-\item We provided exact diagonalization for Pauli diagonal maps in general.
-To evaluate the CP condition we evaluated the positivity of Choi matrix of
-a PCE map, as established in the Choi-Jamiokolwsky isomorphism. Exact 
-diagonalization shows a structure where the CP conditions of general 
-Pauli diagonal maps are encoded in a matrix of 1 qubit.
-\item We then restricted to PCE maps and investigated the algebraic structure
-of PCE quantum channels. We showed that PCE quantum channels have an associated
-vector space structure over the field of two elements $\{0,1\}$. 
-From there, we derived all properties of PCE 
-quantum channels. PCE quantum channels are not only characterized by the number
-of Pauli components preserved but for the particular sets of components preserved too.
-The coefficients of Pauli components must form a vector space.
-\item We showed that PCE quantum channels posses generators, understood
-as maximal vector subspaces. PCE quantum channels have symmetries. From
-the vector structure it follows the existence of PCE generators as 
-maximal non trivial subspaces. This PCE generatos have symmetries.
-\item Kraus operators of PCE quantum channels are easy. They are the 
-identity plus...
-\item Physical implementation of PCE maps.
-\end{enumerate} }
-% }}}
+Furthermore, we find that PCE quantum channels posses generators
+and these \textit{PCE generators} have symmetries.
+In the vector space language of PCE quantum channels the PCE 
+generators are described as maximal non trivial vector subspaces. 
+For 2-qubits, the symmetries of PCE generators are easily described with 
+the diagrams representing the corresponding maps 
+[see \Fref{fig:appex:twoQ_PCEGs}], they are either symmetric or
+antisymmetric with respect to a horizontal and vertical lines 
+cutting the diagrams through the middle. Even more, we find an 
+astonishing connection via this symmetry between PCE generators and the matrix 
+that diagonalizes the Choi matrix of a Pauli diagonal channel: one can
+take the rows or columns of this matrix, map all entries with -1 to 0, and
+obtain all indices vectors of the PCE generators. 
 
+Finally, we discuss two examples to see PCE quantum channels as
+fixed points of a pure dissipative process and of a memory-less 
+collision model. To derive these two implementations we exploit 
+the fact that Kraus operators of PCE generators are the identity 
+operator and one of the Pauli strings operators, up to a constant.
+\janote{Falta un comentario para cerrar el párrafo}
 
+This work may lead to future directions, being perhaps the most interesting
+one the generalization of PCE maps for systems of qudits.
+\janote{algo más para direcciones futuras de trabajo?}
