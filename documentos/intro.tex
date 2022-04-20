@@ -1,6 +1,7 @@
 \section{Introduction} % {{{
 
-Quantum correlations~\cite{Ollivier2001}, including entanglement~\cite{Horodecki}, are an important
+Quantum correlations~\cite{Ollivier2001}, including
+entanglement~\cite{Horodecki}, are an important
 resource for a wide variate of tasks that include teleportation~\cite{PhysRevLett.70.1895},
 quantum computation~\cite{nielsen_chuang_2011}, and others~\cite{}.
 However, this resource is also extremely delicate~\cite{nielsen_chuang_2011,Schlosshauer2004}, specially 
@@ -11,51 +12,69 @@ theoretical \cite{} point of view.
 The process by which quantum correlations are unintentionally dissipated
 is called decoherence~\cite{Schlosshauer2004,sep-qm-decoherence}.
 One of the main tools to study the effects of decoherence are 
-quantum channels. \cpnote{Ver como pegar con el siguiente bicho. Quizá 
-modificar la primera frase del siguiente parrafo o pasar a este.}\par
-\ddnote{Para pegar los dos parrafos, propongo la siguiente modificacion a la primera frase}. {\blue More generally, quantum channels model quantum noise~\cite{davalosdivisibility,ruskai}, open quantum systems
+quantum channels. Quantum channels can describe quantum
+noise~\cite{davalosdivisibility,ruskai}, open quantum systems
 dynamics~\cite{nielsen_chuang_2011,breuerbook}, and recently even coarse
-graining~\cite{Duarte2017,pinedacg}. [...] Luego continuar con el resto}
+graining~\cite{Duarte2017,pinedacg}. 
 %
-The identification of families of quantum channels among the whole convex set
-of quantum channels associated to a Hilbert space, is crucial to understand
-quantum noise~\cite{davalosdivisibility,ruskai}, open quantum systems
-dynamics~\cite{nielsen_chuang_2011,breuerbook}, and recently even coarse
-graining~\cite{Duarte2017,pinedacg}. One of the main difficulties is that,
-similar to quantum states, the parameters needed to describe quantum channels
+% The identification of families of quantum channels among the whole convex set
+% of quantum channels associated to a Hilbert space, is crucial to understand
+% quantum noise~\cite{davalosdivisibility,ruskai}, open quantum systems
+% dynamics~\cite{nielsen_chuang_2011,breuerbook}, and recently even coarse
+% graining~\cite{Duarte2017,pinedacg}. 
+One of the main difficulties to characterize quantum channels is that,
+similar to quantum states, the parameters needed to describe them
 increases overwhelmingly rapidly with the dimension of the Hilbert space.
-Such parameters are not fully independent, the complete positivity condition imposes the regions that have physical meaning~\cite{zimansbook}.\cpnote{quiza quitar (QQ), o modificiar 
-a decir que el numero de parametros crece exponencialmente con el numero 
-de particulas.}\ddnote{Atendido, dejo lo esencial y relacionado con el articulo}. Therefore, even the
-qubit case is difficult to
-analyze having $12$ parameters corresponding to $6$ angles, $3$ components of
-the displacement vector and $3$ describing the compression of the Bloch
-sphere~\cite{ruskai}\cpnote{QQ}\ddnote{quitemoslo}. Thus, describing in detail small families of channels having a given property may provide insight into the jungle of quantum operations.
+%
+Moreover, such parameters are constrained in a complicated way by 
+physical conditions, such as complete positivity ~\cite{zimansbook}.
+% Such parameters are not fully independent, the complete positivity condition imposes the regions that have physical meaning~\cite{zimansbook}.
+% 
+% \cpnote{quiza quitar (QQ), o modificiar 
+% a decir que el numero de parametros crece exponencialmente con el numero 
+% de particulas.}\ddnote{Atendido, dejo lo esencial y relacionado con el articulo}. Therefore, even the
+% qubit case is difficult to
+% analyze having $12$ parameters corresponding to $6$ angles, $3$ components of
+% the displacement vector and $3$ describing the compression of the Bloch
+% sphere~\cite{ruskai}\cpnote{QQ}\ddnote{quitemoslo}. 
+Describing in detail families of channels having a given property provides
+insight into the jungle of quantum operations.
 For the qubit case there are several studies concerning the unital case, for which
 non-trivial properties can be described using only $3$ parameters, which in
 turn form the well known tetrahedron of Pauli
-channels~\cite{Rybar2012,ruskai,davalosdivisibility}\cpnote{QQ}\ddnote{quitemoslo}. For general
-finite-dimensional channels, several families of channels have been defined.
-In~Ref.~\cite{nathanson2007pauli} the authors define families of unital channels as
-convex combinations of quantum-classical channels, having properties
-in common with unital qubit channels with positive eigenvalues, and give a
-generalization of the Bloch sphere. {\blue We will show later that some of the channels studied here are also quantum-classical.}\ddnote{Esta frase no me gusta, pero no se me occure nada mejor en tanto a la escritura. Propongo omitirla, despues se volvera a mencionar esto pero en donde corresponde.}
+channels~\cite{Rybar2012,ruskai,davalosdivisibility}. 
+% For general
+% finite-dimensional channels, several families of channels have been defined.
+More generally, in~Ref.~\cite{nathanson2007pauli} the authors study families of 
+convex combinations of quantum-classical channels that relate to
+% have a close relation with 
+unital qubit channels with positive eigenvalues, and give a
+generalization of the Bloch sphere. 
+% {\blue We will show later that some of the channels studied here are also
+% quantum-classical.}\ddnote{Esta frase no me gusta, pero no se me occure nada
+% mejor en tanto a la escritura. Propongo omitirla, despues se volvera a
+% mencionar esto pero en donde corresponde.}
 Similarly, a generalization of Pauli channels based on mutually unbiased
 measurements is introduced and studied in Ref.~\cite{Siudzinska2020}. Other
 studies of channels beyond the qubit can be
 found~\cite{pub.1117408526,pub.1060516327,pub.1014660854}.
-\cpnote{Me gusta la idea de ir sobre un par de familias, pero no veo para que 
-mencionar a las MUBs aca, ni paraque introducir la sigla. Ojala podamos 
-discutir que familias mencionamos acá}\ddnote{atendido como fue acordado en la reunion :)}
+% \cpnote{Me gusta la idea de ir sobre un par de familias, pero no veo para que 
+% mencionar a las MUBs aca, ni paraque introducir la sigla. Ojala podamos 
+% discutir que familias mencionamos acá}\ddnote{atendido como fue acordado en la reunion :)}
 
 \par
-In this work we present a generalization of Pauli channels (convex combinations
-of Pauli unitaries) that are also idempotent, \ie{} the qubit flip operations
-(bit, phase and bit-phase), total depolarizing qubit channel and the identity
-channel, to the case of $N$ qubits. The generalization is done by extending
+In this work we present a generalization of idempotent Pauli channels, \ie{}
+the qubit flip operations (bit, phase and bit-phase), total depolarizing qubit
+channel and the identity channel, to the case of $N$ qubits. 
+% \cpnote{Mencionar decoherencia} 
+The generalization is done by extending
 Pauli observables to \textit{Pauli strings} (tensor products of Pauli
 matrices), the resulting maps are unital and diagonal in the Pauli strings'
-basis. We call such maps \textit{Pauli component erasing maps} (\pce{}). We
+basis.
+Moreover, these channels describe decoherence in a similar way as the aforementioned
+single-qubit channels describe decoherence. \cpnote{Si alguien mejora esta
+frase, de lujo}
+We call such maps \textit{Pauli component erasing} (\pce{}) maps . We
 derive necessary and sufficient conditions for such mappings to be completely
 positive trace preserving, thus, showing which idempotent operations are valid
 quantum channels (\pce{} channels). Additionally, we characterize the algebraic
@@ -63,9 +82,12 @@ properties of the set of \pce{} channels, showing that is equipped with a
 semigroup structure, which is later used to derive physical implementations.
 %
 \par
-The paper is organized as follows, in section~\ref{sec:pce_maps} we give a
-refreshing of quantum channels theory and the definition of \pce{} maps, being
-the generalization of idempotent Pauli channels aforementioned. In
+The paper is organized as follows, in section~\ref{sec:pce_maps} we recall
+the properties of quantum channels needed to proceed with the definition 
+of 
+% the tools to unders
+% refreshing of quantum channels theory and the definition of 
+\pce{} maps. In
 section~\ref{sec:math} we diagonalize analytically the Choi matrix for
 arbitrary \pce{} maps and characterize completely positive maps by interpreting
 \pce{} maps as discrete vector spaces. In section~\ref{sec:generators} we study
