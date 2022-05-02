@@ -24,29 +24,51 @@
 % We call the Pauli components of the density matrix of a system of qubits 
 % to the projections of the density matrix onto the elements of Pauli string 
 % basis.
-In this work we introduce and characterize a set of maps which either preserve
+
+
+In this work we introduce and characterize a set of quantum maps which either preserve
 or completely erase the components of a multi-qubit density matrix, in the
-basis of Pauli strings which, for a single qubit, include the completely depolarizing
+basis of Pauli strings which, that is, these maps erase single and multi-particle
+coherences of a many-body quantum system; 
+we call those maps Pauli component erasing (PCE) maps.
+For a single qubit these include the completely depolarizing
 and dephasing channels\cpnote{ver que recordamos estas definiciones en el texto};
-we call these,  Pauli component erasing (PCE) maps.
-Not all PCE maps are quantum channels, as some are not completely positive. 
-% \cpnote{ To characterize them (evaluate CP conditions) a crucial step was to
-% identify channels as finite vector spaces and use the powerful theory of vector
-% spaces.  }
-The components of PCE quantum channels form a finite vector space. This
+To start the characterization, we note that 
+not all PCE maps are quantum channels, as some are not completely positive. 
+However we show that the components of PCE quantum channels form a finite vector space.
+% This leads immediately to a method to find
+% constructively valid quantum maps starting with arbitrary \pce{} maps. 
+This
 in turn allows to unravel several properties, such as the possible number of PCE
-channels, and the number of components preserved. 
-PCE quantum channels form a semigroup, where the generators  are generalized
+channels, and the number of components preserved while also providing 
+advantages to study numerically this set, for example by implying an efficient method 
+to construct all quantum channels for a given number of qubits. 
+%
+Similar to other objects in open quantum systems (for example Lindblad operators), 
+PCE quantum channels form a semigroup, in this case finite.  
+
+, where the generators  are generalized
 flip operations, \ie{} channels that with probability $1/2$ apply a joint flip. 
 This structure allows to link this channel with multi-qubit decoherence processes
 which can be described, say by simple disipative processes or memory-less 
 collision models.
 \ddnote{Lo anterior todavia lo siento como una lista sin mucha interconexcion. Contrapropuesta ya completa:}
 
-In this work we introduced and characterized a family of channels that generalize Pauli idempotent channels to the multi-qubit case (\pce{} channels). The generalization was performed extending Pauli matrices to Pauli strings, the resulting maps (\pce{} maps) are diagonal in the Pauli string basis. Here, idempotence implies that either they nullify or leave invariant the components of the generalized Bloch vector, see~\eref{eq:N_qubits_rho}, which includes many-body correlations.
-%
-Not every \pce{} map is a quantum channel, so the main task of this work was to evaluate complete positivity conditions given by the Choi-\jami{} isomorphism. 
-This was possible noticing that \pce{} channels have a very particular algebraic structure, they can be seen as finite vector subspaces of a larger finite vector space (representing the identity channel), see section~\ref{sec:vector_spaces}. This leads immediately to a method to find constructively valid quantum maps starting with arbitrary \pce{} maps. 
+% In this work we introduced and characterized a family of channels that
+% generalize Pauli idempotent channels to the multi-qubit case (\pce{} channels).
+% The generalization was performed extending Pauli matrices to Pauli strings, the
+% resulting maps (\pce{} maps) are diagonal in the Pauli string basis. Here,
+% idempotence implies that either they nullify or leave invariant the components
+% of the generalized Bloch vector, see~\eref{eq:N_qubits_rho}, which includes
+% many-body correlations.
+% %
+Not every \pce{} map is a quantum channel, so the main task of this work was to
+evaluate complete positivity conditions given by the Choi-\jami{} isomorphism.
+This was possible noticing that \pce{} channels have a very particular
+algebraic structure, they can be seen as finite vector subspaces of a larger
+finite vector space (representing the identity channel), see
+section~\ref{sec:vector_spaces}. This leads immediately to a method to find
+constructively valid quantum maps starting with arbitrary \pce{} maps. 
 %
 This is, once choosing the generalized Bloch vector components that are going to be preserved, the finite vector space summation rule of the \pce{} map diagonal elements gives automatically the additional components that must be preserved in order to get a valid quantum channel.
 %
