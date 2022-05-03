@@ -97,7 +97,7 @@ K_0=\frac{\openone}{\sqrt2}, \quad K_1=\frac{\sigma_{\vec \alpha}}{\sqrt2},
 since the Kraus operators corresponding to a single qubit PCEs are 
 $\{\openone/\sqrt2, \sigma_\alpha/\sqrt2\}$,
 corresponding to the operation that leaves the component $\sigma_\alpha$
-invariant~\cite{nielsen_chuang_2011}. \ddnote{agrego lo de los flips aqui}{\blue Notice that according to Kraus operators, the generators $\mcG_{\vec \alpha}$ are $N$-qubit flip channels with flip probability of $1/2$, where the joint flip is $\rho \mapsto \sigma_{\vec \alpha} \rho \sigma_{\vec \alpha}$. In fact, tracing out all particles except particle $k$ \afnote{...except the $k-$th one} gives the well known qubit flip channels, \ie{} $\tr_{\not k} \mcG_\valpha=\mcG_{\alpha_k}$ (see~ \eref{eq:generator:individual:qubit}). And more generally, tracing out $m$ particles leaves a $N-m$ particles flip channel \afnote{with weight $1/2$}.}
+invariant~\cite{nielsen_chuang_2011}. Notice that according to Kraus operators, the generators $\mcG_{\vec \alpha}$ are $N$-qubit flip channels with flip probability of $1/2$, where the joint flip is $\rho \mapsto \sigma_{\vec \alpha} \rho \sigma_{\vec \alpha}$. In fact, tracing out all particles except the $k$-th one gives the well known qubit flip channels, \ie{} $\tr_{\not k} \mcG_\valpha=\mcG_{\alpha_k}$, see~ \eref{eq:generator:individual:qubit}. And more generally, tracing out $m$ particles leaves a $N-m$ particles flip channel  (completely dephasing).
 
 We shall first show that the Kraus operators in \eref{eq:kraus:PCE} produce \janote{are indeed} a PCE. 
 Notice that 
