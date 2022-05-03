@@ -1,11 +1,9 @@
 \section{Diagonalization of Choi Matrix $\mathcal{D}_N$} % {{{
 \label{sec:appendix:diagonalization}
 % 
-\subsection{Single qubit} % {{{
-\ddnote{Alejo, por fa revise q no se me fue un typo con el asunto de mod 2, ya corregí toda la notación y removi los otros comentarios, que ya fueron aclarados en la reunion y trataban de lo mismo} \afnote{Listo, todo en orden.}
 In order to simplify the derivation of the relations, let us employ pairs of
 binary indices instead of a single quaternary, i.e. $\alpha\to j +2 k$. For
-the sake of clarity, we will use \afnote{we use} Latin symbols for binary indices, and
+the sake of clarity, we use Latin symbols for binary indices, and
 reserve Greek letters for quaternary ones. 
 We can write the elements of the Pauli basis
 $(\sigma_{0},\sigma_{1},i\sigma_{2},\sigma_{3})$, 
@@ -131,16 +129,9 @@ each entry $\alpha_i$ of $\valpha$ is identified with the pair $j_i$ and $k_i$ a
 single qubit case of the previous subsection. Then, all the steps leading to 
 \eref{eq:lambda:is:tau:appendix} can be redone. 
 
-\ddnote{Poner atencion a lo siguiente}
-{\red[viejo y mal]The tensor product of Pauli matrices, in vector form,  will be denoted by 
-$\kket{\sigma_{\vec{k}\vec{l} }} = \kket{\sigma_{k_1l_1}}\otimes \cdots \otimes \kket{\sigma_{k_Nl_N}}$
-and fulfill the orthogonality relation 
-$\bbrakket{\sigma_{\vec{k}\vec{l} }}{\sigma_{\vec{k}'\vec{l}'}} = 
-2^N \delta_{\vec{k}\vec{k}'}\delta_{\vec{l}\vec{l}'}$.}
-{\blue [nuevo y correcto y breve, la condicion de ortogonalidad no se usa explicitamente y es trivial]
+
 The tensor product of Pauli matrices, in vector form,  will be denoted by 
 $\kket{\sigma_{\vec{k}\vec{l} }}$.
-} \afnote{perfecto}
 % \begin{equation}
 % \bbrakket{\sigma_{\vec{k}\vec{l} }}{\sigma_{\vec{k}'\vec{l}'}} = 2^N \delta_{\vec{k}\vec{k}'}\delta_{\vec{l}\vec{l}'}.
 % \end{equation}
@@ -153,7 +144,6 @@ With this in mind, a $N$-qubit Pauli map can be written as
   \frac{1}{2^N}\sum_{\vec{l}\vec{m}} \tau_{\vec{l}\vec{m}} \ddyada{\sigma_{\vec{l}\vec{m} }}. 
 \end{equation}
 The generalization of Eqs.~(\ref{CompToPau}) and (\ref{PauToComp}) read 
-\ddnote{corregir el angulo doble y tambien el oplus}
 \begin{align}
 \kket{\sigma_{\vec{k}\vec{l} }}  & = 
    \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{k}} \ket{\vec{j}}\ket{\vec{j}+ \vec{l}(\text{mod}2)},\\
