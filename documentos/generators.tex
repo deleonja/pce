@@ -36,13 +36,11 @@ in the system. This action can be encoded using a multi-index $\vec\alpha$,
 as in \eqref{eq:pauli_strings}, hence each of the different $4^N$ 
 multi-indices may be uniquely related to each of the PCE generators
 and thus denoted as $\mcG_{\vec\alpha}$, see figures \ref{fig:A_and_PCEGs_connection} and \ref{fig:appex:twoQ_PCEGs}.
-% \cpnote{
 The proof is simplified if one uses the Kraus representation developed in 
 \sref{sec:kraus}, so we postpone the demonstration to appendix \ref{sec:2_qubits}.
 For single qubits, the identity corresponds to $\mcG_0$, shown in 
 \fref{fig:one:qubit:examples}(b), whereas $\mcG_3$ is shown in in 
 \fref{fig:one:qubit:examples}(c).
-% }
 The 2-qubits PCE generator represented in subfigure (c)
 of \Fref{fig:examplesPCE} acts on the first qubit (first column) as mapping its
 Bloch sphere to de $x$-axis, and on the second qubit (first row) acts an identity,
@@ -89,7 +87,7 @@ represented in subfigures (c), (d) and (e) of \Fref{fig:two:qubit:examples},
 respectively, are either symmetric or anti-symmetric under reflection with 
 respect to lines that divide the diagram in half vertically and horizontally. 
 
-\cpnote{Revisar este párrfo. Solo ha pasado una persona por ahi}
+% \cpnote{Revisar este párrfo. Solo ha pasado una persona por ahi}
 % 
 % 
 % The symmetry for a PCE generator $\pceg$ is encoded in the 
@@ -128,6 +126,84 @@ respect to lines that divide the diagram in half vertically and horizontally.
 
 \begin{figure} % {{{
 \centering
+\begin{tikzpicture}[x=0.5cm, y=0.5cm] % {{{
+\pgfmathsetmacro{\unitstep}{1.5}
+% % Coordenadas   {{{
+% \node at (-0.6,0.5) {(a)} ;
+% \draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_0$} ;
+% \begin{scope}[shift={(0,-1)}]
+% \draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_1$} ;
+% \end{scope}
+% \begin{scope}[shift={(0,-2)}]
+% \draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_2$} ;
+% \end{scope}
+% \begin{scope}[shift={(0,-3)}]
+% \draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_3$} ;
+% \end{scope} 
+% \draw (0,-3) rectangle (1,1); 
+% % }}}
+\begin{scope}[shift={(1*\unitstep,0)}] % Identity {{{
+% \begin{scope}[shift={(\unitstep*2,0)}]
+\node at (-0.6,0.5) {(b)} ;
+\fill[black] (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,0)}] % Dephasing {{{
+\node at (-0.6,0.5) {(c)} ;
+\fill[black] (0,0) rectangle (1,1);
+% \draw (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(3*\unitstep,0)}] % Depolarization {{{
+\node at (-0.6,0.5) {(d)} ;
+\fill[black] (0,0) rectangle (1,1);
+% \draw (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(4*\unitstep,0)}] % (e) canal malo {{{
+\node at (-0.6,0.5) {(e)} ;
+\fill[black] (0,0) rectangle (1,1);
+% \draw (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+\end{scope} % }}}
+\end{tikzpicture} % }}}
 \includegraphics[width=\columnwidth]{oneQ_PCEGs-crop}
 \caption{Connection between rows and columns of $a$ and single qubit PCE generators.
 The rows or columns of $a$ and the diagrams of the generators are either 
@@ -142,13 +218,11 @@ symmetric or anti-symmetric under reflection.
 It is worth pointing out that $\san$ (and thus $a$) [see \eref{eq:san}] 
 encodes all the information of PCE generators $\pceg$ and, therefore, of all PCE quantum channels. 
 From the tensor power of matrix $a$ one can infer the components $\{\taus\}$ of a PCE
-generator $\pceg$ by taking row (or column) $\alpha$ of $A$ and replacing
+generator $\pceg$ by taking row (or column) $\valpha$ of $A$ and replacing
 $-1$ with $0$. 
 The proof is given in \appref{sec:2_qubits} and in \fref{fig:A_and_PCEGs_connection} we illustrate
 this connection for the single qubit case.
 
-% \cpnote{Sienot que no tiene flujo. Quizá se le pueda dar flujo usando el final 
-% del primer parrafo}
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 % 
