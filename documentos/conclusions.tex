@@ -28,15 +28,14 @@
 
 In this work we introduce and characterize a set of quantum maps which either preserve
 or completely erase the components of a multi-qubit density matrix, in the
-basis of Pauli strings which\janote{quitar `which', creo que estás de más}, that is, these maps erase single and multi-particle
-coherences of a many-body quantum system; 
+basis of Pauli strings; 
 we call those maps Pauli component erasing (PCE) maps.
 For a single qubit these include the completely depolarizing
 and dephasing channels.
 To start the characterization, we note that 
 not all PCE maps are quantum channels, as some are not completely positive.  In
 fact, the most laborious task of this work was to evaluate complete positivity conditions
-given by the Choi-\jami{} isomorphism, \janote{task} after which we showed that
+given by the Choi-\jami{} isomorphism, \janote{task} \cpnote{no} after which we showed that
 the components of PCE quantum channels form a finite vector space.
 % This leads immediately to a method to find
 % constructively valid quantum maps starting with arbitrary \pce{} maps. 
@@ -54,9 +53,20 @@ of preserved components form a vector space. Moreover, this algebraic structure 
 advantages for studying PCE channels numerically, for example, by implying an efficient method 
 to construct all quantum channels of this type for a given number of qubits.} 
 %
+\cpnote{
+This in turn allows to calculate several properties, such as the number of PCE channels,
+and the number of components preserved by a channel.  and perhaps the most 
+important one, the fact that not all sets with equal number of preserved components
+are immediately a quantum channel, or said in other words, not all sets
+of preserved components form a vector space\cpnote{No se 
+me hace importante}. Moreover, this algebraic structure also provides
+advantages for studying PCE channels numerically, for example, it allows to 
+efficiently construct all quantum channels of this type for a given number of qubits.} 
+}
+%
 Similar to other objects in open quantum systems (for example, Lindblad
-processes), PCE quantum channels form a semigroup, \janote{but finite in this case}
-in this case finite.  For
+processes), PCE quantum channels form a semigroup, but finite in this case.
+For
 PCE channels, the generators  are generalized flip operations, \ie{} channels
 that with probability $1/2$ apply a joint flip. 
 This structure allows to link this channel with multi-qubit decoherence
