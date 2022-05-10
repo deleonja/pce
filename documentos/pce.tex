@@ -118,10 +118,10 @@ is positive-semidefinite~\cite{jamil,choi}.
 % \afnote{
 We have discussed the main features of quantum channels, now
 we turn our attention to introduce the Pauli component erasing maps. We start
-by exploring the single-qubit scenario and then we treat the $N$-qubit case.
+by exploring the single-qubit scenario and then we treat the $N$\janote{-}qubit case.
 % }
 
-The most general single-qubit density matrix can be written as
+The most general single\janote{-}qubit density matrix can be written as
 \begin{equation}
 % \rho=\frac{\one +\vec r \cdot \vec \sigma}{2}.
 \rho=\frac12 {\sum_{\alpha=0}^3 r_\alpha \sigma_\alpha},
@@ -148,7 +148,7 @@ r_\alpha \mapsto \tau_\alpha r_\alpha
 where $\tau_\alpha$ is either $0$ or $1$ (trace preserving requires
 that $\tau_0=1$). 
 From now on we refer to any operation like that described in
-\eref{EqPCE}, as single-aco aqubit \textit{Pauli component erasing} (\pce{}) maps.
+\eref{EqPCE}, as \janote{single-qubit} \textit{Pauli component erasing} (\pce{}) maps.
 Not every such operation  is a quantum channel;
 for example, collapsing the entire Bloch ball to a disk on the $xy$
 plane ($\tau_{1}=\tau_{2}=1$ and  $\tau_3=0$) 
@@ -302,7 +302,7 @@ $1$s, see~\fref{fig:one:qubit:examples}.
 % \janote{Le modificamos la primera frase a esta caption para que la Fig sea
 % 	autocontenida}
 In (a) we introduce the notation
-in the diagrams that represent the single-qubit \pce{} maps,
+in the diagrams that represent the single\janote{-}qubit \pce{} maps,
 so that each square corresponds to a single 
 $\tau_{\alpha}$, $\alpha=0,1,2,3$. The diagrams in 
 (b), (c) and (d) correspond to the identity map, completely dephasing channel,
@@ -328,7 +328,7 @@ a quantum operation.
 % \subsection{$\mathbf{N}$ qubits Pauli component erasing maps} % {{{
 
 
-In order to present and develop the $N$-qubit case, it is useful 
+In order to present and develop the $N$\janote{-}qubit case, it is useful 
 to introduce 
 the so-called \textit{Pauli strings}, defined as 
 \begin{equation}
@@ -350,7 +350,7 @@ $\tr \sigma_{\vec \alpha}= 2^{N}\delta_{\vec\alpha \vec 0}$.
 % $1/\sqrt{2} \left\{ \one, \sigma_x,\sigma_y,\sigma_z \right\}$.
 
 
-Similarly to the single-qubit case, the density matrix $\rho$ of a system of $N$
+Similarly to the single\janote{-}qubit case, the density matrix $\rho$ of a system of $N$
 qubits can be written using Pauli strings in the following way, 
 \begin{equation}\label{eq:N_qubits_rho}
 	\rho =\frac{1}{2^N} 
@@ -416,7 +416,7 @@ density matrix. That is,
 \end{equation}
 In addition, for the operation to be trace preserving, it is required that $\tau_{\vec
 0}=1$. 
-It is worth noticing that, as for the single-qubit case, not all PCE maps are
+It is worth noticing that, as for the single\janote{-}qubit case, not all PCE maps are
 quantum operations. 
 On the other hand, constructing and
 evaluating the conditions for complete positivity is non-trivial and is the main
