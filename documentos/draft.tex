@@ -10,7 +10,7 @@
 \usepackage[english]{babel}
 \usepackage[T1]{fontenc}
 
-\usepackage{ulem}
+% \usepackage{ulem}
 
 \usepackage{tikz}
 \usetikzlibrary{arrows}
@@ -144,7 +144,7 @@
 %\newcommand{\Eg}{\textit{E.g.} }
 \newcommand{\eref}[1]{Eq.~(\ref{#1})} 
 \newcommand{\sref}[1]{sec.~\ref{#1}}
-\newcommand{\fref}[1]{fig.~\ref{#1}}
+\newcommand{\fref}[1]{Fig.~\ref{#1}}
 \newcommand{\tref}[1]{table~\ref{#1}}
 \newcommand{\Eref}[1]{Eq.~(\ref{#1})} 
 \newcommand{\Sref}[1]{Sec.~\ref{#1}}
@@ -293,7 +293,7 @@ with Markovian processes.
 % \item \afnote{Clasificación de las clases de canales PCE: Entanglement breaking, divisible...}
 % \end{itemize}
 % % }}}
-\par
+% \par
 \section*{Acknowledgments} % {{{
 Support by projects CONACyT 285754 and UNAM-PAPIIT IG100518, IG101421 is
 acknowledged.  
@@ -307,8 +307,6 @@ Schwarz Support Fund.
 % Conversations with F. de Melo, T. H. Seligman, J. D. Urbina
 % and A. Diaz-Ruelas are also acknowledged. 
 % }}}
-\bibliographystyle{unsrt}
-\bibliography{references}
 \appendix
 \input{quantum_classical}
 \input{proofdiagonalization}
@@ -362,5 +360,7 @@ From this follows that
 % can also be proved straightforwardly from (\ref{eq:22}).
 % }}}
 \input{2_qubits}
+\bibliographystyle{unsrt}
+\bibliography{references}
 % \input{prueba}
 \end{document}
