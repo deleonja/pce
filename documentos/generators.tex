@@ -1,18 +1,17 @@
+\clearpage
 \section{Generators} % {{{
 \label{sec:generators}
 %\todo{Francois escribe una primera version del primer punto, y luego quizá Jose
 %Alfredo o Carlos la terminan}
 
-We now discuss the existence of a generator set for all PCE quantum channels, 
-how to label each of them uniquely as $\pceg$, according to its local action 
-on every qubit in the system, and finally, we will discuss a symmetry of
-\janote{PCE quantum channel generators and a connection between
-them and and $A$, the matrix that diagonalizes the Choi matrix $\mcD_N$ 
-of a PCE map.}
-\sout{both PCE quantum channel generators and $A$, the matrix that diagonalizes
-the Choi matrix $\mcD_N$ of a PCE map.}
-\janote{Al final de la sección no discutimos la simetría para $a$, sólo
-comentamos que están conectados los PCEGs y la $a$}
+We now discuss the existence of a generator set for all PCE quantum channels and 
+how to label each of them uniquely as $\pceg$ (according to its local action 
+on every qubit in the system). Finally we will discuss a symmetry of
+PCE quantum channel generators and a connection between
+them and $A$, see \eref{eq:san}.
+% , the matrix that diagonalizes the Choi matrix $\mcD_N$ of a PCE map.
+% \sout{both PCE quantum channel generators and $A$, the matrix that diagonalizes
+% the Choi matrix $\mcD_N$ of a PCE map.}
 
 There exists a subset of PCE quantum channels that generates the entire set; 
 the nature of these generators may be studied, as we
@@ -53,7 +52,7 @@ hence it is labeled $\mcG_{(1,0)}$.
 See \Fref{fig:appex:twoQ_PCEGs} for the notation of all 2-qubit PCE generators.
 
 A reflection symmetry is identified for PCE generators.
-Consider the map $\Sigma^{(k)}$ that reflects \janote{a} \sout{an} multi-index $\valpha$ with 
+Consider the map $\Sigma^{(k)}$ that reflects a multi-index $\valpha$ with 
 respect to the $k$-th axis. This map leaves all components of $\valpha$
 invariant, except the $k$-th component, which is transformed according to 
 \begin{equation}
@@ -63,7 +62,6 @@ invariant, except the $k$-th component, which is transformed according to
 \end{equation}
 % and the associated 
 The maps have the following properties:
-\janote{lo dejé como antes}
 \begin{enumerate}
 \item $\Sigma^{(k)}(\vec\alpha)\oplus \Sigma^{(k)}(\vec\beta)=\vec\alpha\oplus \vec\beta$, and
 \item $\Sigma^{(k)}(\vec\alpha)\neq\vec\alpha$.
@@ -119,15 +117,6 @@ respect to lines that divide the diagram in half vertically and horizontally.
 % $\vec\alpha$ belongs to the generator if and only if $\Sigma(\vec\alpha)$ belongs (respectively does not belong) to the generator.  
 % 
 
-% \janote{Aquí iría la prueva de la simetría de reflexión que está en el horno aún.}
-% For instance, see that the 2-qubit PCE generators 
-% $\mcG_{(1,0)}$, $\mcG_{(3,2)}$ and $\mcG_{(2,2)}$
-% represented in subfigures (c), (d) and (e) of \Fref{fig:two:qubit:examples}, 
-% respectively, are either symmetric or anti-symmetric under reflection with 
-% respect to lines that divide the diagram in half vertically and horizontally. 
-% The same symmetry is identified for the rows and columns of $A$ if one 
-% labels each position in a row or column $A^{(i)}$ as $A^{(i)}_{\vec\alpha}$.
-% \janote{Aquí habría que agregar la prueva de simetría para la $A$.}
 
 \begin{figure} % {{{
 \centering
@@ -230,47 +219,36 @@ $
 % Connection between rows and columns of $a$ and single qubit PCE
 % generators. We also include the corresponding 
 % labels $\mcG_\alpha$ of the generators. \cpnote{Nadie ha revisado el nuevo caption y la nueva figura con cuidado}
-% \janote{Acá dejo mi propuesta para la caption:}
-% \janote{A profound connection exists between the rows or columns of matrix $a$ 
-% (in turn, $A$) [refer to \eref{eq:lambda:is:A:tau}] that diagonalizes 
-% Choi's matrix of a PCE map and PCE generators $\mcG_\valpha$.
-% For instance, if one takes the columns of $a$ and replace all -1's with 0's one
-% is left with the sets of $\{\tau_\valpha\}$ of all single-qubit PCE generators.
-% The converse procedure is also valid, one goes from the PCE generators 
-% to the matrix $a$.}
-% \cpnote{The connection between rows or columns of $a$ and single-qubit PCE
-% generators is shown, with the 1s identified with preserved components and
-% the $-1$s with deleted ones. For any number of particles, such simple relation 
-% still holds, see \sref{sec:generators} and appendix \ref{sec:2_qubits}. }
-%\janote{The connection between rows or columns of $a$ and single-qubit PCE
-%generators $\mathcal G_\alpha$ is shown; identifying -1s with 0s one is 
-%left with the sets $\{\tau_\alpha\}$ of preserved and erased components
-%by each $\mathcal G_\alpha$.
-%For any number of particles, such simple relation 
-%holds, see \sref{sec:generators} and appendix \ref{sec:2_qubits}.} 
-%\cpnote{
 The connection between rows or columns of $a$ and single-qubit PCE
 generators $\mathcal G_\alpha$ is shown. One can identify the -1s of $a$ with
 0s in the sets $\{\tau_\alpha\}$ of preserved and erased components
 of each $\mathcal G_\alpha$.
 For any number of particles, such simple relation 
 holds, see \sref{sec:generators} and appendix \ref{sec:2_qubits}.
-\janote{Propuesta de CP y JA. Le toca a la gente resolver que también 
-están de acuerdo, o no} \afnote{para mi queda bien como está}
 } 
 %}
 \label{fig:A_and_PCEGs_connection}
 \end{figure} % }}}
 
-% \ddnote{Tengo entendido que esto se queria probar usando las simetrias, esto ya
-% esta probado en la secc V}
-\janote{Finally,} it is worth pointing out that $\san$ (and thus $a$) [see \eref{eq:san}] 
-encodes all the information of PCE generators $\pceg$ and, therefore, of all PCE quantum channels. 
-From the tensor power of matrix $a$ one can infer the components $\{\taus\}$ of a PCE
-generator $\pceg$ by taking row (or column) $\valpha$ of $A$ and replacing
-$-1$\janote{s} with $0$\janote{s}. 
-The proof \janote{of this connection between PCEGs and $A$} is given in \appref{sec:2_qubits}\janote{,} and in \fref{fig:A_and_PCEGs_connection} we illustrate
-this connection for the single\janote{-}qubit case.
+Finally, it is worth pointing out that $\san$ (and thus $a$) [see
+\eref{eq:san}] encodes all the information of PCE generators $\pceg$ and,
+therefore, of all PCE quantum channels.  
+% 
+% 
+% 
+% From the tensor power of matrix $a$
+% one can infer the components $\{\taus\}$ of a PCE generator $\pceg$ by taking
+% row (or column) $\valpha$ of $A$ and replacing $-1$\janote{s} with
+% $0$\janote{s}.  
+% 
+From $A$, the tensor power of matrix $a$, one can infer the components
+$\{\taus\}$ of a PCE generator $\pceg$ by taking
+row (or column) $\valpha$ of $A$ and replacing $-1$ with
+$0$.
+The proof of the connection between PCEGs and $A$ is
+given in \appref{sec:2_qubits}, and in
+\fref{fig:A_and_PCEGs_connection} we illustrate this connection for the
+single-qubit case.
 
 
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

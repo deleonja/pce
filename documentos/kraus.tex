@@ -2,36 +2,14 @@
 \label{sec:kraus}
 % Intro {{{
 
-
-% \cpnote{HAcer esta seccion despues de que david ponga lo de decoherencia, 
-% para servirla bien}
-% \todo{Carlos hace una version}
-
-% {\red [texto viejo introductorio de la seccion] Furthermore, quantum channels enjoy the well-known \textit{Kraus
-% representation} (or operator-sum representation) which reads 
-% \begin{equation}
-% \mcE[\rho]=\sum_i K_i \rho
-% K_i^\dagger{},
-% \end{equation}
-% with $\sum_i K_i^\dagger{}K_i=\one$ (the trace-preserving condition)~\cite{Kraus1983}.
-% 
-% The Kraus operators of PCE channels provide an insight in the physical processes
-% that yield such channels. In this section we investigate and construct such 
-% operators and explore the corresponding processes. To study the Kraus operators corresponding to PCE, it is enough to study 
-% the ones corresponding to generators, as all PCEs commute and thus to get the 
-% Kraus operators of an arbitrary PCE, one can easily combine the Kraus
-% operators of its generators. }
-
-% {\red [anterior]
-% Given that \pce{} channels are projections, we might ask whether they are fixed
-% points of some memory-less (Markovian) process or not. In this section we prove
-% that they are, and give two examples of Markovian implementations. The first
-% one consist in identifying each \pce{} channel as a fixed point of some pure
-% dissipative process. The second, in identifying each \pce{} channel as fixed
-% points of some memory-less collision model.}
-
-Lindblad processes arise naturally in many theoretical~\cite{lindblad,kossa,kossa2,Gorini1976,cirac,davalosdivisibility} and
-experimental~\cite{PhysRevA.67.042322} settings and are archetypical in decoherence dynamics. Moreover, these processes lead to a monotonic (continuous) lose of information~\cite{breuerreview} and describe non\janote{-}invertible channels in the asymptotic limit $t\to \infty$ (this can be seen from the monotonically (continuous) decreasing of the determinant, see Ref.~\cite{cirac}).
+Lindblad processes arise naturally in many
+theoretical~\cite{lindblad,kossa,kossa2,Gorini1976,cirac,davalosdivisibility}
+and experimental~\cite{PhysRevA.67.042322} settings and are archetypical in
+decoherence dynamics. Moreover, these processes lead to a monotonic
+(continuous) lose of information~\cite{breuerreview} and describe
+non-invertible channels in the asymptotic limit $t\to \infty$ (this can be seen
+from the monotonically (continuous) decreasing of the determinant, see
+Ref.~\cite{cirac}).
 It is known that not every quantum channel can be seen as a snapshot of a
 process
 arising from a traditional Lindblad equation or even a time-dependent Lindblad
@@ -39,34 +17,10 @@ equation~\cite{cirac,davalosdivisibility}.
 Therefore, an interesting question is whether \pce{} channels can be seen as limit points of
 some Markovian processes. In this section we prove that in fact they are, and
 give two examples of Markovian implementations.
-%
-The first of them consists in identifying each \pce{} channel as a fixed point of some pure dissipative process, and in the second implementation we relate each \pce{} channel to fixed
+The first of them consists in identifying each \pce{} channel as a fixed point
+of some pure dissipative process, and in the second implementation we relate
+each \pce{} channel to fixed
 points of some memory-less collision model.
-
-% the most 
-% common decoherence 
-% 
-% with a Markovian master
-% equation~\cite{lindblad,kossa,kossa2,Gorini1976},
-% \begin{multline}
-% \dot \rho(t)=-i [H(t),\rho(t)]+\\
-% \sum_k \gamma_k(t)\left( V_k(t)\rho(t)V_k^{\dagger{}}-\frac{1}{2} \left\{V_k^\dagger{} V_k(t),\rho(t) \right\}\right),
-% \end{multline}
-% where the first part is the so-called Hamiltonian term, the second the dissipative term with $\gamma_k(t)\geq 0$ the relaxation ratios associated with the Lindblad operators $V_k(t)$.
-% %
-% In the particular case where the Hamiltonian, relaxation rations and Lindblad
-% operators are independent of time, we recover the well-known Lindblad master
-% equations~\cite{lindblad}. Such equations model time-homogeneous processes,
-% implying one-parameter semigroup structures that will be exploited later.
-% %
-% Besides, these processes lead to a monotonically lose of information~\cite{breuerreview} and describe non invertible channels in the asymptotic limit $t\to \infty$ (this can be seen from the monotonically decreasing of the determinant, see Ref.~\cite{cirac}). Therefore, we might ask whether \pce{} channels can be seen as limit points of some Markovian processes. In this section we prove what in fact they are, and give two examples of Markovian implementations.
-% %
-% The first
-% one consist in identifying each \pce{} channel as a fixed point of some pure
-% dissipative process. The second, in identifying each \pce{} channel as fixed
-% points of some memory-less collision model.
-
-
 % }}}
 \subsection{Kraus representation} % {{{
 To derive the aforementioned implementations, we exploit the existence of the
@@ -85,7 +39,7 @@ with $\sum_i K_i^\dagger{}K_i=\one$ (the trace-preserving condition)~\cite{Kraus
 % % \end{equation}
 % corresponding to the operation that leaves the component $\sigma_i$
 % invariant~\cite{nielsen_chuang_2011}.
-Inspection of the Kraus operators for two\janote{-}qubit PCEGs leads to
+Inspection of the Kraus operators for two-qubit PCEGs leads to
 the ansatz that the Kraus operators for the generator of 
 $\mcG_{\vec \alpha}$ are 
 \begin{equation}
@@ -94,7 +48,7 @@ K_0=\frac{\openone}{\sqrt2}, \quad K_1=\frac{\sigma_{\vec \alpha}}{\sqrt2},
 % \left(\bigotimes_{k=1}^N \sigma_{\alpha_k}\right)/\sqrt2\right\}. 
 \label{eq:kraus:PCE}
 \end{equation}
-since the Kraus operators corresponding to \janote{\sout{a}} single-qubit PCEs are 
+since the Kraus operators corresponding to a single-qubit PCE are 
 $\{\openone/\sqrt2, \sigma_\alpha/\sqrt2\}$,
 corresponding to the operation that leaves the component $\sigma_\alpha$
 invariant~\cite{nielsen_chuang_2011}. Notice that according to Kraus operators, the generators $\mcG_{\vec \alpha}$ are $N$-qubit flip channels with flip probability of $1/2$, where the joint flip is $\rho \mapsto \sigma_{\vec \alpha} \rho \sigma_{\vec \alpha}$. In fact, tracing out all particles except the $k$-th one gives the well known qubit flip channels, \ie{} $\tr_{\not k} \mcG_\valpha=\mcG_{\alpha_k}$, see~ \eref{eq:generator:individual:qubit}. And more generally, tracing out $m$ particles leaves a $N-m$ particles flip channel  (completely dephasing).
