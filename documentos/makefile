@@ -4,6 +4,19 @@ outline.pdf :: outline.tex
 
 pce.zip :: 
 	zip pce.zip 2_qubits.tex decoh_set.tex intro.tex pce.tex quantum_classical.tex a_and_generators.tex draft.tex kraus.tex proofdiagonalization.tex qudits.tex conclusions.tex generators.tex math.tex prueba.tex vector_space.tex images/twoQ_generator_diagrams-crop.pdf references.bib draft.bbl
+	
+draft_gitdiff.pdf ::
+	git checkout $(gitone)
+	latexpand draft.tex -o /tmp/expanded_one.tex
+	git checkout master
+	git checkout $(gittwo)
+	latexpand draft.tex -o /tmp/expanded_two.tex
+	latexdiff /tmp/expanded_one.tex /tmp/expanded_two.tex > pce_gitdiff.tex
+	git checkout master
+	pdflatex -draftmode pce_gitdiff.tex
+	bibtex pce_gitdiff.aux
+	pdflatex -draftmode pce_gitdiff.tex
+	pdflatex pce_gitdiff.tex
 
 -include ~/makefile
 # Repositorio: 
