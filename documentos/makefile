@@ -5,6 +5,13 @@ outline.pdf :: outline.tex
 pce.zip :: 
 	zip pce.zip 2_qubits.tex decoh_set.tex intro.tex pce.tex quantum_classical.tex a_and_generators.tex draft.tex kraus.tex proofdiagonalization.tex qudits.tex conclusions.tex generators.tex math.tex prueba.tex vector_space.tex images/twoQ_generator_diagrams-crop.pdf references.bib draft.bbl
 	
+pce_pra.zip :: 
+	latexpand draft.tex -o draft_expanded.tex
+	make draft_expanded.pdf
+	rm $@ 
+	zip $@ draft_expanded.tex draft_expanded.bbl images/twoQ_generator_diagrams-crop.pdf
+# 	rm draft_expanded.tex
+	
 draft_gitdiff.pdf ::
 	git checkout $(gitone)
 	latexpand draft.tex -o /tmp/expanded_one.tex
