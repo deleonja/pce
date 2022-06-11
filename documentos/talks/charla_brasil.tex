@@ -261,6 +261,27 @@ $^4$Slovak Academy of Sciences
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 % }}}
 \begin{document}
+
+
+Ojo, ocuparme de estos typos:
+Typos en diapositivas:
+
+6 - entagled en lugar de mixed
+8 - PEC en lugar de PCE
+10 - mas en lugar de map
+11 - actully
+13 - con en lugar de where
+14 - implica en lugar de implies
+15 - opertation
+     - asosciated
+18 - título en español "algunas propiedades"
+
+Otras notas:
+En la diapositiva 15 mencionaste que una figura está volteada.
+En la diapositiva 12, el itemize de las propiedades del conjunto podría ser más claro (el primer punto no lo caché hasta que se explicó).
+
+
+
 \frame[plain]{% {{{ title page
 \titlepage{}
 }% }}}
@@ -765,18 +786,19 @@ Para 2 qubits hay diagramas similares (la esfera de Bloch no sirve):}
 % }}}
 % }}}
 \section{\enges{The problem and its solution}{El problema y su solución}} %{{{  
-\begin{frame}{Planteamiento del problema} %{{{ 
+\begin{frame}{\enges{Statement of the problem}{Planteamiento del problema}} %{{{ 
 \begin{center}
 \Large
-¿Cuales mapas PCE son canales cuánticos válidos?
+ \enges{Which PCE maps are actully quantum channels?}{¿Cuales mapas PCE son canales cuánticos válidos?}
 \end{center}
 \vfill
 
+\enges{This will hopefully help us understand better the geometry of many-body quantum channels}{
 Esto nos ayudará a entender mejor la geometría de canales cuánticos de muchos
-cuerpos.
+cuerpos.}
 \end{frame}
 % }}}
-\begin{frame}{Ejemplos y reglas} %{{{ 
+\begin{frame}{\enges{Examples and rules}{Ejemplos y reglas}} %{{{ 
 
 
 \begin{center}
@@ -852,33 +874,35 @@ cuerpos.
 \end{tikzpicture} % }}}
 \end{center}
 \begin{itemize}
-\item Solo se admiten PCEs que preservan $2^k$ componentes.
-\item No todos los que preservan $2^k$ componentes son canales.
-\item Hay el mismo número de canales que preservan $2^k$ y $2^{2N-k}$ componentes.
-\item Hay un conjunto generador que conserva la mitad de componentes. 
+\item \enges{Only PCEs that preserve $2^k$ components.}{Solo se admiten PCEs que preservan $2^k$ componentes.}
+\item \enges{Not all PCEs that preserve $2^k$ components are channels.}{No todos los que preservan $2^k$ componentes son canales.}
+\item \enges{The same number of channels that preserve $2^k$ and $2^{2N-k}$ components.}{Hay el mismo número de canales que preservan $2^k$ y $2^{2N-k}$ componentes.}
+\item \enges{There is a generating set that preserves half of the components.}{Hay un conjunto generador que conserva la mitad de componentes. }
 \end{itemize}
 \end{frame}
 % }}}
-\begin{frame}{Diagonalizacion de la matriz de Choi} %{{{ 
+\begin{frame}{\enges{Choi matrix diagonalization}{Diagonalizacion de la matriz de Choi}} %{{{ 
 \begin{itemize}
-\item El canal tiene la forma
+\item \enges{The channel can be expressed as}{El canal tiene la forma}
 % \begin{equation*}
 $\hat{\mathcal{E}} = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}}
 \ddyada{\sigma_{\vec{\alpha} }}$.
 % \end{equation*}
 \pause
-\item Y su estado correspondiente cumple que 
+\item \enges{And the corresponding state reads}{Y su estado correspondiente cumple que}
 % \begin{equation*}
 $ \rho_\mcE
    \propto \sum_{\vec{\alpha}} \tau_{\vec{\alpha}}
        \bigotimes_{j=1}^N \sigma_{\alpha_j} \otimes \sigma_{\alpha_j}^*$.
 \pause
-\item Las matrices tensoriales conmutan $[
+\item \enges{The tensor matrices commute}{Las matrices tensoriales conmutan}
+ $[
 \sigma_\valpha \otimes \sigma_\valpha^*,
 \sigma_{\valpha'} \otimes \sigma_{\valpha'}^*] =0$.
 % y tienen eigenvectores comunes $v_\vbeta$. 
 \pause
-\item Los eigenvectores comunes cumplen $(\sigma_\valpha \otimes
+\item \enges{And the eigenvectors fulfill}{Los eigenvectores comunes cumplen}
+ $(\sigma_\valpha \otimes
 \sigma_\valpha^*) v_\vbeta = \frac{1}{2^N} A_{\valpha \vbeta} v_\vbeta$ con
 $$
 A=a^{\otimes N},\quad
@@ -894,33 +918,41 @@ $$
 %  \label{Choi_1}
 % \end{equation*}
 \pause
-\item Esto implica que los eigenvectores cumplen 
+\item \enges{This implies that the eigenvectors also fullfill}{Esto implica que los eigenvectores cumplen }
 $
  \lambda_{\valpha} = \frac{1}{2^N}  A_{\valpha\vbeta}\tau_{\vbeta}
 $.
-\item Diagonalizamos la matriz de Choi ($\propto \rho_\mcE$) para canales de Pauli.
+\item \enges{So we just diagonalize the Choi matriz}{En Diagonalizamos la
+matriz de Choi} ($\propto \rho_\mcE$) \enges{for {\it all} Pauli channels}{para canales de Pauli.}
 \end{itemize}
 \end{frame} % }}}
-\begin{frame}{Una relación entre indices de un canal} %{{{ 
-Basándonos en que 
+\begin{frame}{\enges{An important relation among indices of a channel}{Una relación entre indices de un canal}} %{{{ 
+\enges{Based on the following}{Basándonos en que }
 \begin{itemize}
-\item $A$ es casi idempotente: $A^{-1} = \frac{1}{4^N} A$
-\item Si $\lambda_{\valpha} \ge 0$ (como debe ser para canales cuánticos), entonces
+\item $A$ \enges{is almost idempotent:}{es casi idempotente:} $A^{-1} = \frac{1}{4^N} A$
+\item \enges{If}{Si} $\lambda_{\valpha} \ge 0$ (\enges{as should be for
+channels}{como debe ser para canales cuánticos}), \enges{then}{entonces}
 $\sum_{\valpha \in \Omega} \lambda_{\valpha} =0$ implica $\lambda_{\valpha} =0$,
 $\forall \valpha\in \Omega$,
 \end{itemize}
 \pause 
-podemos decir que si $\tau_\valpha = 1$ entonces  $\tau_{\vec\gamma} = \tau_{\vec\gamma'}$
-si
+\enges{we can say that}{podemos decir que si} 
+$\tau_\valpha = 1$ \enges{implies}{entonces}  $\tau_{\vec\gamma} =
+\tau_{\vec\gamma'}$
+\enges{if}{si}
 $$
 A_{\vbeta\vec\gamma}=A_{\vbeta\vec{\gamma^\prime}}, \quad
 \forall \vec\beta: A_{\valpha \vbeta}=1.
 $$
-Esta es una relación entre los indices que son preservados en un canal. \\
+\enges{This is a relation between the indices that are preserved in a
+channel}{Esta es una relación entre los indices que son preservados en un
+canal.}
+ \\
 \pause
-Se
-puede reformular diciendo que si $\tau_{\valpha}=\tau_{\vbeta}=1$, 
-entonces $\tau_{\valpha \oplus \vbeta}=1$ con la suma entre componentes definida por:
+\enges{This can be reformulated saying that if}{Se
+puede reformular diciendo que si} $\tau_{\valpha}=\tau_{\vbeta}=1$, 
+\enges{then}{entonces} $\tau_{\valpha \oplus \vbeta}=1$ \enges{with the sum of
+the componentes defined by:}{con la suma entre componentes definida por:}
 \begin{center}
 \begin{tabular}{| c | c c c c |}
 \hline
@@ -935,19 +967,24 @@ $\oplus{}$ & 0 & 1& 2 & 3\\
 \end{center}
 
 \end{frame} % }}}
-\begin{frame}{Un espacio vectorial {\it hermoso}} %{{{ 
+\begin{frame}{\enges{A {\it beautiful} vector space}{Un espacio vectorial {\it hermoso} }} %{{{ 
 \begin{itemize}
 \item
-Tenemos operación suma ($\oplus$) cerrada, y, si consideramos el campo 
-$\{0,1\}$, multiplicación por escalar. 
+\enges{We have an addition opertarion ($\oplus$) and, if we consider
+the field}{ 
+Tenemos operación suma ($\oplus$) cerrada, y, si consideramos el campo }
+$\{0,1\}$, \enges{multiplication by a scalar.}{multiplicación por escalar. }
 \item
-Es decir, tenemos un espacio vectorial (sin producto interior). \pause
+\enges{That is, we have a vector space (but no interior product).}{
+Es decir, tenemos un espacio vectorial (sin producto interior).} \pause
 \item 
+\enges{Given that the components of a channels are closed under addition, 
+to each channel we have asosciated a vector subspace, and viceversa.}{
 Dado que las componente preservadas de cada canal son cerradas bajo adición, a
-cada canal está asociado a un subespacio vectorial (y viceversa). 
+cada canal está asociado a un subespacio vectorial (y viceversa). }
 \end{itemize}
 \pause
-Ejemplos:\\
+\enges{Examples:}{Ejemplos:}\\
 \begin{minipage}{0.47\textwidth}
 \begin{center}
 \begin{tikzpicture}[x=0.35cm, y=0.35cm] % {{{
@@ -981,12 +1018,13 @@ Ejemplos:\\
 \end{tikzpicture} % }}}
 \end{center}
 % \textcolor{red}{EJEMPLO DE SUMA MENOS TRIVIAL}
-Dos de sus elementos son\\[-.4cm]
+\enges{Two of its elements are}{Dos de sus elementos son}\\[-.4cm]
 $$\valpha^{(1)} = (0,2), 
-\valpha^{(2)} = (1,3)$$\\[-.6cm] pero  
+\valpha^{(2)} = (1,3)$$\\[-.6cm] \enges{but}{pero}
 $\valpha^{(1)} \oplus \valpha^{(2)} = (1,1)$
-y no se preserva. Entonces, este diagrama 
-no corresponde a un canal.
+\enges{which is not preserved.}{y no se preserva.} 
+\enges{Thus, this diagram does not correspond to a channel.}{Entonces, este diagrama 
+no corresponde a un canal.}
 \end{minipage}\hfill \pause
 \begin{minipage}{0.47\textwidth}
 \begin{center}
@@ -1014,45 +1052,54 @@ no corresponde a un canal.
 \end{scope} % }}}
 \end{tikzpicture} % }}}
 \end{center}
-Sus elementos son\\[-.8cm]
+\enges{Its elements are}{Sus elementos son}\\[-.8cm]
 \begin{align*}
 \valpha^{(0)} = (0,0), \quad \valpha^{(1)} = (0,3)\\
 \valpha^{(2)} = (3,0), \quad \valpha^{(1)} = (3,3)
 \end{align*}\\[-.8cm]
-que son cerrados bajo $\oplus$. Es decir {\it si}
-representa un canal. 
+\enges{which are closed under}{que son cerrados bajo} $\oplus$. \enges{Thus
+this diagram represents a channel.}{Es decir {\it si} representa un canal. }
 \end{minipage}
 
 \end{frame} % }}}
-\begin{frame}{Algunas consecuencias} %{{{ 
-Lo que habíamos observado, surge como consecuencia de la 
-estructura vectorial de los canales. 
+\begin{frame}{\enges{Some consequences}{Algunas consecuencias}} %{{{ 
+\enges{What we have observed, are direct consequences of the subspace structure
+of the channels.}{Lo que habíamos observado, surge como consecuencia de la 
+estructura vectorial de los canales. }
 \begin{itemize}
-\item El numero de elementos de un espacio vectorial con 
-campo escalar de $q$ elementos tiene $q^k$ vectores. 
-Es decir nuestros canales preservan exactamente $2^k$ componentes.  
-\item Analizando el numero de subespacios de dimensión $k$ y las bases 
+\item \enges{The number of elements in a vector space with scalar field of $q$ elements is 
+$q^k$.}{El numero de elementos de un espacio vectorial con 
+campo escalar de $q$ elementos es $q^k$. }
+\enges{That is, our channels preserve {\it exactly} $2^k$ components.}{
+Es decir nuestros canales preservan exactamente $2^k$ componentes. }
+\item 
+\enges{We can count the number of subspaces of a dimension $k$, and it yields}{
+analizando el numero de subespacios de dimensión $k$ y las bases 
 que lo pueden generar encontramos el número de canales que 
-preservan $2^k$ componentes 
-$S_{N,K}=\prod_{m=0}^{K-1} \frac{2^{2N-m}-1}{2^{K-m}-1}$.
-\item Verificamos la simetría $S_{N,K} = S_{N,2N-K}$
-\item Existen subespacios maximales (siguiente slide). 
+preservan $2^k$ componentes }
+$S_{n,k}=\prod_{m=0}^{k-1} \frac{2^{2n-m}-1}{2^{k-m}-1}$.
+\item \enges{So we verify the symmetry}{Verificamos la simetría} $S_{N,K} = S_{N,2N-K}$.
+\item \enges{There are maximal proper subspaces (next slide).}{Existen subespacios maximales
+(siguiente slide). }
 \end{itemize}
 \end{frame} % }}}
 % }}}
 \section{\enges{Generators and decoherence}{Los generadores y decoherencia}} %{{{  
-\begin{frame}{Aparición de los generadores} %{{{ 
+\begin{frame}{\enges{The generators}{Aparición de los generadores}} %{{{ 
 \begin{itemize}
 \item 
+\enges{Any vector subspace is the intersection of maximal proper subspaces.}{
 Cualquier subespacio vectorial puede generarse como la intersección de subespacios
-maximales no triviales. 
+maximales no triviales. }
 \item 
+\enges{Any channel can be generated as the composition of channels that preserve 
+half of the components.}{
 Cualquier canal puede generarse como la composición de canales que preservan 
-la mitad de componentes. 
+la mitad de componentes. }
 \end{itemize}
 \pause
 \vspace{1cm}
-Ejemplo:
+\enges{Example:}{Ejemplo:}
 \begin{center}
 \begin{tikzpicture}[x=0.45cm, y=0.45cm] % {{{
 \pgfmathsetmacro{\unitstep}{5.2}
@@ -1102,19 +1149,24 @@ Ejemplo:
 \end{scope} % }}}
 \end{tikzpicture} % }}}
 \end{center}
-Cualquier par (de los primeros canales) genera el ultimo canal. 
+\enges{Any pair of the first channels generates the last one.}{Cualquier par
+(de los primeros canales) genera el ultimo canal. }
 
 
 
 \end{frame} % }}}
 \begin{frame}{Algunas propiedades de los generadores} %{{{ 
-Algunas consecuencias:
+\enges{Some consequences:}{
+Algunas consecuencias:}
 \begin{itemize}
 \item 
+\enges{The generators have right/left and up/down symmetry. More generally reflection 
+or anti-reflection for any number of particles. }{
 Las generadores tienen simetrías izquierda/derecha y arriba/abajo. Se puede comprobar 
-de las propiedades mostradas anteriormente. 
+de las propiedades mostradas anteriormente. }
 \item 
-Cada generador se puede clasificar mediante la acción sobre cada qubit. 
+\enges{Any generator can be classified by the action on each qubit.}{
+Cada generador se puede clasificar mediante la acción sobre cada qubit. }
 % E.g. $\mcE_1=\mcG_{(1,1)}$, $\mcE_2=\mcE_{(3,1)}$, $\mcE_3=\mcE_{(2,1)}$,
 % $\mcE_4=\mcE_{(0,1)}$.
 \end{itemize}
@@ -1123,31 +1175,35 @@ Cada generador se puede clasificar mediante la acción sobre cada qubit.
 \includegraphics[width=.7\columnwidth]{../images/twoQ_generator_diagrams-crop}
 \end{center}
 \end{frame} % }}}
-\begin{frame}{Decoherencia generalizada} %{{{ 
+\begin{frame}{\enges{Decoherence}{Decoherencia generalizada}} %{{{ 
+\enges{We can construct physical processes that generate the channels, 
+by noticing that the Kraus operators corresponding to generators are}{
 Podemos construir los procesos físicos que generan estos canales, notando que
-los operadores de Kraus que corresponden a los generadores son 
+los operadores de Kraus que corresponden a los generadores son }
 $$
 \mcG_{\vec \alpha} \longrightarrow
 \left\{\frac{\openone}{\sqrt2}, \frac{\sigma_{\vec \alpha}}{\sqrt2}\right\}. 
 $$
-Este se puede interpretar muy fácilmente y generar su ecuación de Lindblad. \par
+\enges{This can be interpreted easily and we can also generate its Lindblad 
+equation.}{
+Este se puede interpretar muy fácilmente y generar su ecuación de Lindblad.} \par
 \vspace{1cm}
+\enges{Other PCEs can be created and interpreted with the aid of the generators
+that produce them. }{
 Otros PCEs se pueden ser creados e interpretados a partir de 
-los generadores que lo produzcan. 
+los generadores que lo produzcan. }
 
 
 \end{frame} % }}}
 % }}}
-\section*{Conclusiones} %{{{  
+\section*{\enges{Conclusions}{Conclusiones}} %{{{  
 \begin{frame}{\enges{Conclusions and outlook}{Conclusiones}} %{{{ 
 
 \begin{itemize}
-\item Se introducen los Pauli Component Erasing maps.
-\item Se logra diagonalizar de manera simple la matriz de Choi de cualquier
-canal de Pauli.
-\item Se asocian a los PCEs espacios vectoriales, lo que simplifica su tratamiento
-\item Se encuentran los generadores y sus operadores de Kraus, lo que permitirá
-asociarlos a procesos físicos existentes. \\[.5cm]
+\item \enges{We introduced Pauli component erasing maps.}{Se introducen los Pauli Component Erasing maps.}
+\item \enges{We managed to diagonalize the Choi matrix of any Pauli channel.}{Se logra diagonalizar de manera simple la matriz de Choi de cualquier canal de Pauli.}
+\item \enges{We associate vector subspaces to PCE channels, and exploit this relation.}{Se asocian a los PCEs espacios vectoriales, lo que simplifica su tratamiento}
+\item \enges{We find generators, Kraus operators, Lindblad equations etc for PCEs, which allows to associate them to physical processes.}{Se encuentran los generadores y sus operadores de Kraus, lo que permitirá asociarlos a procesos físicos existentes. \\[.5cm]}
 \end{itemize}
 \pause
 \enges{Outlook}{Más adelante...}
