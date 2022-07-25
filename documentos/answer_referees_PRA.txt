@@ -1,0 +1,267 @@
+
+Dear Editor,
+
+We are happy to receive positive feedback from the referees. The points
+raised by the referees are answer in what follows. 
+
+Answer to the First Referee  {{{
+
+*********************************************************************
+1, Is there any difference or they are interchangeable between Pauli
+diagonal operation and Pauli diagonal map? Please define them clearly
+in the text when they first appear.
+
+Answer:
+There is no difference. We have replaced all occurrences
+of "PCE operation" with "PCE map" (or similar), see list of changes. 
+
+*********************************************************************
+2, It is clear that the channel Eq. (12) defines a super operator
+acting on any B(H), but for the Choi matrix in Eq. (13), why it is a
+super-operator?
+
+Answer:
+We have changed the wording. We now call D_N a "matrix"
+(as it is a Choi matrix) instead of a superoperator. 
+
+*********************************************************************
+3, I find this sentence “Let the components of \beta be such that
+\beta_l =\beta\delta_lk for a particular particle index k, with \beta
+such that a_\alpha_k\beta  = 1” rather confusing.
+
+Answer:
+We agree, the statement was confusing. We are now providing a 
+new (and hopefully better) explanation. 
+
+*********************************************************************
+4, Although two mathematical decoherence models are given, the
+physical motivation of studying this general many qubit PCE channel is
+not quite clear? It also would be better to motivate it in the
+beginning.
+
+Answer:
+This paper grew from the sheer curiosity of why, for a single qubit, some
+projections are allowed and others not. After some time, the beautiful 
+mathematical structure presented in this paper appeared. Indeed some 
+motivations might be presented, however the main one is simply to gain a 
+deeper understanding of quantum channels in a multiparticle setting.
+We have tried to put together an introduction that reflects that point 
+of view, and we wish to keep it that way. However if further insistence 
+on this point is made by the referee we can add some sentences in the
+introduction. 
+
+*********************************************************************
+I feel like there is a simple example of the PCE channel: it might be
+called the stabilizer state PCE, e.g., N qubit stabilizer state,
+erasing one stabilizer generator could give another stabilizer state,
+and the remaining Pauli component is obviously 2^{N-1}, satisfying the
+2^K components preserving statement. Moreover, in this case erasing
+any one stabilizer generator will preserve exactly half the Pauli
+components, as generator for all PCE channel?
+
+Since stabilizer states are very useful in quantum computation,
+perhaps it is a good practical motivation to study this PCE channel,
+as long as they have a solid connection?
+
+Answer:
+The connection with stabilizer states might be interesting, given 
+that for both stabilizer states and PCEs, Pauli strings play 
+a prominent roll in there definitions. We have added a paragraph 
+at the end of section III pointing out this possible relation. 
+
+*********************************************************************
+}}}
+
+Answer to of the Second Referee {{{
+----------------------------------------------------------------------
+
+*********************************************************************
+Could you shed more light on the physical motivation for this study?
+
+Answer:
+The other referee has brought up the same question. We kindly refer the referee
+to the paragraph in question in which we prefer to leave the motivation as it
+stands. 
+*********************************************************************
+How do you think the scheme would work for qudits in dimensions of
+Hilbert spaces which are not 2^n? Of course, I understand that your
+results are pertinent to basis of Pauli tensors, but I am curious to
+know your thoughts on the same.
+
+For dimensions $d$ that allow $d+1$ maximally unbiased bases, one can
+construct generalized Pauli channels. In those cases, do you think
+your results could be extended in some way?
+
+Answer:
+This is clearly an interesting question. The generalization is not totally 
+direct, and requires some mathematical work.  This is why we did not
+present results in this paper, however we will hopefully present a generalization 
+for arbitrary dimension. Some care must be taken as some results depend on the
+field structure of the set {0,1}, which will not be available for arbitrary 
+$d$. 
+
+*********************************************************************
+
+
+}}}
+
+List of changes {{{
+* Between eq. (2) and eq. (3) we replaced 
+    Not every such operation  is a quantum channel;
+with 
+    Not every such map  is a quantum channel;
+
+* In the caption of figure 1, we replaced 
+    ... and thus does not correspond to a quantum operation.
+with 
+    ... and thus does not correspond to a quantum channel.
+
+* After eq. (6), we replaced 
+    In addition, for the operation to be trace preserving...
+with 
+    In addition, for the map to be trace preserving...
+
+* In that same paragraph, we replaced 
+    We shall refer to the map  $xx$, with arbitrary values of $\taus$ (only
+    restricted by complete positivity) as {\it Pauli diagonal operations}.  
+with 
+    We shall refer to the map  $xx$, with arbitrary values of $\taus$ (only
+    restricted by complete positivity) as {\it Pauli diagonal maps}.  
+
+* Before eq. (13) we replaced 
+    The matrix representation of the map corresponding to a Pauli diagonal operation is...
+with 
+    The matrix representation of the map corresponding to a Pauli diagonal map is...
+
+* After eq. (13) we replaced 
+    This superoperator is again diagonal in the (multi-qubit) Pauli basis...
+with 
+    This matrix is again diagonal in the (multi-qubit) Pauli basis...
+
+* We changed the paragraph leading to eq. (23) from
+    Let us now work out the nature of the aforementioned connection.  Let the
+    components of  $\vbeta$ be such that $\beta_l = \beta \delta_{lk}$ for a
+    particular particle index $k$, with $\beta$ such that $\sa_{\alpha_k\beta}=1$.
+    Since $\sa_{\alpha 0}=1$ for any $\alpha$, this particular choice of $\vbeta$
+    belongs to  $\Phi(\vec\alpha)$, so that \eref{eq:coneccion:dos:indices:A}
+    indeed holds. However, for such a choice
+    of $\vbeta$ the above relation reduces to 
+to
+    Let us now work out the nature of the aforementioned connection.  For
+    arbitrary $k$ we define a vector $\vbeta_k$ such that
+    $\vbeta_k\in\Phi(\vec\alpha)$ as follows: $\vbeta_k$ is zero everywhere except
+    for the $k$'th coordinate, which takes a value $\beta$ such that
+    $\sa_{\alpha_k\beta}=1$. Since $\sa_{\alpha 0}=1$ for any $\alpha$, this
+    particular choice of $\vbeta$ indeed belongs to  $\Phi(\vec\alpha)$, so
+    that if \eref{eq:coneccion:dos:indices:A} holds for all
+    $\vbeta\in\Phi(\vec\alpha)$, it must hold for that particular $\vbeta_k$,
+    which leads to:
+
+* At the end of section III we added the following paragraph:
+    Finally, let us point out the following: if we wish to specify a PCE
+    channel explicitly, the naive way to proceed would be simply to list all the
+    Pauli components which are not erased. This requires in general, however, an
+    exponential amount of information: that is, if the system has $N$ qubits, we
+    generally require of the order of $2^N$ bits to do this. If, on the other hand,
+    we take advantage of the vector space structure of a PCE channel, we only need
+    to specify a basis. Since a basis consists of $N$ vectors of length $N$, the
+    information required is only of $N^2$ bits, so that we have obtained a very
+    substantial improvement by exploiting the total positivity. This is reminiscent
+    of a rather similar effect in {\em stabilizer states\/} which can also be
+    specified by $N^2$ bits, as opposed to an exponentially large number of basis
+    coefficients for arbitrary states.  A stabilizer state is one which is the
+    common eigenvector to the eigenvalue 1 of a set of $N$ commuting 
+    Pauli strings.  The similarity is highly intriguing, and
+    potentially of interest, since stabilizer states are of central importance in
+    quantum error correction \cite{Gottesman1997}. 
+}}}
+
+
+Email, all {{{
+Re: AS12227
+    Pauli component erasing quantum channels
+    by Jos\'e Alfredo de Leon, Alejandro Fonseca, Fran\c{c}ois Leyvraz, et
+    al.
+
+Dear Dr. Pineda,
+
+The above manuscript has been reviewed by two of our referees. Comments
+from the reports appear below.
+
+These comments suggest that specific revisions of your manuscript are
+in order. When you resubmit your manuscript, please include a summary
+of the changes made and a succinct response to all recommendations or
+criticisms contained in the reports.
+
+Yours sincerely,
+
+Mrs. Terre Arena (she/her/hers)
+Senior Editorial Assistant
+Physical Review A
+
+
+----------------------------------------------------------------------
+Report of the First Referee -- AS12227/de Leon
+----------------------------------------------------------------------
+
+This paper generalizes the single qubit channel as a concept of Pauli
+component erasure channel, and extends it to the multi-qubit case.
+Since the erasure map doesn’t always gives a valid quantum channel,
+the authors try identifying the condition for the map to be CPTP,
+which turns out to be related to the vector subspace of the Pauli
+string set indices. Two simple mathematical decoherence model are also
+introduced. This study is overall interesting. I give my comments and
+questions in the following and would give my recommendation for
+publication upon appropriately addressing them:
+
+1, Is there any difference or they are interchangeable between Pauli
+diagonal operation and Pauli diagonal map? Please define them clearly
+in the text when they first appear.
+
+2, It is clear that the channel Eq. (12) defines a super operator
+acting on any B(H), but for the Choi matrix in Eq. (13), why it is a
+super-operator?
+
+3, I find this sentence “Let the components of \beta be such that
+\beta_l =\beta\delta_lk for a particular particle index k, with \beta
+such that a_\alpha_k\beta  = 1” rather confusing.
+
+4, Although two mathematical decoherence models are given, the
+physical motivation of studying this general many qubit PCE channel is
+not quite clear? It also would be better to motivate it in the
+beginning.
+
+I feel like there is a simple example of the PCE channel: it might be
+called the stabilizer state PCE, e.g., N qubit stabilizer state,
+erasing one stabilizer generator could give another stabilizer state,
+and the remaining Pauli component is obviously 2^{N-1}, satisfying the
+2^K components preserving statement. Moreover, in this case erasing
+any one stabilizer generator will preserve exactly half the Pauli
+components, as generator for all PCE channel?
+
+Since stabilizer states are very useful in quantum computation,
+perhaps it is a good practical motivation to study this PCE channel,
+as long as they have a solid connection?
+
+----------------------------------------------------------------------
+Report of the Second Referee -- AS12227/de Leon
+----------------------------------------------------------------------
+
+This is an interesting paper which is well articulated. However,
+before I accept the same for publication, I have a few questions to
+the authors.
+
+Could you shed more light on the physical motivation for this study?
+
+How do you think the scheme would work for qudits in dimensions of
+Hilbert spaces which are not 2^n? Of course, I understand that your
+results are pertinent to basis of Pauli tensors, but I am curious to
+know your thoughts on the same.
+
+For dimensions $d$ that allow $d+1$ maximally unbiased bases, one can
+construct generalized Pauli channels. In those cases, do you think
+your results could be extended in some way?
+}}}
+
+
+

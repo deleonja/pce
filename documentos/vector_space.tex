@@ -121,14 +121,22 @@ $\vec\gamma$ and $\vec{\gamma^\prime}$.
 When such a connection exists, $\tau_{\vec\alpha}=1$ implies
 $\tau_{\vec\gamma}=\tau_{\vec{\gamma^\prime}}$. 
 
-Let us now work out the nature of the aforementioned connection.  Let the
-components of  $\vbeta$ be such that $\beta_l = \beta \delta_{lk}$ for a
-particular particle index $k$, with $\beta$ such that $\sa_{\alpha_k\beta}=1$.
-Since $\sa_{\alpha 0}=1$ for any $\alpha$, this particular choice of $\vbeta$
-belongs to  $\Phi(\vec\alpha)$, so that \eref{eq:coneccion:dos:indices:A}
-indeed holds. However, for such a choice
-of $\vbeta$ the above relation reduces
-to 
+Let us now work out the nature of the aforementioned connection.  For arbitrary
+$k$ we define a vector $\vbeta_k$ such that $\vbeta_k\in\Phi(\vec\alpha)$ as
+follows: $\vbeta_k$ is zero everywhere except
+for the $k$'th coordinate, which takes a value $\beta$ such that  $\sa_{\alpha_k\beta}=1$. Since 
+$\sa_{\alpha 0}=1$ for any $\alpha$, this particular choice of $\vbeta$
+indeed belongs to  $\Phi(\vec\alpha)$, so that if \eref{eq:coneccion:dos:indices:A} holds for 
+all $\vbeta\in\Phi(\vec\alpha)$, it must hold for that particular $\vbeta_k$, which leads to:
+% 
+% Let us now work out the nature of the aforementioned connection.  Let the
+% components of  $\vbeta$ be such that $\beta_l = \beta \delta_{lk}$ for a
+% particular particle index $k$, with $\beta$ such that $\sa_{\alpha_k\beta}=1$.
+% Since $\sa_{\alpha 0}=1$ for any $\alpha$, this particular choice of $\vbeta$
+% belongs to  $\Phi(\vec\alpha)$, so that \eref{eq:coneccion:dos:indices:A}
+% indeed holds. However, for such a choice
+% of $\vbeta$ the above relation reduces
+% to 
 \begin{equation}
 \sa_{\beta\gamma_k}=\sa_{\beta\gamma_k^\prime}
 \label{eq:14}
@@ -383,6 +391,25 @@ preserve $K$ and $2N-K$ Pauli components that for the time being
 has escaped our efforts to identify. 
 \par % }}}
 
+% Stabilizer codes {{{
+Finally, let us point out the following: if we wish to specify a PCE
+channel explicitly, the naive way to proceed would be simply to list all the
+Pauli components which are not erased. This requires in general, however, an
+exponential amount of information: that is, if the system has $N$ qubits, we
+generally require of the order of $2^N$ bits to do this. If, on the other hand,
+we take advantage of the vector space structure of a PCE channel, we only need
+to specify a basis. Since a basis consists of $N$ vectors of length $N$, the
+information required is only of $N^2$ bits, so that we have obtained a very
+substantial improvement by exploiting the total positivity. This is reminiscent
+of a rather similar effect in {\em stabilizer states\/} which can also be
+specified by $N^2$ bits, as opposed to an exponentially large number of basis
+coefficients for arbitrary states.  A stabilizer state is one which is the
+common eigenvector to the eigenvalue 1 of a set of $N$ commuting 
+Pauli strings.  The similarity is highly intriguing, and
+potentially of interest, since stabilizer states are of central importance in
+quantum error correction \cite{Gottesman1997}. 
+
+% }}}
 % }}}
 
 
