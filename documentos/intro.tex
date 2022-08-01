@@ -60,7 +60,6 @@ found~\cite{pub.1117408526,pub.1060516327,pub.1014660854,Fonseca2019}.
 % mencionar a las MUBs aca, ni paraque introducir la sigla. Ojala podamos 
 % discutir que familias mencionamos acá}\ddnote{atendido como fue acordado en la reunion :)}
 
-\par
 In this work we present a generalization of idempotent Pauli channels, \ie{}
 the qubit flip operations (bit, phase and bit-phase when the flip probability is $1/2$), total depolarizing qubit
 channel and the identity channel, to the case of $N$ qubits. 
@@ -68,18 +67,37 @@ channel and the identity channel, to the case of $N$ qubits.
 The generalization is done by extending
 Pauli observables to \textit{Pauli strings} (tensor products of Pauli
 matrices)~\cite{KIMURA2003339,Lawrence2002}. The resulting maps are unital and
-diagonal in the Pauli strings' basis.
-In addition, these channels describe the decoherence process in a similar way
-as the aforementioned
-ones for the single-qubit case.
-From now on we refer to these maps as \textit{Pauli component erasing} (\pce{})
-maps. We
-derive necessary and sufficient conditions for such mappings to be completely
-positive and trace-preserving, thus, showing which idempotent operations are valid
-quantum channels (\pce{} channels). Additionally, we characterize the algebraic
-properties of the set of \pce{} channels, showing that it is equipped
-with a semigroup structure, which is later used to derive physical
-implementations.
+diagonal in the Pauli strings' basis. 
+We shall in the following refer to 
+such maps as {\em Pauli component erasing maps} (\pce{} maps)
+The main task which we perform in this paper is the identification of the
+conditions which an arbitrary \pce{} map must satisfy in order to be completely
+positive. The answer turns out to involve a strikingly simple and unexpected
+mathematical structure that is exploited to gain deeper understanding
+on aforementioned channels, as we show in section \ref{sec:vector_spaces}. This
+structure allows for example to describe such channels with a much reduced
+set of parameters (as compared to specifying a list of all erased Pauli
+components) or to define an
+interesting semigroup structure on the set of all \pce{} channels. 
+Additionally, these channels, are in a sense the simplest possible channels,
+and as such can be used as building bocks of more general channels, for
+instance through convex combination or composition.
+To summarize succinctly the final result, we show that it is possible
+to assign to every Pauli string a simple \pce{} channel, obtained by extending
+the system with an ancilla of a single qubit, acting on the combined system by
+a unitary involving the Pauli string and tracing over the ancilla. It then
+follows from our results that {\em all\/} \pce{} channels arise from such
+channels by composition.
+
+%In addition, these channels describe the decoherence process in a similar way
+%as the aforementioned
+%ones for the single-qubit case.
+%Additionally, we characterize the algebraic
+%properties of the set of \pce{} channels, showing that it is equipped
+%with a semigroup structure, which is later used to derive physical
+%implementations.
+
+
 %
 \par
 The paper is organized as follows, in section~\ref{sec:pce_maps} we recall
@@ -100,7 +118,7 @@ generators of the semigroup structure associated to the set of \pce{} channels i
 them to derive meaningful physical interpretations of \pce{} channels in
 section~\ref{sec:kraus}, as well as Kraus operators of the generators.
 % 
-To finish, we conclude and discuss future perspectives in
+To finish, we conclude and discuss future perspectives \flnote{and possible generalizations} in
 section~\ref{sec:conclusions}.
 % }}}
 

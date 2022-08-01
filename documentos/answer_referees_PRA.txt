@@ -45,10 +45,8 @@ projections are allowed and others not. After some time, the beautiful
 mathematical structure presented in this paper appeared. Indeed some 
 motivations might be presented, however the main one is simply to gain a 
 deeper understanding of quantum channels in a multiparticle setting.
-We have tried to put together an introduction that reflects that point 
-of view, and we wish to keep it that way. However if further insistence 
-on this point is made by the referee we can add some sentences in the
-introduction. 
+We have put together a modified introduction that reflects that point 
+of view, but also addresses the referee's concern, see list of changes. 
 
 *********************************************************************
 I feel like there is a simple example of the PCE channel: it might be
@@ -79,9 +77,14 @@ Answer to of the Second Referee {{{
 Could you shed more light on the physical motivation for this study?
 
 Answer:
-The other referee has brought up the same question. We kindly refer the referee
-to the paragraph in question in which we prefer to leave the motivation as it
-stands. 
+This paper grew from the sheer curiosity of why, for a single qubit, some
+projections are allowed and others not. After some time, the beautiful 
+mathematical structure presented in this paper appeared. Indeed some 
+motivations might be presented, however the main one is simply to gain a 
+deeper understanding of quantum channels in a multiparticle setting.
+We have put together a modified introduction that reflects that point 
+of view, but also addresses the referee's concern, see list of changes. 
+
 *********************************************************************
 How do you think the scheme would work for qudits in dimensions of
 Hilbert spaces which are not 2^n? Of course, I understand that your
@@ -106,6 +109,25 @@ $d$.
 }}}
 
 List of changes {{{
+* Added to the second paragraph of the intro the following text:
+    The main task which we perform in this paper is the identification of the
+    conditions which an arbitrary PCE map must satisfy in order to be completely
+    positive. The answer turns out to involve a strikingly simple and unexpected
+    mathematical structure that is exploited to gain deeper understanding
+    on aforementioned channels, as we show in section \ref{sec:vector_spaces}. This
+    structure allows for example to describe such channels with a much reduced
+    set of parameters (as compared to specifying a list of all erased Pauli
+    components) or to define an
+    interesting semigroup structure on the set of all PCE channels. 
+    Additionally, these channels, are in a sense the simplest possible channels,
+    and as such can be used as building bocks of more general channels, for
+    instance through convex combination or composition.
+    To summarize succinctly the final result, we show that it is possible
+    to assign to every Pauli string a simple PCE channel, obtained by extending
+    the system with an ancilla of a single qubit, acting on the combined system by
+    a unitary involving the Pauli string and tracing over the ancilla. It then
+    follows from our results that all PCE channels arise from such
+    channels by composition.
 * Between eq. (2) and eq. (3) we replaced 
     Not every such operation  is a quantum channel;
 with 
