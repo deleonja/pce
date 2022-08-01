@@ -26,7 +26,8 @@ draft_gitdiff.pdf ::
 	pdflatex pce_gitdiff.tex
 
 draft_PRA_answer.pdf ::
-	make draft_gitdiff.pdf  gitone=PRA_160522 gittwo=prlv3
+	make draft_gitdiff.pdf  gitone=PRA_160522 gittwo=candidate_answer_PRA_v1
+
 -include ~/makefile
 # Repositorio: 
 #	url = git@github.com:deleonja/QC.git
