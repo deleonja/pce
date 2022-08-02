@@ -64,7 +64,7 @@ as long as they have a solid connection?
 Answer:
 The connection with stabilizer states might be interesting, given 
 that for both stabilizer states and PCEs, Pauli strings play 
-a prominent roll in there definitions. We have added a paragraph 
+a prominent roll in their definitions. We have added a paragraph 
 at the end of section III pointing out this possible relation. 
 
 *********************************************************************
