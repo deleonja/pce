@@ -2,7 +2,7 @@
 Dear Editor,
 
 We are happy to receive positive feedback from the referees. The points
-raised by the referees are answer in what follows. 
+raised by the referees are answered in what follows. 
 
 Answer to the First Referee  {{{
 
@@ -64,7 +64,7 @@ as long as they have a solid connection?
 Answer:
 The connection with stabilizer states might be interesting, given 
 that for both stabilizer states and PCEs, Pauli strings play 
-a prominent roll in their definitions. We have added a paragraph 
+a prominent role in their definitions. We have added a paragraph 
 at the end of section III pointing out this possible relation. 
 
 *********************************************************************
