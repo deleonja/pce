@@ -121,7 +121,7 @@ List of changes {{{
     interesting semigroup structure on the set of all PCE channels. 
     Additionally, these channels, are in a sense the simplest possible channels,
     and as such can be used as building bocks of more general channels, for
-    instance through convex combination or composition.
+    instance through convex combination or composition with unitary transformations.
     To summarize succinctly the final result, we show that it is possible
     to assign to every Pauli string a simple PCE channel, obtained by extending
     the system with an ancilla of a single qubit, acting on the combined system by
@@ -188,7 +188,7 @@ to
     we take advantage of the vector space structure of a PCE channel, we only need
     to specify a basis. Since a basis consists of $N$ vectors of length $N$, the
     information required is only of $N^2$ bits, so that we have obtained a very
-    substantial improvement by exploiting the total positivity. This is reminiscent
+    substantial improvement by exploiting complete positivity. This is reminiscent
     of a rather similar effect in {\em stabilizer states\/} which can also be
     specified by $N^2$ bits, as opposed to an exponentially large number of basis
     coefficients for arbitrary states.  A stabilizer state is one which is the
