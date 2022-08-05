@@ -2,7 +2,7 @@
 Dear Editor,
 
 We are happy to receive positive feedback from the referees. The points
-raised by the referees are answered in what follows. 
+raised by them are answered in what follows. 
 
 Answer to the First Referee  {{{
 
@@ -109,7 +109,7 @@ $d$.
 }}}
 
 List of changes {{{
-* Added to the second paragraph of the intro the following text:
+* Added to the introduction the following text:
     The main task which we perform in this paper is the identification of the
     conditions which an arbitrary PCE map must satisfy in order to be completely
     positive. The answer turns out to involve a strikingly simple and unexpected
@@ -196,93 +196,6 @@ to
     Pauli strings.  The similarity is highly intriguing, and
     potentially of interest, since stabilizer states are of central importance in
     quantum error correction \cite{Gottesman1997}. 
-}}}
-
-
-Email, all {{{
-Re: AS12227
-    Pauli component erasing quantum channels
-    by Jos\'e Alfredo de Leon, Alejandro Fonseca, Fran\c{c}ois Leyvraz, et
-    al.
-
-Dear Dr. Pineda,
-
-The above manuscript has been reviewed by two of our referees. Comments
-from the reports appear below.
-
-These comments suggest that specific revisions of your manuscript are
-in order. When you resubmit your manuscript, please include a summary
-of the changes made and a succinct response to all recommendations or
-criticisms contained in the reports.
-
-Yours sincerely,
-
-Mrs. Terre Arena (she/her/hers)
-Senior Editorial Assistant
-Physical Review A
-
-
-----------------------------------------------------------------------
-Report of the First Referee -- AS12227/de Leon
-----------------------------------------------------------------------
-
-This paper generalizes the single qubit channel as a concept of Pauli
-component erasure channel, and extends it to the multi-qubit case.
-Since the erasure map doesn’t always gives a valid quantum channel,
-the authors try identifying the condition for the map to be CPTP,
-which turns out to be related to the vector subspace of the Pauli
-string set indices. Two simple mathematical decoherence model are also
-introduced. This study is overall interesting. I give my comments and
-questions in the following and would give my recommendation for
-publication upon appropriately addressing them:
-
-1, Is there any difference or they are interchangeable between Pauli
-diagonal operation and Pauli diagonal map? Please define them clearly
-in the text when they first appear.
-
-2, It is clear that the channel Eq. (12) defines a super operator
-acting on any B(H), but for the Choi matrix in Eq. (13), why it is a
-super-operator?
-
-3, I find this sentence “Let the components of \beta be such that
-\beta_l =\beta\delta_lk for a particular particle index k, with \beta
-such that a_\alpha_k\beta  = 1” rather confusing.
-
-4, Although two mathematical decoherence models are given, the
-physical motivation of studying this general many qubit PCE channel is
-not quite clear? It also would be better to motivate it in the
-beginning.
-
-I feel like there is a simple example of the PCE channel: it might be
-called the stabilizer state PCE, e.g., N qubit stabilizer state,
-erasing one stabilizer generator could give another stabilizer state,
-and the remaining Pauli component is obviously 2^{N-1}, satisfying the
-2^K components preserving statement. Moreover, in this case erasing
-any one stabilizer generator will preserve exactly half the Pauli
-components, as generator for all PCE channel?
-
-Since stabilizer states are very useful in quantum computation,
-perhaps it is a good practical motivation to study this PCE channel,
-as long as they have a solid connection?
-
-----------------------------------------------------------------------
-Report of the Second Referee -- AS12227/de Leon
-----------------------------------------------------------------------
-
-This is an interesting paper which is well articulated. However,
-before I accept the same for publication, I have a few questions to
-the authors.
-
-Could you shed more light on the physical motivation for this study?
-
-How do you think the scheme would work for qudits in dimensions of
-Hilbert spaces which are not 2^n? Of course, I understand that your
-results are pertinent to basis of Pauli tensors, but I am curious to
-know your thoughts on the same.
-
-For dimensions $d$ that allow $d+1$ maximally unbiased bases, one can
-construct generalized Pauli channels. In those cases, do you think
-your results could be extended in some way?
 }}}
 
 
