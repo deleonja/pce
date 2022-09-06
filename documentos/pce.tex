@@ -179,84 +179,85 @@ $1$s, see~\fref{fig:one:qubit:examples}.
 
 \begin{figure} % {{{
 \begin{center}
-\begin{tikzpicture}[x=0.5cm, y=0.5cm] % {{{
-\pgfmathsetmacro{\unitstep}{3.5}
-% Coordenadas   {{{
-\node at (-0.6,0.5) {(a)} ;
-\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_0$} ;
-\begin{scope}[shift={(0,-1)}]
-\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_1$} ;
-\end{scope}
-\begin{scope}[shift={(0,-2)}]
-\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_2$} ;
-\end{scope}
-\begin{scope}[shift={(0,-3)}]
-\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_3$} ;
-\end{scope} 
-\draw (0,-3) rectangle (1,1); 
-% }}}
-\begin{scope}[shift={(1*\unitstep,0)}] % Identity {{{
-% \begin{scope}[shift={(\unitstep*2,0)}]
-\node at (-0.6,0.5) {(b)} ;
-\fill[black] (0,0) rectangle (1,1);
-\draw[black!10] (0,0) rectangle (1,1);
-\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-\draw (0,-3) rectangle (1,1); 
-\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\end{scope} % }}}
-\begin{scope}[shift={(2*\unitstep,0)}] % Dephasing {{{
-\node at (-0.6,0.5) {(c)} ;
-\fill[black] (0,0) rectangle (1,1);
-% \draw (0,0) rectangle (1,1);
-\draw[black!10] (0,0) rectangle (1,1);
-\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-\draw (0,-3) rectangle (1,1); 
+\includegraphics{one_qubit_PCE.pdf}
+% \begin{tikzpicture}[x=0.5cm, y=0.5cm] % {{{
+% \pgfmathsetmacro{\unitstep}{3.5}
+% % Coordenadas   {{{
+% \node at (-0.6,0.5) {(a)} ;
+% \draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_0$} ;
+% \begin{scope}[shift={(0,-1)}]
+% \draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_1$} ;
+% \end{scope}
+% \begin{scope}[shift={(0,-2)}]
+% \draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_2$} ;
+% \end{scope}
+% \begin{scope}[shift={(0,-3)}]
+% \draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_3$} ;
+% \end{scope} 
+% \draw (0,-3) rectangle (1,1); 
+% % }}}
+% \begin{scope}[shift={(1*\unitstep,0)}] % Identity {{{
+% % \begin{scope}[shift={(\unitstep*2,0)}]
+% \node at (-0.6,0.5) {(b)} ;
+% \fill[black] (0,0) rectangle (1,1);
+% \draw[black!10] (0,0) rectangle (1,1);
+% \begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \draw (0,-3) rectangle (1,1); 
 % \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
 % \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
-\end{scope} % }}}
-\begin{scope}[shift={(3*\unitstep,0)}] % Depolarization {{{
-\node at (-0.6,0.5) {(d)} ;
-\fill[black] (0,0) rectangle (1,1);
-% \draw (0,0) rectangle (1,1);
-\draw[black!10] (0,0) rectangle (1,1);
-\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-\draw (0,-3) rectangle (1,1); 
-% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
-% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
 % \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
-\end{scope} % }}}
-\begin{scope}[shift={(4*\unitstep,0)}] % (e) canal malo {{{
-\node at (-0.6,0.5) {(e)} ;
-\fill[black] (0,0) rectangle (1,1);
-% \draw (0,0) rectangle (1,1);
-\draw[black!10] (0,0) rectangle (1,1);
-\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
-% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
-\draw (0,-3) rectangle (1,1); 
-\end{scope} % }}}
-\end{tikzpicture} % }}}
+% \end{scope} % }}}
+% \begin{scope}[shift={(2*\unitstep,0)}] % Dephasing {{{
+% \node at (-0.6,0.5) {(c)} ;
+% \fill[black] (0,0) rectangle (1,1);
+% % \draw (0,0) rectangle (1,1);
+% \draw[black!10] (0,0) rectangle (1,1);
+% \begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \draw (0,-3) rectangle (1,1); 
+% % \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \end{scope} % }}}
+% \begin{scope}[shift={(3*\unitstep,0)}] % Depolarization {{{
+% \node at (-0.6,0.5) {(d)} ;
+% \fill[black] (0,0) rectangle (1,1);
+% % \draw (0,0) rectangle (1,1);
+% \draw[black!10] (0,0) rectangle (1,1);
+% \begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \draw (0,-3) rectangle (1,1); 
+% % \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \end{scope} % }}}
+% \begin{scope}[shift={(4*\unitstep,0)}] % (e) canal malo {{{
+% \node at (-0.6,0.5) {(e)} ;
+% \fill[black] (0,0) rectangle (1,1);
+% % \draw (0,0) rectangle (1,1);
+% \draw[black!10] (0,0) rectangle (1,1);
+% \begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \draw (0,-3) rectangle (1,1); 
+% \end{scope} % }}}
+% \end{tikzpicture} % }}}
 \end{center}
 	\caption{
 In (a) we introduce the notation
@@ -449,68 +450,7 @@ For details, we refer the reader to appendix~\ref{quantum_classical}.
 
 
 \begin{figure} % {{{
-\begin{tikzpicture}[x=0.55cm, y=0.55cm] % {{{
-\pgfmathsetmacro{\unitstep}{5.2}
-\begin{scope}[shift={(0*\unitstep,0)}] % Coordenadas {{{
-\node at (-0.5,0.5) {(a)} ;
-% \cuadritotikz{}
-    \foreach \x in {0,1,2,3} {
-      \foreach \y in {0,1,2,3} {
-        \begin{scope}[shift={(\x,-\y)}] 
-          \draw[black!10] (0,0) rectangle (1,1); 
-%           \draw (0,0) rectangle (1,1); 
-          \node at (0.5,0.5) {\scalebox{.8}{$\tau_{(\y,\x)}$}};
-         \end{scope}
-%         \node at (0,-\y) (input\y) {$i_\y$};
-%         \node[block] at (2,-\y) (block\y) {$f_\y$};
-%         \draw[->] (input\y) -- (block\y);
-%         \draw[->] (block\y.east) -- +(0.5,0);
-    }
-    }
- \draw (0,-3) rectangle (4,1);
-\end{scope} % }}}
-\begin{scope}[shift={(1*\unitstep,0)}] % Good channel {{{
-\node at (-0.5,0.5) {(b)} ;
-\cuadritotikz{}
-%     \foreach \x in {0,1,2,3} {
-%       \foreach \y in {0,1,2,3} {
-%         \begin{scope}[shift={(\x,-\y)}] 
-%           \draw (0,0) rectangle (1,1); 
-% %           \node at (0.5,0.5) {$\tau_{\y,\x}$};
-%          \end{scope}
-% %         \node at (0,-\y) (input\y) {$i_\y$};
-% %         \node[block] at (2,-\y) (block\y) {$f_\y$};
-% %         \draw[->] (input\y) -- (block\y);
-% %         \draw[->] (block\y.east) -- +(0.5,0);
-%     }
-%     }
-\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\end{scope} % }}}
-\begin{scope}[shift={(2*\unitstep,0)}] % Good channel {{{
-\node at (-0.5,0.5) {(c)} ;
-\cuadritotikz{}
-%     \foreach \x in {0,1,2,3} {
-%       \foreach \y in {0,1,2,3} {
-%         \begin{scope}[shift={(\x,-\y)}] 
-%           \draw (0,0) rectangle (1,1); 
-% %           \node at (0.5,0.5) {$\tau_{\y,\x}$};
-%          \end{scope}
-% %         \node at (0,-\y) (input\y) {$i_\y$};
-% %         \node[block] at (2,-\y) (block\y) {$f_\y$};
-% %         \draw[->] (input\y) -- (block\y);
-% %         \draw[->] (block\y.east) -- +(0.5,0);
-%     }
-%     }
-\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\end{scope} % }}}
-\end{tikzpicture} % }}}
+\includegraphics{two_qubit_PCE.pdf}
 	\caption{In (a) we introduce the
 positions of two qubit diagrams. The diagrams in 
 (b) corresponds to a quantum channel that results from the tensor product of
