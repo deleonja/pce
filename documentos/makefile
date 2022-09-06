@@ -8,8 +8,8 @@ pce.zip ::
 pce_pra.zip :: 
 	latexpand draft.tex -o draft_expanded.tex
 	make draft_expanded.pdf
-	rm $@ 
-	zip $@ draft_expanded.tex draft_expanded.bbl images/twoQ_generator_diagrams-crop.pdf
+	rm -f $@ 
+	zip $@ draft_expanded.tex draft_expanded.bbl images/twoQ_generator_diagrams-crop.pdf images/connection_a_generators.pdf images/two_qubit_channels.pdf images/two_qubit_PCE.pdf images/one_qubit_PCE.pdf
 # 	rm draft_expanded.tex
 	
 draft_gitdiff.pdf ::
