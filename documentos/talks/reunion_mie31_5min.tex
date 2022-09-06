@@ -1,0 +1,285 @@
+%%%%% slides template
+% Giovanni Ramirez (ramirez@ecfm.usac.edu.gt)
+% 20200828
+% Require: images/ecfmByN.png images/usacByN.jpg
+%
+%
+% Use this option to print notes only
+% \documentclass[xcolor=dvipsnames,handout,notes=only]{beamer}%
+%
+% Use this option to print notes and slides
+% \documentclass[xcolor=dvipsnames,handout,notes=show]{beamer}%
+%
+% Use this option to get a printer-friendly version
+% \documentclass[xcolor=dvipsnames,handout]{beamer}%
+%
+% Unse this option to get slides only
+\documentclass[xcolor=dvipsnames,presentation]{beamer}%
+%
+%%%%%
+
+
+%%%%% theme and coloring
+% a list of themes can be found here https://hartwork.org/beamer-theme-matrix/
+% I like a simple Malmoe with some modifications and color-schemes like
+% dolphin for a white background, beetle for a gray background or dove for
+% plain slides
+%
+% theme definition
+\usetheme{Malmoe}
+%
+% definition of the presentation mode: full slides
+\mode<presentation> {
+% coloring for slides other options: beetle, dove
+  \usecolortheme{dolphin}
+% to include a slide with the table of contents
+ \AtBeginSection[] {
+  \begin{frame}
+    \tableofcontents[currentsection]
+  \end{frame} }
+}
+%
+% definition of the handout mode: printer-friendly
+\mode<handout>{
+% coloring: dove is white
+  \usecolortheme{dove}
+% this is to print 2 slides in 1 page, other values are allowed
+  \usepackage{pgfpages}
+  \renewcommand\textbullet{\ensuremath{\bullet}}
+  \pgfpagesuselayout{2 on 1}[letterpaper,border shrink=5mm]
+% set the fontsize of the notes
+  \setbeamerfont{note page}{size=\scriptsize}
+% disable the slide with the table of contents
+  \AtBeginSection[]{}
+}
+%%%%%
+
+%%%%% personalisation
+% clear all headers
+\setbeamertemplate{headline}{}
+% disable navigation buttons
+\setbeamertemplate{navigation symbols}{}
+% configure the blocks used for equations, theorems, etc
+\setbeamertemplate{blocks}[rounded][shadow=true]
+% clear the footline
+\setbeamertemplate{footline}{}
+% set the footline
+\setbeamertemplate{footline}{
+  \hbox{%
+% left block with the shortname, it is set in the \author command
+    \begin{beamercolorbox}[wd=.40\paperwidth,ht=2.25ex,dp=1ex,center]%
+      {author in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+% center block with the short title, it is set in the \title command
+    \begin{beamercolorbox}[wd=.50\paperwidth,ht=2.25ex,dp=1ex,center]%
+      {title in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+% right block with the number of slides
+    \begin{beamercolorbox}[wd=.10\paperwidth,ht=2.25ex,dp=1ex,right]%
+      {date in head/foot}%
+      \usebeamerfont{date in head/foot}
+      \insertframenumber{} / \inserttotalframenumber\hspace*{1em}
+    \end{beamercolorbox}}%
+  \vskip0pt%
+}
+%%%%%
+
+%%%%% packages
+%
+% language, decimal point mark
+\usepackage[spanish,es-nodecimaldot]{babel}%
+%
+% to use only T1 scalable fonts
+\usepackage[T1]{fontenc}%
+\let\Tiny=\tiny% this is a proper configuration of the tiny font size
+%
+% to use UTF coding, other options latin1
+\usepackage[utf8]{inputenc}%
+%
+\usepackage{array}
+% special math symbols
+\usepackage{latexsym,amsfonts,amsmath}%
+%
+% to include graphics
+\usepackage{graphicx}%
+% path to images
+%\graphicspath{ {../images/} }
+%
+% to use tiks: nice to draw diagrams
+\usepackage{tikz}%
+\usetikzlibrary{arrows.meta}
+%
+% to use SI units and physics notation
+\usepackage{physics}%
+\usepackage{multirow}
+\usepackage{xcolor}
+
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+%
+% to use hypenation
+\usepackage{ragged2e}%
+\let\raggedright=\RaggedRight%
+%
+\usepackage{dsfont}
+% to configure the hyperref to set metadata in the PDF file
+\hypersetup{%
+%pdfpagemode=FullScreen,% to open the file in fullscreen
+breaklinks={true},% to allow links in more than one line
+%pdfstartview={Fit},% to set the slide to fit the screen
+%pdfpagemode=FullScreen,% to set it to full screen
+pdfauthor={Giovanni Ramirez Garcia (ramirez@ecfm.usac.edu.gt)},% author name
+pdftitle={Quantum Optics aplied to Quantum Computing},% title of the talk
+pdfsubject={Keynote for the talk at Lat0 group},% subject of the talk
+pdfkeywords={quantum optics, quantum computing, quantum algorithms, quantum
+  circuits}% keywords to categorise the contents
+}
+%%%%%
+
+%%%%% Talk data
+%
+%title
+\title[Canales cuánticos PCE y de Weyl]% this is the short title
+{\bf Canales cuánticos PCE y de Weyl}% this is the long title
+%
+% author
+\author[José Alfredo de León]% this is the short name
+{José Alfredo de León, Tomás Basile}
+%{\bf José Alfredo de León, Tomás Basile, 
+%Carlos Pineda,
+%David Dávalos, 
+%Alejandro Fonseca}% this is the long name
+%
+% affiliation
+%\institute{${}^1$Escuela de Ciencias Físicas y Matemáticas, U. de 
+%San Carlos de Guatemala\newline%
+%${}^2$Instituto de Física, U. Nacional Autónoma de México\newline
+%${}^3$Departamento de Física, U. Federal de Pernambuco}%
+%
+% date and information about the conference
+%\date{I Congreso Guatemalteco de Física\\09 de julio de 2021}
+%%%%%
+
+
+\begin{document}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Title and Outline
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{frame}[plain]
+  \titlepage %
+  \begin{tikzpicture}[x=1mm,y=1mm,overlay,remember picture]
+    \pgftransformshift{\pgfpointanchor{current page}{center}}
+%    \node[inner sep=0pt] (usac) at (-35,-30) %
+%    {\includegraphics[height=12mm]{logos/ecfmByN}};
+%    \node[inner sep=0pt] (usac) at (0,-30) %
+%    {\includegraphics[height=12mm]{logos/ifunam}};
+%    \node[inner sep=0pt] (ecfm) at (35,-30) %
+%    {\includegraphics[height=12mm]{logos/u-pernambuco}};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{El problema de los Pauli Component Erasing (PCE)}
+No todas las proyecciones de la esfera de Bloch son evoluciones físicas
+de sistemas abiertos.
+% \begin{minipage}{.48\textwidth}
+\begin{center}
+\begin{tikzpicture}
+ %nodes
+% \draw[draw=white] (-2.7,-4.5) rectangle ++(5.5,5);
+\draw[draw=white] (-1.2,-4.1) rectangle ++(6.5,5.5);
+%  \node[punkt] (market) {Market (b)};
+% \filldraw [fill=Peach, draw=black] (11.1,5) rectangle (0.3,0.3);
+ % We make a dummy figure to make everything look nice.
+%  \node at (0, 0)  {\includegraphics[width=.99\textwidth]{spectraAll}};
+\node at (0, 0)  {%
+\only<1>{\includegraphics[width=.2\textwidth,page=1]{../images/blochs-crop}}%
+\only<2->{\includegraphics[width=.2\textwidth,page=2]{../images/blochs-crop}}%
+};
+\only<3->{
+\draw [-{Stealth[length=3mm, width=3mm]},line width=3pt] (1.4,0) -- (2.7,0); 
+\node at (2.,.3) {\color{green} \cmark};
+}
+\only<5->{
+\node at (2.,-2.5) {\color{red} \xmark};
+\draw [-{Stealth[length=3mm, width=3mm]},line width=3pt] (1.4,-2.8) -- (2.7,-2.8); 
+}
+\node at (4,  0)  {%
+\only<3->{\includegraphics[width=.2\textwidth,page=3]{../images/blochs-crop}}%
+% \only<2->{\includegraphics[width=.2\textwidth,page=2]{../images/blochs-crop}}%
+};
+\node at (0,  -2.8)  {%
+\only<4->{
+\includegraphics[width=.2\textwidth,page=5]{../images/blochs-crop}}%
+};
+\node at (4,  -2.8)  {%
+\only<5->{
+\includegraphics[width=.2\textwidth,page=4]{../images/blochs-crop}}%
+};
+\end{tikzpicture}
+% Sistemas naturales, estables\\[.2cm]
+% Acá un dibujo en dos partes, con la esfera de Bloch en la primera indicando 
+% algun punto que ava a viajar al disco central, luego una segunda con solo el 
+% disco. Luego una segunda serie con eso, pero proyectado al eje z. 
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\begin{figure}
+\includegraphics[width=0.75\textwidth]{../images/tetrahedron}
+\caption{Tetrahedro de 1 qubit. Figura donde podemos ubicar los 
+canales cuánticos de 1 qubit. Tomada de Geometry of Quantum States.}
+\end{figure}
+\end{center}
+\end{frame}
+
+\begin{frame}{Canales de Weyl: definición}
+Un canal de Weyl es un mapeo \alert{completamente positivo} que transforma a las
+componentes del vector de Bloch como
+\begin{align*}
+r_{\vec \alpha}\mapsto \tau_{\vec\alpha}r_{\vec\alpha},
+\qquad \tau_{\vec\alpha}\in\mathbb{C} \quad\text{y}\quad 
+\norm{\tau_{\vec \alpha}}\leq 1,
+\end{align*}
+donde las $\tau_{\vec\alpha}$ deben satisfacer ciertas condiciones 
+específicas para que el mapeo satisfaga \alert{la} condición de completa 
+positividad.
+\end{frame}
+
+\begin{frame}{Resultados interesantes}
+\begin{itemize}
+\item<1-> Si se restringe el problema a qubits y se impone la restricción
+\begin{align*}
+r_{\vec \alpha}\mapsto \tau_{\vec\alpha}r_{\vec\alpha},\qquad 
+%\qquad \tau_{\vec\alpha}\in\mathbb{C} \quad\text{y}\quad 
+\alert{\tau_{\vec \alpha}= 0,1};
+\end{align*}
+se define un mapa \alert{Pauli erasing component (PCE)}.
+Las $\tau_{\vec\alpha}=1$ de los canales cuánticos (mapeos CP)
+forman un espacio vectorial.
+
+\item<2-> Los puntos extremos de la generalización del tetrahedro para sistemas
+de más de 2 niveles son aquellos mapeos de Weyl definidos por 
+\begin{align*}
+r_{\vec \alpha}\mapsto \tau_{\vec\alpha}r_{\vec\alpha},\qquad 
+%\qquad \tau_{\vec\alpha}\in\mathbb{C} \quad\text{y}\quad 
+\alert{\norm{\tau_{\vec \alpha}}= 1}.
+\end{align*}
+¡Cualquier otro canal se construye como una combinación convexa de estos 
+puntos extremos!
+\end{itemize}
+
+
+
+\end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
