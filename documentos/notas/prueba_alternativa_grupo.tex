@@ -1,0 +1,135 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{hyperref}
+\usepackage{subfig}
+\usepackage{placeins}
+
+\usepackage[mathlines]{lineno}  \linenumbers
+\setlength\linenumbersep{3pt}
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
+\FXRegisterAuthor{cp}{acp}{\color{blue}CP}
+\definecolor{jacolor}{RGB}{200,40,0} \FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
+
+\usepackage{physics}
+\usepackage{graphicx}
+% \usepackage{mathrsfs}
+\usepackage{dutchcal}
+\usepackage{multirow}
+%
+
+
+%% Notas
+\usepackage[dvipsnames]{xcolor}
+\newcommand\todo[1]{\textcolor{Green}{#1}} 
+
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+
+\usepackage{imakeidx}
+\makeindex[columns=3, title=Alphabetical Index, intoc]
+
+
+\def\bbra#1{\mathinner{\langle \! \langle{#1}|}}
+\def\kket#1{\mathinner{|{#1}\rangle \! \rangle}}
+\def\ddyada#1{\mathinner{|{#1}\rangle\!\rangle\!\langle\!\langle{#1}|}}
+\def\ddyad#1#2{\mathinner{|{#1}\rangle\!\rangle\!\langle\!\langle{#2}|}}
+\def\bbrakket#1#2{\mathinner{\langle\!\langle {#1}|{#2}\rangle\!\rangle}}
+\newcommand{\sa}{\ensuremath{\textit{a}}}
+\newcommand{\san}{\ensuremath{\textit{A}}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+% 
+\title{Group structure of PCEs}
+\author{José Alfredo de León}
+\date{}
+% 
+\begin{document}
+\maketitle
+%\tableofcontents
+
+
+For a PCE quantum channel If $\tau_{pq}=\tau_{p'q'}=1$, with $p,q\ne p',q'$, 
+then $\tau_{p+p',q+q'}=1$. Our proof goes as follows. With the expressions
+for $\tau_{pq}$ in terms of $\lambda_{\mu\nu}$ and the sum of all 
+$\lambda_{\mu\nu}$ we derive another expression that must hold for a 
+particular set of indices $\mu,\nu$. With this, the algebraic property
+is computed straightforwardly. This very important 
+property reveals the semigroup structure of 
+PCE quantum channels. 
+
+We will begin from the expression for the Choi's eigenvalues $\lambda_{\mu \nu}$
+with binary indices, that is $\mu,\nu\in\qty{0,1}$. This form of the 
+eigenvalues read 
+\begin{align}
+\lambda_{\mu\nu}=\frac{1}{2}\sum_{m,n=0}^1\qty(-1)^{\mu m+\nu n}\tau_{mn}
+\Mod{2},
+\end{align}
+where sums are modulo $2$. From here on we will use implicitly the
+modulo 2 arithmetic and drop the $\Mod{2}$ notation.
+To invert this expression let us multiply each side by $\qty(-1)^{-\mu p-\nu q}$
+and sum over $\mu$ and $\nu$,
+\begin{align}\label{eq:inverting}
+\sum_{\mu,\nu=0}^1\qty(-1)^{-\mu p-\nu q}\lambda_{\mu\nu}=
+\frac{1}{2}\sum_{m,n,\mu,\nu=0}^1\qty(-1)^{\mu(m-p) m+\nu (n-q)}\tau_{mn}.
+\end{align}
+We notice that 
+\begin{align}
+\sum_{j=0}^1(-1)^{j(k-l)}=1+(-1)^{k-l}=2\delta_{kl}
+\end{align}
+because $k-l=0$ when $k=l$ and $k-l=1$ when $k\ne l$. There is no other possible
+value because we are using modulo 2 arithmetic. Using this property, we resume
+to eq. \eqref{eq:inverting},
+\begin{subequations}
+\begin{align}
+\sum_{\mu,\nu=0}^1\qty(-1)^{-\mu p-\nu q}\lambda_{\mu\nu}&=
+\frac{1}{2}\sum_{m,n,\mu,\nu=0}^1(2\delta_{mp})(2\delta_{nq})\tau_{mn} \\
+\tau_{pq}&=\frac{1}{2}\sum_{\mu,\nu=0}^1\qty(-1)^{-\mu p-\nu q}\lambda_{\mu\nu}.
+\label{eq:tau:lambdas}
+\end{align}
+\end{subequations}
+Now, we subtract $\sum_{\mu,\nu}\lambda_{\mu\nu}=2$
+from $2=\sum_{\mu,\nu}\qty(-1)^{-\mu p-\nu q}\lambda_{\mu\nu}$ (setting
+$\tau_{pq}=1$ in \eqref{eq:tau:lambdas}),
+\begin{align}\label{eq:paso}
+\sum_{\mu,\nu=0}^1\lambda_{\mu\nu}\qty[(-1)^{-\mu p-\nu q}-1]=0.
+\end{align}
+Recall that $\lambda_{\mu \nu}\geq 0$ for the corresponding map to be 
+completely positive, and $(-1)^{-\mu p-\nu q}-1\leq 0$ because we are
+summing modulo 2, thus $-\mu p-\nu q=0,1$. These being said, now it must
+be evident that every term in left side of \eqref{eq:paso} has to be
+zero for the expression to hold. Therefore, if $\lambda_{\mu\nu}\ne 0$,
+then
+\begin{align}\label{eq:property}
+(-1)^{-\mu p}=(-1)^{\nu q},\qquad \forall\,\mu,\nu \vert \lambda_{\mu\nu}\ne 0.
+\end{align}
+The same expression holds for indices $p',q'$. Now we use this expression to
+evaluate 
+\begin{subequations}
+\begin{align}
+\tau_{m+m',n+n'}&=\frac{1}{2}\sum_{\mu,\nu=0}^1
+(-1)^{-\mu(p+p')-\nu(q+q')}\lambda_{\mu\nu} \\
+&=\frac{1}{2}\sum_{\mu,\nu|\lambda_{\mu\nu}\ne 0}
+(-1)^{\nu(q+q')-\nu(q+q')}\lambda_{\mu\nu}\label{eq:paso:7b}\\
+&=\frac{1}{2}\sum_{\mu,\nu|\lambda_{\mu\nu}\ne 0}\lambda_{\mu\nu}\label{eq:paso:7c}\\
+&=1,
+\end{align}
+\end{subequations}
+where \eqref{eq:property} has been used in \eqref{eq:paso:7b} and the fact
+that Choi's eigenvalues sum $2$ in \eqref{eq:paso:7c}. $\square$
+% 
+\bibliography{References}{}
+\bibliographystyle{unsrt}
+% 
+\end{document}
