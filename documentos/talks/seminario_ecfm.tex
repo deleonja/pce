@@ -277,42 +277,49 @@ puntos extremos!
 
 \end{frame}
 
-\begin{frame}{Canales cuánticos PCE: son subgrupos}
-Si para un canal cuántico PCE $\tau_{pq}=\tau_{p'q'}=1$ ($p,q\ne p',q'$), 
-entonces $\tau_{p+p',q+´q'}=1$.\\[1ex]
-
-\textbf{Prueba:} consideremos
-\scriptsize
+\begin{frame}{Canales cuánticos PCE: son subgrupos}\scriptsize
+\vspace*{12pt}
+\onslide<1->{
+Si $\tau_{pq}=\tau_{p'q'}=1$ de un canal cuántico PCE ($p,q\ne p',q'$), 
+entonces $\tau_{p+p',q+´q'}=1$.\\[8pt]}
+\onslide<2->{\scriptsize 
+\textbf{\textit{Demostración}}: consideremos}
 \begin{align}
-\lambda_{\mu \nu}=\frac{1}{2}\sum_{p,q=0}^1(-1)^{\mu p+\nu q\Mod{2}}\tau_{pq}
+\onslide<2->{
+\lambda_{\mu \nu}=\frac{1}{2}\sum_{p,q=0}^1(-1)^{\mu p+\nu q\Mod{2}}\tau_{pq}}
+\onslide<3->{
 \hspace*{2pt}&\Leftrightarrow\hspace*{2pt} 
-\tau_{pq}=\frac{1}{2}\sum_{\mu,\nu}(-1)^{-\mu p-\nu q},\label{eq:exp:1} \\
-\sum_{\mu,\nu}\lambda_{\mu\nu}&=2.\label{eq:exp:2}
+\tau_{pq}=\frac{1}{2}\sum_{\mu,\nu}(-1)^{-\mu p-\nu q\Mod{2}}\lambda_{pq},\label{eq:exp:1} \\}
+\onslide<4->{\sum_{\mu,\nu}\lambda_{\mu\nu}&=2.\label{eq:exp:2}\\[-15pt]}\nonumber
 \end{align}
-
-Restamos \eqref{eq:exp:2} de la expresion \eqref{eq:exp:1}, 
-considerando $\tau_{pq}=1´$,
+%\onslide<4->{De aquí en adelante utiliremos implicítamente la suma modulo 2 
+%de los índices.}
+\onslide<5->{Restamos \eqref{eq:exp:2} de la expresion 
+\eqref{eq:exp:1}, 
+considerando $\tau_{pq}=1´$,}
 \scriptsize{
 \begin{align*}
-\sum_{\mu,\nu}\lambda_{\mu\nu}\qty[(-1)^{-\mu p-\nu q}-1]=0
-\hspace*{10pt}\Leftrightarrow \hspace*{10pt}
-(-1)^{-\mu p}&=(-1)^{\nu q},\quad \forall \mu,\nu\vert \lambda_{\mu\nu}\ne 0.
+\onslide<5->{
+\sum_{\mu,\nu}\lambda_{\mu\nu}\qty[(-1)^{-\mu p-\nu q\Mod{2}}-1]=0}
+\onslide<6->{\hspace*{10pt}\Leftrightarrow \hspace*{10pt}
+(-1)^{-\mu p}&=(-1)^{\nu q},\quad \forall \mu,\nu\vert \lambda_{\mu\nu}\ne 0.}
 \end{align*}
-}
-Similarmente se puede deducir una expresión para $p',q'$. Luego,
+\onslide<6->{
+Similarmente para $p',q'$.}}
+\onslide<7->{Luego,
 \scriptsize{
 \begin{align*}
 \tau_{p+p',q+q'}=\frac{1}{2}\sum_{\mu,\nu}
 (-1)^{-\mu(p+p')-\nu(q+q')}\lambda_{\mu\nu}
-\onslide<2->{=\frac{1}{2}\sum_{\mu,\nu|\lambda_{\mu\nu}\ne 0}
-(-1)^{\nu(q+q')-\nu(q+q')}\lambda_{\mu\nu} = 1.}
+=\frac{1}{2}\sum_{\mu,\nu|\lambda_{\mu\nu}\ne 0}
+(-1)^{\nu(q+q')-\nu(q+q')}\lambda_{\mu\nu} = 1.
 \end{align*}
-}\normalsize
-
-\alert{Es decir, los índices forman un grupo}
+}}
+\onslide<8->{
+\alert{\noindent Es decir, los índices forman un grupo}
 \begin{align*}
-(p,q)+(p',q')=(p+p',q+q')
-\end{align*}
+(p,q)+(p',q')=(p+p',q+q').
+\end{align*}}
 \end{frame}
 
 
