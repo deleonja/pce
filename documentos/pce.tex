@@ -2,7 +2,7 @@
 \label{sec:pce_maps}
 
 % \afnote{Propongo que cambiemos el inicio de esta sección por: 
-In this section we introduce the family of Pauli component erasing (PCE)
+In this section we introduce the family of PCE
 maps. Let us start our discussion with a brief review of several basic concepts
 of quantum channels that will allow us to introduce some notation, 
 and finish with the definition of PCE maps and some generalities. We further 
@@ -18,7 +18,7 @@ introduce a useful graphical representation  for them.
 % están de acuerdo, entonces sólo tendriamos que cambiar el orden de las dos
 % primeras frases en el primer párrafo.}
 Quantum channels are the most general linear operations that a quantum system
-undergo independently of its past~\cite{zimansbook,cirac}.  The physical system
+undergoes independently of its past~\cite{zimansbook,cirac}.  The physical system
 under study will be associated with a Hilbert space denoted by \hilbert{}, and
 the set of linear operators over such space will be denoted by
 $\mcB(\hilbert)$. That way, a density matrix $\rho$ of such system is an
@@ -40,7 +40,7 @@ element of $\mcB(\hilbert)$.
 %here, $\mcT(\hilbert)$ and $\mcB(\hilbert)$ coincide~\cite{zimansbook}. 
 
 The construction of quantum channels includes basically three ingredients:
-linearity, trace preservation and complete positivity. Linearity is needed to
+linearity, trace preservation, and complete positivity. Linearity is needed to
 map every convex combination of density matrices into a convex combination of the
 evolution of such density matrices. The
 trace preserving property is required for the process $\mcE$ 
@@ -95,8 +95,8 @@ $\ket{\Omega}=1/\dim(\hilbert)\sum_i^{\dim(\hilbert)}\ket{i}\ket{i}$ is a
 maximally entangled state between the original system and an ancilla and
 ``$\id$'' is the identity channel.
 Remarkably, the map \mcE{} is completely positive
-if and only \choi{} (also called Choi or dynamical matrix of $\mcE$) 
-is positive-semidefinite~\cite{jamil,choi}. 
+if and only if \choi{} (also called the Choi or dynamical matrix of $\mcE$) 
+is positive semidefinite~\cite{jamil,choi}. 
 % \afnote{No sé si es algo obvio, pero creo que seria bueno comentar que es el objeto $\id$.}
 %  the
 % Bell state between two copies of \hilbert. 
@@ -111,7 +111,7 @@ is positive-semidefinite~\cite{jamil,choi}.
 % and continue with the $N$-qubit case. 
 % 
 % \afnote{
-We have discussed the main features of quantum channels, now
+We have discussed the main features of quantum channels, and now
 we turn our attention to introduce the Pauli component erasing maps. We start
 by exploring the single-qubit scenario and then we treat the $N$-qubit case.
 % }
@@ -134,7 +134,7 @@ Normalization requires that $r_0=1$ and the remaining $r_{1,2,3}$
 form the Bloch vector. 
 Consider the map that projects
 each component 
-in the following way,
+in the following way:
 % 
 \begin{equation}
 r_\alpha \mapsto \tau_\alpha r_\alpha
@@ -143,13 +143,13 @@ r_\alpha \mapsto \tau_\alpha r_\alpha
 where $\tau_\alpha$ is either $0$ or $1$ (trace preserving requires
 that $\tau_0=1$). 
 From now on we refer to any operation like that described in
-\eref{EqPCE}, as single-qubit \textit{Pauli component erasing} (\pce{}) maps.
+\eref{EqPCE}, as a single-qubit \pce{} map.
 Not every such operation  is a quantum channel;
 for example, collapsing the entire Bloch ball to a disk on the $xy$
 plane ($\tau_{1}=\tau_{2}=1$ and  $\tau_3=0$) 
 leads
-to a violation of the CP conditions. Indeed a direct evaluation
-of such conditions yield~\cite{zimansbook,davalosdivisibility}, 
+to a violation of the complete positivity condition. Indeed, a direct evaluation
+of such conditions yields~\cite{zimansbook,davalosdivisibility}
 % 
 % 
 % is not a quantum channel
@@ -161,8 +161,8 @@ of such conditions yield~\cite{zimansbook,davalosdivisibility},
 1+\tau_1+\tau_2+\tau_3 &\geq 0, \nonumber \\
 1+\tau_\alpha-\tau_\beta-\tau_\gamma &\geq 0 \ \ \forall ~\alpha\neq \beta \neq \gamma,
 \end{align}
-where trace-preserving is already imposed, and show that five out of
-the eight 1-qubit PCE maps are quantum channels.
+where trace preserving is already imposed, and shows that five out of
+the eight single-qubit PCE maps are quantum channels.
 % 
 % show that only five
 % operations are \pce:
@@ -360,7 +360,7 @@ matrix of a system of qubits.
 
 
 % Thus, i
-In general, a Pauli component erasing (PCE) map is a map
+In general, a PCE map is a map
 that either preserves or completely erases the Pauli components of a
 density matrix. That is, 
 % it transforms its Pauli components as 
@@ -381,7 +381,7 @@ evaluating the conditions for complete positivity is non-trivial and is the main
 problem addressed in this paper.
 We shall refer to the map  $\paulicomponents \mapsto \taus \paulicomponents$, 
 with arbitrary values of 
-$\taus$ (only restricted by complete positivity) as {\it Pauli diagonal maps}. 
+$\taus$ (only restricted by complete positivity), as {\it Pauli diagonal maps}. 
 
 
 % For single 
@@ -425,13 +425,13 @@ $\taus$ (only restricted by complete positivity) as {\it Pauli diagonal maps}.
 % hemos dicho que operaciones de las que definimos aqui, son válidas}
 
 A graphical representation for PCE maps may be introduced, being the
-two qubits case what has proved to be the most useful. Consider a $N$ dimensional 
+two-qubit case that has proved to be the most useful. Consider a $N$-dimensional 
 Cartesian grid, with $4^N$ places.  Each place has $N$ integer coordinates, ranging
 from 0 to 3, so each place corresponds to a given $\vec \alpha$ in 
 \eref{eq:N_qubits_rho}. For a given PCE, we shall fill  
 the square if the corresponding $\tau_{\vec \alpha}=1$. Otherwise, we leave it 
 empty. 
-Examples for $N=1$ and $N=2$ are provided in \fref{fig:one:qubit:examples} and
+Examples for $N=1$ and $2$ are provided in \fref{fig:one:qubit:examples} and
 \fref{fig:two:qubit:examples}, respectively.
 
 
@@ -442,7 +442,7 @@ of ``Pauli diagonal channels constant on axes'' defined in
 Ref.~\cite{nathanson2007pauli}, consisting of convex combinations of
 \textit{quantum-classical} channels. In particular, it can be shown that
 quantum-classical channels defined with the eigenbasis of some set of $2^N-1$
-commuting Pauli observables~\cite{Lawrence2002}, is a \pce{} map with exactly $
+commuting Pauli observables~\cite{Lawrence2002} comprise a \pce{} map with exactly $
 2^N $ components equal to $1$s in its diagonal.
 % \afnote{Aquí me parece que falta información. Creo que hay que decir que es lo
 % que es diagonal y en que base.} 
@@ -452,7 +452,7 @@ For details, we refer the reader to appendix~\ref{quantum_classical}.
 \begin{figure} % {{{
 \includegraphics{two_qubit_PCE.pdf}
 	\caption{In (a) we introduce the
-positions of two qubit diagrams. The diagrams in 
+positions of two qubit diagrams. The diagram in 
 (b) corresponds to a quantum channel that results from the tensor product of
 bit flip channels in each qubit [see \fref{fig:one:qubit:examples}(c)],
 and in (c) a diagram of a map that is not a quantum channel is presented.}

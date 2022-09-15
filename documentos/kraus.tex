@@ -6,9 +6,9 @@ Lindblad processes arise naturally in many
 theoretical~\cite{lindblad,kossa,kossa2,Gorini1976,cirac,davalosdivisibility}
 and experimental~\cite{PhysRevA.67.042322} settings and are archetypical in
 decoherence dynamics. Moreover, these processes lead to a monotonic
-(continuous) lose of information~\cite{breuerreview} and describe
+(continuous) loss of information~\cite{breuerreview} and describe
 non-invertible channels in the asymptotic limit $t\to \infty$ (this can be seen
-from the monotonically (continuous) decreasing of the determinant, see
+from the monotonic (continuous) decrease of the determinant, see
 Ref.~\cite{cirac}).
 It is known that not every quantum channel can be seen as a snapshot of a
 process
@@ -51,7 +51,14 @@ K_0=\frac{\openone}{\sqrt2}, \quad K_1=\frac{\sigma_{\vec \alpha}}{\sqrt2},
 since the Kraus operators corresponding to a single-qubit PCE are 
 $\{\openone/\sqrt2, \sigma_\alpha/\sqrt2\}$,
 corresponding to the operation that leaves the component $\sigma_\alpha$
-invariant~\cite{nielsen_chuang_2011}. Notice that according to Kraus operators, the generators $\mcG_{\vec \alpha}$ are $N$-qubit flip channels with flip probability of $1/2$, where the joint flip is $\rho \mapsto \sigma_{\vec \alpha} \rho \sigma_{\vec \alpha}$. In fact, tracing out all particles except the $k$-th one gives the well known qubit flip channels, \ie{} $\tr_{\not k} \mcG_\valpha=\mcG_{\alpha_k}$, see~ \eref{eq:generator:individual:qubit}. And more generally, tracing out $m$ particles leaves a $N-m$ particles flip channel  (completely dephasing).
+invariant~\cite{nielsen_chuang_2011}. Notice that according to Kraus operators
+the generators $\mcG_{\vec \alpha}$ are $N$-qubit flip channels with flip
+probability $1/2$, where the joint flip is $\rho \mapsto \sigma_{\vec
+\alpha} \rho \sigma_{\vec \alpha}$. In fact, tracing out all particles except
+the $k$th one gives the well-known qubit flip channels, \ie{}, $\tr_{\not k}
+\mcG_\valpha=\mcG_{\alpha_k}$, see~ \eref{eq:generator:individual:qubit}. 
+More generally, tracing out $m$ particles leaves a $N-m$ particles flip channel
+(completely dephasing).
 
 We shall first show that the Kraus operators in \eref{eq:kraus:PCE} produce a PCE. 
 Notice that 
@@ -74,8 +81,8 @@ Next, consider the action of a channel with Kraus representation
 \end{align}
 However, since $\san_{\vec \alpha \vec \beta} = \pm 1$, the channel characterized
 by the Kraus operators in \eref{eq:kraus:PCE} is a PCE channel. Moreover, one can notice that, 
-except for the first row, half of the matrix elements of each row is $+1$ and 
-half $-1$, which implies that the channel is a PCEG. 
+except for the first row, half of the matrix elements of each row are $+1$ and 
+half are $-1$, which implies that the channel is a PCEG. 
 
 % We still have to show that except for $i_1=\cdots=i_n=0$, half of the numbers 
 % $(1+\prod_k a^{i_k}_{j_k})/2=1$, or equivalently, half of $\prod_k a^{i_k}_{j_k}=1$. 
@@ -86,15 +93,15 @@ half $-1$, which implies that the channel is a PCEG.
 
 Observe	 also that a different choice of $\vec \alpha$ in \eref{eq:kraus:PCE}
 leads to different channels. This follows from the fact that if two channels were
-the same, this would imply that the matrix representation of the corresponding
+the same this would imply that the matrix representation of the corresponding
 superoperator of $\rho \mapsto \sigma_{\vec \alpha}\rho \sigma_{\vec \alpha}$
 % $\sigma_{\vec \alpha} \cdot \sigma_{\vec \alpha}$ 
 % \ddnote{en este punto me confundio bastante esta notacion, contrapropongo $\rho
 % \mapsto \sigma_{\vec \alpha}\rho \sigma_{\vec \alpha}$, que es una notación que
 % hemos venido usando.}
 would have to be the same, which is clearly false. Since there are $4^n$ different 
-$\vec \alpha$, this implies that all PCEG (plus the identity map) are in one to 
-one correspondence.  
+$\vec \alpha$ values, this implies that all PCEGs (plus the identity map) are in 
+one-to-one correspondence.  
 
 % \cpnote{We might have spoken about the notation of the generators and here we 
 % can add a sentence about it, but I will wait till JA writes his part.}
@@ -125,23 +132,25 @@ where $\gamma>0$. It is easy to show that the family of channels $\mcG_{\vec
 \alpha, t}$ parametrized with $t \geq 0$ forms a one-parametric semigroup,
 \ie{} $\mcG_{\vec \alpha, t_1}\mcG_{\vec \alpha, t_2}=\mcG_{\vec \alpha,
 t_1+t_2}$. Therefore $\mcG_{\vec \alpha, t}$ describes a dissipative
-time-homogeneous Markovian process, which are always characterized by some
+time-homogeneous Markovian process, which is always characterized by some
 Lindblad generator~\cite{lindblad}. The Lindblad generator of $\mcG_{\vec
 \alpha, t}$, denoted by $\mcL_{\vec \alpha}$, can be obtained using the standard
-procedure,  
+procedure:
 \begin{equation}
-\mcL_{\vec \alpha}[\rho]=\left. \frac{d\mcG_{\vec \alpha,t}[\rho]}{dt}\right|_{t=0}=\frac{\gamma\left(\sigma_{\vec \alpha}\rho \sigma_{\vec \alpha} -\rho \right)}{2},
+\mcL_{\vec \alpha}[\rho]
+   =\left. \frac{d\mcG_{\vec \alpha,t}[\rho]}{dt}\right|_{t=0}
+   =\frac{\gamma\left(\sigma_{\vec \alpha}\rho \sigma_{\vec \alpha} -\rho \right)}{2},
 \end{equation}
 where the unique Lindblad operator associated with the relaxation ratio
 $\gamma/2$ is simply $\sigma_{\vec \alpha}$. Notice that $\sigma_{\vec \alpha}$
-is trace-less, therefore the process is pure dissipative~\cite{cirac}.
+is trace-less, therefore the process is purely dissipative~\cite{cirac}.
 
 Since PCEGs commute, we can describe easily any other PCE channel as a fixed
 point of a decoherence process. For them, the Lindblad generators are the sum
 of the Lindbladians of the corresponding generators. As an example, consider
-the channel depicted in \fref{fig:two:qubit:examples} b), it is equal to
+the channel depicted in \fref{fig:two:qubit:examples}(b); it is equal to
 $\mcG_{(0,3)}\mcG_{(3,3)}$, therefore it is the fixed point of the dissipation
-process described with the following Lindbladian,
+process described with the following Lindbladian:
 \begin{equation}
 \mcL[\rho]=\frac{\gamma_{(0,3)}\left(\sigma_{(0,3)}\rho\sigma_{(0,3)}-\rho \right)}{2}
    +\frac{\gamma_{(3,3)}\left(\sigma_{(3,3)}\rho\sigma_{(3,3)}-\rho
@@ -152,9 +161,10 @@ where $\gamma_{(0,3)}$ and $\gamma_{(3,3)}$ are positive and correspond to the L
 % }}}
 \subsection{Collision model implementation} % {{{
 We show now that PCE channels can also be implemented with \textit{simple
-collision models}~\cite{Ziman2010}. To do this, observe that employing the Stinespring dilation theorem~\cite{Stinespring2006}, PCEGs can
-be implemented using an unitary over the system and an
-ancilla. Since PCEG
+collision models}~\cite{Ziman2010}. To do this, observe that employing the
+Stinespring dilation theorem~\cite{Stinespring2006} PCEGs can
+be implemented using a unitary over the system and an
+ancilla. Since PCEGs
 always have Kraus rank $2$, one can
 always choose a qubit as the ancillary system. Concretely,
 \begin{equation}
@@ -163,8 +173,8 @@ always choose a qubit as the ancillary system. Concretely,
          U_{\vec \alpha} \left(\rho\otimes \projj{0}\right) U_{\vec \alpha}^\dagger{} 
      \right),
 \end{equation}
-where $\tr_{\text{qubit}}$ denotes partial trace over the ancillary qubit, with
-the unitary defined as follows,
+where $\tr_{\text{qubit}}$ denotes the partial trace over the ancillary qubit, with
+the unitary defined as follows:
 \begin{align}
 U_{\vec\alpha}\ket{\psi} \ket{0}= \frac{1}{\sqrt{2}} 
    \left( \ket{\psi} \ket{0}+\sigma_{\vec\alpha} \ket{\psi}\ket{1} \right),\\
@@ -186,7 +196,8 @@ particle. Therefore $\mcE$ can be written as follows,
 \begin{equation}
 \mcE[\rho]=\tr_{\text{E}} \left[ \left(U_{\vec \alpha_1} \dots U_{\vec \alpha_M}\right) \rho \otimes \left(\projj{0}\right)^{\otimes M} \left(U_{\vec \alpha_1} \dots U_{\vec \alpha_M} \right)^\dagger{} \right],
 \end{equation}
-where $\tr_{\text{E}}$ is the partial trace over the whole ancillary qubits. Notice that as PCEGs commute, the order of the collisions is irrelevant.
+where $\tr_{\text{E}}$ is the partial trace over all ancillary qubits. Notice
+that as PCEGs commute the order of the collisions is irrelevant.
 % \begin{itemize}
 % \item Relate to decoherence, for PCEG\ddnote{hecho}
 % \item Play with non PCEG PCEs\ddnote{hecho}

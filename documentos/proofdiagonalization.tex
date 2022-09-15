@@ -2,7 +2,7 @@
 \label{sec:appendix:diagonalization}
 % 
 In order to simplify the derivation of the relations, let us employ pairs of
-binary indices instead of a single quaternary, i.e. $\alpha\to j +2 k$. For
+binary indices instead of a single quaternary, i.e., $\alpha\to j +2 k$. For
 the sake of clarity, we use Latin symbols for binary indices, and
 reserve Greek letters for quaternary ones. 
 We can write the elements of the Pauli basis
@@ -42,8 +42,8 @@ of tensor products of Pauli matrices
    \frac{1}{2}\sum_{l m } \tau_{l m } \sigma_{l m } \otimes \sigma_{l m }^*.
  \label{Choi_Pauli_1q}
 \end{equation}
-Back to the Eq. \ref{Choi_a1}), let us apply the index relabeling $k\to j+
-k (\text{mod} 2)$, then the Choi matrix reads
+Returning to the Eq. \ref{Choi_a1}), let us apply the index relabeling $k\to j+
+k (\text{mod} 2)$; then the Choi matrix reads
 \begin{multline}
  \mathcal{D} =
     \frac{1}{2}\sum_{jk lm} \tau_{ lm} (-1)^{ l k} \\
@@ -111,11 +111,11 @@ In other words this operation corresponds to a reordering of the eigenvalues.
 
 % }}}
 \subsection{$N$ qubits} % {{{
-To work out the $N$ qubit case, we again rely on binary indices. In this case, we replace 
-$N$ dimensional vector $\valpha$ with a pair of $N$ dimensional vector binary
+To work out the $N$-qubit case, we again rely on binary indices. In this case, we replace 
+$N$-dimensional vector $\valpha$ with a pair of $N$-dimensional vector binary
 indices $\vec j$ and $\vec k$ so that 
 each entry $\alpha_i$ of $\valpha$ is identified with the pair $j_i$ and $k_i$ as in the 
-single qubit case of the previous subsection. Then, all the steps leading to 
+single-qubit case of the previous subsection. Then, all the steps leading to 
 \eref{eq:lambda:is:tau:appendix} can be redone. 
 
 
@@ -132,7 +132,7 @@ With this in mind, a $N$-qubit Pauli map can be written as
 \hat{\mathcal{E}}_N = 
   \frac{1}{2^N}\sum_{\vec{l}\vec{m}} \tau_{\vec{l}\vec{m}} \ddyada{\sigma_{\vec{l}\vec{m} }}. 
 \end{equation}
-The generalization of Eqs.~(\ref{CompToPau}) and (\ref{PauToComp}) read 
+The generalizations of Eqs.~(\ref{CompToPau}) and (\ref{PauToComp}) read 
 \begin{align}
 \kket{\sigma_{\vec{k}\vec{l} }}  & = 
    \sum_{\vec{j}} (-1)^{\vec{j}\cdot\vec{k}} \ket{\vec{j}}\ket{\vec{j}+ \vec{l}(\text{mod}2)},\\
@@ -168,7 +168,7 @@ The generalization of Eqs.~(\ref{CompToPau}) and (\ref{PauToComp}) read
 % \end{align}
 % \end{widetext}
 By employing the previous relations, we can write the matrix representation of
-the map, $\hat{\mathcal{E}}_N $ in the $N$-qubits computational basis as
+the map, $\hat{\mathcal{E}}_N $ in the $N$-qubit computational basis as
 \begin{multline}
 \hat{\mathcal{E}} 
 % & = \frac{1}{2}\sum_{l m=0}^{1} \tau_{l m} \ddyada{\sigma_{l m}} 
@@ -185,7 +185,7 @@ the map, $\hat{\mathcal{E}}_N $ in the $N$-qubits computational basis as
 % = & \frac{1}{2^N}\sum_{\vec{j}\vec{k}\vec{\mu}\vec{\nu}} \tau_{\vec{\mu}\vec{\nu}} (-1)^{\vec{\mu}\cdot(\vec{j}+\vec{k})} \ddyad{\vec{j},\vec{j}\oplus \vec{\nu}}{\vec{k},\vec{k}\oplus \vec{\nu}}.
 % \end{align}
 In this way it is straightforward to apply the reshuffling operation on
-$\hat{\mathcal{E}}_N$ to obtain the associated Choi matrix, 
+$\hat{\mathcal{E}}_N$ to obtain the associated Choi matrix, and
 then transform back to the Pauli basis and simplify to obtain 
 \begin{align}
 \mathcal{D}_N & = 

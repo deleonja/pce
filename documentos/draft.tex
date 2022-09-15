@@ -214,7 +214,17 @@
 \author{David Davalos} \affiliation{\sas}
 \author{Carlos Pineda} \email{carlospgmat03@gmail.com} \affiliation{\ifunam}
 \begin{abstract} % {{{
-Decoherence of quantum systems is described by quantum channels.  However, a complete understanding of such channels, specially in the multi-particle setting,  is still an ongoing difficult task.  We propose the family of quantum maps that preserve or completely erase the components of a multi-qubit system in the basis of Pauli strings, which we call Pauli component erasing (PCE) maps.  For the corresponding channels, it is shown that the preserved components can be interpreted as a finite vector subspace, from which we derive several properties and complete the characterization.  Moreover, we show that the obtained family of channels form a semigroup and derive its generators. We use this simple structure to determine physical implementations and connect the obtained family of channels with Markovian processes.
+Decoherence of quantum systems is described by quantum channels.  However, a
+complete understanding of such channels, especially in the multi-particle
+setting,  is still an ongoing difficult task.  We propose the family of quantum
+maps that preserve or completely erase the components of a multi-qubit system
+in the basis of Pauli strings, which we call {\it Pauli component erasing} 
+maps.  For the corresponding channels, it is shown that the preserved
+components can be interpreted as a finite vector subspace, from which we derive
+several properties and complete the characterization.  Moreover, we show that
+the obtained family of channels forms a semigroup and derive its generators. We
+use this simple structure to determine physical implementations and connect the
+obtained family of channels with Markovian processes.
 % 
 % We generalize the notion that \afnote{an (any?) operation that collapeses the
 % Bloch sphere into a disk with unity radius does not correspond to a quantum
@@ -282,14 +292,15 @@ Decoherence of quantum systems is described by quantum channels.  However, a com
 % % }}}
 % \par
 \begin{acknowledgments}% {{{
-Support by projects CONACyT 285754, 254515 and UNAM-PAPIIT IG100518, IG101421 is
+Support by CONACyT Grants No. 285754 and No. 254515 and UNAM-PAPIIT Grants No. IG100518 and 
+No. IG101421 is
 acknowledged.  
 J. A. d.~L. acknowledges a scholarship from CONACyT.
 J. A. d.~L. thanks Juan Diego Chang for the fruitful
 discussions and support at the early stages of this project.  A. F.
 acknowledges funding by Fundação de Amparo à Ciência e Tecnologia do Estado de
-Pernambuco - FACEPE, through processes BFP-0168-1.05/19 and BFP-0115-1.05/21.
-D. D. acknowledges OPTIQUTE APVV-18-0518, DESCOM VEGA-2/0183/21 and Štefan
+Pernambuco, through Grants No. BFP-0168-1.05/19 and No. BFP-0115-1.05/21.
+D. D. acknowledges OPTIQUTE Grant No. APVV-18-0518, DESCOM Grant No. VEGA-2/0183/21, and the Štefan
 Schwarz Support Fund.
 % Conversations with F. de Melo, T. H. Seligman, J. D. Urbina
 % and A. Diaz-Ruelas are also acknowledged. 
@@ -300,7 +311,7 @@ Schwarz Support Fund.
 \section{Number of PCEs for a fixed number of invariant components} % {{{
 \label{app:contar}
 Finally, we may enumerate straightforwardly the subspaces $W$ of dimension $K$.
-We do this in 2 steps: first, we evaluate $\nnn_{K,N}$, the number of all
+We do this in two steps: first, we evaluate $\nnn_{K,N}$, the number of all
 linearly independent subsets $V$ with $K$ elements. Each of these is the basis
 of one subspace of dimension $K$, but each subspace has a number $\mmm_K$ of
 different bases. The crucial point is that $\mmm_K$ is independent of the
@@ -329,7 +340,7 @@ of which there are $2^K-2^{m}$.  This eventually yields
 \right).
 \label{eq.21}
 \end{equation}
-From this follows that
+From this it follows that
 \begin{equation}
 \sss_{N,K}=\prod_{m=0}^{K-1} \frac{2^{2N-m}-1}{2^{K-m}-1}.
 \label{eq:22}

@@ -31,7 +31,7 @@ to positive eigenvalues $\lambda_\valpha$, as in \eref{eq:lambda:is:A:tau}.
 % where
 % $\san_{\vec\alpha\vec\beta} =\sa_{\alpha_1\beta_1}\cdot\ldots\cdot
 % \sa_{\alpha_N\beta_N}$. 
-Using the fact that $a^{-1}=a/4$, so 
+Using the fact that $a^{-1}=a/4$, and so 
 % (so $A = A^{-1}/2^N$) 
 \begin{equation}
 A^{-1} = \frac{1}{4^N} A,
@@ -49,8 +49,8 @@ This is a remarkable equation, as it provides a method to diagonalize the
 Choi matrix of any Pauli diagonal map.
 
 
-Other two simple but crucial observations are the following. 
-For valid quantum channels it holds 
+Two other simple but crucial observations are the following. 
+For valid quantum channels it holds that 
 % \begin{equation}
 % % \sum_{
 % \end{equation}
@@ -114,7 +114,7 @@ and $\tau_{\vec{\gamma^\prime}}$ are equal if
 \label{eq:coneccion:dos:indices:A}
 \end{equation}
 This follows from restricting the sum \eref{eq:tau:is:A:p}
-to the $\lambda_\vbeta \ne 0$, given in \eref{eq:condition:lambda:zero:Phi}. 
+to $\lambda_\vbeta \ne 0$, given in \eref{eq:condition:lambda:zero:Phi}. 
 Condition (\ref{eq:coneccion:dos:indices:A}) therefore connects three
 multi-indices, $\valpha$,
 $\vec\gamma$ and $\vec{\gamma^\prime}$.
@@ -127,7 +127,7 @@ follows: $\vbeta_k$ is zero everywhere except
 for the $k$'th coordinate, which takes a value $\beta$ such that  $\sa_{\alpha_k\beta}=1$. Since 
 $\sa_{\alpha 0}=1$ for any $\alpha$, this particular choice of $\vbeta$
 indeed belongs to  $\Phi(\vec\alpha)$, so that if \eref{eq:coneccion:dos:indices:A} holds for 
-all $\vbeta\in\Phi(\vec\alpha)$, it must hold for that particular $\vbeta_k$, which leads to:
+all $\vbeta\in\Phi(\vec\alpha)$, it must hold for that particular $\vbeta_k$, which leads to
 % 
 % Let us now work out the nature of the aforementioned connection.  Let the
 % components of  $\vbeta$ be such that $\beta_l = \beta \delta_{lk}$ for a
@@ -147,7 +147,7 @@ working out the different cases, that \eref{eq:14} is equivalently expressed as
 \gamma_k^\prime=\alpha_k\oplus{}\gamma_k
 \label{eq:oplus}
 \end{equation}
-where the $\oplus{}$ denotes the operation of the Klein group; see Table
+where $\oplus{}$ denotes the operation of the Klein group; see Table
 \ref{tab:1} for a detailed description. 
 \par
 % }}}
@@ -158,7 +158,7 @@ a vector space. To do so, we notice that any group with the property that
 $\alpha \oplus \alpha =0$ is indeed a vector space under the two-element field
 $\{0,1\}$.
 We notice that the Klein group described in Table \ref{tab:1} is actually isomorphic
-to the two dimensional vector space over the field of two elements $\{0,1\}$.
+to the two-dimensional vector space over the field of two elements $\{0,1\}$.
 Then, we build the complete vector space,
 with the same field, and defining $\valpha \oplus \vbeta = (\alpha_1 \oplus
 \beta_1,\cdots, \alpha_N \oplus \beta_N)$
@@ -169,7 +169,7 @@ such that to each multindex  $\valpha$ there corresponds a binary string of
 length $2N$. In fact, our sum $\oplus$ would correspond to addition modulo 2 of 
 each of the $2N$ components. 
 }. 
-We can indeed restate \eref{eq:oplus}, and say that for quantum channels, 
+We can indeed restate \eref{eq:oplus} and say that, for quantum channels, 
 if $\tau_{\vec\alpha}=1$, then
 $\tau_{\vec\gamma}=\tau_{\vec\alpha\oplus{}\vec\gamma}$.
 For example, in \fref{fig:two:qubit:examples}(c) the indices that 
@@ -197,8 +197,8 @@ $\oplus{}$ & 0 & 1& 2 & 3\\
 \hline
 \end{tabular}
 \caption{Definition of the $\oplus{}$ operation, see \eref{eq:14}. Note that
-the operation is an abelian group, in fact it corresponds to the 
-Klein group, where the neutral element is $0$. This is the reason for choosing
+the operation is an Abelian group; in fact it corresponds to the 
+Klein group, where the neutral element is zero. This is the reason for choosing
 an additive notation for the operation defined in (\ref{eq:14}). }
 \label{tab:1}
 \end{center}
@@ -206,12 +206,12 @@ an additive notation for the operation defined in (\ref{eq:14}). }
 
 
 From this readily follows an amusing property: the set of all multi-indices
-$\vec\gamma$ for which $\tau_{\vec\gamma}=1$, is closed under binary
-vector addition, in other words, it forms a vector subspace of the set
+$\vec\gamma$ for which $\tau_{\vec\gamma}=1$ is closed under binary
+vector addition; in other words, it forms a vector subspace of the set
 of all multi-indices.
 A moment's consideration will further show that the above reasoning can be
-inverted, that is, that if we set all $\tau_{\vec\gamma}$ equal to one
-whenever the $\vec\gamma$ belongs to a given vector subspace of the set of
+inverted; that is, if we set all $\tau_{\vec\gamma}$ equal to $1$
+whenever $\vec\gamma$ belongs to a given vector subspace of the set of
 all indices, then $\tau$ indeed has an image
 which has
 only positive components. 
@@ -222,10 +222,10 @@ a quantum channel, and a vector subspace of the aforementioned space.
 % }}}
 % Generacion de soluciones {{{
 With this information, we present a procedure to generate all solutions: we start out
-from the solution having $\tau_{\vec0}=1$, with everything else $0$. We may
+from the solution having $\tau_{\vec0}=1$, with everything else zero. We may
 then successively switch $\tau_{\vec\alpha}$'s
 % \janote{agregué el subíndice $\vec\alpha$} 
-to $1$ for various values of $\valpha$,
+to one for various values of $\valpha$,
 taking care immediately to set equal to one the components of $\tau$
 % \janote{puse la $\tau$ como vector y hay otro antes}
 that
@@ -319,11 +319,11 @@ of exploring the exponentially large space of all PCE maps.  \par
 % \end{tikzpicture} % }}}
 \end{center}
 \caption{
-Examples of diagrams for several 2-qubit PCE quantum channels: (a) the totally
-depolarizing channel, (b) a PCE channel that preserves four components, the
-normalization component, one local component of qubit 2 and two correlations between the 
+Examples of diagrams for several two-qubit PCE quantum channels: (a) the totally
+depolarizing channel and (b) a PCE channel that preserves four components---the
+normalization component, one local component of qubit 2, and two correlations between the 
 two qubits.
-(c), (d) and (e) show the three generators $\mcG_{(1,0)}$, $\mcG_{(3,2)}$ and
+(c), (d), and (e) show the three generators $\mcG_{(1,0)}$, $\mcG_{(3,2)}$, and
 $\mcG_{(2,2)}$, respectively; the combination (overlap of diagrams) of any two
 of them yields the channel in (b).
 (f) represents the identity map. 
@@ -387,7 +387,7 @@ From the above expression, it is easy to see the symmetry relation
 \begin{equation}\label{eq:conteo:simmetry}
 \sss_{N,K}=\sss_{N,2N-K}
 \end{equation}
-which suggest a relation  between individual channels that
+which suggests a relation  between individual channels that
 preserve $K$ and $2N-K$ Pauli components that for the time being
 has escaped our efforts to identify. 
 \par % }}}

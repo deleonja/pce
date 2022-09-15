@@ -1,8 +1,8 @@
 \section{Mathematical considerations} 
 \label{sec:math}
 % Intro {{{
-This section is devoted to derive the conditions a Pauli diagonal map needs to satisfy 
-the complete positivity condition i.e. that all the eigenvalues of the Choi matrix
+This section is devoted to deriving the conditions a Pauli diagonal map needs to satisfy 
+the complete positivity condition, i.e., that all the eigenvalues of the Choi matrix
 associated to the channel are non-negative.  To do so, we calculate
 and diagonalize the Choi matrix of a general Pauli diagonal map, first for a
 single qubit and then for $N$ qubits. 
@@ -17,7 +17,7 @@ This allows us to
 derive several important properties of this particular family of channels.
 %\sout{conclusions. }
 % }}}
-\subsection{Diagonalization of Choi matrix} % {{{
+\subsection{Diagonalization of the Choi matrix} % {{{
 We now construct the Choi matrix of a single-qubit Pauli diagonal map
 %We now construct the Choi matrix associated to the single qubit map
 $\mathcal{E}$. As described above, $\mathcal{E}$ is a linear map from
@@ -119,7 +119,7 @@ we chose the aforementioned definition as some later considerations [see
 
 The same program can be carried out for $N$ qubits. In this case, 
 %the vectorized Pauli operators are defined as follows, 
-one uses the vectorized Pauli strings, 
+one uses the vectorized Pauli strings:
 \begin{equation}\label{eq:vectorized_pauli_strings}
 \kket{\sigma_{\vec{\alpha} }}=
 \kket{\sigma_{\alpha_1}\otimes\cdots\otimes \sigma_{\alpha_N}}.
@@ -166,7 +166,7 @@ map corresponding to a Pauli diagonal map is
 \hat{\mathcal{E}}_N = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}} \ddyada{\sigma_{\vec{\alpha} }}.
 \end{equation}
 As in the previous case, the Choi matrix $\mathcal{D}_N$ may be written in
-terms of tensor products of Pauli matrices
+terms of tensor products of Pauli matrices:
 \begin{equation}
  \mathcal{D}_N 
   = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}}

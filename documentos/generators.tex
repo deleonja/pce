@@ -26,14 +26,14 @@ and since intersection of subspaces translates to composition of PCE channels,
 this implies that all PCE quantum channels can be obtained as
 compositions of PCE channels corresponding to maximally non-trivial subspaces, plus
 the identity map. In other words, the set of PCE quantum channels that preserve half 
-of the components plus the identity map, are a generator set for 
+of the components plus the identity map, is a generator set for 
 all PCE channels.
 Consider \Fref{fig:examplesPCE}; subfigures (c), (d) and (e) represent nontrivial 
-PCE generators and the composition of any two of them yield the PCE channel
+PCE generators (PCEGs) and the composition of any two of them yields the PCE channel
 corresponding to (b). 
 
 
-PCE generators (hereafter PCEGs) may be characterized by its local
+A PCEGs may be characterized by its local
 action on every qubit 
 in the system. This action can be encoded using a multi-index $\vec\alpha$, 
 as in \eqref{eq:pauli_strings}, hence each of the different $4^N$ 
@@ -42,13 +42,13 @@ and thus denoted as $\mcG_{\vec\alpha}$, see figures \ref{fig:A_and_PCEGs_connec
 The proof is simplified if one uses the Kraus representation developed in 
 \sref{sec:kraus}, so we postpone the demonstration to appendix \ref{sec:2_qubits}.
 For single qubits, the identity corresponds to $\mcG_0$, shown in 
-\fref{fig:one:qubit:examples}(b), whereas $\mcG_3$ is shown in in 
+\fref{fig:one:qubit:examples}(b), whereas $\mcG_3$ is shown in 
 \fref{fig:one:qubit:examples}(c).
-The 2-qubits PCE generator represented in subfigure (c)
-of \Fref{fig:examplesPCE} acts on the first qubit (first column) as mapping its
-Bloch sphere to de $x$-axis, and on the second qubit (first row) acts an identity,
+The two-qubit PCE generator represented in subfigure (c)
+of \Fref{fig:examplesPCE} acts on the first qubit (first column) as a map of its
+Bloch sphere to the $x$ axis, and on the second qubit (first row) as an identity,
 hence it is labeled $\mcG_{(1,0)}$.
-See \Fref{fig:appex:twoQ_PCEGs} for the notation of all 2-qubit PCE generators.
+See \Fref{fig:appex:twoQ_PCEGs} for the notation of all two-qubit PCE generators.
 
 A reflection symmetry is identified for PCE generators.
 Consider the map $\Sigma^{(k)}$ that reflects a multi-index $\valpha$ with 
@@ -73,20 +73,21 @@ From the first property, we now obtain
 This implies that if $\Sigma^{(k)}(\vec0)$ belongs
 to a channel then 
 $\tau_\valpha = \tau_{\Sigma^{(k)}(\vec\alpha)}$, where we used 
-the fact that for channels, the non-zero elements are closed
+the fact that for channels the non-zero elements are closed
 under $\oplus$. In other words, the components of a PCE channel
-are symmetric under reflection over the $k$-th axis. Now consider the case in which 
+are symmetric under reflection over the $k$th axis. Now consider the case in which 
  $\Sigma^{(k)}(\vec0)$ does not belong to generator. Then 
 $\tau_\valpha \ne \tau_{\Sigma^{(k)}(\vec\alpha)}$, since
 the case $\tau_\valpha = \tau_{\Sigma^{(k)}(\vec\alpha)}=1$
 is forbidden due to \eref{eq:Sigma} and the case 
 $\tau_\valpha = \tau_{\Sigma^{(k)}(\vec\alpha)}=0$ is also forbidden 
-because for generators, the codimension of the associated vector space 
+because for generators the codimension of the associated vector space 
 is 1. This means that the components of a PCE channel are antisymmetric
-with respect to reflection over the $k$-th axis. 
-Indeed, the 2-qubit PCE generators 
+with respect to reflection over the $k$th axis. 
+Indeed, the two-qubit PCE generators 
 $\mcG_{(1,0)}$, $\mcG_{(3,2)}$ and $\mcG_{(2,2)}$
-represented in subfigures (c), (d) and (e) of \Fref{fig:two:qubit:examples}, 
+represented in Figs.~\ref{fig:two:qubit:examples}(c),
+\ref{fig:two:qubit:examples}(d), and \ref{fig:two:qubit:examples}(e),
 respectively, are either symmetric or anti-symmetric under reflection with 
 respect to lines that divide the diagram in half vertically and horizontally. 
 
