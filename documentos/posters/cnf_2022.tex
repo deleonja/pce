@@ -1,0 +1,309 @@
+%==============================================================================
+%== template for LATEX poster =================================================
+%==============================================================================
+%
+%--A0 beamer slide-------------------------------------------------------------
+\documentclass[final,svgnames]{beamer}
+\usepackage{tikz}
+\usepackage[orientation=portrait,size=a0,
+            scale=1.25         % font scale factor
+           ]{beamerposter}
+           
+\geometry{
+  hmargin=2.5cm, % little modification of margins
+}
+
+
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
+\FXRegisterAuthor{cp}{acp}{\color{blue}CP}
+\definecolor{jacolor}{RGB}{200,40,0} \FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
+% \usepackage[mathlines]{lineno}  \linenumbers \setlength\linenumbersep{3pt}
+
+\newcommand{\cuadritotikz}{
+% \pgfmathsetmacro{\unitstep}{5.2}
+% \node at (-0.5,0.5) {(a)} ;
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw[black!10] (0,0) rectangle (1,1); 
+%           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+         \end{scope}
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+ \draw (0,-3) rectangle (4,1);
+}
+
+\renewcommand{\indent}{\hspace*{15pt}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand\todo[1]{\textcolor{red}{#1}}
+
+\usepackage[spanish,activeacute]{babel}
+\usepackage{physics}
+
+\newcommand{\Mod}[1]{\ (\mathrm{•}mathrm{mod}\ #1)}
+
+%
+\usepackage[utf8]{inputenc}
+\usepackage{dsfont}
+
+\newcommand{\one}{\mathds{1}}
+
+\newcommand{\valpha}{\vec\alpha}
+
+\linespread{1.15}
+%
+%==The poster style============================================================
+\usetheme{sharelatex}
+
+%==Title, date and authors of the poster=======================================
+\title
+% [LXV Congreso Nacional de Física - Zacatecas] % Conference
+{ % Poster title
+Pauli component erasing (PCE) quantum channels
+}
+
+\author{ % Authors
+Jose Alfredo de Leon\inst{1,2}, Alejandro Fonseca\inst{3,2}, Francois Leyvraz\inst{4},
+David Davalos\inst{5}, Carlos Pineda\inst{2}
+}
+\institute
+[Very Large University] % General University
+{
+\inst{1} Instituto de Investigación en Ciencias Físicas, ECFM, Universidad de San Carlos de Guatemala, Guatemala\\[-0.3ex]
+\inst{2} Instituto de Física, Universidad Nacional Autónoma de México, México\\[-0.3ex]
+\inst{3} Departamento de Física, CCEN, Universidade Federal de Pernambuco, Brasil\\[-0.3ex]
+\inst{4} Instituto de Ciencias Físicas, Universidad Nacional Autónoma de México, México\\[-0.3ex]
+\inst{5} Institute of Physics, Slovak Academy of Sciences, Slovakia
+}
+\date{\today}
+
+\begin{document}
+\vspace*{-2cm}
+\begin{frame}[t]
+\begin{tikzpicture}[x=1mm,y=1mm,overlay,remember picture]
+\pgftransformshift{\pgfpointanchor{current page}{center}}
+\node[inner sep=0pt] (usac) at (-370,445) %
+{\includegraphics[height=5cm]{logos/ecfmByN.png}};
+\node[inner sep=0pt] (usac) at (-305,445) %
+{\includegraphics[height=4cm]{logos/ifunam.png}};
+\node[inner sep=0pt] (usac) at (265,445) %
+{\includegraphics[height=5cm]{logos/pernambuco_logo.png}};
+\node[inner sep=0pt] (usac) at (315,445) %
+{\includegraphics[height=5.2cm]{logos/icf.png}};
+\node[inner sep=0pt] (usac) at (370,445) %
+{\includegraphics[height=5.2cm]{logos/Slovak-Academy-of-Sciences.png}};
+\end{tikzpicture}
+%==============================================================================
+\begin{multicols}{3}
+%==============================================================================
+%==The poster content==========================================================
+%==============================================================================
+
+\section{Resumen}
+\indent Procesos de disipación, como la decoherencia de los sistemas cuánticos, pueden describirse con la teoría de los canales cuánticos. No obstante, sigue siendo una tarea difícil entender el conjunto de todos los canales cuánticos, especialmente para sistemas de muchas partículas. En ese contexto, proponemos los mapeos \textit{Pauli component erasing} (PCE), que preservan o borran por completo las componentes de la matriz de densidad de un sistema de muchos qubits. Para aquellos que son canales cuánticos mostramos su correspondencia con subespacios vectoriales y así hacemos su caracterización. A partir de su estructura de semigrupo derivamos sus generadores y, con esto, determinamos implementaciones físicas para conectar a los canales PCE con procesos Markovianos.
+
+% \section{Introducción}
+\section{El problema}
+\indent Los estados de una partícula de dos niveles, un qubit, pueden visualizarse geométricamente en la esfera de Bloch. Los procesos de disipación y decoherencia se describen como proyecciones de la esfera de Bloch. Sin embargo, como mostramos en la Fig. \ref{fig:projections} no todas las proyecciones describen evoluciones físicas.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\columnwidth]{img/bloch.png}
+    \caption{Sólo algunas de las proyecciones de la esfera de Bloch son permitidas.}
+    \label{fig:projections}
+\end{figure}
+\section{Canales cuánticos}
+\indent Los canales cuánticos son un marco teórico dentro del cual se pueden estudiar la dinámica de sistemas cuánticos, como las transformaciones de la esfera de Bloch en la Fig. \ref{fig:projections}.
+
+\indent Un canal cuántico es un mapeo de matrices de densidad a matrices de densidad. Es decir, $\rho\mapsto\mathcal{E}(\rho)$, donde $\mathcal{E}$ es un mapeo completamente positivo que preserva la traza de $\rho$.
+Un mapeo $\mathcal{E}$ está unívocamente caracterizado por su matriz de Choi $\mathcal{D}\propto \qty(\one\otimes\mathcal{E})\qty[\sum_{j,k}\ket{j}\ket{j}\bra{k}\bra{k}]$. $\mathcal{D}$ es una matriz positiva semidefinida si y sólo si $\mathcal{E}$ es completamente positivo.
+
+
+\section{Mapeos PCE}
+% La forma más general de escribir a la matriz de densidad de un qubit es 
+% \begin{align}\label{eq:one:qubit:matrix}
+%     \rho=\frac{1}{2}\sum_{\alpha=0}^3r_\alpha\sigma_\alpha,
+% \end{align}
+% con $\sigma_0=\one$ y $\sigma_{1,2,3}=\sigma_{x,y,z}$ las matrices de Pauli. La condición 
+% de normalización requiere que $r_0=1$. Las componentes $r_{1,2,3}$ forman el vector de Bloch. 
+
+% \hspace*{6pt}Introducimos a un mapeo \textit{Pauli component erasing} (PCE) como un mapeo que actúa sobre las componentes de la matriz de densidad \eqref{eq:one:qubit:matrix} según
+% \begin{align}
+%     r_\alpha\mapsto \tau_\alpha r_\alpha,\quad \tau_\alpha=0,1.
+% \end{align}
+% En la Fig. \ref{fig:1:qubit:diagrams} introducimos una representación de los mapeos PCE. 
+% \vskip1ex
+% \begin{figure}
+% \centering
+% \includegraphics[width=.8\columnwidth]{img/one_qubit_PCE.pdf}
+% \caption{Ejemplos de diagramas para mapeos PCE de 1 qubit. En (a) introducimos la correspondencia entre las $\tau_{i}$ de $\mathcal{E}$ y las posiciones de los cuadros en el diagrama. Un cuadro negro (blanco) se corresponde con $\tau_i=1$ ($\tau_i=0$). En (b) se muestra la identidad, en (c) y (e) los canales de abajo y arriba en la Fig. \ref{fig:projections}, respectivamente, y en (d) el completamente depolarizante.}    
+% \label{fig:1:qubit:diagrams}
+% \end{figure}
+
+% Como vimos en la Fig. \ref{fig:projections} no todos los mapeos PCE son canales cuánticos. Para 
+% esto debemos evaluar las condiciones que las $\tau_\alpha$ deben de satisfacer,
+% \begin{align}
+%     1+\tau_1+\tau_2+\tau_3&\geq 0\\
+%     1+\tau_\alpha+\tau_\beta+\tau_\gamma &\geq 0,\quad \forall \alpha\ne \beta\ne \gamma.
+% \end{align}
+% %============================================
+% Estas desigualdades aseguran que el mapeo PCE sea completamente positivo y, por lo tanto,
+% un canal cuántico.
+\indent La forma más general de escribir a la matriz de densidad de $N$ qubits es 
+\begin{align}
+    \rho=\frac{1}{2^N}\sum_{\valpha}r_{\valpha}\sigma_{\valpha},
+\end{align}
+donde $\valpha$ denota un multi índice $(\alpha_1,\ldots,\alpha_N)$, $\alpha_j=0,1,2,4$, y 
+$\sigma_{\valpha}=\sigma_{\alpha_1}\otimes\sigma_{\alpha_2}\otimes\ldots\otimes\sigma_{\alpha_N}$. La condición de normalización de $\rho$ restringe que $r_{\vec 0}=1$. 
+
+\indent Definimos a un mapeo \textit{Pauli component erasing} (PCE) como un mapeo que actúa sobre $\rho$ como
+\begin{align}\label{eq:pce:N:qubits}
+    r_{\valpha}\mapsto\tau_{\valpha} r_{\valpha},\quad \tau_{\valpha}=0,1.
+\end{align}
+Para que, por definición, un mapeo PCE preserve la traza imponemos que $\tau_{\vec 0}=1$. Nos vamos a referir a un mapeo de la forma \eqref{eq:pce:N:qubits}, pero sin la restricción sobre los valores de $\tau_{\valpha{}}$, como un mapeo diagonal de Pauli. En la Fig. \ref{fig:2:qubits:diagrams} introducimos diagramas para representar a los mapeos 
+PCE de 1 y 2 qubits. 
+%============================================
+\vskip2ex
+\begin{figure}
+\centering
+\includegraphics[width=.8\columnwidth]{img/one_and_two_qubit_PCE.pdf}
+\vspace*{2ex}
+\caption{En (a) y (f) introducimos la correspondencia entre las $\tau_{\valpha{}}$ de un mapeo PCE [vea Eq. \eqref{eq:pce:N:qubits}] y las posiciones de los cuadros en los diagramas. Un cuadro negro (blanco) se corresponde con $\tau_{\valpha{}}=1$ ($\tau_{\valpha{}}=0$). En (b) se muestra la identidad de 1 qubit, en (c) y (e) los canales ilustrados en la Fig. \ref{fig:projections}, en (d) el completamente depolarizante, (g) corresponde a un canal cuántico que es el producto tensorial del canal (c) en cada qubit y en (h) mostramos un mapeo PCE de 2 qubits que no es un canal cuántico.}
+\label{fig:2:qubits:diagrams}
+\end{figure}
+\indent Los mapeos PCE no son trivialmente canales cuánticos. En general, un mapeo PCE [vea Eq. \eqref{eq:pce:N:qubits}] no es completamente positivo. 
+Para determinar si un mapeo PCE es completamente positivo y, por consiguiente, un canal cuántico investigamos la diagonalización de la matriz de Choi de un mapeo diagonal de Pauli.
+
+% \section{Consideraciones matemáticas} 
+\section{Diagonalización de la matriz de Choi}
+\indent Diagonalizamos exactamente la matriz de Choi $\mathcal{D}$ de un mapeo diagonal de Pauli de $N$ qubits y mostramos que los eigenvalores de $\mathcal{D}$ se pueden escribir como
+\begin{align}\label{eq:eigvalues}
+    \lambda_{\valpha}=\frac{1}{2^N}\sum_{\vec\beta}A_{\valpha{}\vec\beta}\tau_{\vec\beta},
+\end{align}
+donde 
+\begin{align}\label{eq:a}
+    A=a^{\otimes N},\qquad 
+    a = \mqty( 1&1&1&1\\
+    1&1&-1&-1\\
+    1&-1&1&-1\\
+    1&-1&-1&1).
+\end{align}
+Para que un mapeo PCE sea completamente positivo y, por consiguiente, un canal cuántico los eigenvalores \eqref{eq:eigvalues} deben satisfacer  $\lambda_{\valpha}\geq 0$.
+
+\section{Canales cuánticos PCE\\como espacios vectoriales}
+\indent Los canales cuánticos PCE tienen una estructura algebraica bella y simple a partir de la cual se pueden derivar sus propiedades.
+
+\indent Si reescribimos $\valpha{}$ con dos índices binarios como $\valpha{}=\qty{(\mu_1,\ldots,\mu_N),(\nu_1,\ldots,\nu_N)}$ y  $\mu_j,\nu_j=0,1$, es fácil de mostrar la propiedad algebraica
+\begin{align}
+    \tau_{\valpha{}}\tau_{\vec\beta}=\tau_{\valpha{}\oplus\vec\beta},\quad \forall\,\valpha{},\vec\beta :\alpha\ne \beta \wedge \tau_{\valpha{}}=\tau_{\vec\beta}=1.
+\end{align}
+Es decir, el conjunto $\{\valpha{}:\tau_{\valpha{}}=1\}$ junto con la operación $\oplus$ forman un grupo. Si además, uno equipa a este grupo con el campo $\{0,1\}$ se deduce que cada canal cuántico PCE está asociado con un subespacio vectorial, y viceversa.
+% Vea la Fig. \ref{fig:vector:spaces:examples}.
+% \vskip2ex
+% \begin{figure}
+% \begin{center}
+% \begin{tikzpicture}[x=1.4cm, y=1.4cm] % {{{
+% \pgfmathsetmacro{\unitstep}{5.2}
+% \begin{scope}[shift={(2*\unitstep,0)}] % Good channel {{{
+% \cuadritotikz{}
+% \begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,-1)}] \fill[black!25!white] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-1)}] \node at (0.5,0.5) 
+%      {\textcolor{white}{$\valpha^{(1)}$}}; \end{scope}
+% \begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,0)}] \node at (0.5,0.5) 
+%      {\textcolor{white}{$\valpha^{(2)}$}}; \end{scope}
+% \begin{scope}[shift={(-1,0)}] \node at (0.5,0.5) 
+%      {\textcolor{black}{(a)}}; \end{scope}     
+% \end{scope} % }}}
+% \end{tikzpicture} % }}}
+% \begin{tikzpicture}[x=1.4cm, y=1.4cm] % {{{
+% \pgfmathsetmacro{\unitstep}{5.2}
+% \begin{scope}[shift={(1*\unitstep,0)}] % Good channel {{{
+% \cuadritotikz{}
+% \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,0)}] \node at (0.5,0.5) 
+%      {\textcolor{white}{$\vec\beta^{(1)}$}}; \end{scope}
+% \begin{scope}[shift={(0,-3)}] \node at (0.5,0.5) 
+%      {\textcolor{white}{$\vec\beta^{(2)}$}}; \end{scope}
+% \begin{scope}[shift={(3,-3)}] \node at (0.5,0.5) 
+%      {\textcolor{white}{$\vec\beta^{(3)}$}}; \end{scope}
+% \begin{scope}[shift={(-1,0)}] \node at (0.5,0.5) 
+%      {\textcolor{black}{(b)}}; \end{scope}     
+% \end{scope} % }}}
+% \end{tikzpicture} % }}}
+% \end{center}
+% \caption{El mapeo PCE en (a) no es un canal cuántico porque $\valpha^{(1)}\oplus\valpha^{(2)}=\{(0,0),(1,0)\}\oplus\{(0,1),(1,1)\}=\{(0,1),(0,1)\}$ son los índices de un cuadro no negro (cuadro gris). Por otro lado, los vectores $\vec\beta^{(j)}$ en (b) son cerrados bajo $\oplus$, por lo tanto, sí es un canal cuántico.}
+% \label{fig:vector:spaces:examples}
+% \end{figure}
+
+\section{Generadores}
+\indent A partir de la estructura de grupo de los canales cuánticos PCE se deduce la existencia de un conjunto generador. Los diagramas (c)-(e) de la Fig. \ref{fig:examplesPCE} son ejemplos de generadores PCE de 2 qubits, cualquier intersección entre dos de ellos (concatenación de canales) da como resultado el canal en (b).
+\vskip2ex
+\begin{figure}
+\centering
+\includegraphics[width=.8\columnwidth]{img/two_qubit_channels.pdf}
+\vspace*{2ex}
+\caption{Ejemplos de diagramas para varios canales cuánticos PCE de 2 qubits: (a) el canal completamente depolarizante, (b) un canal PCE que preserva cuatro componentes, la componente de normalización, una componente local del qubit 1 y
+dos correlaciones entre los dos qubits. En (c), (d) y (e) mostramos los tres generadores $\mcG_{(1,0)}$, $\mcG_{(3,2)}$ y $\mcG_{(2,2)}$, respectivamente; y en (f) mostramos el mapeo de la identidad.}
+\label{fig:examplesPCE}
+\end{figure} % }}}
+
+\indent Más aún, como mostramos en la Fig. \ref{fig:connection:a:generators}, existe una relación entre los generadores PCE y la matriz $a$ en \eqref{eq:a} que establece la simetría de reflexión respecto a una partícula.
+\vskip2ex
+\begin{figure}
+\centering
+\includegraphics[width=0.65\columnwidth]{img/connection_a_generators.pdf}
+\caption{Conexión entre las filas y columnas de la matriz $a$ en \eqref{eq:a} y de los generadores PCE $\mathcal{G}_{\alpha}$ de 1 qubit.}
+\label{fig:connection:a:generators}
+\end{figure}\vskip2ex
+
+
+
+
+\section{Canales PCE y decoherencia}
+\indent Los canales PCE pueden identificarse como procesos de disipación en el límite $t\to\infty$ y como puntos particulares de un modelo de colisiones sin memoria. Ambas implementaciones antes mencionadas se derivan a partir de la forma de Kraus de los generadores PCE, que tienen la forma simple siguiente,
+\begin{align}
+% \mathcal{L}_{\valpha{}}[\rho]=\frac{\gamma\qty(\sigma_{\valpha{}}\rho\sigma_{\valpha{}}-\rho)}{2}.
+K_0=\frac{\one}{\sqrt{2}},\quad K_1=\frac{\sigma_{\valpha{}}}{\sqrt{2}}.
+\end{align}
+% \todo{iterar aquí}
+
+\section{Conclusiones}
+\begin{itemize}
+\item Introducimos los mapeos PCE. 
+\item Diagonalizamos exactamente a la matriz de Choi de un mapeo diagonal de Pauli de $N$ qubits.
+\item Caracterizamos a los canales cuánticos PCE mediante su estructura de espacio vectorial.
+\item Estudiamos que los canales cuánticos PCE pueden implementarse como puntos límite de procesos Markovianos. 
+\end{itemize}
+
+
+%==============================================================================
+%==End of content==============================================================
+%==============================================================================
+
+%--References------------------------------------------------------------------
+
+\subsection{Referencia}
+% \todo{Escribir referencia PRA?}
+\begin{thebibliography}{99}
+
+% \bibitem{ref1} J.~Doe, Article name, \textit{Phys. Rev. Lett.}
+\bibitem{}\href{https://arxiv.org/abs/2205.05808}{Pauli component erasing quantum channels. Jose Alfredo de Leon, Alejandro Fonseca, Francois Leyvraz, David Davalos, Carlos Pineda. arXiv:2205.05808.  [\textit{Aceptado para publicarse en Physical Review A}]}
+
+\end{thebibliography}
+
+\subsection{Contacto}
+\href{mailto:josedleon@estudiantes.fisica.unam.mx}{josedleon@estudiantes.fisica.unam.mx}
+%--End of references-----------------------------------------------------------
+
+\end{multicols}
+
+%==============================================================================
+\end{frame}
+\end{document}
