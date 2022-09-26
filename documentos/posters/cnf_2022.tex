@@ -13,6 +13,10 @@
   hmargin=2.5cm, % little modification of margins
 }
 
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
 \FXRegisterAuthor{cp}{acp}{\color{blue}CP}
@@ -35,7 +39,7 @@
  \draw (0,-3) rectangle (4,1);
 }
 
-\renewcommand{\indent}{\hspace*{15pt}}
+\renewcommand{\indent}{\hspace*{25pt}}
 \newcommand{\mcG}{\mathcal{G}}
 \newcommand\todo[1]{\textcolor{red}{#1}}
 
@@ -102,25 +106,70 @@ David Davalos\inst{5}, Carlos Pineda\inst{2}
 %==============================================================================
 
 \section{Resumen}
-\indent Procesos de disipación, como la decoherencia de los sistemas cuánticos, pueden describirse con la teoría de los canales cuánticos. No obstante, sigue siendo una tarea difícil entender el conjunto de todos los canales cuánticos, especialmente para sistemas de muchas partículas. En ese contexto, proponemos los mapeos \textit{Pauli component erasing} (PCE), que preservan o borran por completo las componentes de la matriz de densidad de un sistema de muchos qubits. Para aquellos que son canales cuánticos mostramos su correspondencia con subespacios vectoriales y así hacemos su caracterización. A partir de su estructura de semigrupo derivamos sus generadores y, con esto, determinamos implementaciones físicas para conectar a los canales PCE con procesos Markovianos.
+\indent Procesos de disipación, como la decoherencia de los sistemas cuánticos, pueden describirse con la teoría de los canales cuánticos. 
+%No obstante, sigue siendo una tarea difícil entender el conjunto de todos los canales cuánticos, especialmente para sistemas de muchas partículas. 
+En ese contexto, proponemos los mapeos \textit{Pauli component erasing} (PCE), que preservan o borran por completo las componentes de la matriz de densidad de un sistema de muchos qubits. 
+Mostramos que el subconjunto de mapeos PCE que describen evoluciones físicas, es decir, los \textit{canales cuánticos PCE}, se corresponden con subespacios vectoriales.
+%Para aquellos que son canales cuánticos mostramos su correspondencia con subespacios vectoriales y así hacemos su caracterización. 
+Finalmente, derivamos los generadores de este subconjunto a partir de su estructura de semigrupo y, con esto, determinamos implementaciones físicas para conectar a los canales cuánticos PCE con procesos Markovianos.
 
 % \section{Introducción}
-\section{El problema}
-\indent Los estados de una partícula de dos niveles, un qubit, pueden visualizarse geométricamente en la esfera de Bloch. Los procesos de disipación y decoherencia se describen como proyecciones de la esfera de Bloch. Sin embargo, como mostramos en la Fig. \ref{fig:projections} no todas las proyecciones describen evoluciones físicas.
+\section{Motivación}
+\indent 
+%Los estados de una partícula de dos niveles, un qubit, pueden visualizarse geométricamente en la esfera de Bloch. 
+Algunos procesos de decoherencia de 1 partícula de 2 niveles se describen como proyecciones de la esfera de Bloch. Sin embargo, no todas las proyecciones describen evoluciones físicas [vea la Fig. \ref{fig:projections}].
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=0.6\columnwidth]{img/bloch.png}
+%    \caption{Sólo algunas de las proyecciones de la esfera de Bloch son permitidas.}
+%    \label{fig:projections}
+%\end{figure}
 \begin{figure}
-    \centering
-    \includegraphics[width=0.6\columnwidth]{img/bloch.png}
-    \caption{Sólo algunas de las proyecciones de la esfera de Bloch son permitidas.}
-    \label{fig:projections}
+\begin{center}
+\begin{tikzpicture}
+ %nodes
+% \draw[draw=white] (-2.7,-4.5) rectangle ++(5.5,5);
+\draw[draw=white] (-1.2,-4.1) rectangle ++(6.5,5.5);
+%  \node[punkt] (market) {Market (b)};
+% \filldraw [fill=Peach, draw=black] (11.1,5) rectangle (0.3,0.3);
+ % We make a dummy figure to make everything look nice.
+%  \node at (0, 0)  {\includegraphics[width=.99\textwidth]{spectraAll}};
+\node at (-6, 0)  {%
+%\includegraphics[width=.2\columnwidth,page=1]{../images/blochs-crop}%
+\includegraphics[width=7cm,page=2]{../images/blochs-crop}%
+};
+\draw [-stealth,line width=8pt] (-1,0) -- (1,0);
+%\draw [-{stealth[length=3mm, width=3mm]},line width=3pt] (1.4,0) -- (2.7,0); 
+\node at (0.,1.5) {\color{green} \Huge\cmark};
+\node at (0.,-8.5) {\color{red} \Huge\xmark};
+%\draw [-{stealth[length=3mm, width=3mm]},line width=3pt] (1.4,-2.8) -- (2.7,-2.8); 
+\draw [-stealth,line width=8pt] (-1.2,-10) -- (1.2,-10); 
+\node at (6,  0)  {%
+\includegraphics[width=7cm,page=3]{../images/blochs-crop}%
+% \only<2->{\includegraphics[width=.2\textwidth,page=2]{../images/blochs-crop}}%
+};
+\node at (6,  -8)  {%
+\includegraphics[width=7cm,page=4]{../images/blochs-crop}%
+};
+\node at (-6,  -8)  {%
+\includegraphics[width=7cm,page=5]{../images/blochs-crop}%
+};
+\end{tikzpicture}
+% Sistemas naturales, estables\\[.2cm]
+% Acá un dibujo en dos partes, con la esfera de Bloch en la primera indicando 
+% algun punto que ava a viajar al disco central, luego una segunda con solo el 
+% disco. Luego una segunda serie con eso, pero proyectado al eje z. 
+\end{center}
+\caption{No todas las proyecciones de la esfera de Bloch describen evoluciones físicas.}
+\label{fig:projections}
 \end{figure}
 \section{Canales cuánticos}
 \indent Los canales cuánticos son un marco teórico dentro del cual se pueden estudiar la dinámica de sistemas cuánticos, como las transformaciones de la esfera de Bloch en la Fig. \ref{fig:projections}.
-
-\indent Un canal cuántico es un mapeo de matrices de densidad a matrices de densidad. Es decir, $\rho\mapsto\mathcal{E}(\rho)$, donde $\mathcal{E}$ es un mapeo completamente positivo que preserva la traza de $\rho$.
+Un canal cuántico es un mapeo de matrices de densidad a matrices de densidad. Es decir, $\rho\mapsto\mathcal{E}(\rho)$, donde $\mathcal{E}$ es un mapeo completamente positivo que preserva la traza de $\rho$.
 Un mapeo $\mathcal{E}$ está unívocamente caracterizado por su matriz de Choi $\mathcal{D}\propto \qty(\one\otimes\mathcal{E})\qty[\sum_{j,k}\ket{j}\ket{j}\bra{k}\bra{k}]$. $\mathcal{D}$ es una matriz positiva semidefinida si y sólo si $\mathcal{E}$ es completamente positivo.
 
 
-\section{Mapeos PCE}
+\section{Planteamiento del problema:\\mapeos PCE}
 % La forma más general de escribir a la matriz de densidad de un qubit es 
 % \begin{align}\label{eq:one:qubit:matrix}
 %     \rho=\frac{1}{2}\sum_{\alpha=0}^3r_\alpha\sigma_\alpha,
@@ -151,32 +200,32 @@ Un mapeo $\mathcal{E}$ está unívocamente caracterizado por su matriz de Choi $
 % Estas desigualdades aseguran que el mapeo PCE sea completamente positivo y, por lo tanto,
 % un canal cuántico.
 \indent La forma más general de escribir a la matriz de densidad de $N$ qubits es 
-\begin{align}
+\begin{align}\label{eq:rho}
     \rho=\frac{1}{2^N}\sum_{\valpha}r_{\valpha}\sigma_{\valpha},
 \end{align}
 donde $\valpha$ denota un multi índice $(\alpha_1,\ldots,\alpha_N)$, $\alpha_j=0,1,2,4$, y 
 $\sigma_{\valpha}=\sigma_{\alpha_1}\otimes\sigma_{\alpha_2}\otimes\ldots\otimes\sigma_{\alpha_N}$. La condición de normalización de $\rho$ restringe que $r_{\vec 0}=1$. 
 
-\indent Definimos a un mapeo \textit{Pauli component erasing} (PCE) como un mapeo que actúa sobre $\rho$ como
+\indent Definimos a un mapeo \textit{Pauli component erasing} (PCE) como un mapeo que actúa sobre $\rho$, de la forma \eqref{eq:rho}, como
 \begin{align}\label{eq:pce:N:qubits}
     r_{\valpha}\mapsto\tau_{\valpha} r_{\valpha},\quad \tau_{\valpha}=0,1.
 \end{align}
-Para que, por definición, un mapeo PCE preserve la traza imponemos que $\tau_{\vec 0}=1$. Nos vamos a referir a un mapeo de la forma \eqref{eq:pce:N:qubits}, pero sin la restricción sobre los valores de $\tau_{\valpha{}}$, como un mapeo diagonal de Pauli. En la Fig. \ref{fig:2:qubits:diagrams} introducimos diagramas para representar a los mapeos 
+Para que un mapeo PCE preserve la traza de $\rho$ por definición imponemos $\tau_{\vec 0}=1$. Nos vamos a referir a un mapeo de la forma \eqref{eq:pce:N:qubits}, pero sin la restricción sobre los valores de $\tau_{\valpha{}}$, como un mapeo diagonal de Pauli. En la Fig. \ref{fig:2:qubits:diagrams} introducimos diagramas para representar a los mapeos 
 PCE de 1 y 2 qubits. 
 %============================================
 \vskip2ex
 \begin{figure}
 \centering
-\includegraphics[width=.8\columnwidth]{img/one_and_two_qubit_PCE.pdf}
-\vspace*{2ex}
+\includegraphics[height=12cm]{../images/one_and_two_qubit_PCE.pdf}
+\vspace*{1ex}
 \caption{En (a) y (f) introducimos la correspondencia entre las $\tau_{\valpha{}}$ de un mapeo PCE [vea Eq. \eqref{eq:pce:N:qubits}] y las posiciones de los cuadros en los diagramas. Un cuadro negro (blanco) se corresponde con $\tau_{\valpha{}}=1$ ($\tau_{\valpha{}}=0$). En (b) se muestra la identidad de 1 qubit, en (c) y (e) los canales ilustrados en la Fig. \ref{fig:projections}, en (d) el completamente depolarizante, (g) corresponde a un canal cuántico que es el producto tensorial del canal (c) en cada qubit y en (h) mostramos un mapeo PCE de 2 qubits que no es un canal cuántico.}
 \label{fig:2:qubits:diagrams}
 \end{figure}
-\indent Los mapeos PCE no son trivialmente canales cuánticos. En general, un mapeo PCE [vea Eq. \eqref{eq:pce:N:qubits}] no es completamente positivo. 
-Para determinar si un mapeo PCE es completamente positivo y, por consiguiente, un canal cuántico investigamos la diagonalización de la matriz de Choi de un mapeo diagonal de Pauli.
+\indent En general, un mapeo PCE [vea Eq. \eqref{eq:pce:N:qubits}] no es completamente positivo y, por consiguiente, no todos los mapeos PCE son canales cuánticos. 
+Para determinar si un mapeo PCE es completamente positivo investigamos la diagonalización de la matriz de Choi de un mapeo diagonal de Pauli.
 
-% \section{Consideraciones matemáticas} 
-\section{Diagonalización de la matriz de Choi}
+% \section{Consideraciones matemáticas} d
+\section{Diagonalización de la matriz de Choi $\pmb{\mathcal{D}}$}
 \indent Diagonalizamos exactamente la matriz de Choi $\mathcal{D}$ de un mapeo diagonal de Pauli de $N$ qubits y mostramos que los eigenvalores de $\mathcal{D}$ se pueden escribir como
 \begin{align}\label{eq:eigvalues}
     \lambda_{\valpha}=\frac{1}{2^N}\sum_{\vec\beta}A_{\valpha{}\vec\beta}\tau_{\vec\beta},
@@ -189,7 +238,7 @@ donde
     1&-1&1&-1\\
     1&-1&-1&1).
 \end{align}
-Para que un mapeo PCE sea completamente positivo y, por consiguiente, un canal cuántico los eigenvalores \eqref{eq:eigvalues} deben satisfacer  $\lambda_{\valpha}\geq 0$.
+Para que un mapeo PCE sea completamente positivo y, por consiguiente un canal cuántico, los eigenvalores \eqref{eq:eigvalues} deben satisfacer  $\lambda_{\valpha}\geq 0$.
 
 \section{Canales cuánticos PCE\\como espacios vectoriales}
 \indent Los canales cuánticos PCE tienen una estructura algebraica bella y simple a partir de la cual se pueden derivar sus propiedades.
@@ -243,7 +292,7 @@ Es decir, el conjunto $\{\valpha{}:\tau_{\valpha{}}=1\}$ junto con la operación
 % \end{figure}
 
 \section{Generadores}
-\indent A partir de la estructura de grupo de los canales cuánticos PCE se deduce la existencia de un conjunto generador. Los diagramas (c)-(e) de la Fig. \ref{fig:examplesPCE} son ejemplos de generadores PCE de 2 qubits, cualquier intersección entre dos de ellos (concatenación de canales) da como resultado el canal en (b).
+\indent Si los canales cuánticos PCE forman un grupo, entonces existe un subconjunto de canales PCE generadores $\mathcal{G}_{\valpha{}}$. Los diagramas (c)-(e) de la Fig. \ref{fig:examplesPCE} son ejemplos de generadores PCE de 2 qubits, cualquier intersección entre dos de ellos (concatenación de canales) da como resultado el canal en (b).
 \vskip2ex
 \begin{figure}
 \centering
@@ -258,13 +307,11 @@ dos correlaciones entre los dos qubits. En (c), (d) y (e) mostramos los tres gen
 \vskip2ex
 \begin{figure}
 \centering
-\includegraphics[width=0.65\columnwidth]{img/connection_a_generators.pdf}
+\includegraphics[height=6.5cm]{img/connection_a_generators.pdf}
 \caption{Conexión entre las filas y columnas de la matriz $a$ en \eqref{eq:a} y de los generadores PCE $\mathcal{G}_{\alpha}$ de 1 qubit.}
 \label{fig:connection:a:generators}
-\end{figure}\vskip2ex
-
-
-
+\end{figure}
+\vspace*{-2cm}
 
 \section{Canales PCE y decoherencia}
 \indent Los canales PCE pueden identificarse como procesos de disipación en el límite $t\to\infty$ y como puntos particulares de un modelo de colisiones sin memoria. Ambas implementaciones antes mencionadas se derivan a partir de la forma de Kraus de los generadores PCE, que tienen la forma simple siguiente,
@@ -281,7 +328,6 @@ K_0=\frac{\one}{\sqrt{2}},\quad K_1=\frac{\sigma_{\valpha{}}}{\sqrt{2}}.
 \item Caracterizamos a los canales cuánticos PCE mediante su estructura de espacio vectorial.
 \item Estudiamos que los canales cuánticos PCE pueden implementarse como puntos límite de procesos Markovianos. 
 \end{itemize}
-
 
 %==============================================================================
 %==End of content==============================================================
@@ -305,5 +351,6 @@ K_0=\frac{\one}{\sqrt{2}},\quad K_1=\frac{\sigma_{\valpha{}}}{\sqrt{2}}.
 \end{multicols}
 
 %==============================================================================
+
 \end{frame}
 \end{document}

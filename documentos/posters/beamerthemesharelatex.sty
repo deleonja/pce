@@ -95,6 +95,32 @@
  \setbeamerfont{bibliography entry author}{size=\small}
 
 
+% Alert Block
+\setbeamertemplate{block alerted begin}
+{
+  \begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block alerted title}
+    \vskip0pt
+    \usebeamerfont{block title}\insertblocktitle
+    \vskip-1.25ex
+    \begin{beamercolorbox}[colsep=0.025ex]{block alerted separator}\end{beamercolorbox}
+  \end{beamercolorbox}
+  {\parskip0pt\par}
+  \usebeamerfont{block body}
+  \vskip-0.5ex
+  \begin{beamercolorbox}[colsep*=0ex]{block alerted body}
+  \justifying
+  \begin{adjustwidth}{1ex}{1ex}
+  \setlength{\parskip}{1ex}
+  \vskip-2ex
+}
+\setbeamertemplate{block alerted end}
+{
+  \end{adjustwidth}
+  \vskip1ex
+  \end{beamercolorbox}
+  \vskip0pt
+  \vspace*{2ex}
+}
 %
 %==============================================================================
 % build the poster title
