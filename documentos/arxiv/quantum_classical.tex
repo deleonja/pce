@@ -1,0 +1,45 @@
+\section{Quantum-Classical channels}
+\label{quantum_classical}
+A quantum-classical (QC) channel is defined by using an orthonormal basis in
+the Hilbert space. Let $B=\left\{ \ket{\psi_i} \right\}$ be such a basis in
+$\hilbert$ with $\dim(\hilbert)=2^N$; the QC channel associated to $B$ is
+\begin{equation}
+\mcE^{\text{QC}}_B[\rho]=\sum_{i=1}^{2^N} \bra{\psi_i}\rho \ket{\psi_i} \projj{\psi_i},
+\end{equation}
+that is, QC channels project density matrices onto the corresponding diagonal
+matrix in the basis $B$~\cite{nathanson2007pauli}.
+
+Consider now that the basis $B$ is the simultaneous eigenbasis of a maximal set
+of commuting Pauli strings denoted by $\text{set}(B)$; such a set contains $2^N$
+elements (including the identity), and there are $2^N+1$ of such
+sets~\cite{Lawrence2002}. Now we proceed to demonstrate that the QCs defined in
+this way are \pce{} channels with $2^N$ $1$s on their diagonal.
+
+First we compute the components of $\mcE^{\text{QC}}_B$ in the basis
+$2^{-N/2}\left\{\sigma_{\vec \alpha}\right\}$:
+\begin{equation}
+\left(\mcE^{\text{QC}}_B\right)_{\vec k \vec l}=\frac{1}{2^N}\sum_{i=1}^{2^N} \bra{\psi_i}\sigma_{\vec k} \ket{\psi_i}\bra{\psi_i}\sigma_{\vec l} \ket{\psi_i}.
+\end{equation}
+To evaluate the components, observe that $\bra{\psi_i}\sigma_{\vec k}
+\ket{\psi_i}^2=1 \ \ \forall \sigma_{\vec k}\in \text{set}(B)$, and from the
+formula for the purity of $\ket{\psi_i}$,
+\begin{equation}
+1=\frac{1}{2^N}\sum_{\vec k} \bra{\psi_i} \sigma_{\vec k} \ket{\psi_i}^2,
+\end{equation}
+it follows that $\bra{\psi_i} \sigma_{\vec k'} \ket{\psi_i}=0 \ \ \forall
+\sigma_{\vec k'} \not\in \text{set}(B)$ since there are only positive terms in
+the sum, and $2^N$ of them are already equal to $1$. Therefore,
+\begin{align}
+\left(\mcE^{\text{QC}}_B\right)_{\vec k \vec k}&=1,\nonumber\\ \left(\mcE^{\text{QC}}_B\right)_{\vec k \vec l'}&=\left(\mcE^{\text{QC}}_B\right)_{\vec l' \vec l'}=0 \ \ \forall \sigma_{\vec k} \in \text{set}(B) \ \ \forall \sigma_{\vec l'} \not\in \text{set}(B).
+\end{align}
+To compute $\left(\mcE^{\text{QC}}_B\right)_{\vec k \vec l}$ for $\sigma_{\vec k}, \sigma_{\vec l} \in \text{set}(B)$ with $\vec k \neq \vec l$, observe that $\left(\mcE^{\text{QC}}_B\right)_{\vec k \vec l}=\left(\mcE^{\text{QC}}_B\right)_{\vec l \vec k}$, \ie{} the matrix corresponding to $\mcE^{\text{QC}}$ is an orthogonal projector. Thus, considering the block,
+\begin{equation}
+\left[ \begin{array}{cc}
+\left(\mcE^{\text{QC}}_B\right)_{\vec k \vec k} & \left(\mcE^{\text{QC}}_B\right)_{\vec k \vec l} \\ 
+\left(\mcE^{\text{QC}}_B\right)_{\vec k \vec l} & \left(\mcE^{\text{QC}}_B\right)_{\vec l \vec l}
+\end{array}  \right]=\left[ \begin{array}{cc}
+1 & \left(\mcE^{\text{QC}}_B\right)_{\vec k \vec l} \\ 
+\left(\mcE^{\text{QC}}_B\right)_{\vec k \vec l} & 1
+\end{array}  \right],
+\end{equation}
+it is easy to check that the latter is a projector only if $\left(\mcE^{\text{QC}}_B\right)_{\vec k \vec l}=0$. Since there are exactly $2^N$ elements of the form $\left(\mcE^{\text{QC}}_B\right)_{\vec k \vec k}$ with $\sigma_{\vec k} \in \text{set}(B)$, then the channel $\mcE^{\text{QC}}_B$ is \pce{} with $2^N$ $1$s on its diagonal.

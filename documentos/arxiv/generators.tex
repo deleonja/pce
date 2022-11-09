@@ -1,0 +1,171 @@
+\section{Generators} % {{{
+\label{sec:generators}
+%\todo{Francois escribe una primera version del primer punto, y luego quizá Jose
+%Alfredo o Carlos la terminan}
+
+We now discuss the existence of a generator set for all PCE quantum channels and 
+how to label each of them uniquely as $\pceg$ (according to its local action 
+on every qubit in the system). Finally we will discuss a symmetry of
+PCE quantum channel generators and a connection between
+them and $A$, see \eref{eq:san}.
+% , the matrix that diagonalizes the Choi matrix $\mcD_N$ of a PCE map.
+% \sout{both PCE quantum channel generators and $A$, the matrix that diagonalizes
+% the Choi matrix $\mcD_N$ of a PCE map.}
+
+There exists a subset of PCE quantum channels that generates the entire set; 
+the nature of these generators may be studied, as we
+shall see, with the properties of the aforementioned vector space.
+By standard theorems of linear algebra, any proper subspace $W$, see \Eref{eq:19}, 
+can be extended to a maximal non-trivial subspace of dimension $2N-1$ by
+adjoining appropriate additional basis elements. This can be done in
+different ways. We therefore arrive to the set of maximal extensions of $W$,
+where every maximal subspace corresponds to a PCE quantum channel that
+preserves half of the Pauli components. The intersection of all the elements of
+this set reduces to $W$ itself,
+and since intersection of subspaces translates to composition of PCE channels,
+this implies that all PCE quantum channels can be obtained as
+compositions of PCE channels corresponding to maximally non-trivial subspaces, plus
+the identity map. In other words, the set of PCE quantum channels that preserve half 
+of the components plus the identity map, is a generator set for 
+all PCE channels.
+Consider \Fref{fig:examplesPCE}; subfigures (c), (d) and (e) represent nontrivial 
+PCE generators (PCEGs) and the composition of any two of them yields the PCE channel
+corresponding to (b). 
+
+
+A PCEGs may be characterized by its local
+action on every qubit 
+in the system. This action can be encoded using a multi-index $\vec\alpha$, 
+as in \eqref{eq:pauli_strings}, hence each of the different $4^N$ 
+multi-indices may be uniquely related to each of the PCE generators
+and thus denoted as $\mcG_{\vec\alpha}$, see figures \ref{fig:A_and_PCEGs_connection} and \ref{fig:appex:twoQ_PCEGs}.
+The proof is simplified if one uses the Kraus representation developed in 
+\sref{sec:kraus}, so we postpone the demonstration to appendix \ref{sec:2_qubits}.
+For single qubits, the identity corresponds to $\mcG_0$, shown in 
+\fref{fig:one:qubit:examples}(b), whereas $\mcG_3$ is shown in 
+\fref{fig:one:qubit:examples}(c).
+The two-qubit PCE generator represented in subfigure (c)
+of \Fref{fig:examplesPCE} acts on the first qubit (first column) as a map of its
+Bloch sphere to the $x$ axis, and on the second qubit (first row) as an identity,
+hence it is labeled $\mcG_{(1,0)}$.
+See \Fref{fig:appex:twoQ_PCEGs} for the notation of all two-qubit PCE generators.
+
+A reflection symmetry is identified for PCE generators.
+Consider the map $\Sigma^{(k)}$ that reflects a multi-index $\valpha$ with 
+respect to the $k$-th axis. This map leaves all components of $\valpha$
+invariant, except the $k$-th component, which is transformed according to 
+\begin{equation}
+% \Sigma: 
+0\mapsto3,\quad3\mapsto0,\quad1\mapsto2,\quad2\mapsto1. 
+\label{eq:Sigma}
+\end{equation}
+% and the associated 
+The maps have the following properties:
+\begin{enumerate}
+\item $\Sigma^{(k)}(\vec\alpha)\oplus \Sigma^{(k)}(\vec\beta)=\vec\alpha\oplus \vec\beta$, and
+\item $\Sigma^{(k)}(\vec\alpha)\neq\vec\alpha$.
+\end{enumerate}
+From the first property, we now obtain
+\begin{equation}
+\valpha=\Sigma^{(k)}(\valpha) \oplus \Sigma^{(k)}(\vec0). 
+\label{eq:Sigma:oplus}
+\end{equation}
+This implies that if $\Sigma^{(k)}(\vec0)$ belongs
+to a channel then 
+$\tau_\valpha = \tau_{\Sigma^{(k)}(\vec\alpha)}$, where we used 
+the fact that for channels the non-zero elements are closed
+under $\oplus$. In other words, the components of a PCE channel
+are symmetric under reflection over the $k$th axis. Now consider the case in which 
+ $\Sigma^{(k)}(\vec0)$ does not belong to generator. Then 
+$\tau_\valpha \ne \tau_{\Sigma^{(k)}(\vec\alpha)}$, since
+the case $\tau_\valpha = \tau_{\Sigma^{(k)}(\vec\alpha)}=1$
+is forbidden due to \eref{eq:Sigma} and the case 
+$\tau_\valpha = \tau_{\Sigma^{(k)}(\vec\alpha)}=0$ is also forbidden 
+because for generators the codimension of the associated vector space 
+is 1. This means that the components of a PCE channel are antisymmetric
+with respect to reflection over the $k$th axis. 
+Indeed, the two-qubit PCE generators 
+$\mcG_{(1,0)}$, $\mcG_{(3,2)}$ and $\mcG_{(2,2)}$
+represented in Figs.~\ref{fig:two:qubit:examples}(c),
+\ref{fig:two:qubit:examples}(d), and \ref{fig:two:qubit:examples}(e),
+respectively, are either symmetric or anti-symmetric under reflection with 
+respect to lines that divide the diagram in half vertically and horizontally. 
+
+% 
+% 
+% The symmetry for a PCE generator $\pceg$ is encoded in the 
+% $N$-dimensional array of all $\taus$. The Cartesian grid associated with it 
+% is either symmetric or anti-symmetric under reflection of the 
+% indices in the $k$-th position in $\vec\alpha$. 
+% Consider the map
+% \begin{equation}
+% % \Sigma: 
+% 0\mapsto3,\quad3\mapsto0,\quad1\mapsto2,\quad2\mapsto1
+% \label{eq:Sigma}
+% \end{equation}
+% Indeed, any generator is a subspace containing half the elements of the full vector space.  
+% Map \eref{eq:Sigma} applied to the $k$-th qubit has the following properties
+% \begin{enumerate}
+% \item $\Sigma(\vec\alpha)\oplus \Sigma(\vec\beta)=\vec\alpha\oplus \vec\beta$.
+% \item $\Sigma(\vec\alpha)\neq\vec\alpha$
+% \end{enumerate}
+% From the first property, we now obtain
+% \begin{equation}
+% \vec\alpha=\Sigma(\vec\alpha) \oplus \Sigma(\vec0)
+% \end{equation}
+% We now see that, depending on whether $\Sigma(\vec0)$ belongs (respectively does not belong) to the generator,
+% $\vec\alpha$ belongs to the generator if and only if $\Sigma(\vec\alpha)$ belongs (respectively does not belong) to the generator.  
+% 
+
+
+\begin{figure} % {{{
+\centering
+\includegraphics{connection_a_generators.pdf}
+\caption{
+% Connection between rows and columns of $a$ and single qubit PCE
+% generators. We also include the corresponding 
+% labels $\mcG_\alpha$ of the generators. \cpnote{Nadie ha revisado el nuevo caption y la nueva figura con cuidado}
+The connection between rows or columns of $a$ and single-qubit PCE
+generators $\mathcal G_\alpha$ is shown. One can identify the -1s of $a$ with
+0s in the sets $\{\tau_\alpha\}$ of preserved and erased components
+of each $\mathcal G_\alpha$.
+For any number of particles, such simple relation 
+holds, see \sref{sec:generators} and appendix \ref{sec:2_qubits}.
+} 
+%}
+\label{fig:A_and_PCEGs_connection}
+\end{figure} % }}}
+
+Finally, it is worth pointing out that $\san$ (and thus $a$) [see
+\eref{eq:san}] encodes all the information of PCE generators $\pceg$ and,
+therefore, of all PCE quantum channels.  
+% 
+% 
+% 
+% From the tensor power of matrix $a$
+% one can infer the components $\{\taus\}$ of a PCE generator $\pceg$ by taking
+% row (or column) $\valpha$ of $A$ and replacing $-1$\janote{s} with
+% $0$\janote{s}.  
+% 
+From $A$, the tensor power of matrix $a$, one can infer the components
+$\{\taus\}$ of a PCE generator $\pceg$ by taking
+row (or column) $\valpha$ of $A$ and replacing $-1$ with
+$0$.
+The proof of the connection between PCEGs and $A$ is
+given in \appref{sec:2_qubits}, and in
+\fref{fig:A_and_PCEGs_connection} we illustrate this connection for the
+single-qubit case.
+
+
+% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% 
+% The set of all PCE quantum channels may be sorted in subsets, 
+% which we will call equivalence classes, whose
+% elements are equivalent via particle swaps and local-basis element
+% permutations. 
+% \janote{El párrafo que pretendía ser este tendrá que ir en otra parte. 
+% Aún hay que decidirlo con los demás.}
+
+% }}}
+
+

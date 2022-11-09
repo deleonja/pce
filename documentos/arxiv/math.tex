@@ -1,0 +1,207 @@
+\section{Mathematical considerations} 
+\label{sec:math}
+% Intro {{{
+This section is devoted to deriving the conditions a Pauli diagonal map needs to satisfy 
+the complete positivity condition, i.e., that all the eigenvalues of the Choi matrix
+associated to the channel are non-negative.  To do so, we calculate
+and diagonalize the Choi matrix of a general Pauli diagonal map, first for a
+single qubit and then for $N$ qubits. 
+Finally, we restrict from Pauli diagonal maps to PCE maps, and provide a connection
+between a vector subspace and the set of coefficients $\{\tau_\valpha\}$ 
+in \eref{eq:PCE_definition} of a PCE quantum channel.
+% {\red [anterior]
+% We then restrict to PCEs and, for quantum
+% channels, associate a vector subspace to the set of coefficients
+% $\{\tau_\valpha\}$ in \eref{eq:PCE_definition}.} 
+This allows us to
+derive several important properties of this particular family of channels.
+%\sout{conclusions. }
+% }}}
+\subsection{Diagonalization of the Choi matrix} % {{{
+We now construct the Choi matrix of a single-qubit Pauli diagonal map
+%We now construct the Choi matrix associated to the single qubit map
+$\mathcal{E}$. As described above, $\mathcal{E}$ is a linear map from
+$\mcB(\hilbert)$ to itself. We shall denote elements of
+$\mcB(\hilbert)$ by the notation $\kket{\cdot}$. Thus, for instance,
+$\kket{\sigma_\alpha}$ represents the Pauli matrix $\sigma_\alpha$ understood
+as a vector belonging to $\mcB(\hilbert)$, for the present case, in which
+$\hilbert={\mathbb{C}^2}$. Since the scalar product in $\mcB(\hilbert)$ is
+given by  $\bbrakket{A_1}{A_2}=\tr A_1^\dagger{} A_2$,
+% We now study the matrix form of the single qubit map $\mathcal{E}$ in
+% order to construct the associated Choi matrix. 
+% To do so, we shall denote operators in the superoperator space with the symbol
+% $\kket{\cdot}$. For example, $\kket{\sigma_{\alpha}}$ correspond to the
+% vectorized 
+elements of the Pauli basis satisfy the relation 
+$\bbrakket{{\sigma_{\alpha}} }{{\sigma_{\alpha'} }} = \tr
+\left(\sigma_{\alpha}^{\dagger} \sigma_{\alpha'}\right) = 2
+\delta_{\alpha\alpha'}$.
+In this language, the state of a single qubit reads
+$\kket{\rho}=2^{-1}\sum_{\alpha=0}^{3} r_{\alpha} \kket{\sigma_{\alpha}}$
+and the matrix form of the map $\mathcal{E}$ is
+% 
+\begin{equation}
+\hat{\mathcal{E}} = \frac{1}{2}\sum_{\alpha=0}^{3} \tau_{\alpha}
+\ddyada{\sigma_{\alpha}}.
+\end{equation}
+After some steps, detailed from \eref{eq:inicio:canal:pauli} to
+\eref{Choi_Pauli_1q}, it is possible to show that the Choi matrix of $\mathcal{E}$
+reads
+\begin{equation}
+ \mathcal{D} = \frac{1}{2}\sum_{\alpha=0}^{3} \tau_{\alpha} \sigma_{\alpha}
+\otimes \sigma_{\alpha}^*.
+%  \label{Choi_1}
+\end{equation}
+Notice that $\ddyada{\sigma_{\alpha}}$ 
+and $\sigma_{\alpha} \otimes \sigma_{\alpha}^*$ are different operators.
+Indeed, the former acts as a linear map upon the vector space $\mcB(\hilbert)$,
+whereas the latter acts on the tensor product $\hilbert\otimes\hilbert$. Of
+course, there is a basis dependent identification between these two
+spaces, which is used 
+in the construction of the Choi matrix.
+% \cpnote{Aca poner algo de que no es trivial y que se detalla en el apendice.}
+% 
+% Moreover, observe that $\mathcal{D}$ has the same form as the matrix
+% representation of a random unitary channel, with Kraus operators given by
+% $K_{\alpha}=\sqrt{\tau_{\alpha}/2}\sigma_{\alpha}$ \cite{CHRUSCINSKI20131425}.
+Surprisingly, one can in fact show that $\mathcal{D}$ is diagonal in the Pauli
+basis (see Appendix \ref{sec:appendix:diagonalization}  for details).
+% In this way the Choi matrix $\mathcal{D}$ is diagonal in the Pauli basis (see
+% Appendix for details),
+%
+% \begin{equation}
+%  \mathcal{D} \kket{\sigma_{\alpha}}= \lambda_{\alpha} \kket{\sigma_{\alpha}},
+% \end{equation}
+% 
+The eigenvalues are
+\begin{equation}
+ \lambda_{\alpha} = \frac12 \sum_{\beta=0}^3\sa_{\alpha\beta}\tau_{\beta},
+\end{equation}
+% or more compactly $\vec{\lambda} = \sa \vec{\tau}$, 
+where 
+\begin{equation}
+\sa=\left(
+\begin{array}{cccc}
+1 &1 &1   &1   \\
+ 1 & 1  & -1&-1   \\
+1  & -1  & 1 & -1\\
+1&-1&-1&1  
+\end{array}
+\right).
+% =\frac12\sa^{-1}.
+\label{eq:1}
+\end{equation}
+We wish to add that one can replace $a$ with $H \otimes H$, with $H$ the
+Hadamard matrix, and still diagonalize the same Choi matrix $\mathcal{D}$. This is due to the
+fact that $a$ corresponds to a permutation of rows of  $H \otimes H$. However,
+we chose the aforementioned definition as some later considerations [see
+\eref{eq:sigma_property}] cannot be easily written in terms of $H \otimes H$.
+
+% $\sa=2^{-1}H\otimes H$ and $H$ is the Hadamard matrix,
+% \cpnote{Decidir si se usa esa $a$ o la otra para ser consistente con lo de los 
+% generadores}
+% %
+% \begin{equation}
+%  H=\begin{pmatrix}
+%         1 & 1\\
+%         1 & -1\\
+%     \end{pmatrix}.
+%  \label{Hadd_Mat}
+% \end{equation}
+
+
+% \cpnote{Mencionar que con la otra $a$ tambien se puede diagonalizar y la
+% dejo por aca por si se nos ofrece}
+% 
+%  }}}
+% \subsubsection{$N$ qubits} % {{{
+% 
+
+The same program can be carried out for $N$ qubits. In this case, 
+%the vectorized Pauli operators are defined as follows, 
+one uses the vectorized Pauli strings:
+\begin{equation}\label{eq:vectorized_pauli_strings}
+\kket{\sigma_{\vec{\alpha} }}=
+\kket{\sigma_{\alpha_1}\otimes\cdots\otimes \sigma_{\alpha_N}}.
+%\kket{\sigma_{\alpha_1}}\otimes\cdots\otimes\kket{\sigma_{\alpha_N}}.
+\end{equation}
+This vectorization must not be confused with the 
+tensor product of  all $\kket{\sigma_{\alpha_i}}$, 
+since the tensor product and the vectorization 
+process generally do not commute~\cite{Gilchrist2009}.
+% 
+% $\janote{aquí hay algo extraño, pues los operadores 
+% que utilizamos son la vectorización del producto tensorial de las paulis, no los
+% productos tensoriales de las paulis vectorizadas, que es lo que entiendo con la 
+% expresión $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\cdots
+% \otimes\kket{\sigma_{\alpha_N}}$}\janote{mi sugerencia es nada más reescribir
+% $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}\otimes\cdots
+% \otimes\sigma_{\alpha_N}}$}
+% kkkj
+The vectors satisfy the orthogonality relation
+$\bbrakket{{\sigma_{\vec{\alpha} } }}{{\sigma_{\vec{\alpha}'} }} =  2^N
+\delta_{\vec{\alpha}\vec{\alpha}'}$. The matrix representation of the
+map corresponding to a Pauli diagonal map is 
+% Analogously to the single qubit case, one can define the $N$-qubits Pauli map $\mathcal{E}_N$
+% % 
+% \begin{equation}
+% \rho \to \rho'=\mathcal{E}_N[\rho ]=\frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}} r_{\vec{\alpha}} \sigma_{\vec{\alpha}},
+% % \label{Pauli_Map}
+% \end{equation}
+% % 
+% with $-1\leq \tau_{\vec{\alpha}} \leq 1$. 
+% % 
+% In this case the density matrix in vector form holds 
+% % 
+% \begin{equation}
+%  \kket{\rho}=\frac{1}{2^N}\sum_{\vec{\alpha}} r_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha} }},
+% \end{equation}
+% where $\kket{\sigma_{\vec{\alpha} }}=\kket{\sigma_{\alpha_1}}\otimes\dots
+% \otimes\kket{\sigma_{\alpha_N}}$, and satisfy the usual orthogonality relation
+% $\bbrakket{{\sigma_{\vec{\alpha} } }}{{\sigma_{\vec{\alpha}'} }} = \tr
+% \left(\sigma_{\vec{\alpha}}^{\dagger} \sigma_{\vec{\alpha}'}\right) = 2^N
+% ~\delta_{\vec{\alpha}\vec{\alpha}'}$. The matrix representation of this map is
+% given by
+\begin{equation}
+\hat{\mathcal{E}}_N = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}} \ddyada{\sigma_{\vec{\alpha} }}.
+\end{equation}
+As in the previous case, the Choi matrix $\mathcal{D}_N$ may be written in
+terms of tensor products of Pauli matrices:
+\begin{equation}
+ \mathcal{D}_N 
+  = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}}
+       \bigotimes_{j=1}^N \sigma_{\alpha_j} \otimes \sigma_{\alpha_j}^*.
+%  \label{Choi_1}
+\end{equation}
+This matrix is again diagonal in the (multi-qubit) Pauli basis, with the 
+eigenvalue corresponding to 
+$ \kket{\sigma_{\vec{\alpha} }}$ given by 
+% 
+% After several steps, it is possible to prove that analogously to the  case, $\mathcal{D}_N$ is diagonal in the $N$-qubits Pauli basis
+% \begin{equation}
+%  \mathcal{D}_N \kket{\sigma_{\vec{\alpha} }}
+%    = \lambda_{\vec{\alpha}} \kket{\sigma_{\vec{\alpha} }},
+% \end{equation}
+% with eigenvalues $\lambda_{\vec{\alpha}}$ given by 
+\begin{equation}
+ \lambda_{\valpha} = \frac{1}{2^N} \sum_{\vbeta} \san_{\valpha\vbeta}\tau_{\vbeta},
+\label{eq:lambda:is:A:tau}
+\end{equation}
+where 
+\begin{equation}\label{eq:san}
+ \san=\sa^{\otimes N}
+% =\frac{1}{2^N}\left(H\otimes H\right)^{\otimes N}=\left(\frac{H}{\sqrt{2}}\right)^{\otimes 2N}.
+\end{equation}
+Again, the proofs are provided in appendix \ref{sec:appendix:diagonalization}. We wish 
+to add that we could diagonalize $\mathcal{D}_N$ with $H^{\otimes 2N}$ instead of
+$a^{\otimes N}$, which might be more convenient for other applications.
+% \janote{en una 
+% iteración posterior del artículo completo quizás es buena idea enmarcar más esto
+% último de la otra a, ya que puede ser de interés en alguna aplicación}
+% \cpnote{Mencionar que con la otra $a$ tambien se puede diagonalizar para $N$ 
+% qubits.}
+% (Proofs in an appendix using binary indices XD)
+% }}}
+
+
+

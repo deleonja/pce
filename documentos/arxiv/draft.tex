@@ -1,0 +1,364 @@
+\pdfoutput=1
+\documentclass[letterpaper,superscriptaddress,aps,pra,nolongbibliography,twocolumn,showpacs,floatfix,10pt]{revtex4-2} % {{{
+% \documentclass[pra]{revtex4-2}
+%\usepackage[notref,notci2te]{showkeys} I
+%\usepackage[notref]{showkeys}
+%\usepackage{setstack}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+
+% \usepackage{ulem}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{lipsum}
+\usepackage{graphicx,helvet}
+\usepackage{color}
+%\usepackage{bm}                      % added by TG
+\usepackage{mathtools}
+% \usepackage[inline]{showlabels}
+%\usepackage[inner]{showlabels}
+\usepackage{bbm,bm}
+\usepackage{soul}
+\usepackage{amsfonts}
+ \usepackage{amsmath}
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+\definecolor{mygray}{gray}{0.4}
+\definecolor{light-blue}{rgb}{0.8,0.85,1}
+\graphicspath{{images/}}
+\usepackage{amsthm}
+%\usepackage{MnSymbol}%
+%\usepackage{wasysym}%
+%\usepackage{bbm}% bold math
+%\usetikzlibrary{decorations.shapes}
+% \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
+% \FXRegisterAuthor{cp}{acp}{\color{blue}CP}
+% \FXRegisterAuthor{fl}{afl}{\color{orange}FL}
+% \definecolor{jacolor}{RGB}{200,40,0} \FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
+% \FXRegisterAuthor{dd}{ddg}{\color{green}DD}
+% \FXRegisterAuthor{af}{aaf}{\color{magenta}AF}
+% 
+% \newcommand{\esqueletoja}[1]{\textcolor{jacolor}{#1}}
+
+\newcommand\dsone{\mathds{1}}
+
+\newcommand{\cuadritotikz}{
+% \pgfmathsetmacro{\unitstep}{5.2}
+% \node at (-0.5,0.5) {(a)} ;
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw[black!10] (0,0) rectangle (1,1); 
+%           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+         \end{scope}
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+ \draw (0,-3) rectangle (4,1);
+}
+
+\newcommand\todo[1]{\textcolor{red}{#1}}
+% \renewcommand\todo[1]{}
+%\def\>{\rangle} \def\<{\langle}
+\renewcommand{\>}{\rangle}
+\mathchardef\Re="023C
+\mathchardef\Im="023D
+% \usepackage[mathlines]{lineno}  \linenumbers \setlength\linenumbersep{3pt}%\modulolinenumbers[5]
+% \newcommand{\red}{\color{red}}
+\newcommand{\<}{\langle}
+\newcommand{\mele}[2]{\ensuremath{| #1 \rangle \langle #2 |}}
+\newcommand{\prj}[1]{\ensuremath{| #1 \rangle \langle #1 |}}
+\newcommand{\jami}{Jamiołkowski}
+\newcommand{\mcU}{\mathcal{U}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcI}{\mathcal{I}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcB}{\mathcal{B}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcT}{\mathcal{T}}
+\newcommand{\mcE}{\ensuremath{\mathcal{E}}}
+\newcommand{\mcG}{\ensuremath{\mathcal{G}}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\nnn}{\mathcal{N}}
+\newcommand{\choi}{\ensuremath{\mcD}}
+\newcommand{\mmm}{\mathcal{M}}
+\newcommand{\sss}{\mathcal{S}}
+\newcommand{\mcD}{\mathcal{D}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\valpha}{{\vec \alpha}}
+\newcommand{\vgamma}{{\vec \gamma}}
+\newcommand{\one}{\openone}
+\newcommand{\setA}{\ensuremath{{\sf A}}}
+\newcommand{\hilbert}{\ensuremath{{\sf H}}}
+\newcommand{\spV}{\ensuremath{V}}
+\newcommand{\spW}{\ensuremath{W}}
+\newcommand{\id}{\text{id}}
+\newcommand{\pce}{\ensuremath{\text{PCE}}}
+\newcommand{\vbeta}{\vec \beta}
+\newcommand{\vlambda}{\vec \lambda}
+% \newcommand{\vtau}{\vec \tau}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newcommand{\mcQ}{\mathcal{Q}}
+% \newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcF}{\mathcal{F}}
+\newcommand{\mcK}{\mathcal{K}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\ie}{i.e.}
+\newcommand{\aka}{a.k.a}
+\newcommand{\fmlong}{fuzzy measurements}
+\newcommand{\Fmlong}{Fuzzy measurements}
+\newcommand{\ipr}{\mathrm{ipr}}
+\newcommand{\rmH}{\mathrm{H}}
+\newcommand{\rmq}{\mathrm{q}}
+\newcommand{\cut}{\mathrm{cut}}
+\newcommand{\rmd}{\mathrm{d}}
+\newcommand{\rmi}{\mathrm{i}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\cg}{\mcC}
+%%%%CG commands
+\newcommand{\Loc}[1]{\ensuremath{\Lambda_#1^\text{L}}}
+\newcommand{\NoLoc}[1]{\ensuremath{\Lambda_{#1}^\text{NL}}}
+\newcommand{\NoLoct}[1]{\ensuremath{\tilde{\Lambda}_{#1}^\text{NL}} }
+\newcommand{\fuzzytwo}[1]{\ensuremath{\Lambda_#1^\text{fuzzy}}}
+\newcommand{\cgtwo}[1]{\ensuremath{\Lambda_#1^\text{cg}}}
+% \newcommand{\tp}{TP}
+\newcommand{\hp}{HP}
+\newcommand{\Imi}{\imath}
+\newcommand{\rmf}{f}
+%\newcommand{\eg}{\textit{e.g.} }
+%\newcommand{\Eg}{\textit{E.g.} }
+\newcommand{\eref}[1]{Eq.~(\ref{#1})} 
+\newcommand{\sref}[1]{sec.~\ref{#1}}
+\newcommand{\fref}[1]{Fig.~\ref{#1}}
+\newcommand{\tref}[1]{table~\ref{#1}}
+\newcommand{\Eref}[1]{Eq.~(\ref{#1})} 
+\newcommand{\Sref}[1]{Sec.~\ref{#1}}
+\newcommand{\Fref}[1]{Fig.~\ref{#1}}  
+\newcommand{\Tref}[1]{Table~\ref{#1}}
+\newcommand{\Or}{\mathord{\mathrm{O}}}
+\newcommand{\tr}{\mathop{\mathrm{Tr}}u\nolimits}
+% \newcommand{\comm}[1]{{\color{red} #1 }}
+\newcommand{\qv}{QV}
+\newcommand{\old}{\infty}
+\newcommand{\Mmed}{\mcM^{\<\cdot\>}}
+\newcommand{\MBLP}{\mcM^{\text{BLP}}}
+\newcommand{\MRHP}{\mcM^{\text{RHP}}}
+\newcommand{\gs}{GS}
+\newcommand{\cptp}{CPTP}
+\newcommand{\ket}[1]{{\vert #1 \rangle}}
+\newcommand{\bra}[1]{{\langle #1 \vert}}
+\newcommand{\proj}[2]{{\vert #1 \rangle \langle #2 \vert}}
+\newcommand{\projj}[1]{{\vert #1 \rangle \langle #1 \vert}}
+% \newcommand{\cp}{\color{red}   }
+\newcommand{\diag}{\text{diag}}
+
+% --------------------------------------- Commands added by JA ------------------------------------
+\usepackage{physics}
+\usepackage{breqn}
+% \newcommand{\paulicomponents}{r_{\alpha_1,\ldots,\alpha_N}}
+\newcommand{\paulicomponents}{r_\valpha}
+\newcommand{\taus}{\tau_\valpha}
+\newcommand{\pceg}{\mcG_{\vec \alpha}}
+\newcommand{\appref}[1]{appendix~\ref{#1}}
+% 
+\def\bbra#1{\mathinner{\langle \! \langle{#1}|}}
+\def\kket#1{\mathinner{|{#1}\rangle \! \rangle}}
+\def\ddyada#1{\mathinner{|{#1}\rangle\!\rangle\!\langle\!\langle{#1}|}}
+\def\ddyad#1#2{\mathinner{|{#1}\rangle\!\rangle\!\langle\!\langle{#2}|}}
+\def\bbrakket#1#2{\mathinner{\langle\!\langle {#1}|{#2}\rangle\!\rangle}}
+% \newcommand{\R}[1]{\label{#1}\linelabel{#1}}
+% \newcommand{\lr}[1]{\lineref{#1}}
+% --------------------------------------------------------------------------------------------------------------
+
+%\newcommand{\mimath}{\rmi}
+%\newcommand{\into}{\int_0^t \rmd \tau \{\blue [Verbo de la introducción]}int_0^t \rmd \tau'}
+%\newcommand{\intoh}{\int_0^t \rmd \tau \int_0^\tau \rmd \tau'}
+
+%\providecommand{\openone}{\leavevmode\hbox{\small1\kern-3.8pt\normalsize1}}
+
+%\newcommand{\eps}{\varepsilon} \newcommand{\trc}{\tr_{\rm c}}
+%\newcommand{\tre}{\tr_{\rm e}} \newcommand{\mcH}{\mathcal{H}}
+%\newcommand{\mcO}{\mathcal{O}} \newcommand{\mcU}{\mathcal{U}}
+
+\newcommand{\unam}{Universidad Nacional Aut\'onoma de M\'exico, Ciudad de M\'exico 01000, Mexico}
+\newcommand{\icf}{Instituto de Ciencias F\'{\i}sicas, Universidad Nacional Aut\'onoma de M\'exico, Cuernavaca 62210, Mexico}
+\newcommand{\ifunam}{Instituto de F\'{\i}sica, \unam}
+\newcommand{\fisguadalajara}{Departamento de F\'isica, Universidad de Guadalajara, Guadalajara, Jal\'isco, M\'exico}
+\newcommand{\sas}{Institute of Physics, Slovak Academy of Sciences, D\'ubravsk\'a cesta 9, Bratislava 84511, Slovakia}
+\newcommand{\red}{\color{red}}
+\newcommand{\ecfmUsac}{Instituto de Investigaci\'on en Ciencias F\'isicas y Matem\'aticas, Universidad de San Carlos de Guatemala, Ciudad Universitaria, Guatemala 01012, Guatemala}
+\newcommand{\affalejandro}{Departamento de Física, CCEN, Universidade Federal de Pernambuco, Recife 50670-901, PE, Brazil}
+% }}}
+\begin{document}
+% Title, authors, etc {{{
+\title{Pauli component erasing quantum channels} 
+\author{José Alfredo de León} \affiliation{\ecfmUsac}\affiliation{\ifunam}
+\author{Alejandro Fonseca} \affiliation{\affalejandro}\affiliation{\ifunam}
+\author{François Leyvraz} \affiliation{\icf}
+\author{David Davalos} \affiliation{\sas}
+\author{Carlos Pineda} \email{carlospgmat03@gmail.com} \affiliation{\ifunam}
+\begin{abstract} % {{{
+Decoherence of quantum systems is described by quantum channels.  However, a
+complete understanding of such channels, especially in the multi-particle
+setting,  is still an ongoing difficult task.  We propose the family of quantum
+maps that preserve or completely erase the components of a multi-qubit system
+in the basis of Pauli strings, which we call {\it Pauli component erasing} 
+maps.  For the corresponding channels, it is shown that the preserved
+components can be interpreted as a finite vector subspace, from which we derive
+several properties and complete the characterization.  Moreover, we show that
+the obtained family of channels forms a semigroup and derive its generators. We
+use this simple structure to determine physical implementations and connect the
+obtained family of channels with Markovian processes.
+% 
+% We generalize the notion that \afnote{an (any?) operation that collapeses the
+% Bloch sphere into a disk with unity radius does not correspond to a quantum
+% channel, ...} collapsing the Bloch sphere into a disk with unity radius is not
+% a quantum channel, to the case of an arbitrary number of qubits. This is, we
+% study and characterize all generalized idempotent Pauli channels to the case of
+% $N$ qubits. The generalization is obtained by extending Pauli matrices to Pauli
+% strings \afnote{(Tal vez no sea necesario hablar de Pauli strings aquí)}.
+% \afnote{We present a full characterization of completely positive maps of this
+% type by interpreting channels' matrices as finite vector spaces.} We give a
+% complete characterization of completely positive maps of this type by means of
+% interpreting channels as finite vector spaces. Moreover, we show that the
+% obtained family of channels is a semigroup and derive its generators. We use
+% this simple structure to determine physical implementations and connect the
+% obtained family of channels with Markovian processes.
+\end{abstract} % }}}
+%%
+\keywords{Quantum channels, decoherence, quantum many-body systems}
+%\pacs{03.65.Yz, 03.65.Ta, 05.45.Mt}
+ 
+\maketitle
+% }}}
+\newcommand{\sa}{\ensuremath{\textit{a}}}
+\newcommand{\san}{\ensuremath{\textit{A}}}
+%\section*{Propuesta de notacion} % {{{
+%Todos los comandos sencillos trabajan dentro y fuera de ambientes matematicos, solo pongan \verb!\ensuremath! cuando creen comandos nuevos.
+%\begin{itemize}
+%\item Single qubit matrix to diagonalize $\sa$: \verb!\sa!
+%\item Many qubit matrix to diagonalize $\san$: \verb!\san!
+%\item Channels (calligraphic letters) \mcE: \verb!\mcE! %\janote{canales cuánticos?}\ddnote{claro!}
+%\item Matrix representation of channels (Pauli basis) $\hat \mcE$: \verb!\hat\mcE! (no se si valga la pena hacerle un macro a este)
+%\item Sets of PCE channels of $N$ particles $\pce_N$: \verb!\pce_N!
+%\item Vector spaces \spV, \spW: \verb!\spV!, \verb!\spW!
+%\item Hilbert space \hilbert: \verb!\hilbert!
+%\item Set of bounded, trace-class and density matrices over the Hilbert space $\mcB(\hilbert)$, $\mcT(\hilbert)$, $\mcS(\hilbert)$:  \verb!\mcB(\hilbert)!, \verb!\mcT(\hilbert)!, \verb!\mcS(\hilbert)!
+%\item Indices in the Bloch decomposition $\tau$ \verb!\tau!
+%\item Number of particles $N$ \verb!N!
+%\item Identity $\one$ \verb!\one!
+%\item Indices for Pauli matrices $\alpha,\beta,\gamma$ \verb!\alpha,\beta,\gamma!. I guess these should also be used for the $a$ and $A$ matrices, so that
+%$a_{\alpha \beta}$ and $\san_{\vec \alpha \vec \beta}$ are scalars
+%\item Labeling the particles $1,\dots,k,\dots,N$
+%\item Generator corresponding to indices $\vec \alpha$ $\mcG_{\vec \alpha}$
+%\item Pauli Component erasing maps abbreviation: \pce{}: \verb!\pce{}!
+%\item Choi matrices: $\choi$: \verb!\choi!
+%\item Choi matrix of $N$ particles: $\choi_N$: \verb!\choi_N!
+%\item Quantum channels in Pauli and Pauli product basis (depending on the case): $\hat \mcE$: \verb!\hat\mcE!
+%\item {\red Ojo: hay que revisar si hay incosistencias de $\vec\tau$ cuando
+%se haga la revisión general.}
+%\end{itemize}
+%% }}}
+\input{intro}
+\input{pce}
+\input{math}
+\input{vector_space}
+\input{generators}
+\input{kraus}
+% \input{decoh_set}
+% \input{qudits}
+\input{conclusions}
+% \section{Ideas sueltas} % {{{
+% \subsection{Preguntas abiertas}
+% \begin{itemize}
+% \item \afnote{Clasificación de las clases de canales PCE: Entanglement breaking, divisible...}
+% \end{itemize}
+% % }}}
+% \par
+\begin{acknowledgments}% {{{
+Support by CONACyT Grants No. 285754 and No. 254515 and UNAM-PAPIIT Grants No. IG100518 and 
+No. IG101421 is
+acknowledged.  
+J. A. d.~L. acknowledges a scholarship from CONACyT.
+J. A. d.~L. thanks Juan Diego Chang for the fruitful
+discussions and support at the early stages of this project.  A. F.
+acknowledges funding by Fundação de Amparo à Ciência e Tecnologia do Estado de
+Pernambuco, through Grants No. BFP-0168-1.05/19 and No. BFP-0115-1.05/21.
+D. D. acknowledges OPTIQUTE Grant No. APVV-18-0518, DESCOM Grant No. VEGA-2/0183/21, and the Štefan
+Schwarz Support Fund.
+% Conversations with F. de Melo, T. H. Seligman, J. D. Urbina
+% and A. Diaz-Ruelas are also acknowledged. 
+\end{acknowledgments} % }}}
+\appendix
+\input{quantum_classical}
+\input{proofdiagonalization}
+\section{Number of PCEs for a fixed number of invariant components} % {{{
+\label{app:contar}
+Finally, we may enumerate straightforwardly the subspaces $W$ of dimension $K$.
+We do this in two steps: first, we evaluate $\nnn_{K,N}$, the number of all
+linearly independent subsets $V$ with $K$ elements. Each of these is the basis
+of one subspace of dimension $K$, but each subspace has a number $\mmm_K$ of
+different bases. The crucial point is that $\mmm_K$ is independent of the
+subspace under consideration: $\mmm_K$ simply describes the number of linear
+maps of $W$ onto itself. The total number $\sss_{N,K}$ of subspaces of
+dimension $K$ is therefore $\nnn_{N,K}/\mmm_K$. 
+
+To evaluate $\nnn_{N,K}$ we proceed by steps: the first element of the basis
+can be any non-zero element, of which the number is $2^{2N}-1$. For the  basis
+element $m+1$, we must choose from those which do not belong to the $m$
+dimensional space generated by the first $m$ basis elements, so that one
+chooses from $2^{2N}-2^{m}$. We thus have
+\begin{equation}
+\nnn_{N,K}=\prod_{m=0}^{K-1}\left( 2^{2N}-2^{m} \right).
+\label{eq.20}
+\end{equation}
+On the other hand, any map of a $K$-dimensional vector space $W$ onto itself is
+uniquely defined by a non-singular binary $K\times K$ matrix over the field
+$\{0,1\}$. To count these, we proceed as above: the first line is an arbitrary
+non-zero vector, of which there are $2^K-1$. For the row $m+1$  we must choose
+an arbitrary vector not belonging to those generated by the first $m$ vectors,
+of which there are $2^K-2^{m}$.  This eventually yields
+\begin{equation}
+\mmm_{K}=\prod_{m=0}^{K-1}\left(
+2^{K}-2^{m}
+\right).
+\label{eq.21}
+\end{equation}
+From this it follows that
+\begin{equation}
+\sss_{N,K}=\prod_{m=0}^{K-1} \frac{2^{2N-m}-1}{2^{K-m}-1}.
+\label{eq:22}
+\end{equation}
+%An elementary test is $N=3$ and $K=2,3$: 
+%\begin{eqnarray}
+%\sss_{3,2}&=&\frac{(2^6-1)(2^5-1)}{(2^2-1)(2^1-1)}=\frac{63\cdot31}{3}=651,\\
+%\sss_{3,3}&=&\frac{(2^6-1)(2^5-1)(2^4-1)}{(2^3-1)(2^2-1)(2^1-1)}=\frac{63\cdot31\cdot15}{7\cdot3}=1395,
+%\end{eqnarray}
+%which are indeed the values found numerically. 
+% The following symmetry relation
+% \begin{equation}
+% \sss_{N,K}=\sss_{N,2N-K}
+% \end{equation}
+% can also be proved straightforwardly from (\ref{eq:22}).
+% }}}
+\input{2_qubits}
+% \bibliographystyle{unsrt}
+\bibliography{references}
+% \input{prueba}
+\end{document}

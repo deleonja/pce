@@ -1,0 +1,417 @@
+
+\subsection{PCE quantum channels as vector spaces} % {{{
+\label{sec:vector_spaces}
+% Inversion de la relacion entre tau y p, y que las probablidiades deben ser positivas {{{
+
+In this subsection we will provide a one-to-one relation between PCE quantum
+channels and the subspaces of a discrete vector subspace associated with the
+indices $\valpha$ labeling the components of a state; see
+\eref{eq:N_qubits_rho}. 
+Some established facts about vector spaces will allow
+us to derive the main features of PCE quantum channels.
+
+
+Let us start by recalling that the problem of determining complete positivity
+of a PCE map can be recast as determining which coefficients $\tau_\valpha$ 
+are mapped via $\san$
+% \begin{equation}
+% \san\vec\tau=2^N\vec p
+% \label{eq:condition}
+% \end{equation}
+to positive eigenvalues $\lambda_\valpha$, as in \eref{eq:lambda:is:A:tau}. 
+% . In components, this would read 
+% \begin{equation}
+% % \left(
+% \sum_\vbeta
+% \san_{\valpha\vbeta} \,
+% % \right)
+% \tau_{\vec \beta}=2^Np_{\vec\alpha}
+% \label{eq:A:tau:is:p}
+% \end{equation}
+% where
+% $\san_{\vec\alpha\vec\beta} =\sa_{\alpha_1\beta_1}\cdot\ldots\cdot
+% \sa_{\alpha_N\beta_N}$. 
+Using the fact that $a^{-1}=a/4$, and so 
+% (so $A = A^{-1}/2^N$) 
+\begin{equation}
+A^{-1} = \frac{1}{4^N} A,
+\end{equation}
+we can directly invert \eref{eq:lambda:is:A:tau} to obtain 
+\begin{equation}
+% \tau_{\vec \alpha}= \san_{\vec\alpha\vec\beta} \, p_\vbeta,
+% \tau = 
+% \san \lambda =2^N \tau
+\sum_\vbeta \san_{\valpha \vbeta} \lambda_\vbeta =2^N \tau_\valpha
+\label{eq:tau:is:A:p}
+\end{equation}
+which will serve as a starting point for our analysis. 
+This is a remarkable equation, as it provides a method to diagonalize the
+Choi matrix of any Pauli diagonal map.
+
+
+Two other simple but crucial observations are the following. 
+For valid quantum channels it holds that 
+% \begin{equation}
+% % \sum_{
+% \end{equation}
+% $\sum_{\valpha \in \Omega} \lambda_\valpha=0$ implies that 
+% $\lambda_\valpha=0$ for all $\valpha$ in an arbitrary subset of 
+% multi-indices $\Omega$, 
+\begin{equation}
+\sum_{\valpha \in \Omega} \lambda_\valpha=0 
+\quad \implies 
+\quad 
+\lambda_\valpha=0, \, \forall \valpha \in \Omega
+\label{eq:lambda:is:zero}
+\end{equation}
+for an arbitrary subset of multi-indices $\Omega$, 
+as each member of the sum is greater than or equal to zero, 
+due to complete positivity of the underlying channel. 
+Finally, setting $\valpha =0$ in \eref{eq:tau:is:A:p}, and taking into 
+account the normalization condition that $\tau_{\vec 0}=1$, we obtain
+\begin{equation}
+\sum_\valpha \lambda_\valpha = 2^N,
+\label{eq:sum:alpha:is:2N}
+\end{equation}
+since, $A_{\vec 0, \vbeta}=1$ for all $\vbeta$. \par
+% }}}
+% Conexion de los indices para llegar al grupo de Klein {{{
+Now we need a definition: to each multi-index $\vec\alpha$ we associate a \textit{set}
+of multi-indices $\Phi(\vec\alpha)$ as follows
+\begin{equation}
+\Phi(\vec\alpha)=\left\{
+\vec\beta:\san_{\vec\alpha\vec\beta}=1
+\right\}
+% =\left\{ \vec\beta: \sa_{\alpha_1\beta_1}\cdot\ldots\cdot \sa_{\alpha_N\beta_N}
+% =1
+% \right\}
+\label{eq:8}
+\end{equation}
+% If we now assume that $\tau_{\vec\alpha}=1$, it follows from subtracting 
+If we now assume that $\tau_{\vec\alpha}=1$, and calculate the difference between
+\eref{eq:sum:alpha:is:2N} and
+$\sum_{\vec\beta}\san_{\vec\alpha\vec\beta}\lambda_{\vec\beta}=2^N$
+(which follows from \eref{eq:tau:is:A:p} and $\tau_{\vec\alpha}=1$), one obtains
+% \begin{subequations}
+% \begin{eqnarray}
+% \sum_{\vec\beta}p_{\vec\beta}&=&1
+% \label{eq:9a}\\
+% \sum_{\vec\beta}\san_{\vec\alpha\vec\beta}p_{\vec\beta}&=&\tau_{\vec\alpha}=1
+% \end{eqnarray}
+% \label{eq:9}
+% \end{subequations}
+% that for all $\vec\beta\notin\Phi(\vec\alpha)$
+\begin{eqnarray}
+\lambda_{\vec\beta}=0,\quad \forall \vec\beta\notin\Phi(\vec\alpha).
+\label{eq:condition:lambda:zero:Phi}
+\end{eqnarray}
+Thus, if $\tau_{\vec\alpha}=1$, then $\tau_{\vec\gamma}$
+and $\tau_{\vec{\gamma^\prime}}$ are equal if
+% , for all $\vec\beta\in\Phi(\vec\alpha)$.
+\begin{equation}
+\san_{\vbeta\vec\gamma}=\san_{\vbeta\vec{\gamma^\prime}}, \quad
+\forall \vec\beta\in\Phi(\vec\alpha).
+\label{eq:coneccion:dos:indices:A}
+\end{equation}
+This follows from restricting the sum \eref{eq:tau:is:A:p}
+to the indices $\vec\beta$ such that $\lambda_{\vec\beta}\ne 0$,
+given in \eref{eq:condition:lambda:zero:Phi}. 
+Condition (\ref{eq:coneccion:dos:indices:A}) therefore connects three
+multi-indices, $\valpha$,
+$\vec\gamma$ and $\vec{\gamma^\prime}$.
+When such a connection exists, $\tau_{\vec\alpha}=1$ implies
+$\tau_{\vec\gamma}=\tau_{\vec{\gamma^\prime}}$. 
+
+Let us now work out the nature of the aforementioned connection.  For arbitrary
+$k$ we define a vector $\vbeta_k$ such that $\vbeta_k\in\Phi(\vec\alpha)$ as
+follows: $\vbeta_k$ is zero everywhere except
+for the $k$'th coordinate, which takes a value $\beta$ such that  $\sa_{\alpha_k\beta}=1$. Since 
+$\sa_{\alpha 0}=1$ for any $\alpha$, this particular choice of $\vbeta$
+indeed belongs to  $\Phi(\vec\alpha)$, so that if \eref{eq:coneccion:dos:indices:A} holds for 
+all $\vbeta\in\Phi(\vec\alpha)$, it must hold for that particular $\vbeta_k$, which leads to
+% 
+% Let us now work out the nature of the aforementioned connection.  Let the
+% components of  $\vbeta$ be such that $\beta_l = \beta \delta_{lk}$ for a
+% particular particle index $k$, with $\beta$ such that $\sa_{\alpha_k\beta}=1$.
+% Since $\sa_{\alpha 0}=1$ for any $\alpha$, this particular choice of $\vbeta$
+% belongs to  $\Phi(\vec\alpha)$, so that \eref{eq:coneccion:dos:indices:A}
+% indeed holds. However, for such a choice
+% of $\vbeta$ the above relation reduces
+% to 
+\begin{equation}
+\sa_{\beta\gamma_k}=\sa_{\beta\gamma_k^\prime}
+\label{eq:14}
+\end{equation}
+for all $\beta$ such that $\sa_{{\alpha_k}\beta}=1$.  One can verify, by
+working out the different cases, that \eref{eq:14} is equivalently expressed as 
+\begin{equation}
+\gamma_k^\prime=\alpha_k\oplus{}\gamma_k
+\label{eq:oplus}
+\end{equation}
+where $\oplus{}$ denotes the operation of the Klein group; see Table
+\ref{tab:1} for a detailed description. 
+\par
+% }}}
+% Espacio vectorial {{{
+
+It will be useful to think of the multi-index $\valpha$ as an element of 
+a vector space. To do so, we notice that any group with the property that
+$\alpha \oplus \alpha =0$ is indeed a vector space under the two-element field
+$\{0,1\}$.
+We notice that the Klein group described in Table \ref{tab:1} is actually isomorphic
+to the two-dimensional vector space over the field of two elements $\{0,1\}$.
+Then, we build the complete vector space,
+with the same field, and defining $\valpha \oplus \vbeta = (\alpha_1 \oplus
+\beta_1,\cdots, \alpha_N \oplus \beta_N)$
+\footnote{
+We can further unravel the vector space, by identifying each index
+$\alpha \in \{0,1,2,3\}$ with its binary notation [e.g. identify $2$ with $(1,0)$]
+such that to each multindex  $\valpha$ there corresponds a binary string of 
+length $2N$. In fact, our sum $\oplus$ would correspond to addition modulo 2 of 
+each of the $2N$ components. 
+}. 
+We can indeed restate \eref{eq:oplus} and say that, for quantum channels, 
+if $\tau_{\vec\alpha}=1$, then
+$\tau_{\vec\gamma}=\tau_{\vec\alpha\oplus{}\vec\gamma}$.
+For example, in \fref{fig:two:qubit:examples}(c) the indices that 
+correspond to preserved components are 
+$\valpha^{(0)} = (0,0)$, 
+$\valpha^{(1)} = (0,2)$, 
+$\valpha^{(2)} = (1,0)$, 
+$\valpha^{(3)} = (2,2)$, and
+$\valpha^{(4)} = (3,2)$. However, 
+$\valpha^{(1)} + \valpha^{(2)} = (1,2)$, which is not preserved, and thus this 
+diagram does not correspond to a quantum channel.  From this view 
+we can derive several interesting observations that will be presented in 
+the rest of the section. 
+
+\begin{table} % {{{
+\begin{center}
+\begin{tabular}{| c | c c c c |}
+\hline
+$\oplus{}$ & 0 & 1& 2 & 3\\
+\hline
+0 & 0 & 1 & 2 & 3\\
+1 & 1 & 0 & 3 & 2\\
+2 & 2 & 3 & 0 & 1 \\
+3 &3 & 2 & 1 & 0\\
+\hline
+\end{tabular}
+\caption{Definition of the $\oplus{}$ operation, see \eref{eq:14}. Note that
+the operation is an Abelian group; in fact it corresponds to the 
+Klein group, where the neutral element is zero. This is the reason for choosing
+an additive notation for the operation defined in (\ref{eq:14}). }
+\label{tab:1}
+\end{center}
+\end{table} % }}}
+
+
+From this readily follows an amusing property: the set of all multi-indices
+$\vec\gamma$ for which $\tau_{\vec\gamma}=1$ is closed under binary
+vector addition; in other words, it forms a vector subspace of the set
+of all multi-indices.
+A moment's consideration will further show that the above reasoning can be
+inverted; that is, if we set all $\tau_{\vec\gamma}$ equal to $1$
+whenever $\vec\gamma$ belongs to a given vector subspace of the set of
+all indices, then $\tau$ indeed has an image
+which has
+only positive components. 
+In other words, there is a one-to-one correspondence between 
+a quantum channel, and a vector subspace of the aforementioned space. 
+\par
+
+% }}}
+% Generacion de soluciones {{{
+With this information, we present a procedure to generate all solutions: we start out
+from the solution having $\tau_{\vec0}=1$, with everything else zero. We may
+then successively switch $\tau_{\vec\alpha}$'s
+% \janote{agregué el subíndice $\vec\alpha$} 
+to one for various values of $\valpha$,
+taking care immediately to set equal to one the components of $\tau$
+% \janote{puse la $\tau$ como vector y hay otro antes}
+that
+correspond to values of $\vbeta$ generated by the previously switched values of
+$\valpha$ via the operation $\oplus$. Doing so, in an ordered way, allows one
+to generate
+all PCE quantum channels with a given set of preserved components, without the need
+of exploring the exponentially large space of all PCE maps.  \par 
+% }}}}
+
+\begin{figure} % {{{
+\begin{center}
+\includegraphics{two_qubit_channels.pdf}
+% Del dcumento francois.pdf pg 8 agarramos:
+% e11, e4 y E7
+% \begin{tikzpicture}[x=0.55cm, y=0.55cm] % {{{
+% \pgfmathsetmacro{\unitstep}{5.2}
+% \begin{scope}[shift={(1*\unitstep,0)}] % Depolirizng channel {{{
+% \node at (-0.5,0.5) {(a)} ;
+% \cuadritotikz{}
+% \begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \end{scope} % }}}
+% \begin{scope}[shift={(2*\unitstep,0)}] % Interseccion {{{
+% \node at (-0.5,0.5) {(b)} ;
+% \cuadritotikz{}
+% \begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \end{scope} % }}}
+% \begin{scope}[shift={(3*\unitstep,0)}] % E4 {{{
+% \node at (-0.5,0.5) {(c)} ;
+% \cuadritotikz{}
+% \begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \end{scope} % }}}
+% \begin{scope}[shift={(1*\unitstep,-\unitstep)}] % E7 {{{
+% \node at (-0.5,0.5) {(d)} ;
+% \cuadritotikz{}
+% \begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \end{scope} % }}}
+% \begin{scope}[shift={(2*\unitstep,-\unitstep)}] % E11 {{{
+% \node at (-0.5,0.5) {(e)} ;
+% \cuadritotikz{}
+% \begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% % \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \end{scope} % }}}
+% \begin{scope}[shift={(3*\unitstep,-\unitstep)}] % Identity channel {{{
+% \node at (-0.5,0.5) {(f)} ;
+% \cuadritotikz{}
+% \begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(1,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \end{scope} % }}}
+% \end{tikzpicture} % }}}
+\end{center}
+\caption{
+Examples of diagrams for several two-qubit PCE quantum channels: (a) the totally
+depolarizing channel and (b) a PCE channel that preserves four components---the
+normalization component, one local component of qubit 2, and two correlations between the 
+two qubits.
+(c), (d), and (e) show the three generators $\mcG_{(1,0)}$, $\mcG_{(3,2)}$, and
+$\mcG_{(2,2)}$, respectively; the combination (overlap of diagrams) of any two
+of them yields the channel in (b).
+(f) represents the identity map. 
+}
+\label{fig:examplesPCE}
+\end{figure} % }}}
+% Los canales tiene 2^K componente {{{
+
+% **********************************
+% 
+% We can show that all PCE quantum channels preserve $2^K$ components. 
+% In
+% fact, with the above picture, it is clearly revealed that the vector space has
+% dimension $2N$. Moreover, 
+% consider any subspace and chose the maximum number of linearly independent
+% elements (say $K$).  Any of the  $2^K$ subsets of those elements will yield a
+% unique element. Moreover, since $\valpha + \valpha = \vec 0$, these are all
+% elements of the vector space. This means that any PCE quantum channel will preserve $2^K$ 
+% components, for $K$ an integer. See \fref{fig:examplesPCE} for some examples. 
+% \par 
+% 
+% **********************************
+% **********************************
+
+We can show that all PCE quantum channels preserve $2^K$ components. 
+First recall that a vector space of dimension $d$ over a field of $q$ elements
+has $q^d$ elements~\cite{Roman2008}.
+Now $V$ is a vector space on a field of two elements having dimension $2N$. 
+% The dimension of the vector space $V$ of all multi-indices is $2N$, and 
+We have
+seen earlier that
+\begin{equation}
+W=\left\{
+\vec\alpha:\vec\alpha\in V, \tau_{\vec\alpha}=1
+\right\}
+\label{eq:19}
+\end{equation}
+is a subspace of $V$. 
+As such, $W$ has a given dimension $K$, which means that
+$W$ has $2^K$ elements. In other words, a set of indices $\tau_\valpha$ with the property
+discussed above can only have $2^K$ elements equal to 1, for a given integer
+$K$. \par
+
+ % }}}
+% Cuantos canales conservan $2^K$ componentes? {{{
+It is natural to ask how many PCE quantum channels exist that preserve  $2^K$ components. One
+can calculate such number, $\sss_{N,K}$, by examining the number of different
+independent subsets of vectors that spawn a given vector subspace. In appendix 
+\ref{app:contar} we show that 
+\begin{equation}
+\sss_{N,K}=\prod_{m=0}^{K-1} \frac{2^{2N-m}-1}{2^{K-m}-1}.
+\label{eq:conteo:main}
+\end{equation}
+%An elementary test is $N=3$ and $K=2,3$: 
+%\begin{eqnarray}
+%\sss_{3,2}&=&\frac{(2^6-1)(2^5-1)}{(2^2-1)(2^1-1)}=\frac{63\cdot31}{3}=651,\\
+%\sss_{3,3}&=&\frac{(2^6-1)(2^5-1)(2^4-1)}{(2^3-1)(2^2-1)(2^1-1)}=\frac{63\cdot31\cdot15}{7\cdot3}=1395,
+%\end{eqnarray}
+%which are indeed the values found numerically. 
+From the above expression, it is easy to see the symmetry relation
+\begin{equation}\label{eq:conteo:simmetry}
+\sss_{N,K}=\sss_{N,2N-K}
+\end{equation}
+which suggests a relation  between individual channels that
+preserve $K$ and $2N-K$ Pauli components that for the time being
+has escaped our efforts to identify. 
+\par % }}}
+
+% Stabilizer codes {{{
+Finally, let us point out the following: if we wish to specify a PCE
+channel explicitly, the naive way to proceed would be simply to list all the
+Pauli components which are not erased. This requires in general, however, an
+exponential amount of information: that is, if the system has $N$ qubits, we
+generally require of the order of $2^N$ bits to do this. If, on the other hand,
+we take advantage of the vector space structure of a PCE channel, we only need
+to specify a basis. Since a basis consists of $N$ vectors of length $N$, the
+information required is only of $N^2$ bits, so that we have obtained a very
+substantial improvement by exploiting complete positivity. This is reminiscent
+of a rather similar effect in {\em stabilizer states\/} which can also be
+specified by $N^2$ bits, as opposed to an exponentially large number of basis
+coefficients for arbitrary states.  A stabilizer state is one which is the
+common eigenvector to the eigenvalue 1 of a set of $N$ commuting 
+Pauli strings.  The similarity is highly intriguing, and
+potentially of interest, since stabilizer states are of central importance in
+quantum error correction \cite{Gottesman1997}. 
+
+% }}}
+% }}}
+
+

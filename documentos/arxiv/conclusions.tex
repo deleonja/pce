@@ -1,0 +1,212 @@
+\section{Conclusions and outlook}
+\label{sec:conclusions}
+
+In this paper we introduce and characterize a set of quantum maps which either preserve
+or completely erase the components of a multi-qubit density matrix, in the
+basis of Pauli strings; 
+we call  those maps {\it Pauli component erasing  maps}.
+For a single qubit these include the completely depolarizing
+and dephasing channels.
+To start the characterization, we note that 
+not all PCE maps are quantum channels, as some are not completely positive.  In
+fact, the most laborious task of this paper was to evaluate complete positivity conditions
+given by the Choi-\jami{} isomorphism, after which we showed that
+the components of PCE quantum channels form a finite vector space.
+% This leads immediately to a method to find
+% constructively valid quantum maps starting with arbitrary \pce{} maps. 
+This in turn allows us to unravel several properties, such as the possible number of PCE
+channels, and the number of components preserved while also providing 
+advantages to study numerically this set, for example by implying an efficient method 
+to construct all quantum channels for a given number of qubits.
+%\janote{Propuesta para cambiar el enunciado anterior por:}
+%\janote{
+%This in turn allows to unravel several properties, such as the counting of PCE channels,
+%the number of components preserved by a channel, and perhaps the most 
+%important one, the fact that not all sets with equal number of preserved components
+%are immediately a quantum channel, or said in other words, not all sets
+%of preserved components form a vector space. Moreover, this algebraic structure also provides
+%advantages for studying PCE channels numerically, for example, by implying an efficient method 
+%to construct all quantum channels of this type for a given number of qubits.} 
+%%
+%\cpnote{
+%This in turn allows to calculate several properties, such as the number of PCE channels,
+%and the number of components preserved by a channel.  and perhaps the most 
+%important one, the fact that not all sets with equal number of preserved components
+%are immediately a quantum channel, or said in other words, not all sets
+%of preserved components form a vector space\cpnote{No se 
+%me hace importante}. Moreover, this algebraic structure also provides
+%advantages for studying PCE channels numerically, for example, it allows to 
+%efficiently construct all quantum channels of this type for a given number of qubits.} 
+%
+
+Similar to other objects in open quantum systems (for example, Lindblad
+processes), PCE quantum channels form a semigroup, but finite in this case.
+For
+PCE channels, the generators  are generalized flip operations, \ie{} channels
+that with probability $1/2$ apply a joint flip. 
+This structure allows us to link this channel with multi-qubit decoherence
+processes which can be described, say, by simple dissipative processes or
+memory-less collision models, which in turn may pave a way to either implement
+these channels or connect them with already existing decoherence families. 
+% \ddnote{Lo anterior todavia lo siento como una lista sin mucha interconexcion. Contrapropuesta ya completa:}
+This, together with the discovered algebraic structure that translates complete
+positivity into an explicit conditioned preservation of many-body correlations,
+encompasses an advance in the knowledge of the mathematical structures
+underlying general quantum channels.
+% \afnote{Propongo cambiar desde aqui hasta el final así (en un nuevo párrafo):
+% We had provided a new family of quantum channels with a very special
+% mathematical structure, thus extending our knowledge on the relation between
+% quantum channels and many-body systems. In addition, the study of
+% generalizations to high dimensional systems (qudits) and the understanding of
+% the geometric role of PCE channels within the set of all quantum channels may
+% be helpful to get a wider comprehension of open quantum systems.} 
+
+
+% Both
+
+In the future we might consider generalizations (such as going from qubits to
+qudits) as well as the geometric role of PCE channels within the set of all
+quantum channels to further advance the
+understanding of open quantum systems.  We have thus described a family of
+quantum channels with a very special mathematical structure that allows us to
+widen the understanding of quantum channels in the context of many-body
+systems. 
+
+
+% In this work we introduced and characterized a family of channels that
+% generalize Pauli idempotent channels to the multi-qubit case (\pce{} channels).
+% The generalization was performed extending Pauli matrices to Pauli strings, the
+% resulting maps (\pce{} maps) are diagonal in the Pauli string basis. Here,
+% idempotence implies that either they nullify or leave invariant the components
+% of the generalized Bloch vector, see~\eref{eq:N_qubits_rho}, which includes
+% many-body correlations.
+% %
+% Not every \pce{} map is a quantum channel, so the main task of this work was to
+% evaluate complete positivity conditions given by the Choi-\jami{} isomorphism.
+% This was possible noticing that \pce{} channels have a very particular
+% algebraic structure, they can be seen as finite vector subspaces of a larger
+% finite vector space (representing the identity channel), see
+% section~\ref{sec:vector_spaces}. This leads immediately to a method to find
+% constructively valid quantum maps starting with arbitrary \pce{} maps. 
+%
+% This is, once choosing the generalized Bloch vector components that are going
+% to be preserved, the finite vector space summation rule of the \pce{} map
+% diagonal elements gives automatically the additional components that must be
+% preserved in order to get a valid quantum channel.
+% %
+% The finite vector space structure in turn allowed to unravel several
+% properties, such as the possible number of PCE
+% channels, and the number of components preserved. 
+% %
+% Furthermore, \pce{} channels form a semigroup where generators are generalized
+% flip operations, \ie{} channels that with probability $1/2$ apply a joint flip. 
+% This structure allows us to link \pce{} channels with multi-qubit decoherence processes
+% which can be described by simple dissipative processes or memory-less 
+% collision models. 
+% %
+% This, together the discovered algebraic structure that translates complete positivity into an explicit conditioned preservation of many-body correlations, encompasses an advance in the knowledge of the mathematical structures underlying general quantum channels.
+
+% 
+% 
+% 
+% \cpnote{ We found a semigroup structure where generators are in fact generalized
+% flip operations, \ie{} channels that with probability $1/2$ apply a joint flip
+% described with $\sigma_{\vec \alpha}$. }
+% 
+
+% \cpnote{As a note, partial tracing the
+% effect of generators, give the same generators for smaller systems, in
+% particular leaving only one qubit one recovers the known flip channels.}
+
+
+% \cpnote{ Falta mas de decoherencia}
+% \cpnote{ An interesting property of generators is that they can be implemented
+% using always a single qubit as environment, therefore \pce{} channels can be
+% viewed as the quantum system interacting stroboscopically (or colliding) with a
+% qubit that is reset after each collision.}
+% 
+% \cpnote{ Decomposing \pce{} channels into their generators was also exploited to
+% compute Markovian dynamics for which a target \pce{} channel is the fixed
+% point.  }
+% 
+% Finally, we discuss two examples to see PCE quantum channels as
+% fixed points of a pure dissipative process and of a memory-less 
+% collision model. To derive these two implementations we exploit 
+% the fact that Kraus operators of PCE generators are the identity 
+% operator and one of the Pauli strings operators, up to a constant.
+% \janote{Falta un comentario para cerrar el párrafo}
+
+
+% Intro de Francois y Jose Alfredo {{{
+% In this work we introduce and fully characterize 
+% a novel type of Pauli maps: Pauli component erasing (PCE) maps.
+%PCE maps are operations that project a $N$-qubit density matrix 
+%onto subsets of the Pauli strings basis. 
+% We call the Pauli components of the density matrix of a system of qubits 
+% to the projections of the density matrix onto the elements of Pauli string 
+% basis.
+% Then, a PCE map is defined as a \janote{positive and} linear operation acting over 
+% the density matrix of a system of qubits either preserving or 
+% completely erasing its Pauli components.
+%By construction, PCE maps are trace-preserving.
+% In Figs. \ref{fig:one:qubit:examples} and \ref{fig:two:qubit:examples} 
+% we introduce diagrams that graphically represent PCE maps of 1 and 2 qubits. 
+%We study the conditions for a PCE map to represent a 
+%quantum physical evolution, i.e. to be a quantum channel, thus we 
+%investigated the conditions a PCE map needs to fulfill to 
+%be completely positive. 
+% PCE maps are by construction positive and trace-preserving but not 
+% completely positive in order to be a quantum physical evolution, i.e.
+% a quantum channel.
+% Hence, we study the conditions a PCE map needs to met to be 
+% a PCE quantum channel, and we describe in detail the properties 
+% of this subset of all PCE maps.
+
+% We provide an exact diagonalization for Pauli diagonal maps' 
+% Choi matrix and evaluate the complete positivity condition, 
+% as established in the Choi-Jamiokolwsky isomorphism. 
+% Then, restricting ourselves to PCE maps we find an interesting algebraic structure:
+% if we number the Pauli matrices by pairs of binary indices and describe a Pauli string as the
+% corresponding vector of binary numbers, 
+% the set of indices vectors of the Pauli strings to which 
+% the density matrix is projected by a given PCE quantum channel is
+% a vector space over the field of two elements $\{0,1\}$.
+% In other words, we find that PCE quantum channels may 
+% be understood as vector subspaces and from this 
+% derive all their properties.
+% PCE quantum channels are not only characterized by the number
+% of Pauli components preserved but in fact 
+% for the particular sets of components preserved 
+% [see \Fref{fig:two:qubit:examples}].
+% If one wishes, say, to preserve at least a given set of Pauli components, 
+% the vector space structure determines uniquely the minimal set of 
+% Pauli components we must add to obtain a quantum channel.
+% Furthermore, we find that PCE quantum channels posses generators
+% and these \textit{PCE generators} have symmetries.
+% In the vector space language of PCE quantum channels the PCE 
+% generators are described as maximal non trivial vector subspaces. 
+% For 2-qubits, the symmetries of PCE generators are easily described with 
+% the diagrams representing the corresponding maps 
+% [see \Fref{fig:appex:twoQ_PCEGs}], they are either symmetric or
+% antisymmetric with respect to a horizontal and vertical lines 
+% cutting the diagrams through the middle. Even more, we find an 
+% astonishing connection via this symmetry between PCE generators and the matrix 
+% that diagonalizes the Choi matrix of a Pauli diagonal channel: one can
+% take the rows or columns of this matrix, map all entries with -1 to 0, and
+% obtain all indices vectors of the PCE generators. 
+% }}}
+
+
+
+
+% \ddnote{Punchlines (sigo trabajando)}
+% {\blue 
+% \begin{itemize}
+% \item (la idea es conectar lo siguiente directo a los highlights, pensando que el ultimo highlight es el del espacio vectorial): the introduced vector structure 
+% \item Parrafo final: the study amounts to understand deeply decoherence for higher dimensions by generalizing the notion of qubit flip channels (with flip probability of $1/2$) to the case of $N$ qubits. Furthermore, we were able to prove that the generalized channels can be connected again 
+% \end{itemize}
+% }
+% 
+% This work may lead to future directions, being perhaps the most interesting
+% one the generalization of PCE maps for systems of qudits.
+% \janote{algo más para direcciones futuras de trabajo?}

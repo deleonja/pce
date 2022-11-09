@@ -1,0 +1,123 @@
+\section{Introduction} % {{{
+
+Quantum correlations~\cite{PhysicsPhysiqueFizika.1.195,
+PhysRevLett.126.170404,Ollivier2001}, including entanglement~\cite{Horodecki},
+are an important resource for a wide variety of tasks that
+include teleportation~\cite{PhysRevLett.70.1895}, quantum
+computation~\cite{nielsen_chuang_2011}, and others~\cite{Sapienza2019}.
+However, this resource is also extremely
+delicate~\cite{nielsen_chuang_2011,Schlosshauer2004}, especially 
+for multi-particle systems~\cite{Horodecki}; that is why an important part
+of the efforts of the community implementing quantum technologies is 
+devoted to tackle this issue from an experimental \cite{Mooney_2021,Briegel1998} and
+theoretical \cite{Bennett1996,Georgescu2020,RevModPhys.87.307} point of view. 
+The process by which quantum correlations are unintentionally dissipated
+is called {\it decoherence}~\cite{Schlosshauer2004,sep-qm-decoherence}.
+One of the main tools to study the effects of decoherence are 
+quantum channels. Quantum channels can describe quantum
+noise~\cite{davalosdivisibility,ruskai}, open quantum systems
+dynamics~\cite{nielsen_chuang_2011,breuerbook}, and recently even coarse
+graining~\cite{Duarte2017,pinedacg}. 
+%
+One of the main difficulties 
+in characterizing quantum channels is that, like for quantum states, 
+the number of parameters required for their description increases quite 
+rapidly with Hilbert-space dimension.
+% \sout{to characterize quantum channels is that,
+% similar to quantum states, the parameters needed to describe them
+% increases overwhelmingly rapidly with the dimension of the Hilbert space.}
+%
+Moreover, such parameters are constrained in a complicated way by 
+physical conditions, such as complete positivity ~\cite{zimansbook}.
+% Such parameters are not fully independent, the complete positivity condition imposes the regions that have physical meaning~\cite{zimansbook}.
+% 
+Describing in detail families of channels having a given property provides
+insight into the jungle of quantum operations.
+For the qubit case there are several studies concerning the unital case, for which
+non-trivial properties can be described using only three parameters, which in
+turn form the well-known tetrahedron of Pauli
+channels~\cite{Rybar2012,ruskai,davalosdivisibility}. 
+% For general
+% finite-dimensional channels, several families of channels have been defined.
+More generally, in~Ref.~\cite{nathanson2007pauli} the authors study families of 
+convex combinations of quantum-classical channels that relate to
+% have a close relation with 
+unital qubit channels with positive eigenvalues, and give a
+generalization of the Bloch sphere. 
+% {\blue We will show later that some of the channels studied here are also
+% quantum-classical.}\ddnote{Esta frase no me gusta, pero no se me occure nada
+% mejor en tanto a la escritura. Propongo omitirla, despues se volvera a
+% mencionar esto pero en donde corresponde.}
+Similarly, a generalization of Pauli channels based on mutually unbiased
+measurements is introduced and studied in Ref.~\cite{Siudzinska2020}. Other
+studies of channels beyond the qubit can be
+found~\cite{pub.1117408526,pub.1060516327,pub.1014660854,Fonseca2019}. 
+% \cpnote{Me gusta la idea de ir sobre un par de familias, pero no veo para que 
+% mencionar a las MUBs aca, ni paraque introducir la sigla. Ojala podamos 
+% discutir que familias mencionamos acá}\ddnote{atendido como fue acordado en la reunion :)}
+
+In this paper we present a generalization of idempotent Pauli channels---\ie{},
+the qubit flip operations (bit, phase, and bit-phase when the flip probability is $1/2$), total depolarizing qubit
+channel and the identity channel---to the case of $N$ qubits. 
+% \cpnote{Mencionar decoherencia} 
+The generalization is done by extending
+Pauli observables to \textit{Pauli strings} (tensor products of Pauli
+matrices)~\cite{KIMURA2003339,Lawrence2002}. The resulting maps are unital and
+diagonal in the Pauli strings' basis. 
+We shall in the following refer to 
+such maps as {\em Pauli component erasing} (\pce{}) {\it maps}.
+
+The main task which we perform in this paper is the identification of the
+conditions which an arbitrary \pce{} map must satisfy in order to be completely
+positive. The answer turns out to involve a strikingly simple and unexpected
+mathematical structure that is exploited to gain deeper understanding
+on aforementioned channels, as we show in section \ref{sec:vector_spaces}. This
+structure allows us, for example, to describe such channels with a much reduced
+set of parameters (as compared to specifying a list of all erased Pauli
+components) or to define an
+interesting semigroup structure on the set of all \pce{} channels. 
+Additionally, these channels are, in a sense, the simplest possible channels,
+and as such can be used as building blocks of more general channels. For 
+instance, one can combine them (through convex superposition) or compose them
+with unitary transformations.
+To summarize succinctly the final result, we show that it is possible
+to assign to every Pauli string a simple \pce{} channel, obtained by extending
+the system with an ancilla of a single qubit, acting on the combined system by
+a unitary involving the Pauli string and tracing over the ancilla. It then
+follows from our results that {\em all\/} \pce{} channels arise from such
+channels by composition.
+
+%In addition, these channels describe the decoherence process in a similar way
+%as the aforementioned
+%ones for the single-qubit case.
+%Additionally, we characterize the algebraic
+%properties of the set of \pce{} channels, showing that it is equipped
+%with a semigroup structure, which is later used to derive physical
+%implementations.
+
+
+%
+\par
+The paper is organized as follows. In section~\ref{sec:pce_maps} we recall
+the properties of quantum channels needed to proceed with the definition 
+of 
+% the tools to unders
+% refreshing of quantum channels theory and the definition of 
+\pce{} maps. 
+In section~\ref{sec:math} we diagonalize analytically the Choi matrix for
+arbitrary \pce{} maps and characterize their complete positivity by
+interpreting \pce{} quantum channels as finite vector subspaces.
+% In
+% section~\ref{sec:math} we diagonalize analytically the Choi matrix for
+% arbitrary \pce{} maps and characterize \janote{the} completely positive maps by interpreting
+% \pce{} maps \janote{quantum channels?} as finite vector spaces. 
+We study the
+generators of the semigroup structure associated to the set of \pce{} channels in section~\ref{sec:generators}, and we use
+them to derive meaningful physical interpretations of \pce{} channels in
+section~\ref{sec:kraus}, as well as Kraus operators of the generators.
+% 
+To finish, we conclude and discuss future perspectives and possible generalizations in
+section~\ref{sec:conclusions}.
+% }}}
+
+
