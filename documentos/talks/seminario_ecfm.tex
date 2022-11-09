@@ -54,6 +54,10 @@
 }
 %%%%%
 
+
+
+
+
 %%%%% personalisation
 % clear all headers
 \setbeamertemplate{headline}{}
@@ -227,22 +231,74 @@ de sistemas abiertos.
 \end{center}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[t]{}{Sistema de dos niveles}
 \begin{minipage}{.49\textwidth}
 \small
-El de un sistema de 2 niveles:
 $$\ket{\psi}=\cos\qty(\frac{\theta}{2})\ket{0} + e^{i\phi}\sin\qty(\frac{\theta}{2})\ket{1}$$
 \begin{center}
+\vspace{-2mm}
 \includegraphics[width=5.5cm]{../images/bloch_general}
+Estados puros
 \end{center}
 \end{minipage}
+\hfill
 \begin{minipage}{.49\textwidth}
 \small
-Más aún, 
 $$\rho = \mqty(1+r_z&r_x-ir_y\\r_x+ir_y&1-r_z)$$
 \begin{center}
 \includegraphics[width=5cm]{../images/bloch_rho}
+Estados mixtos \textbf{y puros}
 \end{center}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}
+\begin{center}
+\includegraphics[width=12cm]{../images/evolucion_unitaria}
+
+\includegraphics[width=12cm]{../images/evolucion_no_unitaria}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{tikzpicture}
+\node at (-10,5)  {%
+\includegraphics[width=4.5cm]{../images/channel_00}%
+};
+\draw [-stealth,line width=7pt] (-7.5,4.5) -- (-5.5,4.5);
+\node at (-6.5,6.3) {\color{green} \Huge\cmark};
+\node at (-6.5,5.6) {\LARGE evolución};
+\node at (-6.5,5.1) {\LARGE física};
+\node at (-3,5)  {%
+\includegraphics[width=4.5cm]{../images/channel_02}%
+};
+%
+%
+\node at (-10,  0.5)  {%
+\includegraphics[width=4.5cm]{../images/channel_03}%
+};
+\node at (-6.5,1.8) {\color{red} \Huge\xmark};
+\node at (-6.5,1.1) {\LARGE evolución};
+\node at (-6.5,0.6) {\LARGE no física};
+\draw [-stealth,line width=7pt] (-7.5,0) -- (-5.5,0); 
+\node at (-3,  0.5)  {%
+\includegraphics[width=4.5cm]{../images/channel_04}%
+};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\begin{minipage}{.5\textwidth}
+\begin{center}
+\includegraphics[width=\textwidth]{../images/dibujo}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{.4\textwidth}
+Si ahora consideramos un sistema de muchas partículas de 
+dos niveles, ¿cuáles son las proyecciones de la hiperesfera de Bloch
+que describen evoluciones físicas? 
 \end{minipage}
 \end{frame}
 

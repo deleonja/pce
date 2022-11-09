@@ -1,0 +1,1079 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     40413,       1071]
+NotebookOptionsPosition[     39154,       1042]
+NotebookOutlinePosition[     39575,       1059]
+CellTagsIndexPosition[     39532,       1056]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Graphics3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Opacity", "[", ".25", "]"}], ",", 
+       RowBox[{"Tetrahedron", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", 
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{"-", "1"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", "1", ",", 
+             RowBox[{"-", "1"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}], ",", 
+         RowBox[{"VertexColors", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Blue", ",", "Pink", ",", "Blue", ",", "White"}], 
+           "}"}]}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Thickness", "[", "0.008", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], "}"}], "]"}]}], 
+        "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+       RowBox[{"Point", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], "]"}]}], "}"}], 
+     ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(1,1,1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1.1", ",", "1.1", ",", "1.1"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{
+        "\"\<\!\(\*SubscriptBox[\(\[Lambda]\), \
+\(\(1\)\(,\)\(2\)\(,\)\(3\)\(\\\ \)\)]\) = (1,-1,-1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.7", ",", 
+         RowBox[{"-", "1"}], ",", 
+         RowBox[{"-", "1.1"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(-1,1,-1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1.4"}], ",", "1.15", ",", 
+         RowBox[{"-", "0.8"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(-1,-1,1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1.1"}], ",", 
+         RowBox[{"-", "1.1"}], ",", "1"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(1,0,0)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1.3", ",", "0.2", ",", "0"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(0,1,0)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.4", ",", "0.8", ",", "0"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(0,0,1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.1"}], ",", "0", ",", "1.25"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(0,0,0)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.1"}], ",", "0", ",", 
+         RowBox[{"-", "0.2"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQA2IQzaQff0Hv4RtHoR/B10F0v9m8eyB66f6L90H0hcq2
+vyB6V1Umvz6Q9hMLbQTRfOwL2kG0W1BXN4gu+7AGTJ+P0F4Foqf4HF4LohXU
+7baA6Nw5vqdB9IKUnbdA9KQJmu9B9GU7jr8gOiMhj8kAJC9Ryw6iBfw2SILo
+c69/yILoS0HtCiDaO+2KCoj2n+RuB6KnVTU6g+iY1ptFINp59+kyEL2q168e
+RAtfO9kOov3aeTpB9EpRdg1DIJ0YvFwPRHd5KjqB6GWJ611A9IHY+b4guqj8
+QBSIFn3ElQii9ayEU0H07pDN2SA6x6c3B0RfFflRDqLzS3i7QHTdwcuLQPST
+/8/XgGgAXmy4CQ==
+  "],
+ CellLabel->
+  "In[138]:=",ExpressionUUID->"0c4ed032-c880-4c77-9b51-7fbb13b2fa84"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {Opacity[0.25], 
+    InterpretationBox[
+     PolyhedronBox[{{1, 1, 1}, {1, -1, -1}, {-1, 1, -1}, {-1, -1, 1}}, {{4, 3,
+       2}, {1, 2, 3}, {2, 1, 4}, {3, 4, 1}},
+      VertexColors->{
+        RGBColor[0, 0, 1], 
+        RGBColor[1, 0.5, 0.5], 
+        RGBColor[0, 0, 1], 
+        GrayLevel[1]}],
+     Tetrahedron[{{1, 1, 1}, {1, -1, -1}, {-1, 1, -1}, {-1, -1, 1}}, 
+      VertexColors -> {
+        RGBColor[0, 0, 1], 
+        RGBColor[1, 0.5, 0.5], 
+        RGBColor[0, 0, 1], 
+        GrayLevel[1]}]]}, 
+   {Thickness[0.008], Line3DBox[{{0, 0, 0}, {1, 0, 0}}], 
+    Line3DBox[{{0, 0, 0}, {0, 1, 0}}], Line3DBox[{{0, 0, 0}, {0, 0, 1}}], 
+    Line3DBox[{{1, 0, 0}, {1, 1, 1}}], Line3DBox[{{0, 1, 0}, {1, 1, 1}}], 
+    Line3DBox[{{0, 0, 1}, {1, 1, 1}}]}, 
+   {PointSize[Large], 
+    Point3DBox[{{0, 0, 0}, {1, 1, 1}, {1, 0, 0}, {0, 1, 0}, {0, 0, 1}}]}, 
+   Text3DBox[
+    StyleBox["\<\"(1,1,1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {1.1, 1.1, 1.1}], Text3DBox[
+    StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Lambda]\\), \
+\\(\\(1\\)\\(,\\)\\(2\\)\\(,\\)\\(3\\)\\(\\\\ \\)\\)]\\) = (1,-1,-1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {0.7, -1, -1.1}], Text3DBox[
+    StyleBox["\<\"(-1,1,-1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {-1.4, 1.15, -0.8}], Text3DBox[
+    StyleBox["\<\"(-1,-1,1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {-1.1, -1.1, 1}], Text3DBox[
+    StyleBox["\<\"(1,0,0)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {1.3, 0.2, 0}], Text3DBox[
+    StyleBox["\<\"(0,1,0)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {0.4, 0.8, 0}], Text3DBox[
+    StyleBox["\<\"(0,0,1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {-0.1, 0, 1.25}], Text3DBox[
+    StyleBox["\<\"(0,0,0)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {-0.1, 0, -0.2}]},
+  Boxed->False,
+  ImageSize->{343.2588102421934, 329.7271130410742},
+  ImageSizeRaw->Automatic,
+  ViewPoint->{1.2212656507176838`, -2.2529812969926475`, 2.2096573231563403`},
+  
+  ViewVertical->{0.285810278595539, 0.1961659605124575, 0.9379932838700741}]],\
+ "Input",
+ CellChangeTimes->{{3.87618763443543*^9, 
+  3.876187634442153*^9}},ExpressionUUID->"715f93f9-e2ab-4d7e-a1e0-\
+c37195484d87"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graphics3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Opacity", "[", ".25", "]"}], ",", 
+       RowBox[{"Tetrahedron", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", 
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{"-", "1"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", "1", ",", 
+             RowBox[{"-", "1"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}], ",", 
+         RowBox[{"VertexColors", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Blue", ",", "Pink", ",", "Blue", ",", "White"}], 
+           "}"}]}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Thickness", "[", "0.008", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", 
+              RowBox[{"-", "1"}], ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", 
+              RowBox[{"-", "1"}]}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", 
+              RowBox[{"-", "1"}], ",", 
+              RowBox[{"-", "1"}]}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", 
+              RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", 
+              RowBox[{"-", "1"}], ",", 
+              RowBox[{"-", "1"}]}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", 
+              RowBox[{"-", "1"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", 
+              RowBox[{"-", "1"}], ",", 
+              RowBox[{"-", "1"}]}], "}"}]}], "}"}], "]"}]}], "}"}]}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+       RowBox[{"Point", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", 
+            RowBox[{"-", "1"}], ",", 
+            RowBox[{"-", "1"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", 
+            RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", 
+            RowBox[{"-", "1"}]}], "}"}]}], "}"}], "]"}]}], "}"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(1,-1,-1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1.1", ",", "1.1", ",", "1.1"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{
+        "\"\<\!\(\*SubscriptBox[\(\[Lambda]\), \
+\(\(1\)\(,\)\(2\)\(,\)\(3\)\(\\\ \)\)]\) = (1,-1,-1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.7", ",", 
+         RowBox[{"-", "1"}], ",", 
+         RowBox[{"-", "1.1"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(-1,1,-1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1.4"}], ",", "1.15", ",", 
+         RowBox[{"-", "0.8"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(-1,-1,1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1.1"}], ",", 
+         RowBox[{"-", "1.1"}], ",", "1"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(1,0,0)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1.3", ",", "0.2", ",", "0"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(0,-1,0)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "0.8"}], ",", "0"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(0,0,-1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", 
+         RowBox[{"-", "1.25"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(0,0,0)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.1"}], ",", "0", ",", 
+         RowBox[{"-", "0.2"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8761874919258223`*^9, 3.876187586672035*^9}},
+ CellLabel->
+  "In[374]:=",ExpressionUUID->"92023829-2827-49e8-a939-3de8c2407b20"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {Opacity[0.25], 
+    InterpretationBox[
+     PolyhedronBox[{{1, 1, 1}, {1, -1, -1}, {-1, 1, -1}, {-1, -1, 1}}, {{4, 3,
+       2}, {1, 2, 3}, {2, 1, 4}, {3, 4, 1}},
+      VertexColors->{
+        RGBColor[0, 0, 1], 
+        RGBColor[1, 0.5, 0.5], 
+        RGBColor[0, 0, 1], 
+        GrayLevel[1]}],
+     Tetrahedron[{{1, 1, 1}, {1, -1, -1}, {-1, 1, -1}, {-1, -1, 1}}, 
+      VertexColors -> {
+        RGBColor[0, 0, 1], 
+        RGBColor[1, 0.5, 0.5], 
+        RGBColor[0, 0, 1], 
+        GrayLevel[1]}]]}, 
+   {Thickness[0.008], Line3DBox[{{0, 0, 0}, {1, 0, 0}}], 
+    Line3DBox[{{0, 0, 0}, {0, -1, 0}}], Line3DBox[{{0, 0, 0}, {0, 0, -1}}], 
+    Line3DBox[{{1, 0, 0}, {1, -1, -1}}], Line3DBox[{{0, -1, 0}, {1, -1, -1}}],
+     Line3DBox[{{0, 0, -1}, {1, -1, -1}}]}, 
+   {PointSize[Large], 
+    Point3DBox[{{0, 0, 0}, {1, -1, -1}, {1, 0, 0}, {0, -1, 0}, {0, 0, -1}}]}, 
+   Text3DBox[
+    StyleBox["\<\"(1,-1,-1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {1.1, 1.1, 1.1}], Text3DBox[
+    StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Lambda]\\), \
+\\(\\(1\\)\\(,\\)\\(2\\)\\(,\\)\\(3\\)\\(\\\\ \\)\\)]\\) = (1,-1,-1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {0.7, -1, -1.1}], Text3DBox[
+    StyleBox["\<\"(-1,1,-1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {-1.4, 1.15, -0.8}], Text3DBox[
+    StyleBox["\<\"(-1,-1,1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {-1.1, -1.1, 1}], Text3DBox[
+    StyleBox["\<\"(1,0,0)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {1.3, 0.2, 0}], Text3DBox[
+    StyleBox["\<\"(0,-1,0)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {0, -0.8, 0}], Text3DBox[
+    StyleBox["\<\"(0,0,-1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {0, 0, -1.25}], Text3DBox[
+    StyleBox["\<\"(0,0,0)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {-0.1, 0, -0.2}]},
+  Boxed->False,
+  ImageSize->{357.43724858735294`, 356.8621279672725},
+  ImageSizeRaw->Automatic,
+  ViewPoint->{1.1795420447784088`, -2.4054409895538376`, 2.067010936200927},
+  ViewVertical->{0.31023698842507974`, 0.14487621896359348`, 
+   0.9395551565457718}]], "Output",
+ CellChangeTimes->{{3.876187478670888*^9, 3.876187501310937*^9}, 
+   3.876187548913313*^9, 3.876187591224296*^9},
+ CellLabel->
+  "Out[374]=",ExpressionUUID->"f319e146-e5ee-47cc-9015-75b3c21bee40"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1", ",", "1", ",", "1", ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "1", ",", 
+      RowBox[{"-", "1"}], ",", 
+      RowBox[{"-", "1"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", 
+      RowBox[{"-", "1"}], ",", "1", ",", 
+      RowBox[{"-", "1"}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", 
+      RowBox[{"-", "1"}], ",", 
+      RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.8761644574163923`*^9, 3.8761644785065937`*^9}},
+ CellLabel->
+  "In[171]:=",ExpressionUUID->"3568346d-35d3-4a18-8c86-b8080a747c96"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", "1", "1", "1"},
+     {"1", "1", 
+      RowBox[{"-", "1"}], 
+      RowBox[{"-", "1"}]},
+     {"1", 
+      RowBox[{"-", "1"}], "1", 
+      RowBox[{"-", "1"}]},
+     {"1", 
+      RowBox[{"-", "1"}], 
+      RowBox[{"-", "1"}], "1"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.876164479538793*^9},
+ CellLabel->
+  "Out[171]//MatrixForm=",ExpressionUUID->"11162d5a-4729-4a1d-a704-\
+77728d07ff2d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graphics3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Opacity", "[", ".25", "]"}], ",", 
+       RowBox[{"Tetrahedron", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", 
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{"-", "1"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", "1", ",", 
+             RowBox[{"-", "1"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", 
+             RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}], ",", 
+         RowBox[{"VertexColors", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"Blue", ",", "Pink", ",", "Blue", ",", "White"}], 
+           "}"}]}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"PointSize", "[", "0.025", "]"}], ",", "Red", ",", 
+       RowBox[{"Point", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", 
+            RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", 
+            RowBox[{"-", "1"}]}], "}"}]}], "}"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Thickness", "[", "0.005", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1", ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+         RowBox[{"Line", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "0", ",", "0"}], "}"}]}], "}"}], "]"}]}], 
+        "}"}], ",", 
+       RowBox[{"Line", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], "]"}], ",", 
+       RowBox[{"Line", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], "]"}], 
+       ",", 
+       RowBox[{"Line", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", 
+            RowBox[{"-", "1"}], ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+       RowBox[{"Line", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", 
+            RowBox[{"-", "1"}], ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+       RowBox[{"Line", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", 
+            RowBox[{"-", "1"}]}], "}"}]}], "}"}], "]"}], ",", 
+       RowBox[{"Line", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], "]"}], 
+       ",", 
+       RowBox[{"Line", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", 
+            RowBox[{"-", "1"}]}], "}"}]}], "}"}], "]"}], ",", 
+       RowBox[{"Line", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", 
+            RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], "]"}], 
+       ",", 
+       RowBox[{"Line", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", 
+            RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", 
+            RowBox[{"-", "1"}]}], "}"}]}], "}"}], "]"}], ",", 
+       RowBox[{"Line", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0", ",", 
+            RowBox[{"-", "1"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], "]"}]}],
+       "}"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(1,1,1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1.1", ",", "1.1", ",", "1.1"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{
+        "\"\<\!\(\*SubscriptBox[\(\[Lambda]\), \
+\(\(1\)\(,\)\(2\)\(,\)\(3\)\(\\\ \)\)]\) = (1,-1,-1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.7", ",", 
+         RowBox[{"-", "1"}], ",", 
+         RowBox[{"-", "1.1"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(-1,1,-1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1.4"}], ",", "1.15", ",", 
+         RowBox[{"-", "0.8"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(-1,-1,1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1.1"}], ",", 
+         RowBox[{"-", "1.1"}], ",", "1"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(1,0,0)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1.3", ",", "0.2", ",", "0"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(0,1,0)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0.4", ",", "0.8", ",", "0"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(0,0,1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.1"}], ",", "0", ",", "1.25"}], "}"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(-1,0,0)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1.1"}], ",", "0", ",", "0"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(0,-1,0)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"-", "1.1"}], ",", "0"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<(0,0,-1)\>\"", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", 
+          StyleBox["\"\<Bitstream Vera Sans Mono\>\"",
+           StripOnInput->False,
+           FontFamily->"Bitstream Vera Sans Mono"]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", 
+         RowBox[{"-", "1.1"}]}], "}"}]}], "]"}]}], "}"}], ",", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "600"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.876163468538577*^9, 3.876163511796197*^9}, {
+  3.8761638186319923`*^9, 3.876163853170122*^9}, {3.87617909466696*^9, 
+  3.876179193518545*^9}, {3.8761792334215307`*^9, 3.876179301606588*^9}, {
+  3.8761793549065523`*^9, 3.876179442364777*^9}, {3.8761794759115877`*^9, 
+  3.876179866339469*^9}, {3.8761799202735453`*^9, 3.876179920739646*^9}, {
+  3.876180000537722*^9, 3.876180001227293*^9}},
+ CellLabel->
+  "In[178]:=",ExpressionUUID->"dca227c7-26d8-4564-aba5-c67a3178b45f"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {Opacity[0.25], 
+    InterpretationBox[
+     PolyhedronBox[{{1, 1, 1}, {1, -1, -1}, {-1, 1, -1}, {-1, -1, 1}}, {{4, 3,
+       2}, {1, 2, 3}, {2, 1, 4}, {3, 4, 1}},
+      VertexColors->{
+        RGBColor[0, 0, 1], 
+        RGBColor[1, 0.5, 0.5], 
+        RGBColor[0, 0, 1], 
+        GrayLevel[1]}],
+     Tetrahedron[{{1, 1, 1}, {1, -1, -1}, {-1, 1, -1}, {-1, -1, 1}}, 
+      VertexColors -> {
+        RGBColor[0, 0, 1], 
+        RGBColor[1, 0.5, 0.5], 
+        RGBColor[0, 0, 1], 
+        GrayLevel[1]}]]}, 
+   {RGBColor[1, 0, 0], PointSize[0.025], 
+    Point3DBox[{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}, {-1, 0, 0}, {0, -1, 0}, {0, 
+     0, -1}}]}, 
+   {Thickness[
+    0.005], {Line3DBox[{{0, 0, 1}, {0, 1, 0}}], 
+     Line3DBox[{{0, 1, 0}, {1, 0, 0}}]}, Line3DBox[{{1, 0, 0}, {0, 0, 1}}], 
+    Line3DBox[{{0, 0, 1}, {-1, 0, 0}}], Line3DBox[{{0, 0, 1}, {0, -1, 0}}], 
+    Line3DBox[{{1, 0, 0}, {0, -1, 0}}], Line3DBox[{{1, 0, 0}, {0, 0, -1}}], 
+    Line3DBox[{{0, 1, 0}, {-1, 0, 0}}], Line3DBox[{{0, 1, 0}, {0, 0, -1}}], 
+    Line3DBox[{{0, -1, 0}, {-1, 0, 0}}], Line3DBox[{{0, -1, 0}, {0, 0, -1}}], 
+    Line3DBox[{{0, 0, -1}, {-1, 0, 0}}]}, Text3DBox[
+    StyleBox["\<\"(1,1,1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {1.1, 1.1, 1.1}], Text3DBox[
+    StyleBox["\<\"\\!\\(\\*SubscriptBox[\\(\[Lambda]\\), \
+\\(\\(1\\)\\(,\\)\\(2\\)\\(,\\)\\(3\\)\\(\\\\ \\)\\)]\\) = (1,-1,-1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {0.7, -1, -1.1}], Text3DBox[
+    StyleBox["\<\"(-1,1,-1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {-1.4, 1.15, -0.8}], Text3DBox[
+    StyleBox["\<\"(-1,-1,1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {-1.1, -1.1, 1}], Text3DBox[
+    StyleBox["\<\"(1,0,0)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {1.3, 0.2, 0}], Text3DBox[
+    StyleBox["\<\"(0,1,0)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {0.4, 0.8, 0}], Text3DBox[
+    StyleBox["\<\"(0,0,1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {-0.1, 0, 1.25}], Text3DBox[
+    StyleBox["\<\"(-1,0,0)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {-1.1, 0, 0}], Text3DBox[
+    StyleBox["\<\"(0,-1,0)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {0, -1.1, 0}], Text3DBox[
+    StyleBox["\<\"(0,0,-1)\"\>",
+     StripOnInput->False,
+     FontFamily->Style[
+      "Bitstream Vera Sans Mono", FontFamily -> "Bitstream Vera Sans Mono"],
+     FontSize->14], {0, 0, -1.1}]},
+  Boxed->False,
+  ImageSize->600,
+  ImageSizeRaw->Automatic,
+  ViewPoint->{2.0994509861257145`, -1.9576175183428142`, 1.7916582287738643`},
+  
+  ViewVertical->{0.45535849733118905`, 0.2918254901487013, 
+   0.8411221803089916}]], "Output",
+ CellChangeTimes->{{3.876179571701679*^9, 3.876179589553392*^9}, {
+   3.876179634334013*^9, 3.876179708750133*^9}, 3.8761797507471933`*^9, {
+   3.876179788748309*^9, 3.876179867093248*^9}, 3.876179921596037*^9, 
+   3.8761800014197807`*^9},
+ CellLabel->
+  "Out[178]=",ExpressionUUID->"5f5a381a-effa-4734-ae11-6dc3ec3ae428"]
+}, Open  ]],
+
+Cell[BoxData["Octahedron"], "Input",
+ CellChangeTimes->{{3.876179415005301*^9, 
+  3.876179416035924*^9}},ExpressionUUID->"92ec8568-8763-4b72-ac9b-\
+1b2227b66f06"]
+},
+WindowSize->{960, 1016},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+Magnification:>1. Inherited,
+FrontEndVersion->"13.0 for Linux x86 (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"489987fe-4172-45dd-b70c-2616cbbacc60"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 7870, 205, 360, "Input",ExpressionUUID->"0c4ed032-c880-4c77-9b51-7fbb13b2fa84"],
+Cell[8431, 227, 3053, 74, 343, InheritFromParent,ExpressionUUID->"715f93f9-e2ab-4d7e-a1e0-c37195484d87"],
+Cell[CellGroupData[{
+Cell[11509, 305, 7940, 211, 382, "Input",ExpressionUUID->"92023829-2827-49e8-a939-3de8c2407b20"],
+Cell[19452, 518, 3145, 74, 374, "Output",ExpressionUUID->"f319e146-e5ee-47cc-9015-75b3c21bee40"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22634, 597, 698, 21, 30, "Input",ExpressionUUID->"3568346d-35d3-4a18-8c86-b8080a747c96"],
+Cell[23335, 620, 827, 27, 97, "Output",ExpressionUUID->"11162d5a-4729-4a1d-a704-77728d07ff2d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24199, 652, 10859, 289, 474, "Input",ExpressionUUID->"dca227c7-26d8-4564-aba5-c67a3178b45f"],
+Cell[35061, 943, 3912, 91, 559, "Output",ExpressionUUID->"5f5a381a-effa-4734-ae11-6dc3ec3ae428"]
+}, Open  ]],
+Cell[38988, 1037, 162, 3, 30, "Input",ExpressionUUID->"92ec8568-8763-4b72-ac9b-1b2227b66f06"]
+}
+]
+*)
+

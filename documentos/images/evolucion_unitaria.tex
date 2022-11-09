@@ -1,0 +1,57 @@
+\documentclass[border=0pt]{standalone}
+\usepackage{tikz}
+\usepackage{amsmath, amsthm, amssymb}
+%\input{commondefinitions}
+\usetikzlibrary{plotmarks}
+\newcommand\marksymbol[2]{\tikz[#2,scale=1.2]\pgfuseplotmark{#1};}
+
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\colorlet{coscolor}{blue}
+\newcommand{\cuadritotikz}{
+% \pgfmathsetmacro{\unitstep}{5.2}
+% \node at (-0.5,0.5) {(a)} ;
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw[black!10] (0,0) rectangle (1,1); 
+%           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+         \end{scope}
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+ \draw (0,-3) rectangle (4,1);
+}
+
+\begin{document}
+\pagestyle{empty}
+\begin{tikzpicture}
+\draw[draw=white] (-0.8,-0.5) rectangle ++(-0.2,0.5);
+\node at (-6, 0.2)  {%
+\includegraphics[width=2cm]{evolucion_00.pdf}%
+};
+\draw [-stealth,line width=5pt] (-4.7,0) -- (-3.2,0);
+%\node at (-4,1) {\color{green} \Huge\cmark};
+%\node at (-4.,0.53) {\small physical};
+\node at (-4.,0.55) {\LARGE $U$};
+\node at (-2,  0.15)  {%
+\includegraphics[width=2cm]{evolucion_01}%
+};
+%%
+%%
+%\node at (-6,  -2)  {%
+%\includegraphics[width=2cm,page=5]{blochs-crop}%
+%};
+%\node at (-4.,-1.3) {\color{red} \Huge\xmark};
+%\node at (-4.,-1.72) {\small not physical};
+%\node at (-4.,-2) {\small evolution};
+%\draw [-stealth,line width=5pt] (-4.7,-2.4) -- (-3.2,-2.4); 
+%\node at (-2,  -2)  {%
+%\includegraphics[width=2cm,page=4]{blochs-crop}%
+%};
+\end{tikzpicture}
+\end{document}
