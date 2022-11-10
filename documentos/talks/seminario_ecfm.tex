@@ -148,11 +148,12 @@ pdfkeywords={quantum optics, quantum computing, quantum algorithms, quantum
 %
 %title
 \title[Canales cuánticos PCE y de Weyl]% this is the short title
-{\bf Canales cuánticos PCE y de Weyl}% this is the long title
+{\bf Geometría de los canales cuánticos: canales cuánticos PCE y de Weyl}% this is the long title
 %
 % author
 \author[José Alfredo de León]% this is the short name
-{José Alfredo de León, Tomás Basile}
+{José Alfredo de León \\
+Agregar al resto de autores y figuritas}
 %{\bf José Alfredo de León, Tomás Basile, 
 %Carlos Pineda,
 %David Dávalos, 
@@ -186,74 +187,85 @@ pdfkeywords={quantum optics, quantum computing, quantum algorithms, quantum
   \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{El problema de los Pauli Component Erasing (PCE)}
-No todas las proyecciones de la esfera de Bloch son evoluciones físicas
-de sistemas abiertos.
-% \begin{minipage}{.48\textwidth}
-\begin{center}
-\begin{tikzpicture}
- %nodes
-% \draw[draw=white] (-2.7,-4.5) rectangle ++(5.5,5);
-\draw[draw=white] (-1.2,-4.1) rectangle ++(6.5,5.5);
-%  \node[punkt] (market) {Market (b)};
-% \filldraw [fill=Peach, draw=black] (11.1,5) rectangle (0.3,0.3);
- % We make a dummy figure to make everything look nice.
-%  \node at (0, 0)  {\includegraphics[width=.99\textwidth]{spectraAll}};
-\node at (0, 0)  {%
-\only<1>{\includegraphics[width=.2\textwidth,page=1]{../images/blochs-crop}}%
-\only<2->{\includegraphics[width=.2\textwidth,page=2]{../images/blochs-crop}}%
-};
-\only<3->{
-\draw [-{Stealth[length=3mm, width=3mm]},line width=3pt] (1.4,0) -- (2.7,0); 
-\node at (2.,.3) {\color{green} \cmark};
-}
-\only<5->{
-\node at (2.,-2.5) {\color{red} \xmark};
-\draw [-{Stealth[length=3mm, width=3mm]},line width=3pt] (1.4,-2.8) -- (2.7,-2.8); 
-}
-\node at (4,  0)  {%
-\only<3->{\includegraphics[width=.2\textwidth,page=3]{../images/blochs-crop}}%
-% \only<2->{\includegraphics[width=.2\textwidth,page=2]{../images/blochs-crop}}%
-};
-\node at (0,  -2.8)  {%
-\only<4->{
-\includegraphics[width=.2\textwidth,page=5]{../images/blochs-crop}}%
-};
-\node at (4,  -2.8)  {%
-\only<5->{
-\includegraphics[width=.2\textwidth,page=4]{../images/blochs-crop}}%
-};
-\end{tikzpicture}
-% Sistemas naturales, estables\\[.2cm]
-% Acá un dibujo en dos partes, con la esfera de Bloch en la primera indicando 
-% algun punto que ava a viajar al disco central, luego una segunda con solo el 
-% disco. Luego una segunda serie con eso, pero proyectado al eje z. 
-\end{center}
-\end{frame}
+%\begin{frame}{El problema de los Pauli Component Erasing (PCE)}
+%No todas las proyecciones de la esfera de Bloch son evoluciones físicas
+%de sistemas abiertos.
+%% \begin{minipage}{.48\textwidth}
+%\begin{center}
+%\begin{tikzpicture}
+% %nodes
+%% \draw[draw=white] (-2.7,-4.5) rectangle ++(5.5,5);
+%\draw[draw=white] (-1.2,-4.1) rectangle ++(6.5,5.5);
+%%  \node[punkt] (market) {Market (b)};
+%% \filldraw [fill=Peach, draw=black] (11.1,5) rectangle (0.3,0.3);
+% % We make a dummy figure to make everything look nice.
+%%  \node at (0, 0)  {\includegraphics[width=.99\textwidth]{spectraAll}};
+%\node at (0, 0)  {%
+%\only<1>{\includegraphics[width=.2\textwidth,page=1]{../images/blochs-crop}}%
+%\only<2->{\includegraphics[width=.2\textwidth,page=2]{../images/blochs-crop}}%
+%};
+%\only<3->{
+%\draw [-{Stealth[length=3mm, width=3mm]},line width=3pt] (1.4,0) -- (2.7,0); 
+%\node at (2.,.3) {\color{green} \cmark};
+%}
+%\only<5->{
+%\node at (2.,-2.5) {\color{red} \xmark};
+%\draw [-{Stealth[length=3mm, width=3mm]},line width=3pt] (1.4,-2.8) -- (2.7,-2.8); 
+%}
+%\node at (4,  0)  {%
+%\only<3->{\includegraphics[width=.2\textwidth,page=3]{../images/blochs-crop}}%
+%% \only<2->{\includegraphics[width=.2\textwidth,page=2]{../images/blochs-crop}}%
+%};
+%\node at (0,  -2.8)  {%
+%\only<4->{
+%\includegraphics[width=.2\textwidth,page=5]{../images/blochs-crop}}%
+%};
+%\node at (4,  -2.8)  {%
+%\only<5->{
+%\includegraphics[width=.2\textwidth,page=4]{../images/blochs-crop}}%
+%};
+%\end{tikzpicture}
+%% Sistemas naturales, estables\\[.2cm]
+%% Acá un dibujo en dos partes, con la esfera de Bloch en la primera indicando 
+%% algun punto que ava a viajar al disco central, luego una segunda con solo el 
+%% disco. Luego una segunda serie con eso, pero proyectado al eje z. 
+%\end{center}
+%\end{frame}
 
-\begin{frame}[t]{}{Sistema de dos niveles}
+\begin{frame}[t]
+Estados de un sistema cuántico de dos niveles:
+
 \begin{minipage}{.49\textwidth}
 \small
 $$\ket{\psi}=\cos\qty(\frac{\theta}{2})\ket{0} + e^{i\phi}\sin\qty(\frac{\theta}{2})\ket{1}$$
 \begin{center}
-\vspace{-2mm}
 \includegraphics[width=5.5cm]{../images/bloch_general}
 Estados puros
 \end{center}
 \end{minipage}
 \hfill
 \begin{minipage}{.49\textwidth}
+\vspace*{3mm}
+
 \small
 $$\rho = \mqty(1+r_z&r_x-ir_y\\r_x+ir_y&1-r_z)$$
 \begin{center}
-\includegraphics[width=5cm]{../images/bloch_rho}
-Estados mixtos \textbf{y puros}
+\includegraphics[width=5.5cm]{../images/bloch_rho}
+Estados puros \textbf{y mixtos}
 \end{center}
 \end{minipage}
+
+%\begin{tikzpicture}[x=1mm,y=1mm,overlay,remember picture]
+%    \pgftransformshift{\pgfpointanchor{current page}{center}}
+%\node at (0,33)  {------------------------------------------------------------------------------};
+%\end{tikzpicture}
 \end{frame}
 
 
 \begin{frame}
+Dos tipos de evolución de un sistema de 2 niveles:
+
+\vspace*{-1cm}
 \begin{center}
 \includegraphics[width=12cm]{../images/evolucion_unitaria}
 
@@ -289,17 +301,13 @@ Estados mixtos \textbf{y puros}
 \end{frame}
 
 \begin{frame}
-\begin{minipage}{.5\textwidth}
 \begin{center}
-\includegraphics[width=\textwidth]{../images/dibujo}
+\includegraphics[width=.7\textwidth]{../images/dibujo}
 \end{center}
-\end{minipage}
-\hfill
-\begin{minipage}{.4\textwidth}
-Si ahora consideramos un sistema de muchas partículas de 
-dos niveles, ¿cuáles son las proyecciones de la hiperesfera de Bloch
-que describen evoluciones físicas? 
-\end{minipage}
+
+Para un sistema de $N$ partículas de 
+dos niveles, \alert{¿cuáles son las proyecciones de la hiperesfera de Bloch
+que sí describen evoluciones físicas?}
 \end{frame}
 
 \begin{frame}
