@@ -232,9 +232,9 @@ Agregar al resto de autores y figuritas}
 %\end{center}
 %\end{frame}
 
-\begin{frame}[t]
-Estados de un sistema cuántico de dos niveles:
+\begin{frame}[t]{\normalsize Estados de un sistema cuántico de dos niveles}
 
+\vspace*{-3mm}
 \begin{minipage}{.49\textwidth}
 \small
 $$\ket{\psi}=\cos\qty(\frac{\theta}{2})\ket{0} + e^{i\phi}\sin\qty(\frac{\theta}{2})\ket{1}$$
@@ -262,18 +262,25 @@ Estados puros \textbf{y mixtos}
 \end{frame}
 
 
-\begin{frame}
-Dos tipos de evolución de un sistema de 2 niveles:
+\begin{frame}{\normalsize
+En general, la evolución de un sistema no es unitaria}
 
-\vspace*{-1cm}
+\hspace*{-.5cm}
+\begin{minipage}{\textwidth}
+\vspace*{-1mm}
 \begin{center}
 \includegraphics[width=12cm]{../images/evolucion_unitaria}
 
 \includegraphics[width=12cm]{../images/evolucion_no_unitaria}
 \end{center}
+\end{minipage}
 \end{frame}
 
-\begin{frame}
+
+
+\begin{frame}{\normalsize Algunas proyecciones de la esfera de Bloch modelan decoherencia}{¿Cualquier proyección es físicamente posible de hacer?}
+\begin{center}
+\resizebox{0.9\textwidth}{!}{
 \begin{tikzpicture}
 \node at (-10,5)  {%
 \includegraphics[width=4.5cm]{../images/channel_00}%
@@ -291,13 +298,22 @@ Dos tipos de evolución de un sistema de 2 niveles:
 \includegraphics[width=4.5cm]{../images/channel_03}%
 };
 \node at (-6.5,1.8) {\color{red} \Huge\xmark};
-\node at (-6.5,1.1) {\LARGE evolución};
-\node at (-6.5,0.6) {\LARGE no física};
+\node at (-6.5,1.1) {\LARGE no es evolución};
+\node at (-6.5,0.6) {\LARGE física};
 \draw [-stealth,line width=7pt] (-7.5,0) -- (-5.5,0); 
 \node at (-3,  0.5)  {%
 \includegraphics[width=4.5cm]{../images/channel_04}%
 };
 \end{tikzpicture}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}
+Consideremos el mapeo $\Phi$ que proyecta la esfera de Bloch al plano xy
+\begin{center}
+\includegraphics[width=\textwidth]{../images/cp.png}
+\end{center}
 \end{frame}
 
 \begin{frame}
