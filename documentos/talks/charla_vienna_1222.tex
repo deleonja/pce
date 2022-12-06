@@ -1,0 +1,2043 @@
+% {{{Preamble
+\documentclass{beamer}
+% packages and style {{{
+\usepackage[utf8]{inputenc}
+% \usepackage{marvosym}
+\usepackage{extarrows}
+% \usepackage{hieroglf}
+% \usepackage{cancel}
+\usepackage{pgf,pgfnodes,pgfarrows}
+\graphicspath{{images/},{figures/},{../},{/home/carlosp/investigacion/varios/images/},{/home/carlosp/fun/Dropbox/Stoch/JPA/},{/home/carlosp/investigacion/antiguos_proyectos/cuda/images/},{/home/carlosp/docencia/images/},{/home/carlosp/investigacion/antiguos_proyectos/nacho/images/},{/home/carlosp/investigacion/antiguos_proyectos/satya/images/},{/home/carlosp/investigacion/antiguos_proyectos/cuda/program_description/images/},{/home/carlosp/investigacion/antiguos_proyectos/mera2d/images/},{/home/carlosp/investigacion/antiguos_proyectos/newspectra/eps/},{/home/carlosp/administrativo/academico/old/2013/definitividad/images/},{/home/carlosp/investigacion/antiguos_proyectos/tesis/texto/eps/},{/home/carlosp/fun/Dropbox/quantum_vault/images/},{/home/carlosp/investigacion/antiguos_proyectos/quantum_vault/charla/images/},{/home/carlosp/fun/Dropbox/quantum_vault/charla/},{/home/carlosp/investigacion/antiguos_proyectos/gorin/images/},{/home/carlosp/investigacion/antiguos_proyectos/cgg/talks/images/},{/home/carlosp/investigacion/antiguos_proyectos/cgg/talks/},{/home/carlosp/investigacion/antiguos_proyectos/cgg/images/},{/home/carlosp/investigacion/antiguos_proyectos/diversity/images/},{/home/carlosp/administrativo/academico/2013/definitividad/images/},{/home/carlosp/administrativo/academico/2013/titular_a/images/},{/home/carlosp/investigacion/antiguos_proyectos/quantum_vault/charla/},{/home/carlosp/investigacion/antiguos_proyectos/quantum_vault/},{/home/carlosp/investigacion/antiguos_proyectos/nacho/},{/home/carlosp/docencia/cursos/images/}}
+% \usepackage{psfrag}
+% \usepackage{pst-node}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+
+
+\definecolor{colora}{rgb}{0.898438, 0.621094, 0.}
+\definecolor{colorb}{rgb}{0.335938, 0.703125, 0.910156}
+\definecolor{colorc}{rgb}{0., 0.617188, 0.449219}
+\definecolor{colord}{rgb}{0.9375, 0.890625, 0.257813}
+\definecolor{colore}{rgb}{0., 0.445313, 0.695313}
+\definecolor{colorf}{rgb}{0.832031, 0.367188, 0.}
+
+\newcommand{\GHZ}{\text{GHZ}}
+\newcommand{\ket}[1]{{| #1 \rangle}}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand{\fuzzytwo}[1]{\ensuremath{\Lambda_#1^\text{fuzzy}} }
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\cgtwo}[1]{\ensuremath{\Lambda_#1^\text{cg}} }
+
+\usepackage{dsfont}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+% \usepackage{soul}
+% 
+%     \setul{0.5ex}{0.3ex}
+%     \definecolor{Blue}{rgb}{0,0.0,1}
+%     \setulcolor{Blue}
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\usepackage{cfp}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usetikzlibrary{arrows,positioning} 
+\usetikzlibrary{shapes,snakes}
+% The following 2 to include movies
+% \usepackage{movie15}
+\usepackage{hyperref}
+% 
+\usetikzlibrary{arrows,backgrounds}
+\usepackage{amsmath}
+\mode<presentation>
+{ 
+% \usetheme{Malmoe} 
+% \usetheme{Pittsburgh}
+\usetheme{default}
+\useoutertheme{infolines}
+\usecolortheme{default}
+% \usecolortheme{lily}
+% \usecolortheme{albatross}
+}
+% \usepackage{mathptmx} \usepackage{helvet}
+
+%Diferente, bien
+%\usepackage{arev}
+
+% Mas diferente y bien. Un poco no profesional
+%\usepackage{avant}
+
+% Diferente y bien
+% \usepackage{bookman}
+
+% PRofesional y diferente.
+%\usepackage{chancery}
+
+% Font mathematico bonito.
+% \usepackage{euler}
+
+% Font interesante para mathematicas
+% \usepackage{mathptm}
+% \usepackage{mathptmx}
+
+% Tambien font interensante. no se\dots 
+% \usepackage{newcent}
+
+
+% Profesional e interesante 
+%\usepackage{palatino}
+
+%\usepackage{pifont}
+% \usepackage{utopia}
+
+% \usefonttheme[onlymath]{serif}
+% \usepackage{fontspec} 
+% \defaultfontfeatures{Mapping=tex-text} 
+% % \setsansfont[Ligatures={Common}]{Futura}
+% \setmonofont[Scale=0.8]{Monaco} 
+
+
+
+
+\makeatletter
+\AtBeginPart{%
+    \addtocontents{parttoc}{\protect\beamer@partintoc{\the\c@part}{\beamer@partnameshort}{\the\c@page}}%
+    \frame{\partpage \titlepage}%
+}
+\newcommand{\parttableofcontents}{\@starttoc{parttoc}}
+\newcommand{\beamer@partintoc}[3]{#2\par}
+  \def\X@no@opt@arg#1{$#1$ &\ttfamily\string#1}
+  \def\X{\@ifnextchar[{\X@opt@arg}{\X@no@opt@arg}}
+\DefineNamedColor{named}{BrickRed}      {cmyk}{0,0.89,0.94,0.28}
+\DefineNamedColor{named}{Red}           {cmyk}{0,1,1,0}
+\DeclareMathOperator*{\proptol}{\propto}
+\input{commondefinitions}
+% \usepackage{stmaryrd}
+% \usepackage[activeacute]{babel} 
+% \spanishdecimal{.}
+\renewcommand{\div}{\text{divi}}
+\def\q{{\textrm{q} }}
+\newcommand{\mcJ}{\mathcal{J}}	
+\newcommand{\imag}{\rmi}
+\newcommand{\KI}{\text{KI}}
+\newcommand{\mcI}{\mathcal{I}}	
+\newcommand{\mcB}{\mathcal{B}}	
+\newcommand{\mcP}{\mathcal{P}}	
+\newcommand{\mcM}{\mathcal{M}}	
+\newcommand{\mcN}{\mathcal{N}}	
+\newcommand{\mcE}{\mathcal{E}}	
+\newcommand{\mcG}{\mathcal{G}}	
+\newcommand{\mcL}{\mathcal{L}}	
+\newcommand{\crit}{\text{crit}}	
+\newcommand{\env}{\text{env}}	
+% \newcommand{\env}{\text{rest}}	
+\newcommand{\cen}{\text{cen}}	
+\newcommand{\GUE}{\text{GUE}}	
+\newcommand{\eff}{\text{eff}}	
+\renewcommand{\tr}{\text{tr}}	
+\newcommand{\diag}{\mathop{\mathrm{diag}}\nolimits}
+\newcommand{\rmf}{f}
+\newcommand{\mcK}{\mathcal{K}}
+\newcommand{\Mmed}{\mcM^{\<\cdot\>}}
+\newcommand{\old}{\infty}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mcC}{\mathcal{C}}
+%\newcommand{\mathbbm}{\openone}
+\renewcommand{\>}{\rangle}
+\def\1{{\mathchoice{\rm 1\mskip-4mu l}{\rm 1\mskip-4mu l}{\rm 1\mskip-4.5mu l}{\rm 1\mskip-5mu l} }} 
+\newcommand{\jamiol}{Jamio{\l}kowski }
+\newcommand{\id}{\mathbbm{1}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\affiliationone}{$^\flat$}
+\newcommand{\affiliationtwo}{$^\sharp$}
+\newcommand{\affiliationthree}{$^\natural$}
+% }}}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+
+\def\ddyada#1{\mathinner{|{#1}\rangle\!\rangle\!\langle\!\langle{#1}|}}
+\def\ddyad#1#2{\mathinner{|{#1}\rangle\!\rangle\!\langle\!\langle{#2}|}}
+\def\bbrakket#1#2{\mathinner{\langle\!\langle {#1}|{#2}\rangle\!\rangle}}
+\newcommand{\valpha}{{\vec \alpha}}
+\newcommand{\vbeta}{{\vec \beta}}
+\newcommand{\one}{\openone}
+\newcommand{\cuadritotikz}{
+% \pgfmathsetmacro{\unitstep}{5.2}
+% \node at (-0.5,0.5) {(a)} ;
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw[black!10] (0,0) rectangle (1,1); 
+%           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+         \end{scope}
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+ \draw (0,-3) rectangle (4,1);
+}
+
+\newcommand{\paulicomponents}{r_\valpha}
+\newcommand{\taus}{\tau_\valpha}
+\newcommand{\pceg}{\mcG_{\vec \alpha}}
+% \englishtrue
+\englishtrue \espanolfalse
+% \englishfalse \espanoltrue
+% \espanoltrue
+% \title[]{2-d Ising Quantum Models in CUDA:\\Phase Transitions in Spectral Densities}
+\title{
+% A quantum framework for \\c
+Pauli component erasing operations
+% Coarse graining and fuzzy measurements in quantum many-body-systems
+}
+\author[]{Carlos Pineda$^1$\\
+\footnotesize
+José Alfredo de León$^{1,2}$
+Alejandro Fonseca$^3$
+François Leyvraz$^1$
+David Davalos$^4$
+}
+\institute[c. pineda]{
+$^1$Universidad Nacional Autónoma de México\\
+$^2$Universidad de San Carlos de Guatemala\\
+$^3$Universidade Federal de Pernambuco (Brazil)\\
+$^4$Slovak Academy of Sciences
+}
+
+% 
+% \def\checkmark{\tikz
+% \fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;
+% } 
+
+
+
+\date[]{
+\centering
+% \includegraphics[bb = 93 648 515 770,clip, width=.8\textwidth]{articulo_2012}
+% \small Phys. Rev. Lett. {\bf 107}, 080404 (2011)
+\small  arXiv:2205.05808
+}
+% \date{November 16, 2010}
+% \date {Quantum Optics V\\Cozumel, November 16, 2010 \\
+% \small arXiv:1006.4651}
+% {{{ Avisos al principio de las secciones y subsecciones
+% http://tex.stackexchange.com/questions/11100/beamer-atbeginsection-and-insertsubsectionnavigation
+\AtBeginSection[] 
+{
+\begin{frame}[plain]
+% \begin{frame}<beamer>
+%     \frametitle{Outline}
+    \tableofcontents[sectionstyle=show/shaded,subsectionstyle=hide/show/hide]
+%     \tableofcontents[sectionstyle=show/hide,subsectionstyle=hide/show/hide]
+  \end{frame}
+  \addtocounter{framenumber}{-1}% If you don't want them to affect the slide number
+
+}
+% \AtBeginSubsection[] % Do nothing for \subsection*
+% {
+% \begin{frame}[plain]%
+%   \begin{center}%
+%     \usebeamerfont{section title}\insertsubsection%
+%   \end{center}%
+% \end{frame}
+% \begin{frame}<beamer>
+% \frametitle{Outline}
+% \tableofcontents[currentsection,currentsubsection]
+% \end{frame}
+% }
+% }}}
+% }}}
+% {{{ Colors % \setbeamercolor{section in toc}{fg=yellow,bg=white}
+
+% Aca el texto normal y el background global
+% \setbeamercolor*{normal text}{fg=yellow!20!white,bg=blue!10!black}
+
+% Los titulos
+% \setbeamercolor*{structure}{fg=blue!10!white}
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+% }}}
+\begin{document}
+
+
+Ojo, ocuparme de estos typos:
+Typos en diapositivas:
+
+6 - entagled en lugar de mixed
+8 - PEC en lugar de PCE
+10 - mas en lugar de map
+11 - actully
+12 - creo que los puntos 1 y 2 podrían ser un poco más claros
+
+13 - con en lugar de where (o with)
+14 - implica en lugar de implies
+15 - opertation
+     - asosciated
+     - hay una figura volteada
+
+18 - título en español "algunas propiedades"
+
+Otras notas:
+En la diapositiva 15 mencionaste que una figura está volteada.
+En la diapositiva 12, el itemize de las propiedades del conjunto podría ser más claro (el primer punto no lo caché hasta que se explicó).
+
+
+
+\frame[plain]{% {{{ title page
+\titlepage{}
+}% }}}
+\begin{frame}{\enges{General goal}{El objetivo general}} %{{{ 
+\enges{Quantum channels can project some components. But not all proyections
+are allowed.}{Los canales cuánticos pueden proyectar a algunas componentes.}
+
+% \begin{minipage}{.48\textwidth}
+\begin{center}
+\begin{tikzpicture}
+ %nodes
+% \draw[draw=white] (-2.7,-4.5) rectangle ++(5.5,5);
+\draw[draw=white] (-1.2,-4.1) rectangle ++(6.5,5.5);
+%  \node[punkt] (market) {Market (b)};
+% \filldraw [fill=Peach, draw=black] (11.1,5) rectangle (0.3,0.3);
+ % We make a dummy figure to make everything look nice.
+%  \node at (0, 0)  {\includegraphics[width=.99\textwidth]{spectraAll}};
+\node at (0, 0)  {%
+\only<1>{\includegraphics[width=.2\textwidth,page=1]{../images/blochs-crop}}%
+\only<2->{\includegraphics[width=.2\textwidth,page=2]{../images/blochs-crop}}%
+};
+\only<3->{
+\draw [-{Stealth[length=3mm, width=3mm]},line width=3pt] (1.4,0) -- (2.7,0); 
+\node at (2.,.3) {\color{green} \cmark};
+}
+\only<5->{
+\node at (2.,-2.5) {\color{red} \xmark};
+\draw [-{Stealth[length=3mm, width=3mm]},line width=3pt] (1.4,-2.8) -- (2.7,-2.8); 
+}
+\node at (4,  0)  {%
+\only<3->{\includegraphics[width=.2\textwidth,page=3]{../images/blochs-crop}}%
+% \only<2->{\includegraphics[width=.2\textwidth,page=2]{../images/blochs-crop}}%
+};
+\node at (0,  -2.8)  {%
+\only<4->{
+\includegraphics[width=.2\textwidth,page=5]{../images/blochs-crop}}%
+};
+\node at (4,  -2.8)  {%
+\only<5->{
+\includegraphics[width=.2\textwidth,page=4]{../images/blochs-crop}}%
+};
+\end{tikzpicture}
+% Sistemas naturales, estables\\[.2cm]
+% Acá un dibujo en dos partes, con la esfera de Bloch en la primera indicando 
+% algun punto que ava a viajar al disco central, luego una segunda con solo el 
+% disco. Luego una segunda serie con eso, pero proyectado al eje z. 
+\end{center}
+\large\pause
+
+\pause
+\pause
+\pause
+\pause
+% \only<6->{
+\begin{center} \enges{We want to develop intuition about whats going on and generalize.}{
+Entender un poco mejor qué sucede para muchos cuerpos.} \end{center}
+% }
+
+% \begin{tikzpicture}
+ %nodes
+%  \node[punkt] (market) {Market (b)};
+ % We make a dummy figure to make everything look nice.
+%  \node (t)  at (0, 0) {\includegraphics[scale=0.3]{tree.jpeg}};
+%  \node (t)  at (2.3, 0) {\includegraphics[scale=0.3]{arrow3}};
+%  \node (t)  at (4, 0) {\includegraphics[scale=0.1]{measure2}};
+%  \node (t)  at (6, 0) {\includegraphics[scale=0.3]{arrow3}};
+%  \node (t)  at (8.5, 0) {\includegraphics[scale=2.3, viewport=0 12 36 25, clip]{emc6}};
+
+%  \node (t) {\includegraphics[width=.3\textwidth, viewport=65 90 310 330, clip]{cubo_o.pdf}};
+%  \node (o) at (-1.3, -.8) {\tiny $\arrow$};
+%  \node (o) at (-1.3, .9) {\tiny $\rho + \epsilon e_2$};
+%  \node (o) at (.5, -1.7)  {\tiny $\rho+ \epsilon e_1$};
+%  \node (o) at (0, 0)  {\tiny $\rho+ \epsilon e_3$};
+% \end{tikzpicture}
+% \end{center}
+% Naturaleza -> Mediciónes -> Fisica. 
+
+
+
+% Las observaciones en física con frecuencia son mediciones. 
+\end{frame}% }}}
+\begin{frame}{\enges{Outline}{Estructura de la charla}} %{{{ 
+\hspace{1cm}\begin{minipage}{.85\textwidth}\large
+\tableofcontents
+\end{minipage}
+\end{frame}% }}}
+\section{\enges{Some tools}{Algunas herramientas matemáticas}} %{{{  
+\begin{frame}{\enges{Quantum channels}{Canales cuánticos}} %{{{ 
+
+\large 
+\enges{
+A quantum channel ($\Lambda$) generalizes conveniently unitary 
+evolution, in a similar way as a density matrix generalizes a ket.}
+{Un  canal cuántico ($\Lambda$) generaliza convenientemente la evolución
+unitaria, de manera similar a como una matriz de densidad generaliza un ket.}
+\\[.3cm]
+
+\enges{Quantum channels can describe:}{Los canales pueden describir:}
+\begin{itemize}
+\item \enges{Unitary evolution}{Evolución unitaria} $\Lambda(\rho) = U \rho  U^\dagger  $
+\item \enges{Reduced dynamics (decoherence)}{Dinámica reducida (decoherencia)}
+     $\Lambda(\rho) =\tr_\env \left[ U \rho \otimes \rho_\env U^\dagger \right] $
+% \item \enges{Decoherence}{Decoherencia}
+\item \enges{Measurements}{Mediciones (sin postselección)}\\[.3cm]
+\end{itemize}
+
+
+\pause
+% \Large 
+\enges{Quantum channels are linear operators acting on the spaces of operators, i.e.
+superoperators.}{Son operadores lineales sobre el espacio de operadores
+(superoperadores).}
+% \pause
+% \enges{This implies that they have spectrum, eigenvalues, symmetries, etc.}{Esto
+% implica que tienen espectro, eigenoperadores, simetrías, etc.}
+
+\end{frame} % }}}
+\begin{frame}{\enges{Quantum channels, some properties}{Canales cuánticos, propiedades}} %{{{ 
+
+\enges{Quantum channels map states into states}{Envían estados a estados }
+$\mcE(\rho)=\rho'$
+\begin{itemize}
+\item \enges{They are linear}{Son lineales} $\mcE(\alpha \varsigma + \sigma)
+=\alpha \mcE(\alpha \varsigma) +  \mcE(\sigma)$,
+\item \enges{preserve the trace}{Preserva la traza} $\tr \mcE( \sigma) = \tr \sigma$,
+\item \enges{preserve hermiticity}{Preservan la hermiticidad de los estados} $ \mcE( \sigma) =\mcE( \sigma)^\dagger$
+\enges{if}{si} $ \sigma =\sigma^\dagger$, \enges{and}{y}
+\item \enges{preserve positivity,}{preserva la positividad de la matriz de densidad,} $ \mcE( \sigma) \ge 0 $
+\enges{if}{si}  $ \sigma \ge 0 $.
+\end{itemize}
+ 
+\vspace{.5cm}
+\pause
+
+\enges{They send extended states to extended states.}{
+Envían estados extendidos a estados extendidos.}
+\begin{itemize}
+\item \enges{Complete positivity,}{Completa positividad,} $(\mcE \otimes
+\openone_k)( \sigma) \ge 0 $ \enges{if}{si} $ \sigma \ge 0 $.
+\end{itemize}
+\vspace{.5cm}
+
+\enges{There are {\it maps} that send states to states, but not extended states to extended
+states, for example the transpose.}{Hay mapas que envían estados a estados, pero
+no estados extendidos a estados extendidos, por ejemplo la operación transpuesta.}
+
+
+\end{frame} % }}}
+\begin{frame}{\enges{Quantum channels, complete positivity}{Completa positividad}} %{{{ 
+
+\begin{itemize}
+\item \enges{Complete positivity means that for all $k$, and all $\rho \ge 0$,}{La condición de
+completa positividad pide que, para todo $k$ y todo $\rho \ge 0$,}
+$$(\mcE_n \otimes \openone_k)( \rho) \ge 0. $$
+% para todo $k$.
+\pause
+\item \enges{It is enough to study the maximally mixed state for $k=n$
+levels:}{Basta estudiar el mapa actuando sobre el estado máximamente enlazado
+$k=n$ niveles:}
+% $ |\text{Bell}_n\> = \sum_{i=1}^n |ii\>$.
+% Es decir 
+$$(\mcE_n \otimes \openone_n)( |\text{Bell}_n\>  \<\text{Bell}_n|) = \rho_\mcE \ge 0. $$
+% \pause
+% \item 
+\enges{This induces a correspondence between states and quantum channels
+called Choi–Jamiołkowski isomorphism.}{
+Esto induce una identificación entre estados y mapas 
+llamado isomorfismo de Jamiołkowski. }
+% Se puede replantear como un reordenamiento de la matriz asociada a $\mcE$. 
+\pause
+\item \enges{We must check, diagnonalizing}{Debemos revisar, diagonalizando} $\rho_\mcE$,
+\enges{(which is proportional to the Choi matrix)}{(proporcional a la matriz de Choi),}
+\enges{if all its eigenvalues are semipositive.}{ si sus eigenvalores son positivos.}
+\end{itemize}
+
+
+% Decir que es necesario y suficiente que el maximamente enlazado sea positivo. 
+
+
+% Eso induce un isomorfimiso y que la matriz hay que diagonalizarla para ver sus 
+% eigenvalores
+% 
+
+% Condición rara
+
+% Se puede limitar a ver que se mapea un estado a un estado (el de bell)
+
+% Eso conduce al calculo de la positividad de una matriz con reordenamiento de indices
+
+
+
+
+\end{frame} % }}}
+\begin{frame}{\enges{Quantum channels}{Canales cuánticos de un qubit}} %{{{ 
+% Ejemplos de como el canal de un qubit da algo bueno en un caso y algo malo en otro. 
+
+
+\begin{minipage}{.35\textwidth}
+\includegraphics[width=.7\textwidth,page=3]{../images/blochs-crop} \\
+$
+\mcE[1+ \vec r \cdot \vec \sigma] = 1+ r_z \sigma_z
+$
+\end{minipage}
+\pause
+$
+\mcE =
+\begin{pmatrix}
+ 1 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 1 
+\end{pmatrix}
+$
+\quad
+\begin{minipage}{.3\textwidth}
+\begin{center}
+$
+\rho_\mcE = 
+\begin{pmatrix}
+ \frac12 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & \frac12 
+\end{pmatrix}
+$\\[.5cm]
+$
+\lambda_{\rho_\mcE} = (\frac12,\frac12,0,0)
+$\\
+{\color{green} GOOD!}
+\end{center}
+\end{minipage}
+% \rule{\textwidth}{.2pt}
+\vspace{.5cm}
+\pause
+\vfill
+\begin{minipage}{.35\textwidth}
+\includegraphics[width=.7\textwidth,page=4]{../images/blochs-crop} \\
+$
+\mcE[1+ \vec r \cdot \vec \sigma] = 1+ r_x \sigma_x + r_y \sigma_y
+$
+\end{minipage} 
+\pause 
+$
+\mcE =
+\begin{pmatrix}
+ \frac12 & 0 & 0 & \frac12 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ \frac12 & 0 & 0 & \frac12 
+\end{pmatrix}
+% \begin{pmatrix}
+%  1 & 0 & 0 & 0 \\
+%  0 & 1 & 0 & 0 \\
+%  0 & 0 & 1 & 0 \\
+%  0 & 0 & 0 & 1 
+% \end{pmatrix}
+$
+\begin{minipage}{.3\textwidth}
+\begin{center}
+$
+\rho_\mcE = 
+\begin{pmatrix}
+ \frac14 & 0 & 0 & \frac12 \\
+ 0 & \frac14 & 0 & 0 \\
+ 0 & 0 & \frac14 & 0 \\
+ \frac12 & 0 & 0 & \frac14 
+\end{pmatrix}
+$\\[.5cm]
+$
+\lambda_{\rho_\mcE} = (\frac34,-\frac14,\frac14,\frac14)
+$\\
+{\color{red} BAD!}
+\end{center}
+\end{minipage}
+
+
+% \begin{tabular}{cccc}
+% \end{tabular}
+\end{frame}
+
+% }}}
+% }}}
+\section{\enges{PCE maps and PCE channels}{Mapeos y canales PCE}} %{{{  
+\begin{frame}{\enges{Single qubit PCE}{PCE de un qubit}} %{{{ 
+\enges{A single qubit state can be expressed as}{
+Un estado de 1 qubit puede escribirse como}
+\begin{equation*}
+\rho
+=\frac{\openone +\vec r \cdot \vec \sigma}{2}
+=\frac{\openone + r_x \sigma_x + r_y \sigma_y   + r_z \sigma_z}{2},
+\end{equation*}
+\pause
+\enges{PCE maps project over some of these components:}{
+Los mapas PCE sólo proyectan sobre alguna(s) componente(s):}
+\begin{equation*}
+\mcE(\rho)
+=\frac{\openone +\vec r' \cdot \vec \sigma}{2}, \quad
+r'_i = \tau_i r_i,\quad \tau_i \in \{0,1\}.
+% =\frac{\openone + r_x \sigma_x + r_y \sigma_y   + r_z \sigma_z}{2},
+\end{equation*}
+\pause
+\begin{itemize}
+\item \enges{They map density matrices to density matrices}{Envían matrices de densidad a matrices de densidad}
+\item \enges{The previous maps are examples of PCE maps}{Los mapas anteriores son PCE}
+\item \enges{They are a subset of Pauli maps}{Son un subconjunto de los mapas de Pauli}
+\item \enges{They are not always completely positive}{No siempre son completamente positivos}
+\end{itemize}
+
+
+\end{frame}
+% }}}
+\begin{frame}{\enges{Single qubit PCE and its diagrams}{PCE de un qubit y sus diagramas}} %{{{ 
+\begin{center}
+\begin{tikzpicture}[x=0.5cm, y=0.5cm] % {{{
+\pgfmathsetmacro{\unitstep}{3.5}
+% Coordenadas   {{{
+\node at (-0.6,0.5) {(a)} ;
+\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_0$} ;
+\begin{scope}[shift={(0,-1)}]
+\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_1$} ;
+\end{scope}
+\begin{scope}[shift={(0,-2)}]
+\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_2$} ;
+\end{scope}
+\begin{scope}[shift={(0,-3)}]
+\draw[black!10] (0,0) rectangle (1,1); \node at (0.5,0.5) {$\tau_3$} ;
+\end{scope} 
+\draw (0,-3) rectangle (1,1); 
+% }}}
+\pause
+\begin{scope}[shift={(1*\unitstep,0)}] % Identity {{{
+% \begin{scope}[shift={(\unitstep*2,0)}]
+\node at (-0.6,0.5) {(b)} ;
+\fill[black] (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,0)}] % Dephasing {{{
+\node at (-0.6,0.5) {(c)} ;
+\fill[black] (0,0) rectangle (1,1);
+% \draw (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(3*\unitstep,0)}] % Depolarization {{{
+\node at (-0.6,0.5) {(d)} ;
+\fill[black] (0,0) rectangle (1,1);
+% \draw (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\pause
+\begin{scope}[shift={(4*\unitstep,0)}] % (e) canal malo {{{
+\node at (-0.6,0.5) {(e)} ;
+\fill[black] (0,0) rectangle (1,1);
+% \draw (0,0) rectangle (1,1);
+\draw[black!10] (0,0) rectangle (1,1);
+\begin{scope}[shift={(0,-1)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \draw[black!10] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-1)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-2)}] \draw (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(0,-3)}] \draw (0,0) rectangle (1,1); \end{scope}
+\draw (0,-3) rectangle (1,1); 
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+\begin{itemize}
+\item \enges{Each component is represented by a square. }{Cada componente es
+representado por un cuadro.}
+\item \enges{It is either black (if its preserved) or white (if its erased)}{Puede ser negro (si se preserva) o blanco (si se borra)}
+% \only<2->{
+\item<2-> (b) \enges{is the identity channel,}{es el canal identidad,} 
+(c) \enges{is dephasing and}{es dephasing y} (d) depolarizing. 
+% }
+% \only<3->{
+\item<3-> (e) \enges{is the map that projects to the $xy$ plane}{es el mapa que proyecta al plano $xy$ }
+% }
+\end{itemize}
+\end{frame} % }}}
+\begin{frame}{\enges{$N$ qubit PCEs}{PCE de $N$ qubits}} %{{{ 
+\begin{itemize}
+\item 
+\enges{An $N$ qubit state can be written as}{Un estado de $N$ qubits se puede escribir como}
+\begin{equation*}
+	\rho =\frac{1}{2^N} \sum_\valpha r_\valpha \sigma_\valpha,
+\end{equation*}
+\enges{with}{con} $\vec \alpha = (\alpha_1,\ldots,\alpha_N)$, \enges{and}{y}
+$\sigma_{\vec \alpha} := \sigma_{\alpha_1}\otimes \ldots \otimes
+\sigma_{\alpha_N}$.
+
+\pause
+\item 
+\enges{A PCE mas is such that}{
+Un mapa PCE es tal que}
+\begin{equation*}
+% \begin{split}
+% 	\paulicomponents \mapsto \ \taus \paulicomponents,\hspace{.5cm}\\
+% 	\taus = 0,1, \hspace{1.5cm}	\tau_{0,\ldots,0}=1.
+	\paulicomponents \mapsto \taus \paulicomponents,\quad 
+	\taus = 0,1.
+% \end{split}
+\end{equation*}
+\enges{This are the objects we are interested in.}{ Este es nuestro objeto de estudio principal.}
+\pause
+\item 
+\enges{For 2 qubits, we have equivalent diagrams:}{
+Para 2 qubits hay diagramas similares (la esfera de Bloch no sirve):}
+\begin{center}
+\begin{tikzpicture}[x=0.35cm, y=0.35cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
+\begin{scope}[shift={(0*\unitstep,0)}] % Coordenadas {{{
+% \node at (-0.5,0.5) {(a)} ;
+% \cuadritotikz{}
+    \foreach \x in {0,1,2,3} {
+      \foreach \y in {0,1,2,3} {
+        \begin{scope}[shift={(\x,-\y)}] 
+          \draw[black!10] (0,0) rectangle (1,1); 
+%           \draw (0,0) rectangle (1,1); 
+          \node at (0.5,0.5) {\scalebox{.4}{$\tau_{(\y,\x)}$}};
+         \end{scope}
+%         \node at (0,-\y) (input\y) {$i_\y$};
+%         \node[block] at (2,-\y) (block\y) {$f_\y$};
+%         \draw[->] (input\y) -- (block\y);
+%         \draw[->] (block\y.east) -- +(0.5,0);
+    }
+    }
+ \draw (0,-3) rectangle (4,1);
+\end{scope} % }}}
+\begin{scope}[shift={(1*\unitstep,0)}] % Good channel {{{
+% \node at (-0.5,0.5) {(b)} ;
+\cuadritotikz{}
+%     \foreach \x in {0,1,2,3} {
+%       \foreach \y in {0,1,2,3} {
+%         \begin{scope}[shift={(\x,-\y)}] 
+%           \draw (0,0) rectangle (1,1); 
+% %           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+%          \end{scope}
+% %         \node at (0,-\y) (input\y) {$i_\y$};
+% %         \node[block] at (2,-\y) (block\y) {$f_\y$};
+% %         \draw[->] (input\y) -- (block\y);
+% %         \draw[->] (block\y.east) -- +(0.5,0);
+%     }
+%     }
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,0)}] % Good channel {{{
+% \node at (-0.5,0.5) {(c)} ;
+\cuadritotikz{}
+%     \foreach \x in {0,1,2,3} {
+%       \foreach \y in {0,1,2,3} {
+%         \begin{scope}[shift={(\x,-\y)}] 
+%           \draw (0,0) rectangle (1,1); 
+% %           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+%          \end{scope}
+% %         \node at (0,-\y) (input\y) {$i_\y$};
+% %         \node[block] at (2,-\y) (block\y) {$f_\y$};
+% %         \draw[->] (input\y) -- (block\y);
+% %         \draw[->] (block\y.east) -- +(0.5,0);
+%     }
+%     }
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+\end{itemize}
+\end{frame}
+% }}}
+% }}}
+\section{\enges{The problem and its solution}{El problema y su solución}} %{{{  
+\begin{frame}{\enges{Statement of the problem}{Planteamiento del problema}} %{{{ 
+\begin{center}
+\Large
+ \enges{Which PCE maps are actully quantum channels?}{¿Cuales mapas PCE son canales cuánticos válidos?}
+\end{center}
+\vfill
+
+\enges{This will hopefully help us understand better the geometry of many-body quantum channels}{
+Esto nos ayudará a entender mejor la geometría de canales cuánticos de muchos
+cuerpos.}
+\end{frame}
+% }}}
+\begin{frame}{\enges{Examples and rules}{Ejemplos y reglas}} %{{{ 
+
+
+\begin{center}
+\begin{tikzpicture}[x=0.45cm, y=0.45cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
+\begin{scope}[shift={(1*\unitstep,0)}] % Depolirizng channel {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,0)}] % Interseccion {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(3*\unitstep,0)}] % E4 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(1*\unitstep,-\unitstep)}] % E7 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,-\unitstep)}] % E11 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(3*\unitstep,-\unitstep)}] % Identity channel {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+\begin{itemize}
+\item \enges{Only PCEs that preserve $2^k$ components.}{Solo se admiten PCEs que preservan $2^k$ componentes.}
+\item \enges{Not all PCEs that preserve $2^k$ components are channels.}{No todos los que preservan $2^k$ componentes son canales.}
+\item \enges{The same number of channels that preserve $2^k$ and $2^{2N-k}$ components.}{Hay el mismo número de canales que preservan $2^k$ y $2^{2N-k}$ componentes.}
+\item \enges{There is a generating set that preserves half of the components.}{Hay un conjunto generador que conserva la mitad de componentes. }
+\end{itemize}
+\end{frame}
+% }}}
+\begin{frame}{\enges{Choi matrix diagonalization}{Diagonalizacion de la matriz de Choi}} %{{{ 
+\begin{itemize}
+\item \enges{The channel can be expressed as}{El canal tiene la forma}
+% \begin{equation*}
+$\hat{\mathcal{E}} = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}}
+\ddyada{\sigma_{\vec{\alpha} }}$.
+% \end{equation*}
+\pause
+\item \enges{And the corresponding state reads}{Y su estado correspondiente cumple que}
+% \begin{equation*}
+$ \rho_\mcE
+   \propto \sum_{\vec{\alpha}} \tau_{\vec{\alpha}}
+       \bigotimes_{j=1}^N \sigma_{\alpha_j} \otimes \sigma_{\alpha_j}^*$.
+\pause
+\item \enges{The tensor matrices commute}{Las matrices tensoriales conmutan}
+ $[
+\sigma_\valpha \otimes \sigma_\valpha^*,
+\sigma_{\valpha'} \otimes \sigma_{\valpha'}^*] =0$.
+% y tienen eigenvectores comunes $v_\vbeta$. 
+\pause
+\item \enges{And the eigenvectors fulfill}{Los eigenvectores comunes cumplen}
+ $(\sigma_\valpha \otimes
+\sigma_\valpha^*) v_\vbeta = \frac{1}{2^N} A_{\valpha \vbeta} v_\vbeta$ con
+$$
+A=a^{\otimes N},\quad
+a=
+\begin{pmatrix}
+1 &1 &1   &1   \\
+ 1 & 1  & -1&-1   \\
+1  & -1  & 1 & -1\\
+1&-1&-1&1  
+\end{pmatrix}.
+% =\frac12\sa^{-1}.
+$$
+%  \label{Choi_1}
+% \end{equation*}
+\pause
+\item \enges{This implies that the eigenvectors also fullfill}{Esto implica que los eigenvectores cumplen }
+$
+ \lambda_{\valpha} = \frac{1}{2^N}  A_{\valpha\vbeta}\tau_{\vbeta}
+$.
+\item \enges{So we just diagonalize the Choi matriz}{En Diagonalizamos la
+matriz de Choi} ($\propto \rho_\mcE$) \enges{for {\it all} Pauli channels}{para canales de Pauli.}
+\end{itemize}
+\end{frame} % }}}
+\begin{frame}{\enges{An important relation among indices of a channel}{Una relación entre indices de un canal}} %{{{ 
+\enges{Based on the following}{Basándonos en que }
+\begin{itemize}
+\item $A$ \enges{is almost idempotent:}{es casi idempotente:} $A^{-1} = \frac{1}{4^N} A$
+\item \enges{If}{Si} $\lambda_{\valpha} \ge 0$ (\enges{as should be for
+channels}{como debe ser para canales cuánticos}), \enges{then}{entonces}
+$\sum_{\valpha \in \Omega} \lambda_{\valpha} =0$ implica $\lambda_{\valpha} =0$,
+$\forall \valpha\in \Omega$,
+\end{itemize}
+\pause 
+\enges{we can say that}{podemos decir que si} 
+$\tau_\valpha = 1$ \enges{implies}{entonces}  $\tau_{\vec\gamma} =
+\tau_{\vec\gamma'}$
+\enges{if}{si}
+$$
+A_{\vbeta\vec\gamma}=A_{\vbeta\vec{\gamma^\prime}}, \quad
+\forall \vec\beta: A_{\valpha \vbeta}=1.
+$$
+\enges{This is a relation between the indices that are preserved in a
+channel}{Esta es una relación entre los indices que son preservados en un
+canal.}
+ \\
+\pause
+\enges{This can be reformulated saying that if}{Se
+puede reformular diciendo que si} $\tau_{\valpha}=\tau_{\vbeta}=1$, 
+\enges{then}{entonces} $\tau_{\valpha \oplus \vbeta}=1$ \enges{with the sum of
+the componentes defined by:}{con la suma entre componentes definida por:}
+\begin{center}
+\begin{tabular}{| c | c c c c |}
+\hline
+$\oplus{}$ & 0 & 1& 2 & 3\\
+\hline
+0 & 0 & 1 & 2 & 3\\
+1 & 1 & 0 & 3 & 2\\
+2 & 2 & 3 & 0 & 1 \\
+3 &3 & 2 & 1 & 0\\
+\hline
+\end{tabular}.
+\end{center}
+
+\end{frame} % }}}
+\begin{frame}{\enges{A {\it beautiful} vector space}{Un espacio vectorial {\it hermoso} }} %{{{ 
+\begin{itemize}
+\item
+\enges{We have an addition opertarion ($\oplus$) and, if we consider
+the field}{ 
+Tenemos operación suma ($\oplus$) cerrada, y, si consideramos el campo }
+$\{0,1\}$, \enges{multiplication by a scalar.}{multiplicación por escalar. }
+\item
+\enges{That is, we have a vector space (but no interior product).}{
+Es decir, tenemos un espacio vectorial (sin producto interior).} \pause
+\item 
+\enges{Given that the components of a channels are closed under addition, 
+to each channel we have asosciated a vector subspace, and viceversa.}{
+Dado que las componente preservadas de cada canal son cerradas bajo adición, a
+cada canal está asociado a un subespacio vectorial (y viceversa). }
+\end{itemize}
+\pause
+\enges{Examples:}{Ejemplos:}\\
+\begin{minipage}{0.47\textwidth}
+\begin{center}
+\begin{tikzpicture}[x=0.35cm, y=0.35cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
+\begin{scope}[shift={(2*\unitstep,0)}] % Good channel {{{
+% \node at (-0.5,0.5) {(c)} ;
+\cuadritotikz{}
+%     \foreach \x in {0,1,2,3} {
+%       \foreach \y in {0,1,2,3} {
+%         \begin{scope}[shift={(\x,-\y)}] 
+%           \draw (0,0) rectangle (1,1); 
+% %           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+%          \end{scope}
+% %         \node at (0,-\y) (input\y) {$i_\y$};
+% %         \node[block] at (2,-\y) (block\y) {$f_\y$};
+% %         \draw[->] (input\y) -- (block\y);
+% %         \draw[->] (block\y.east) -- +(0.5,0);
+%     }
+%     }
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black!25!white] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \node at (0.5,0.5) 
+     {\textcolor{white}{\tiny $\valpha^{1}$}}; \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \node at (0.5,0.5) 
+     {\textcolor{white}{\tiny $\valpha^{2}$}}; \end{scope}
+% \begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+% \textcolor{red}{EJEMPLO DE SUMA MENOS TRIVIAL}
+\enges{Two of its elements are}{Dos de sus elementos son}\\[-.4cm]
+$$\valpha^{(1)} = (0,2), 
+\valpha^{(2)} = (1,3)$$\\[-.6cm] \enges{but}{pero}
+$\valpha^{(1)} \oplus \valpha^{(2)} = (1,1)$
+\enges{which is not preserved.}{y no se preserva.} 
+\enges{Thus, this diagram does not correspond to a channel.}{Entonces, este diagrama 
+no corresponde a un canal.}
+\end{minipage}\hfill \pause
+\begin{minipage}{0.47\textwidth}
+\begin{center}
+\begin{tikzpicture}[x=0.35cm, y=0.35cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
+\begin{scope}[shift={(1*\unitstep,0)}] % Good channel {{{
+% \node at (-0.5,0.5) {(b)} ;
+\cuadritotikz{}
+%     \foreach \x in {0,1,2,3} {
+%       \foreach \y in {0,1,2,3} {
+%         \begin{scope}[shift={(\x,-\y)}] 
+%           \draw (0,0) rectangle (1,1); 
+% %           \node at (0.5,0.5) {$\tau_{\y,\x}$};
+%          \end{scope}
+% %         \node at (0,-\y) (input\y) {$i_\y$};
+% %         \node[block] at (2,-\y) (block\y) {$f_\y$};
+% %         \draw[->] (input\y) -- (block\y);
+% %         \draw[->] (block\y.east) -- +(0.5,0);
+%     }
+%     }
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+\enges{Its elements are}{Sus elementos son}\\[-.8cm]
+\begin{align*}
+\valpha^{(0)} = (0,0), \quad \valpha^{(1)} = (0,3)\\
+\valpha^{(2)} = (3,0), \quad \valpha^{(1)} = (3,3)
+\end{align*}\\[-.8cm]
+\enges{which are closed under}{que son cerrados bajo} $\oplus$. \enges{Thus
+this diagram represents a channel.}{Es decir {\it si} representa un canal. }
+\end{minipage}
+
+\end{frame} % }}}
+\begin{frame}{\enges{Some consequences}{Algunas consecuencias}} %{{{ 
+\enges{What we have observed, are direct consequences of the subspace structure
+of the channels.}{Lo que habíamos observado, surge como consecuencia de la 
+estructura vectorial de los canales. }
+\begin{itemize}
+\item \enges{The number of elements in a vector space with scalar field of $q$ elements is 
+$q^k$.}{El numero de elementos de un espacio vectorial con 
+campo escalar de $q$ elementos es $q^k$. }
+\enges{That is, our channels preserve {\it exactly} $2^k$ components.}{
+Es decir nuestros canales preservan exactamente $2^k$ componentes. }
+\item 
+\enges{We can count the number of subspaces of a dimension $k$, and it yields}{
+analizando el numero de subespacios de dimensión $k$ y las bases 
+que lo pueden generar encontramos el número de canales que 
+preservan $2^k$ componentes }
+$S_{n,k}=\prod_{m=0}^{k-1} \frac{2^{2n-m}-1}{2^{k-m}-1}$.
+\item \enges{So we verify the symmetry}{Verificamos la simetría} $S_{N,K} = S_{N,2N-K}$.
+\item \enges{There are maximal proper subspaces (next slide).}{Existen subespacios maximales
+(siguiente slide). }
+\end{itemize}
+\end{frame} % }}}
+% }}}
+\section{\enges{Generators and decoherence}{Los generadores y decoherencia}} %{{{  
+\begin{frame}{\enges{The generators}{Aparición de los generadores}} %{{{ 
+\begin{itemize}
+\item 
+\enges{Any vector subspace is the intersection of maximal proper subspaces.}{
+Cualquier subespacio vectorial puede generarse como la intersección de subespacios
+maximales no triviales. }
+\item 
+\enges{Any channel can be generated as the composition of channels that preserve 
+half of the components.}{
+Cualquier canal puede generarse como la composición de canales que preservan 
+la mitad de componentes. }
+\end{itemize}
+\pause
+\vspace{1cm}
+\enges{Example:}{Ejemplo:}
+\begin{center}
+\begin{tikzpicture}[x=0.45cm, y=0.45cm] % {{{
+\pgfmathsetmacro{\unitstep}{5.2}
+\begin{scope}[shift={(3*\unitstep,0)}] % E4 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(1*\unitstep,0)}] % E7 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(2*\unitstep,0)}] % E11 {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(0,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\begin{scope}[shift={(4.5*\unitstep,0)}] % Interseccion {{{
+\cuadritotikz{}
+\begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+% \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
+\end{scope} % }}}
+\end{tikzpicture} % }}}
+\end{center}
+\enges{Any pair of the first channels generates the last one.}{Cualquier par
+(de los primeros canales) genera el ultimo canal. }
+
+
+
+\end{frame} % }}}
+\begin{frame}{Algunas propiedades de los generadores} %{{{ 
+\enges{Some consequences:}{
+Algunas consecuencias:}
+\begin{itemize}
+\item 
+\enges{The generators have right/left and up/down symmetry. More generally reflection 
+or anti-reflection for any number of particles. }{
+Las generadores tienen simetrías izquierda/derecha y arriba/abajo. Se puede comprobar 
+de las propiedades mostradas anteriormente. }
+\item 
+\enges{Any generator can be classified by the action on each qubit.}{
+Cada generador se puede clasificar mediante la acción sobre cada qubit. }
+% E.g. $\mcE_1=\mcG_{(1,1)}$, $\mcE_2=\mcE_{(3,1)}$, $\mcE_3=\mcE_{(2,1)}$,
+% $\mcE_4=\mcE_{(0,1)}$.
+\end{itemize}
+\begin{center}
+% \includegraphics[width=0.7\textwidth, page=8, viewport=120 260 480 410, clip ]{../notas/notas_francois.pdf}
+\includegraphics[width=.7\columnwidth]{../images/twoQ_generator_diagrams-crop}
+\end{center}
+\end{frame} % }}}
+\begin{frame}{\enges{Decoherence}{Decoherencia generalizada}} %{{{ 
+\enges{We can construct physical processes that generate the channels, 
+by noticing that the Kraus operators corresponding to generators are}{
+Podemos construir los procesos físicos que generan estos canales, notando que
+los operadores de Kraus que corresponden a los generadores son }
+$$
+\mcG_{\vec \alpha} \longrightarrow
+\left\{\frac{\openone}{\sqrt2}, \frac{\sigma_{\vec \alpha}}{\sqrt2}\right\}. 
+$$
+\enges{This can be interpreted easily and we can also generate its Lindblad 
+equation.}{
+Este se puede interpretar muy fácilmente y generar su ecuación de Lindblad.} \par
+\vspace{1cm}
+\enges{Other PCEs can be created and interpreted with the aid of the generators
+that produce them. }{
+Otros PCEs se pueden ser creados e interpretados a partir de 
+los generadores que lo produzcan. }
+
+
+\end{frame} % }}}
+% }}}
+\section*{\enges{Conclusions}{Conclusiones}} %{{{  
+\begin{frame}{\enges{Conclusions and outlook}{Conclusiones}} %{{{ 
+
+\begin{itemize}
+\item \enges{We introduced Pauli component erasing maps.}{Se introducen los Pauli Component Erasing maps.}
+\item \enges{We managed to diagonalize the Choi matrix of any Pauli channel.}{Se logra diagonalizar de manera simple la matriz de Choi de cualquier canal de Pauli.}
+\item \enges{We associate vector subspaces to PCE channels, and exploit this relation.}{Se asocian a los PCEs espacios vectoriales, lo que simplifica su tratamiento}
+\item \enges{We find generators, Kraus operators, Lindblad equations etc for PCEs, which allows to associate them to physical processes.}{Se encuentran los generadores y sus operadores de Kraus, lo que permitirá asociarlos a procesos físicos existentes. \\[.5cm]}
+\end{itemize}
+\pause
+\enges{Outlook}{Más adelante...}
+\begin{itemize}
+\item qudits
+\item Allow $\tau=0,1,-1$
+\item Study the geometry of the set of channels
+\end{itemize}
+\end{frame} % }}}
+% }}}
+\end{document}
+\section*{Adendum} %{{{  
+\begin{frame}{Sistemas de $d$ niveles} %{{{ 
+Mencionar las matrices encuestion que ayudan, mencionar que ya no forman un campo
+y las matemáticas son mas complicadas
+
+\end{frame} % }}}
+% }}}
+\begin{frame}{} %{{{ 
+\end{frame} % }}}
+\begin{frame}{} %{{{ 
+\end{frame} % }}}
+\begin{frame}{} %{{{ 
+\end{frame} % }}}
+\begin{frame}{} %{{{ 
+\end{frame} % }}}
+
+
+Quizá unos 30 slides. 
+
+\section*{\enges{Introduction}{Matriz de densidad}} %{{{  
+\begin{frame}{\enges{Motivation}{Motivación}} % {{{
+\begin{itemize}
+\item 
+\enges{Consider a many-body system and an imperfect detector.}{
+Sistema de muchos cuerpos con mediciones imperfectas. }
+\item 
+\enges{The measurement apparatus sometimes doesn't measure the desired particles.}
+{Los aparatos de medida equivocan la partícula.}
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=4cm, viewport= 560 80 860 270, clip=true]{IonDiagram.png}\\
+% \includegraphics[width=4cm, viewport= 210 80 560 270, clip=true]{IonDiagram.png}\\
+% https://iontrap.physics.indiana.edu/research.html
+\tiny Schematic overview of a 2D ion trap quantum simulation. (Richerme's group in IU)
+\end{center}
+
+
+\begin{itemize}
+\item It might even not be able to resolve a single particle.
+\item \pause
+\enges{Provide a general description not considering the measuring devices, but 
+rather the states.}{
+Descripción general, no de instrumentos sino de estados, al realizar dichas mediciones.
+}
+\item \pause
+% Ver si esto genera un canal válido y proveer la teoría apropiada para ello. 
+\enges{Provide a framework in terms of quantum channels.}{
+Enmarcar en una teoría general de canales cuánticos. }
+% \item \pause
+% \enges{
+% Quantum tomography requires an exponential amount of measurements}{
+% Tomografía toma una cantidad exponencial de medidas.}
+% \item \pause
+% \enges{The state will be effectevly 
+% Ver que estado podemos medir al realizar dicha medición.
+\end{itemize}
+
+% The number of independent measurements that can be done on quantum systems scale rapidly as one grows the dimension of the systems . This introduces technical problems and inviability to do tomography of large quantum systems, as well lacking of fine control of the observables 
+
+\end{frame} % }}}
+% \begin{frame}{Technical reminders} % {{{
+% 
+% \begin{itemize}
+%   \setlength\itemsep{1em}
+% \item
+% The density matrix $\rho$ is an operator that represents a state in which
+% \alert{all} measurable information is encoded (similar to the state vector).
+% \pause
+% \item
+% It is used often in quantum information and statistical mechanics. 
+% \pause
+% \item
+% The measurable quantities, expected values, are calculated as $\tr \hat M \rho$
+% \pause
+% \item
+% Quantum channels \alert{$\Lambda$} are linear operators transforming states
+% $\rho$ to other states $\Lambda(\rho)$. 
+% \pause
+% \item
+% They are used to describe open quantum systems or uncertain quantum systems. 
+% \end{itemize}
+% \end{frame} % }}}
+% }}}
+\section{\enges{Fuzzy measurements}{Mediciones borrosas}} %{{{  
+\begin{frame}{\enges{Two-qubit fuzzy measurements}{Medición borrosa para dos qubits}} % {{{
+\enges{For two qubits one wishes to measure}{
+Para dos qubits, queremos medir}
+$$\alert{\sigma_{ij}} = \sigma_i \otimes \sigma_j,\qquad i,j=0,1,2,3,$$
+or linear combinations of it, 
+e.g. $\sigma_x^{(1)}$, $ \sigma_z \otimes \sigma_z$ or Bell measurements. \\[.3cm]
+% [covers {\it all} measurements].\\[.3cm]
+\pause
+
+Assume our apparatus is imperfect; \pause it measures 
+\begin{itemize}
+\item $\sigma_{ij}$, \enges{with probability}{con probabilidad} $p$, \enges{and}{y} 
+\item $\sigma_{ji}$ \enges{with probability}{con probabilidad} $1-p$.
+\pause
+\end{itemize}
+% \enges{but our apparatus measures }{
+% pero nuestro aparato mide }
+% $\sigma_{ij}$,
+% \enges{with probability}{
+% con probabilidad }
+% $p$, 
+% \enges{and}{y} $\sigma_{ji}$
+% \enges{with probability}{
+% con probabilidad }
+% $1-p$.
+\begin{align*}
+\<\text{\enges{Expected value}{Valor esperado}}\> 
+ &= \onslide<2->{p \tr \sigma_{ij} \rho + (1-p) \tr \sigma_{\alert{ji}} \rho} \\ 
+ \onslide<3->{&= p \tr \sigma_{ij} \rho + (1-p) \tr S \sigma_{ij} S \rho \qquad \text{$S$ is swap}} \\ 
+%  \onslide<4->{&= p \tr \sigma_{ij} \rho + (1-p) \tr \sigma_{ij} S \rho S }\\ 
+ \onslide<4->{&= \tr \sigma_{ij} [p \rho + (1-p)  S \rho S ] .}
+\end{align*}
+\\[.2cm]
+\pause  % \pause 
+%\pause \pause
+
+\enges{The effect of the imperfection of the device can be translated to $\rho$ via a quantum map:}{
+Esto nos induce el mapeo }
+$$
+\<\text{\enges{Expected value}{Valor esperado}}\>  = \tr \left( \sigma_{ij} \Lambda_p[\rho] \right),\qquad
+\Lambda_p[\rho]   = p \rho + (1-p)  S \rho S.
+$$
+% \enges{which takes into account exactly what we will measure.}{
+% Que toma en cuenta exactamente lo que podemos medir.} 
+% \alert{$p$} 
+% \enges{quantifies how precise is our measuring device.}{cuantifica 
+% que tan preciso es nuestro aparato de medición.}
+
+% Consider a system of two qubits and measurements of variables with the form
+% \begin{equation}
+% \fuzzytwo{p}[\rho]=p \rho +(1-p) S_{01}\rho S_{01},
+% \end{equation}
+% where $\mcS_{01}[\rho]$ is the swap map between the two particles.
+
+
+% Decir que uno a veces al medir, no mas puede medir una sola particula.
+% Entonces, cuantos parametetros hay que medir? La idea de reconstruir un estado
+% de una serie de observaciones. 
+
+
+\end{frame} % }}}
+\begin{frame}{\enges{Generalizations of fuzzy measurements}{Generalizaciones de mediciones borrosas}} % {{{
+\enges{This idea can be generalize to several physical situations:}{
+Esto lo podemos generalizar a varias situaciones físicas:}\\[.3cm]
+\pause
+\begin{tabular}{lc}
+$\bullet$ 
+\enges{Spin chain}{Cadena de espines }
+&  \\
+\raisebox{0.99cm}
+{{\color{white} $\bullet$} $ \Lambda_p[\rho] = p \rho + \frac{1-p}{n} \sum_i S_{i,i+1}[\rho] $} &  
+% \raisebox{1cm}
+{\includegraphics[width=0.2\textwidth, clip, viewport=70 80 340 250]{colorchain}}
+\\[.0cm]
+\pause
+$\bullet$ 
+\enges{Two dimensional systems}{Sistema bidimensional}
+&  \\
+\raisebox{0.99cm}
+{{\color{white} $\bullet$} $ \Lambda_p[\rho] = p \rho + \frac{1-p}{n'} \sum_{i,j}
+(S_{i,j;i,j+1}[\rho] + S_{i,j;i+1,j}[\rho]) $} &  
+% \raisebox{1.5cm}
+{\includegraphics[width=0.25\textwidth]{SpinGrid}}
+\\[.0cm]
+\pause
+$\bullet$
+\enges{Generic imperfect detector}{Todos contra todos}
+&  \\
+\raisebox{0.99cm}
+{{\color{white} $\bullet$} 
+$ \Lambda_p[\rho] = p \rho + \sum_{i} p_i P_{i}[\rho] $,
+$P_i$ a $n$-permutation} &  
+% \raisebox{1.5cm}
+{\includegraphics[width=0.17\textwidth]{Nucleus}}
+% {\includegraphics[width=0.20\textwidth, clip, viewport=85 10 150 64]{CABFinal}}
+%  \includegraphics[scale=1.3]{CABFinal}
+% \raisebox{1cm}{\includegraphics[width=0.2\textwidth, clip, viewport=70 80 340 250]{colorchain}}
+\\
+ &  
+\end{tabular}
+% \begin{itemize}
+% \item 
+% 
+% 
+% \item 
+% Generalización a un sistema bidimensional, de fuzzy
+% 
+% 
+% Generalizacion a todos con todos, de Fuzzy
+% \end{itemize}
+\end{frame} % }}}
+% }}}
+\section{\enges{Characterization of the channels}{Caracterización de los canales}} %{{{  
+\begin{frame}{\enges{Fidelity distribution}{Distribución de fidelidad,} $f$} % {{{
+\enges{The fidelity measures distance between states}{La fidelidad mide distancias }
+$f = |\<\psi|\phi\>|^2 = \<\psi|\phi\>\<\phi|\psi\>$. %\\[.5cm]\pause
+\enges{If one of the states is pure, and the other is mixed,}{Si un estado es puro, y el otro es mixto, }
+$$
+f = \<\psi|\rho|\psi \> = \<\psi| \Lambda_p[|\psi\>\<\psi|]|\psi\>.
+$$
+\pause
+
+
+\begin{center}
+\includegraphics[width=6cm]{distro}
+% \includegraphics[width=4cm, viewport= 210 80 560 270, clip=true]{IonDiagram.png}
+\end{center}
+\enges{For the map related to the spin chain, we can calculate the fidelity distribution}{
+Para el mapeo de la cadena, }
+$
+f \sim G\left(p+\frac{1-p}{4}, \frac{1}{n} \left[ 4 p^2+\frac{(1-p)^2}{4}  \right]
+\right).
+$
+
+% \begin{itemize}
+% \item El mapa no rota los estados (eigenvalores reales del mapeo)
+% \item Sólo hay una contracción no uniforme. 
+% \item Sampleamos de manera uniforme  (medida de Haar) el conjunto de estados.
+% \end{itemize}
+\end{frame} % }}}
+\begin{frame}{Symmetries} % {{{
+Consider a generic imperfect measurement 
+$ \Lambda[\rho] = p \rho + \sum_{i} p_i P_{i}[\rho] $.
+\begin{itemize}
+\item The channel preserves the number of excitations, e.g. 
+$$P_i|000101\> = |010010\>.$$ 
+It is a unitary symmetry and thus acts on bras and kets independently. 
+% It provides 2 quantum numbers. 
+\\[.5cm]
+\pause
+\item Ket-bra interchange symmetry 
+$$(|i \>\< j|, \Lambda[|k \>\< l|]) = (|j \>\< i|, \Lambda[|l \>\< k|]).$$ 
+% \\[.5cm]
+\pause
+% $(|i \>\< j|, \Lambda[|k \>\< l|]) = (|i \>\< \bar j|, \Lambda[|k \>\< l|])$. 
+% \item It conserves projectors in the computational basis 
+\item Partial NOT symmetry: $|3\>=|00101\> \to |\bar 3\> = |22\> = |11010\>$,
+$$(|i \>\< j|, \Lambda[|k \>\< l|]) = (|i \>\< \bar j|, \Lambda[|k \>\< \bar l|]).$$\\[.5cm]  
+\pause
+\item Excitation intersection symmetry: 
+$\gamma(13,11)=\gamma(\alert{1}10\alert{1}_2,\alert{1}01\alert{1}_2)=2$. Notice that
+$$\gamma(|i\>\<j|)\left[\equiv \gamma(i,j) \right] = \gamma(P_a |i\>\<j| P_a^\dagger).$$
+% other quantum number. 
+\end{itemize}
+% This induces a block structure 
+% \begin{equation*}
+% \Lambda_p = 
+% \bigoplus_{j,k =0}^{ \lfloor q/2 \rfloor } \Lambda_{(j,k)}^{\text{NP } \oplus \sim 4}  
+% \bigoplus_{j =0}^{\lfloor q/2 \rfloor } \Lambda_{(j,k)}^{\text{P } \oplus \sim 2} 
+% \label{}
+% \end{equation*}
+\end{frame} % }}}
+\begin{frame}{Block structure} % {{{
+Consider a generic imperfect measurement device 
+$ \Lambda_p[\rho] = p \rho + \sum_{a} p_a P_a \rho  P_a^\dagger $.
+\begin{itemize}
+\item Unitary conservation of the number of excitations
+provides 2 quantum numbers $\alpha$ and $\beta$. \\[.3cm]
+\pause
+\item Excitation intersection symmetry provides a third number  $\gamma$, compatible
+with the previous ones. We thus have blocks  $\Lambda_{(\alpha, \beta, \gamma)}$. 
+\\[.3cm]
+\item Ket-bra interchange symmetry 
+allows to identify
+$\Lambda_{(\alpha, \beta, \gamma)} = \Lambda_{(\beta, \alpha, \gamma)}$.
+\\[.3cm]
+\pause
+% $(|i \>\< j|, \Lambda[|k \>\< l|]) = (|i \>\< \bar j|, \Lambda[|k \>\< l|])$. 
+% \item It conserves projectors in the computational basis 
+\item Partial NOT symmetry: 
+allows to identify
+$\Lambda_{(\alpha, \beta, \gamma)} = \Lambda_{(\alpha, q+1 -\beta, \gamma)}$.
+\end{itemize}
+\pause
+% This induces a block structure 
+\begin{equation*}
+\Lambda = 
+\bigoplus_{\alpha,\beta,\gamma =0}^{ \lfloor q/2 \rfloor } 
+     \Lambda_{(\alpha,\beta,\gamma)}^{\oplus d(\alpha,\beta)}  
+% \bigoplus_{j =0}^{\lfloor q/2 \rfloor } \Lambda_{(j,k)}^{\text{P } \oplus \sim 2} 
+\label{}
+\end{equation*}
+The number of blocks is $(q+1)(q+2)(q+3)/6$.
+% \begin{equation*}
+% \Lambda = 
+% \bigoplus_{j,k =0}^{ \lfloor q/2 \rfloor } \Lambda_{(j,k)}^{\text{NP } \oplus \sim 4}  
+% \bigoplus_{j =0}^{\lfloor q/2 \rfloor } \Lambda_{(j,k)}^{\text{P } \oplus \sim 2} 
+% \label{}
+% \end{equation*}
+\end{frame} % }}}
+\begin{frame}{Spectra of superoperators} % {{{
+% $\Lambda$ is a linear operator \pause $\longrightarrow$ eigenvalues and eigenvectors (sometimes) 
+% \pause
+% \begin{equation*}
+% \Lambda_{lm;l'm'} \pause 
+% =(|l\>\<m|, \Lambda(|l'\>\<m'|) 
+% \pause= \tr [|m\>\<l|\Lambda(|l'\>\<m'|)] \pause = \<\<lm|\Lambda|l'm'\>\> 
+% \label{}
+% \end{equation*}
+\begin{itemize}
+\setlength\itemsep{1em}
+% \item $\Lambda$ preserves hermiticity \pause $\to$ 
+\item Complex eigenvalues of $\Lambda$ come in conjugate pairs 
+\pause
+\item $\Lambda$ is a contractive map $|\lambda| \le 1$
+\pause
+\item To each symmetry block corresponds an eigenvalue $\lambda=1$
+\pause
+\item Blocks $\Lambda_{(\alpha,\alpha,\alpha)}$ yield physical states.
+\pause
+\item Other blocks yield coherences (and structure to the steady state). 
+\pause
+% \item To each symmetry block not corresponding to states $\longrightarrow$ $\lambda=1$
+\item Our operators are diagonalizable
+\end{itemize}
+
+
+% Hablar de las coherencias
+
+% Hablar de los estados invariantes, realmente estados. 
+% Consider a generic imperfect measurement device (as we define it). 
+\end{frame} % }}}
+\begin{frame}{Generic spectra of fuzzy measurements } % {{{
+% \includegraphics[]{spectraAll}
+\begin{itemize} 
+\item Consider a random measuring 
+% $\Lambda_p[\rho] = p \rho + \sum_{i} p_i P_{i}[\rho] $
+$ \Lambda_p[\rho] = p \rho + \sum_{i} p_i P_i \rho  P_i^\dagger $.
+\item I shall show results for a typical case 
+\item Also the ensemble average
+\end{itemize}
+\pause
+\begin{minipage}{.45\textwidth}
+\begin{tikzpicture}
+ %nodes
+\draw[draw=white] (-2.7,-4.5) rectangle ++(5.5,5);
+%  \node[punkt] (market) {Market (b)};
+% \filldraw [fill=Peach, draw=black] (11.1,5) rectangle (0.3,0.3);
+ % We make a dummy figure to make everything look nice.
+ \node at (0, 0)  {\includegraphics[width=.99\textwidth]{spectraAll}};
+ \node at (0, -2.5)  {%
+\only<2>{\includegraphics[width=.99\textwidth]{DensityTalks1}}%
+\only<3>{\includegraphics[width=.99\textwidth]{DensityTalks2}}%
+\only<4>{\includegraphics[width=.99\textwidth]{DensityTalks3}}%
+\only<5->{\includegraphics[width=.99\textwidth]{DensityTalks4}}%
+};
+%  \node (t) {\includegraphics[width=5cm]{spectraAll}};
+%  \includegraphics[width=\textwidth]{cubo_o.pdf}};
+%  \node (t) {\includegraphics[width=.3\textwidth, viewport=65 90 310 330, clip]{cubo_o.pdf}};
+%  \node (o) at (-1.3, -.8) {\tiny $\rho$};
+%  \node (o) at (-1.3, .9) {\tiny $\rho + \epsilon e_2$};
+%  \node (o) at (.5, -1.7)  {\tiny $\rho+ \epsilon e_1$};
+%  \node (o) at (0, 0)  {\tiny $\rho+ \epsilon e_3$};
+\end{tikzpicture}
+\end{minipage}%
+\begin{minipage}{.5\textwidth} 
+\begin{itemize}
+\item Spectrum $\Lambda_{(1,1,\gamma)}$ $q=6$ $p=0.4$
+\item Non-trivial coherences $\to$ coherent states  %(Klimov)
+\item Spectral gap $\sim 1-p$
+\item Non-1s rescale when changing p
+\end{itemize}
+\begin{itemize}
+\pause
+\item There is an exact real part
+\pause
+\item Asymptotically flat distribution
+\pause
+\item Symmetric complex part
+\pause
+\item Disc-like distribution
+\pause
+\item Self averaging (not shown)
+% Self averaging
+\end{itemize}
+
+% 1 Muestro el espectro tipico, para una p
+
+% Ones for symmestries with physical states
+% Spectral gap $\sim 1-p$
+% Non-ones just rescaling when changing p
+% Self averaging
+\end{minipage}%
+
+% Hablar de las coherencias
+
+% Hablar de los estados invariantes, realmente estados. 
+% Consider a generic imperfect measurement device (as we define it). 
+\end{frame} % }}}
+\begin{frame}{Other fuzzy measurements} % {{{
+For other interesting cases, say just 2-body errors, the spectrum is purely real. 
+We look again at $\Lambda_{(1,1,\gamma)}$, $p=0.4$ for 6 qubits.\\[.5cm] 
+ \pause
+\begin{minipage}{.45\textwidth}
+Random 2-body errors:\\
+$\Lambda_p[\rho] = p \rho + (1-p) \sum_{i>j} p_{ij} S_{i,j}[\rho] $
+
+\begin{tikzpicture}
+ \node at (0, 0)  {\includegraphics[width=.99\textwidth]{gAll2}};
+%  \node (t) {\includegraphics[width=5cm]{spectraAll}};
+%  \node (o) at (-1.3, -.8) {\tiny $\rho$};
+\end{tikzpicture}
+\end{minipage}\hfill \pause
+\begin{minipage}{.45\textwidth}
+Random chain errors:\\
+$\Lambda_p[\rho] = p \rho + (1-p) \sum_{i} p_{i} S_{i,i+1}[\rho] $
+\begin{tikzpicture}
+ \node at (0, 0)  {\includegraphics[width=.99\textwidth]{gChain}};
+%  \node (t) {\includegraphics[width=5cm]{spectraAll}};
+%  \node (o) at (-1.3, -.8) {\tiny $\rho$};
+\end{tikzpicture}
+\end{minipage}
+ \pause
+\begin{itemize}
+\item Richer (more complex) structure 
+\item No self averaging 
+\item More ``damaging'' errors
+\end{itemize}
+
+
+\end{frame} % }}}
+\begin{frame}{\enges{Volume contraction}{Contracción del volumen}} % {{{
+\begin{itemize}
+\onslide<1->{
+\item 
+\enges{The operator state is a vector space.}{El espacio de operadores es un espacio vectorial} $\rho \to \vec \rho$. 
+}
+\onslide<2->{
+\item 
+\enges{We build a hyper-cube with the following corners}{Construimos un cuboide con esquinas }
+$\vec \rho$, $\{\vec \rho + \epsilon e_i\}_{i=1,\dots d }$ 
+% \item 
+% \enges{Its volume is thus}{Su volumen es entonces }
+% $V_0 = \epsilon^{d}$ 
+}
+\onslide<3->{
+\item 
+\enges{We map each of the states,}{Mapeamos cada uno de los estados,} 
+$\vec \Lambda[\rho]$, $\{\vec \Lambda[\rho + \epsilon e_i]\}$ 
+}
+\onslide<4->{
+\item 
+\enges{We find that the volume is }{Encontramos que su volumen es} $V_\Lambda = \epsilon^{d} \det |\vec \Lambda[e_i]|$ 
+}
+\end{itemize}
+
+\begin{center}
+\onslide<2->{
+\begin{minipage}{.25\textwidth}
+\begin{tikzpicture}
+ %nodes
+%  \node[punkt] (market) {Market (b)};
+ % We make a dummy figure to make everything look nice.
+ \node (t) {\includegraphics[width=\textwidth]{cubo_o.pdf}};
+%  \node (t) {\includegraphics[width=.3\textwidth, viewport=65 90 310 330, clip]{cubo_o.pdf}};
+ \node (o) at (-1.3, -.8) {\tiny $\rho$};
+ \node (o) at (-1.3, .9) {\tiny $\rho + \epsilon e_2$};
+ \node (o) at (.5, -1.7)  {\tiny $\rho+ \epsilon e_1$};
+ \node (o) at (0, 0)  {\tiny $\rho+ \epsilon e_3$};
+\end{tikzpicture}
+\end{minipage}
+}
+\hspace{.5cm}
+\onslide<3->{
+\begin{minipage}{.25\textwidth}
+\begin{tikzpicture}
+ %nodes
+%  \node[punkt] (market) {Market (b)};
+ % We make a dummy figure to make everything look nice.
+ \node (t) {\includegraphics[width=\textwidth]{cubo_f.pdf}};
+%  \node (t) {\includegraphics[width=.3\textwidth, viewport=65 90 310 330, clip]{cubo_o.pdf}};
+ \node (o) at (-1.3, -.7) {\tiny $\Lambda[\rho]$};
+ \node (o) at (-.8, 1.0) {\tiny $\Lambda[\rho + \epsilon e_2]$};
+ \node (o) at (-.3, -1.0)  {\tiny $\Lambda[\rho+ \epsilon e_1]$};
+ \node (o) at (0.2, -.4)  {\tiny $\Lambda[\rho+ \epsilon e_3]$};
+\end{tikzpicture}
+\end{minipage}
+}
+\end{center}
+% \hspace{.5cm}
+% \onslide<4->{
+% \begin{minipage}{.30\textwidth}
+%  \includegraphics[width=\textwidth]{vs.pdf}
+% \end{minipage}
+% \pause
+% \pause
+% \pause
+% \pause
+% \begin{itemize}
+% \item No matter how small the imperfection, measuring a state is exponentially difficult in $n$
+% \pause
+% \item There is an invariant set that coincides (for many detectors) with multi-particle coherent states. 
+% \end{itemize}
+% }
+
+\end{frame} % }}}
+\begin{frame}{\enges{Volume contraction}{Contracción del volumen}} % {{{
+
+In our case, we can estimate this contraction as
+$$
+\sigma = \frac{V_{\rm observable}}{V_{\rm total}} 
+\pause
+= \det \Lambda 
+= \prod_i \lambda_i 
+\pause
+\approx p^{\left[2^{2q} -\frac{(q+1)(q+2)(q+3)}{6}\right]}
+$$
+\pause
+
+\begin{center}
+
+\includegraphics[scale=0.6]{gamma_sigmaFinal.pdf}
+% \begin{tikzpicture}
+%  %nodes
+% %  \node[punkt] (market) {Market (b)};
+%  % We make a dummy figure to make everything look nice.
+%  \node (t) {\includegraphics[width=.4\textwidth]{shrink_density-crop.pdf}};
+% %  \node (t) {\includegraphics[width=.3\textwidth, viewport=65 90 310 330, clip]{cubo_o.pdf}};
+%  \node (o) at (-2.6, -.0) {\rotatebox{90}{$\log \log \sigma$}};
+%  \node (o) at (2.5, -.7) { $q$};
+%  \node (o) at (1.5, -.9)  {\tiny {\color{red} $\bullet$} $p=0.10$};
+%  \node (o) at (1.5, -1.1)  {\tiny {\color{blue} $\bullet$} $p=0.51$};
+%  \node (o) at (1.5, -1.3)  {\tiny {\color{green} $\bullet$} $p=0.99$};
+% \end{tikzpicture}
+\end{center}
+\pause
+\begin{itemize}
+\item Single channel realization.
+\item The observable space, given a detector with small imperfections,
+is doubly-exponentially suppressed in the number of particles. 
+\item This is a purely many-body effect. 
+\item Smalles positive number I have ever calculated: $10^{-348 788}$
+\end{itemize}
+% \hspace{.5cm}
+% \onslide<4->{
+% \begin{minipage}{.30\textwidth}
+%  \includegraphics[width=\textwidth]{vs.pdf}
+% \end{minipage}
+% \pause
+% \pause
+% \pause
+% \pause
+% \begin{itemize}
+% \item No matter how small the imperfection, measuring a state is exponentially difficult in $n$
+% \pause
+% \item There is an invariant set that coincides (for many detectors) with multi-particle coherent states. 
+% \end{itemize}
+% }
+
+\end{frame} % }}}
+\begin{frame}{Uhlman's theorem} % {{{
+\begin{itemize}
+\item 
+Consider a hermitian operator $A$, probabilities $p_i$ and unitaries $U_i$.
+\item  \pause
+Define $B=\sum_i p_i U_i A U_i^\dagger$. 
+\item  \pause
+$B$ is majorized by $A$, meaning that for any convex function $f$ of the spectra, 
+$f(B) \le f(A)$. 
+\end{itemize}
+\pause
+\begin{itemize}
+\item 
+Uhlman's theorem fits our map $ \Lambda_p[\rho] = p \rho + \sum_{i} p_i P_{i}\rho P_i^\dagger $,
+
+\item 
+\pause
+
+Important and meaningful quantities, such as purity, entanglement, and most
+information measures are convex, so they diminish under {\it any} fuzzy
+measurement, as one would expect from any intuitive idea of a ``fuzzy measurement''.
+
+\end{itemize}
+
+% \hfill
+% \vfill
+% See poster by A. Rosado. 
+
+\end{frame} % }}}
+% }}}
+\section{Coarse graining} %{{{  
+\begin{frame}{\enges{Motivation}{Motivación del coarse graining}} % {{{
+\begin{minipage}{.48\textwidth}
+\begin{itemize}
+\item 
+\enges{We cannot measure everything}{No podemos medir todo}
+\item 
+\enges{We ignore internal uninteresting structure. }
+{Ignoramos estructura interna }
+% \item 
+% Queremos ignorar algunos aspectos superfluos. 
+\end{itemize}
+\end{minipage}
+\begin{minipage}{.48\textwidth}
+\includegraphics[width=\textwidth]{cg_molecula}\\
+ \tiny
+An all-atom representation and MARTINI coarse grain representation of a DPPC bilayer
+(Christopher Rowley)
+% https://commons.wikimedia.org/wiki/File:All_atom_vs_coarse_grain_DPPC_bilayer.png
+\end{minipage}
+
+
+\begin{center}
+\enges{There are no good general theoretical tools to attack this.}{
+No hay herramientas teóricas  generales desarrolladas para eso.}
+\end{center}
+
+% En mecanica cuantica lo queremos hacer porque puede dar simplicidad al sistema
+% porque simplemente no podemos medir. 
+% En general la idea de escalar y de hacer zoom out es clave. 
+% Como hacerlo?
+
+
+
+
+% Explicación con ejemplos. Muy lenta. 
+
+% Consider now the situation when the measurement apparatus cannot resolve the
+% whole system, thus measuring only partial parts of the system. This can be
+% thought similar as taking a picture, ,
+% the camera is exposed to a big number of light sources, but the detectors have
+% determined time and relaxation windows. Therefore the camera just access a
+% partial part of light sources, generating an approximate image of what is
+% actually there. To illustrate this in the quantum realm take again a two qubits
+\end{frame} % }}}
+\begin{frame}{\enges{The map}{El mapeo en cuestión}} % {{{
+\enges{The main observation stems from the assumption that from 
+a set of particles, we can only measure one, at random.}{
+La observación principal se basa en suponer que al medir un sistema, 
+compuesto de dos (o más partes), sólo medimos una de ellas. }
+
+\begin{align*}
+\<\text{\enges{Expected value}{Valor esperado}} \> 
+ &= \onslide<2->{\frac12 \tr (\sigma \otimes \openone \rho_{AB} ) + \frac12 \tr (\openone \otimes \sigma  \rho_{AB})} \\ 
+ \onslide<3->{&= \frac12 \tr \sigma \rho_A + \frac12 \tr \sigma \rho_B } \\ 
+ \onslide<4->{&=  \tr \sigma \frac{\rho_A +\rho_B}{2}} \\ 
+\end{align*}
+
+% \begin{equation}
+% \rho_\text{eff}=p\rho_1+(1-p)\rho_2.
+% \end{equation}
+% For general states it straightforward (see appendix) to prove that the linear channel that do this is 
+\onslide<5->{
+\begin{equation*}
+\cgtwo{p}[\rho]=\frac{\tr_B \rho +\tr_A \rho}{2}
+\end{equation*}
+}
+% A central fact here is that this channel is trivially related with \fuzzytwo{p}
+% \begin{equation}
+% \cgtwo{p}[\rho]=\tr_2 \fuzzytwo{p}[\rho].
+% \label{eq:fuzzy_cg_relation}
+% \end{equation}
+% This equation shows how a simple coarse-graining description can be obtained by performing a fuzzy measurement and reducing the degrees of freedom of the system.
+\end{frame} % }}}
+\begin{frame}{\enges{A couple of examples}{Ejemplos de como se transforman}} % {{{
+
+% \newcommand{\GHZ}{\text{GHZ}}
+% \newcommand{\ket}[1]{{| #1 \rangle}}
+% \newcommand{\bra}[1]{{\langle #1 \vert}}
+% \newcommand{\proj}[2]{{\vert #1 \rangle \langle #2 \vert}}
+% \newcommand{\cgtwo}[1]{\ensuremath{\Lambda_#1^\text{cg}} }
+\begin{itemize}
+\item 
+$|\GHZ(n)\> = \frac{1}{\sqrt{2}} 
+\left( \ket{0}^{\otimes n} + \ket{1}^{\otimes n} \right) $
+\pause
+\begin{equation*}
+\cgtwo{.} \left[|\GHZ(n)\>\<\GHZ(n)|\right]=
+\frac{1}{2}\left( |0\>\<0|^{\otimes m}+ |1\>\<1|^{\otimes m} \right),\, m<n,
+\end{equation*}
+which has no quantum correlations. 
+\pause
+\item $|\text{W}(n)\> = \frac{1}{\sqrt{n}} \sum_{k=0}^{n-1}
+|10\dots0\> + |01\dots0\> + \dots + |00\dots1\> $ 
+\pause
+\begin{equation*}
+\cgtwo{.}[|\text{W}(n)\>\<\text{W}(n)|]= 
+\frac{m}{n} |\text{W}(m)\> \<\text{W}(m)| + 
+\frac{n-m}{n} |0\>\<0|^{\otimes m}
+\end{equation*}
+attenuated quantum correlations. 
+\pause
+\item $|\text{Bell}\>=(|00\>+|11\>)/\sqrt{2}$, twice: \raisebox{-.5cm}{\includegraphics[width=1.0cm]{bell1}}\\
+\pause
+% , and $\bigotimes_{i=1}^4 \mcH_{i}$\\
+% $|\text{Bell}\> \otimes |\text{Bell}\>$: 1 and 2 [3 and 4] are entangled
+\begin{center}
+\raisebox{-1.0cm}{\includegraphics[width=2cm]{bell2}} $\longrightarrow \frac{ \openone}{4}$
+\hspace{1cm}
+\pause
+\raisebox{-1.0cm}{\includegraphics[width=2cm]{bell3}} $\longrightarrow 
+\rho_{\text{Werner}}^{p^2 + (1-p)^2}$
+\end{center}
+% \begin{equation*}
+% % \begin{multline*}
+% \cgtwo{{p,(1,2)}}\otimes \cgtwo{{p,(3,4)}}[(|\text{Bell}\>\<\text{Bell}|)^{\otimes 2}]=
+% \frac{\openone}{4},
+% % \frac{1}{4} \big( \prj{0}\otimes \openone  + 
+% %  \mele{01}{10} \\ + \mele{10}{01} + \openone \otimes \prj{0}\big)
+% % \prj{11} \right), \\
+% % (\cgtwo{1/2} \otimes \cgtwo{1/2}) (\mele{W}{W}) &= \frac{1}{4} \left(2 \prj{00} + \prj{01} + \mele{01}{10} + \mele{10}{01} + \prj{10} \right).
+% % \end{multline*}
+% \end{equation*}
+% whereas 
+% \begin{equation*}
+% % \begin{multline*}
+% \cgtwo{{p,(1,3)}}\otimes \cgtwo{{p,(2,4)}}[(|\text{Bell}\>\<\text{Bell}|)^{\otimes 2}]=
+% \rho_{\text{Werner}}(p^2 + (1-p)^2)
+% % \frac{1}{4}
+% % \begin{pmatrix}
+% % 1+\alpha & 0 &0&2\alpha \\
+% % 0 & 1-\alpha & 0 & 0 \\
+% % 0 & 0 & 1-\alpha & 0 \\
+% % 2\alpha &0 &0  &1+\alpha
+% % \end{pmatrix}
+% \end{equation*}
+
+\end{itemize}
+
+\end{frame} % }}}
+\begin{frame}{\enges{Entanglement dynamics}{Ejemplos de como se transforman}} % {{{
+% En la de la mitad en la que uno solo se puede equivocar de una manera y el otro en la manera de la izquierdo. p=0.75
+
+
+% Ok, que quiero mostrar. 
+% Que el coarse graining tiene sentido, y que puede predecir experimentos. 
+$$
+\hat{H}=-J_{ex}\sum_j(\hat{\sigma}_j^+\hat{\sigma}_{j+1}^- + \hat{\sigma}_j^-\hat{\sigma}_{j+1}^+),a \qquad |\psi\> = |\dots00100\dots\>
+$$
+\pause
+\begin{minipage}{.48\textwidth}
+% \enges{Example}{Ejemplo }
+% Excitation in the central spin. 
+\includegraphics[width=\textwidth]{CG-Entanglement/siteEPlot}
+
+% \includegraphics{siteEPlot.pdf}
+% \caption{{\bf Entanglement evolution.} Concurrence $C(\rho^{(2)}_{A,-A})$ for
+% symmetric sites with $A=1,2,3,4$ for the single spin impurity dynamics as a
+% function of time in units of $\hbar/J_{ex}$. The concurrence
+% Eq.\eqref{eq:microC} (red continuos line) of the exact reduced state
+% $\rho^{(2)}_{AB}$  is shown along the concurrence of the coarse grained reduced
+% states $\rho^{CG1(2)}_{AB}$ and $\rho^{CG2(2)}_{AB}$, Eqs.\eqref{eq:CG1C} and
+% Eqs.\eqref{eq:CG2C}, respectively (blue dashed line and green dotted line).}
+\begin{itemize}
+\item Entanglement waves
+\item Entanglement decreases 
+\item \enges{Tendency remains}{Permanece la tendencia}
+% \item \enges{What is the maximum observable entanglement?}{¿Cual es el máximo $C$ observable?}
+\end{itemize}
+% \alert{TALK ABOUT ENTANGLENT}
+\end{minipage}\hfill\pause
+\begin{minipage}{.48\textwidth}
+\includegraphics[width=\textwidth, page=3, clip, viewport=50 590 300 695]{bibliografia/entanglement_waves}\\[-.4cm]
+{\tiny Fukuhara,\dots, Bloch, Gross: Phys. Rev. Lett. 115, 035302 }\\[.5cm] \pause
+\includegraphics[width=\textwidth, clip, viewport=20 0 400 142]{KCWPlot_CP}\\[-.2cm]
+{\tiny FM $p=0.9$ }
+% \includegraphics[width=6cm]{chainl1}\\
+% \includegraphics[width=6cm]{Concl1}
+\end{minipage}
+\end{frame} % }}}
+\begin{frame}{Additional information} % {{{
+The mathematical structure of coarse graining is similar, as
+far as we can tell, 
+$$\cgtwo{p}=\tr_A \circ \Lambda^{\text{FM}}.$$
+
+\vspace{1cm}
+However, some subtleties arise, as we now deal with non-diagonal operators. 
+\end{frame} % }}}
+% }}}
+\section*{Conclusions} %{{{  
+\begin{frame}{Conclusions} % {{{
+\begin{itemize}
+% \enges{ }{asdfadf 
+\item We provided a pragmatic framework for coarse graining and fuzzy measurements
+based on what we can physically observe. 
+% \item We provided a pragmatic fuzzy measurement framework, closely connected to 
+% coarse graining. 
+\item The framework can be adapted to several physical situations. 
+\item {\it Arbitrarily} small errors in identification have {\it very}
+damaging errors.
+% \item We are now calculating interesting things about the map. 
+% \item Some of these maps have a semigroup structure. 
+\item The many-particle limit selects a non-trivial set of states.
+% \item We think that they do not rotate (what does this mean?)
+% \item Does coarse graining is always fuzzy + partial trace?
+% \item We want to study inclusion relations of the map families. 
+\end{itemize}
+
+TODO:
+\begin{itemize}
+\item Characterize well the invariant set and relate to classical limit.
+\item Can we define coarse grained dynamics?
+\item Similar framework when we apply operations on the wrong particles?
+\end{itemize}
+
+
+\begin{tikzpicture}
+ \node at (5, 0)  { \includegraphics[width=.45\textwidth]{experiment_measure} };
+ \node at (0, 0)  { \includegraphics[width=.45\textwidth]{experiment_measure} };
+\draw[line width=1mm,draw=green] (-.7,-1.2) rectangle ++(3,2.1);
+\draw[line width=1mm,draw=green] (3,-1.2) rectangle ++(4.2,2.4);
+%  \node (t) {\includegraphics[width=5cm]{spectraAll}};
+%  \node (o) at (-1.3, -.8) {\tiny $\rho$};
+\end{tikzpicture}
+% \end{minipage}\hfill \pause
+% \begin{minipage}{.45\textwidth}
+% Random chain errors:\\
+% $\Lambda_p[\rho] = p \rho + (1-p) \sum_{i>j} p_{ij} S_{i,j}[\rho] $
+% \begin{tikzpicture}
+%  \node at (0, 0)  {\includegraphics[width=.99\textwidth]{gChain}};
+% %  \node (t) {\includegraphics[width=5cm]{spectraAll}};
+% %  \node (o) at (-1.3, -.8) {\tiny $\rho$};
+% \end{tikzpicture}
+\end{frame} % }}}
+
+% }}}
+
