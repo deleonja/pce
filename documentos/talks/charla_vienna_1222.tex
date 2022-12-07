@@ -219,7 +219,8 @@ $^4$Slovak Academy of Sciences
 \centering
 % \includegraphics[bb = 93 648 515 770,clip, width=.8\textwidth]{articulo_2012}
 % \small Phys. Rev. Lett. {\bf 107}, 080404 (2011)
-\small  arXiv:2205.05808
+\small  PRA 106 042604 (2022), 
+arXiv:23??.?????
 }
 % \date{November 16, 2010}
 % \date {Quantum Optics V\\Cozumel, November 16, 2010 \\
@@ -261,28 +262,6 @@ $^4$Slovak Academy of Sciences
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 % }}}
 \begin{document}
-
-
-Ojo, ocuparme de estos typos:
-Typos en diapositivas:
-
-6 - entagled en lugar de mixed
-8 - PEC en lugar de PCE
-10 - mas en lugar de map
-11 - actully
-12 - creo que los puntos 1 y 2 podrían ser un poco más claros
-
-13 - con en lugar de where (o with)
-14 - implica en lugar de implies
-15 - opertation
-     - asosciated
-     - hay una figura volteada
-
-18 - título en español "algunas propiedades"
-
-Otras notas:
-En la diapositiva 15 mencionaste que una figura está volteada.
-En la diapositiva 12, el itemize de las propiedades del conjunto podría ser más claro (el primer punto no lo caché hasta que se explicó).
 
 
 
@@ -442,7 +421,7 @@ completa positividad pide que, para todo $k$ y todo $\rho \ge 0$,}
 $$(\mcE_n \otimes \openone_k)( \rho) \ge 0. $$
 % para todo $k$.
 \pause
-\item \enges{It is enough to study the maximally mixed state for $k=n$
+\item \enges{It is enough to study the maximally entangled state for $k=n$
 levels:}{Basta estudiar el mapa actuando sobre el estado máximamente enlazado
 $k=n$ niveles:}
 % $ |\text{Bell}_n\> = \sum_{i=1}^n |ii\>$.
@@ -706,7 +685,7 @@ $\sigma_{\vec \alpha} := \sigma_{\alpha_1}\otimes \ldots \otimes
 
 \pause
 \item 
-\enges{A PCE mas is such that}{
+\enges{A PCE map is such that}{
 Un mapa PCE es tal que}
 \begin{equation*}
 % \begin{split}
@@ -793,7 +772,7 @@ Para 2 qubits hay diagramas similares (la esfera de Bloch no sirve):}
 \begin{frame}{\enges{Statement of the problem}{Planteamiento del problema}} %{{{ 
 \begin{center}
 \Large
- \enges{Which PCE maps are actully quantum channels?}{¿Cuales mapas PCE son canales cuánticos válidos?}
+ \enges{Which PCE maps are actually quantum channels?}{¿Cuales mapas PCE son canales cuánticos válidos?}
 \end{center}
 \vfill
 
@@ -878,9 +857,9 @@ cuerpos.}
 \end{tikzpicture} % }}}
 \end{center}
 \begin{itemize}
-\item \enges{Only PCEs that preserve $2^k$ components.}{Solo se admiten PCEs que preservan $2^k$ componentes.}
-\item \enges{Not all PCEs that preserve $2^k$ components are channels.}{No todos los que preservan $2^k$ componentes son canales.}
-\item \enges{The same number of channels that preserve $2^k$ and $2^{2N-k}$ components.}{Hay el mismo número de canales que preservan $2^k$ y $2^{2N-k}$ componentes.}
+\item \enges{PCEs channels preserve $2^k$ components.}{Los canales PCEs  preservan $2^k$ componentes.}
+\item \enges{Not all PCEs maps that preserve $2^k$ components are channels.}{No todos los que preservan $2^k$ componentes son canales.}
+\item \enges{The same number of channels that preserve $2^k$ and $2^{2N-k}$ components are the same.}{Hay el mismo número de canales que preservan $2^k$ y $2^{2N-k}$ componentes.}
 \item \enges{There is a generating set that preserves half of the components.}{Hay un conjunto generador que conserva la mitad de componentes. }
 \end{itemize}
 \end{frame}
@@ -907,7 +886,8 @@ $ \rho_\mcE
 \pause
 \item \enges{And the eigenvectors fulfill}{Los eigenvectores comunes cumplen}
  $(\sigma_\valpha \otimes
-\sigma_\valpha^*) v_\vbeta = \frac{1}{2^N} A_{\valpha \vbeta} v_\vbeta$ con
+\sigma_\valpha^*) v_\vbeta = \frac{1}{2^N} A_{\valpha \vbeta} v_\vbeta$ 
+\enges{with}{con}
 $$
 A=a^{\otimes N},\quad
 a=
@@ -936,7 +916,7 @@ matriz de Choi} ($\propto \rho_\mcE$) \enges{for {\it all} Pauli channels}{para 
 \item $A$ \enges{is almost idempotent:}{es casi idempotente:} $A^{-1} = \frac{1}{4^N} A$
 \item \enges{If}{Si} $\lambda_{\valpha} \ge 0$ (\enges{as should be for
 channels}{como debe ser para canales cuánticos}), \enges{then}{entonces}
-$\sum_{\valpha \in \Omega} \lambda_{\valpha} =0$ implica $\lambda_{\valpha} =0$,
+$\sum_{\valpha \in \Omega} \lambda_{\valpha} =0$ \enges{implies}{implica} $\lambda_{\valpha} =0$,
 $\forall \valpha\in \Omega$,
 \end{itemize}
 \pause 
@@ -974,7 +954,7 @@ $\oplus{}$ & 0 & 1& 2 & 3\\
 \begin{frame}{\enges{A {\it beautiful} vector space}{Un espacio vectorial {\it hermoso} }} %{{{ 
 \begin{itemize}
 \item
-\enges{We have an addition opertarion ($\oplus$) and, if we consider
+\enges{We have an addition operation ($\oplus$) and, if we consider
 the field}{ 
 Tenemos operación suma ($\oplus$) cerrada, y, si consideramos el campo }
 $\{0,1\}$, \enges{multiplication by a scalar.}{multiplicación por escalar. }
@@ -983,7 +963,7 @@ $\{0,1\}$, \enges{multiplication by a scalar.}{multiplicación por escalar. }
 Es decir, tenemos un espacio vectorial (sin producto interior).} \pause
 \item 
 \enges{Given that the components of a channels are closed under addition, 
-to each channel we have asosciated a vector subspace, and viceversa.}{
+to each channel we have associated a vector subspace, and vice versa.}{
 Dado que las componente preservadas de cada canal son cerradas bajo adición, a
 cada canal está asociado a un subespacio vectorial (y viceversa). }
 \end{itemize}
@@ -991,7 +971,7 @@ cada canal está asociado a un subespacio vectorial (y viceversa). }
 \enges{Examples:}{Ejemplos:}\\
 \begin{minipage}{0.47\textwidth}
 \begin{center}
-\begin{tikzpicture}[x=0.35cm, y=0.35cm] % {{{
+\begin{tikzpicture}[x=0.45cm, y=0.45cm] % {{{
 \pgfmathsetmacro{\unitstep}{5.2}
 \begin{scope}[shift={(2*\unitstep,0)}] % Good channel {{{
 % \node at (-0.5,0.5) {(c)} ;
@@ -1009,13 +989,13 @@ cada canal está asociado a un subespacio vectorial (y viceversa). }
 %     }
 %     }
 \begin{scope}[shift={(0,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
-\begin{scope}[shift={(1,-1)}] \fill[black!25!white] (0,0) rectangle (1,1); \end{scope}
+\begin{scope}[shift={(1,-1)}] \fill[black!15!white] (0,0) rectangle (1,1); \end{scope}
 \begin{scope}[shift={(3,-1)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
 \begin{scope}[shift={(3,-1)}] \node at (0.5,0.5) 
-     {\textcolor{white}{\tiny $\valpha^{1}$}}; \end{scope}
+     {\textcolor{white}{\tiny $\valpha^{(2)}$}}; \end{scope}
 \begin{scope}[shift={(2,0)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
 \begin{scope}[shift={(2,0)}] \node at (0.5,0.5) 
-     {\textcolor{white}{\tiny $\valpha^{2}$}}; \end{scope}
+     {\textcolor{white}{\tiny $\valpha^{(1)}$}}; \end{scope}
 % \begin{scope}[shift={(2,-2)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
 % \begin{scope}[shift={(2,-3)}] \fill[black] (0,0) rectangle (1,1); \end{scope}
 \end{scope} % }}}
@@ -1023,7 +1003,7 @@ cada canal está asociado a un subespacio vectorial (y viceversa). }
 \end{center}
 % \textcolor{red}{EJEMPLO DE SUMA MENOS TRIVIAL}
 \enges{Two of its elements are}{Dos de sus elementos son}\\[-.4cm]
-$$\valpha^{(1)} = (0,2), 
+$$\valpha^{(1)} = (0,2), \quad
 \valpha^{(2)} = (1,3)$$\\[-.6cm] \enges{but}{pero}
 $\valpha^{(1)} \oplus \valpha^{(2)} = (1,1)$
 \enges{which is not preserved.}{y no se preserva.} 
@@ -1032,7 +1012,7 @@ no corresponde a un canal.}
 \end{minipage}\hfill \pause
 \begin{minipage}{0.47\textwidth}
 \begin{center}
-\begin{tikzpicture}[x=0.35cm, y=0.35cm] % {{{
+\begin{tikzpicture}[x=0.45cm, y=0.45cm] % {{{
 \pgfmathsetmacro{\unitstep}{5.2}
 \begin{scope}[shift={(1*\unitstep,0)}] % Good channel {{{
 % \node at (-0.5,0.5) {(b)} ;
@@ -1159,7 +1139,7 @@ la mitad de componentes. }
 
 
 \end{frame} % }}}
-\begin{frame}{Algunas propiedades de los generadores} %{{{ 
+\begin{frame}{\enges{Some properties of generators}{Algunas propiedades de los generadores}} %{{{ 
 \enges{Some consequences:}{
 Algunas consecuencias:}
 \begin{itemize}
@@ -1200,6 +1180,34 @@ los generadores que lo produzcan. }
 
 \end{frame} % }}}
 % }}}
+\section{Beyond qubits} %{{{  
+
+
+
+\begin{frame}{The problem} %{{{ 
+
+Planteamiento del problema
+Matrices de Weyl, condicoin sobre los taus, decir que para que los eigenvalores sean 
+\end{frame} % }}}
+
+\begin{frame}{} %{{{ 
+* Diagonalizacion de sistemas de d niveles y d niveles mixtos
+Aca decir como es la formula de la diagonalizacion y pensar que de acá podemos 
+lineales de las tau, funciona con eso, pero no con otras bases. 
+no es lineal en 
+
+\end{frame} % }}}
+\begin{frame}{} %{{{ 
+* propiedad algebraica  (13) del poster)
+\end{frame} % }}}
+\begin{frame}{} %{{{ 
+Pensar un poco en la propiedad del conjunto
+Decir que todo Weyl channel es una conbinación convexa de unitary 
+\end{frame} % }}}
+\begin{frame}{} %{{{ 
+* Teorema de los generadores, en términos de grupos
+\end{frame} % }}}
+% }}}
 \section*{\enges{Conclusions}{Conclusiones}} %{{{  
 \begin{frame}{\enges{Conclusions and outlook}{Conclusiones}} %{{{ 
 
@@ -1226,12 +1234,6 @@ y las matemáticas son mas complicadas
 
 \end{frame} % }}}
 % }}}
-\begin{frame}{} %{{{ 
-\end{frame} % }}}
-\begin{frame}{} %{{{ 
-\end{frame} % }}}
-\begin{frame}{} %{{{ 
-\end{frame} % }}}
 \begin{frame}{} %{{{ 
 \end{frame} % }}}
 
