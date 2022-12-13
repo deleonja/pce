@@ -1181,49 +1181,138 @@ los generadores que lo produzcan. }
 \end{frame} % }}}
 % }}}
 \section{Beyond qubits} %{{{  
-
-
-
 \begin{frame}{The problem} %{{{ 
+% Planteamiento del problema
+% Matrices de Weyl, condicoin sobre los taus, decir que para que los eigenvalores sean 
+We look for a qudit generalization that:
+\begin{itemize}
+\item
+Look for a proper generalization that provides a simple (linear) relation
+between attenuation and complete positivity conditions. 
+% eigenvalues of Choi matrix
+\item
+And thus allows us to ``play'' a bit. 
+\item
+Understand better the geometry of multipartite channels. 
+\end{itemize}
+\end{frame} % }}}
+\begin{frame}{The generalization} %{{{ 
+Express the state as
+\begin{equation*}
+\rho=\sum_{\vec m\vec n} \alpha_{\vec m\vec n} U_{\vec m\vec n},
+\end{equation*}
+% 
+where $U_{\vec m\vec n}$ are multipartite Weyl operators, given by
+% 
+\begin{equation*}
+U_{\vec m\vec n} = \bigotimes_\alpha U_{m_\alpha n_\alpha}, \qquad
+U_{mn}=\sum_{j=0}^{d-1}\omega_d^{j m}|j\>\<j\oplus n|,
+\end{equation*}
+%  are multipartite Weyl operators, given by
+% \begin{equation*}
+% U_{mn}=\sum_{j=0}^{d-1}\omega_d^{j m}|j\>\<j\oplus n|,
+% \end{equation*}
+% 
+and $\omega_d=\exp(2\pi i/d)$ 
+($\alpha_{\vec m\vec n}= \alpha_{-\vec m, -\vec n}^*$).\\[0.5cm]
+\pause
 
-Planteamiento del problema
-Matrices de Weyl, condicoin sobre los taus, decir que para que los eigenvalores sean 
-\end{frame} % }}}
+Let the channel act as
+\begin{equation*}
+\sum_{\vec m\vec n} \alpha_{\vec m\vec n} U_{\vec m\vec n} \longrightarrow
+\sum_{\vec m\vec n} 
+\tau_{\vec m\vec n} 
+\alpha_{\vec m\vec n} U_{\vec m\vec n},
+\end{equation*}
+($\tau_{\vec m\vec n}= \tau_{-\vec m, -\vec n}^*$, $\tau_{0,0}=1$).\\[0.5cm]
 
-\begin{frame}{} %{{{ 
-* Diagonalizacion de sistemas de d niveles y d niveles mixtos
-Aca decir como es la formula de la diagonalizacion y pensar que de acá podemos 
-lineales de las tau, funciona con eso, pero no con otras bases. 
-no es lineal en 
+\end{frame} % }}}
+\begin{frame}{The diagonalization} %{{{ 
+The Choi matrix of the channel reads:
+\begin{equation*}
+ \mathcal{D} = \frac{1}{D}\sum_{\vec \mu\vec \nu} \tau_{\vec \mu \vec\nu} 
+~U_{\vec \mu \vec \nu}\otimes U_{\vec \mu \vec \nu}^*.
+\end{equation*}
+And we can again diagonalize easily:
+$$
+\lambda = \frac{1}{D} \left[ \bigotimes_\alpha F_\alpha \otimes F_\alpha^* \right] \tau
+$$
+with $F_\alpha$ a Fourier transform of dimension $d_\alpha$. 
+We did not  find any other base in which there is a linear relation
+between attenuation and eigenvalues of the Choi matrix. 
+
+% * Diagonalizacion de sistemas de d niveles y d niveles mixtos
+% Aca decir como es la formula de la diagonalizacion y pensar que de acá podemos 
+% lineales de las tau, funciona con eso, pero no con otras bases. 
+% no es lineal en 
 
 \end{frame} % }}}
-\begin{frame}{} %{{{ 
-* propiedad algebraica  (13) del poster)
+\begin{frame}{Extreme and boundary points of the set} %{{{ 
+
+Consider the set of Weyl channels. 
+\begin{itemize}
+\item Its extreme points are characterized by having all 
+$|\tau_{\vec m, \vec n}| =1$ and 
+$\lambda{\vec p, \vec q} =D \delta_{\vec p, \vec p_0} \delta_{\vec q, \vec q_0} $, 
+i.e. they are unitaries. 
+\item Thus all Weyl channels are convex combinations of (Weyl) unitaries. 
+\end{itemize}
+
+The boundary points are obtained setting some $\lambda$s to 0 or 1. 
+\begin{itemize}
+\item 
+Let 
+$\tau_{\vec m, \vec n}$ and
+$\tau_{\vec m', \vec n'}$ have both norm 1. 
+Then:
+%  so does $\tau_{\vec m \oplus \vec m', \vec n \oplus \vec n'}$ 
+% and additionally
+\begin{equation*}
+\tau_{\vec m \oplus \vec m', \vec n \oplus \vec n'}
+=
+\tau_{\vec m, \vec n} \tau_{\vec m', \vec n'}.
+\end{equation*}
+with the sum is modulo $d_\alpha$.
+% \item 
+% For homogeneous dimensions they are all of the form
+% $\exp 2\pi \rmi k/d$. 
+% Proof. By the same argument as above τ (m,
+% ~ ~n) is a power of ω, since it is a convex combination of such.
+
+\item 
+This provides a mathematical structure that generalizes the vector space structure 
+for PCEs setting all other $\tau$s to 0. 
+\item It is still a vector space for prime dimension, but for general 
+dimension it is only a (weaker) group as it has no field. 
+\item There is also a notion of generators (but more complicated).
+\end{itemize}
+
+% Pensar un poco en la propiedad del conjunto
+% Decir que todo Weyl channel es una conbinación convexa de unitary 
 \end{frame} % }}}
-\begin{frame}{} %{{{ 
-Pensar un poco en la propiedad del conjunto
-Decir que todo Weyl channel es una conbinación convexa de unitary 
-\end{frame} % }}}
-\begin{frame}{} %{{{ 
-* Teorema de los generadores, en términos de grupos
-\end{frame} % }}}
+% \begin{frame}{} %{{{ 
+% * Teorema de los generadores, en términos de grupos
+% \end{frame} % }}}
 % }}}
 \section*{\enges{Conclusions}{Conclusiones}} %{{{  
-\begin{frame}{\enges{Conclusions and outlook}{Conclusiones}} %{{{ 
+\begin{frame}{\enges{Conclusions}{Conclusiones}} %{{{ 
+% \begin{frame}{\enges{Conclusions and outlook}{Conclusiones}} 
 
 \begin{itemize}
 \item \enges{We introduced Pauli component erasing maps.}{Se introducen los Pauli Component Erasing maps.}
 \item \enges{We managed to diagonalize the Choi matrix of any Pauli channel.}{Se logra diagonalizar de manera simple la matriz de Choi de cualquier canal de Pauli.}
 \item \enges{We associate vector subspaces to PCE channels, and exploit this relation.}{Se asocian a los PCEs espacios vectoriales, lo que simplifica su tratamiento}
 \item \enges{We find generators, Kraus operators, Lindblad equations etc for PCEs, which allows to associate them to physical processes.}{Se encuentran los generadores y sus operadores de Kraus, lo que permitirá asociarlos a procesos físicos existentes. \\[.5cm]}
+\item We generalize to qudits and managed to diagonalize the Choi matrix. 
+\item We understood the extreme and boundary points of the set of Weyl channels. 
 \end{itemize}
-\pause
-\enges{Outlook}{Más adelante...}
-\begin{itemize}
-\item qudits
-\item Allow $\tau=0,1,-1$
-\item Study the geometry of the set of channels
-\end{itemize}
+% \pause
+% \enges{Outlook}{Más adelante...}
+% \begin{itemize}
+% \item qudits
+% \item Allow $\tau=0,1,-1$
+% \item Study the geometry of the set of channels
+% \end{itemize}
 \end{frame} % }}}
 % }}}
 \end{document}
