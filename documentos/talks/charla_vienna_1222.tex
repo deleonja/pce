@@ -418,7 +418,7 @@ no estados extendidos a estados extendidos, por ejemplo la operación transpuest
 \begin{itemize}
 \item \enges{Complete positivity means that for all $k$, and all $\rho \ge 0$,}{La condición de
 completa positividad pide que, para todo $k$ y todo $\rho \ge 0$,}
-$$(\mcE_n \otimes \openone_k)( \rho) \ge 0. $$
+$$(\mcE \otimes \openone_k)( \rho) \ge 0. $$
 % para todo $k$.
 \pause
 \item \enges{It is enough to study the maximally entangled state for $k=n$
@@ -426,7 +426,7 @@ levels:}{Basta estudiar el mapa actuando sobre el estado máximamente enlazado
 $k=n$ niveles:}
 % $ |\text{Bell}_n\> = \sum_{i=1}^n |ii\>$.
 % Es decir 
-$$(\mcE_n \otimes \openone_n)( |\text{Bell}_n\>  \<\text{Bell}_n|) = \rho_\mcE \ge 0. $$
+$$(\mcE \otimes \openone_n)( |\text{Bell}_n\>  \<\text{Bell}_n|) = \rho_\mcE \ge 0. $$
 % \pause
 % \item 
 \enges{This induces a correspondence between states and quantum channels
@@ -698,8 +698,8 @@ Un mapa PCE es tal que}
 \enges{This are the objects we are interested in.}{ Este es nuestro objeto de estudio principal.}
 \pause
 \item 
-\enges{For 2 qubits, we have equivalent diagrams:}{
-Para 2 qubits hay diagramas similares (la esfera de Bloch no sirve):}
+\enges{For 2 qubits, we also have diagrams:}{
+Para 2 qubits también hay diagramas (la esfera de Bloch no sirve):}
 \begin{center}
 \begin{tikzpicture}[x=0.35cm, y=0.35cm] % {{{
 \pgfmathsetmacro{\unitstep}{5.2}
@@ -876,7 +876,9 @@ $\hat{\mathcal{E}} = \frac{1}{2^N}\sum_{\vec{\alpha}} \tau_{\vec{\alpha}}
 % \begin{equation*}
 $ \rho_\mcE
    \propto \sum_{\vec{\alpha}} \tau_{\vec{\alpha}}
-       \bigotimes_{j=1}^N \sigma_{\alpha_j} \otimes \sigma_{\alpha_j}^*$.
+       \sigma_{\vec \alpha} \otimes \sigma_{\vec \alpha}^*
+%        \bigotimes_{j=1}^N \sigma_{\alpha_j} \otimes \sigma_{\alpha_j}^*
+$.
 \pause
 \item \enges{The tensor matrices commute}{Las matrices tensoriales conmutan}
  $[
@@ -904,7 +906,7 @@ $$
 \pause
 \item \enges{This implies that the eigenvectors also fullfill}{Esto implica que los eigenvectores cumplen }
 $
- \lambda_{\valpha} = \frac{1}{2^N}  A_{\valpha\vbeta}\tau_{\vbeta}
+ \lambda_{\valpha} = \frac{1}{2^N}  \sum_\vbeta A_{\valpha\vbeta}\tau_{\vbeta}
 $.
 \item \enges{So we just diagonalize the Choi matriz}{En Diagonalizamos la
 matriz de Choi} ($\propto \rho_\mcE$) \enges{for {\it all} Pauli channels}{para canales de Pauli.}
@@ -1194,6 +1196,8 @@ between attenuation and complete positivity conditions.
 And thus allows us to ``play'' a bit. 
 \item
 Understand better the geometry of multipartite channels. 
+\item
+In fact we can work out the case of a system with particles of different dimensions. 
 \end{itemize}
 \end{frame} % }}}
 \begin{frame}{The generalization} %{{{ 
