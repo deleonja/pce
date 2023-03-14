@@ -1,0 +1,59 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[dvispnames]{xcolor}
+\usepackage{bbold}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\one}{\mathbb{1}}
+
+\title{Ideas}
+\begin{document}
+\maketitle
+
+Un documento con algunas ideas no concretadas. Falta jugar para ver qué sale.
+
+\section{FM (y CG?) + PCEs}
+\begin{itemize}
+\item Proceso a considerar
+	\begin{enumerate}
+		\item Evolución bajo Hamiltoniano $H$
+		\item Abrir el sistema para medirlo y ocurre decoherencia descrita por PCEs
+		\item Medida FM
+	\end{enumerate}
+\end{itemize}
+
+Para 2 qubits:
+
+Decoherencia: 
+\begin{align}\label{eq:decoherence}
+D(\rho) = p'\rho + (1-p')\mathcal G_{\vec \alpha}(\rho),
+\end{align}
+con $p'$ la probabilidad de que sobre el estado $\rho$ no ocurra ningún proceso
+de decoherencia, y $\mathcal G_{\vec \alpha}$ un generador PCE {\color{red} (obviamente este no es un proceso de decoherencia general modelado por PCEs, pero es una primera aproximación)}. 
+
+FM: 
+\begin{align}\label{eq:FM}
+\mathcal F(\rho) = p\rho+ (1 - p)S(\rho),
+\end{align}
+con $p$ la probabilidad de medir al estado real y $S$ el operador de swap. 
+
+Entonces si abrimos el sistema luego de que ha evolucionado bajo un Hamiltoniano $H$, ocurre un proceso de decohrencia \eqref{eq:decoherence} y luego se hace una FM, el estado final sería
+\begin{align}\label{eq:all}
+\mathcal F \Big[ D(\rho) \Big] = p \rho + pp'\Big\{ S\Big(\mcG_{\vec\alpha}(\rho)\Big) - S(\rho) \Big\} + (1-p)S\Big(\mcG_{\vec\alpha}(\rho)\Big),
+\end{align}
+naturalmente, si ningún proceso de decoherencia ocurre \textit{i.e.} $\mcG_{\vec\alpha} = \one$, entonces \eqref{eq:all} se reduce a \eqref{eq:FM}.
+\begin{itemize}
+\item ¿Puede ser positivo el efecto de la decoherencia en algún sentido? Tomografía, por ejemplo. Suponiendo que queremos saber cuál es el estado después de la evolución del sistema bajo $H$
+\item Caso límite: $p=0$ \textit{i.e.} el detector siempre confunde a las partículas 1 y 2. En este caso \eqref{eq:all} se reduce a 
+\begin{align}\label{eq:limit:case:1}
+\mathcal F \Big[ D(\rho) \Big] = S\Big(\mcG_{\vec\alpha}(\rho)\Big).
+\end{align} 
+\end{itemize}
+
+\end{document}
