@@ -7,9 +7,11 @@
 \usepackage{graphicx}
 \usepackage[dvispnames]{xcolor}
 \usepackage{bbold}
+\usepackage{physics}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
 \newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcF}{\mathcal{F}}
 \newcommand{\one}{\mathbb{1}}
 
 \title{Ideas}
@@ -55,5 +57,39 @@ naturalmente, si ningún proceso de decoherencia ocurre \textit{i.e.} $\mcG_{\ve
 \mathcal F \Big[ D(\rho) \Big] = S\Big(\mcG_{\vec\alpha}(\rho)\Big).
 \end{align} 
 \end{itemize}
+
+Si ahora además incluimos el coarse graining. Partamos del caso más sencillo 
+de 2 qubits, cuyo estado genérico escribimos como 
+\begin{align}
+\rho = \frac{1}{4}\sum_{\alpha,\beta} r_{\alpha\beta}\,\sigma_\alpha \otimes \sigma_\beta. 
+\end{align}
+Vamos a suponer que este es el estado que queremos medir. Sin embargo, 
+contamos con un detector que \textit{por alguna razón} induce decoherencia
+y que además puede resolver únicamente estados de grano grueso. Es decir, 
+para el caso de 2 qubits nuestro detector puede únicamente medir estados 
+de una partícula. Finalmente, el estado que realmente medimos es
+\begin{align}
+\rho_{\text{eff}} = \Tr_1 \big[\mcF\big(\mcG (\rho)\big)\big].
+\end{align}
+Por lo tanto, nos interesa saber si podríamos medir más de lo que podríamos
+medir sin los efectos de decoherencia, o sea, con un estado efectivo 
+\begin{align}
+\rho_{\text{eff}} &=\Tr_2 \big[\mcF\big(\rho\big)\big] \\
+&= \frac{1}{4}\sum_{\alpha, \beta} r_{\alpha\beta} \Tr_2 \big( \sigma_\beta \otimes \sigma_\alpha \big) \\
+&= \frac{1}{4}\sum_{\alpha, \beta} r_{\beta\alpha} \Tr_2 \big( \sigma_\alpha \otimes \sigma_\beta \big) \\
+&= \frac{1}{2}\sum_{\alpha, \beta} r_{\beta\alpha} \sigma_\alpha \delta_{0,\beta} \\
+&= \frac{1}{2}\sum_{\alpha} r_{0\alpha} \sigma_\alpha.
+\end{align}
+Nuestro detector sólo puede medir a la partícula 1. No obstante, vemos que
+bajo la acción del coarse graining tenemos acceso a las componentes 
+locales del qubit 2, $\expval{\sigma_\alpha}=r_{0\alpha}$.
+
+\begin{align}
+\Tr_1 \big[\mcF\big(\mcG (\rho)\big)\big] &= \frac{1}{4}\sum_{\alpha, \beta} \tau_{\alpha\beta}r_{\alpha\beta} \Tr_2 \big( \sigma_\beta \otimes \sigma_\alpha \big) \\
+&= \frac{1}{4}\sum_{\alpha, \beta} \tau_{\beta\alpha}r_{\beta\alpha} \Tr_2 \big( \sigma_\alpha \otimes \sigma_\beta \big) \\
+&= \frac{1}{2}\sum_{\alpha, \beta} \tau_{\beta\alpha}r_{\beta\alpha} \sigma_\alpha \delta_{0,\beta} \\
+&= \frac{1}{2}\sum_{\alpha} \tau_{0\alpha}r_{0\alpha} \sigma_\alpha.
+\end{align}
+
 
 \end{document}
